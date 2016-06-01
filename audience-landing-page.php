@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en" class="no-js">
+<head>
+	<meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+	<title>Starter</title>
+	<link href="css/style.css" rel="stylesheet">
+	<link rel="apple-touch-icon" href="img/client-icon-iphone.png">
+	<link rel="apple-touch-icon" sizes="72x72" href="img/client-icon-ipad.png">
+	<link rel="apple-touch-icon" sizes="114x114" href="img/client-icon-iphone-retina.png">
+	<link rel="apple-touch-icon" sizes="144x144" href="img/client-icon-ipad-retina.png">
+	<link rel="icon" href="favicon.png" >
+</head>
+
+<body class="loading">
+  <?php include 'inc/svg.php'; ?>
+  <?php include 'inc/header.php'; ?>
+
+  <div id="main" class="container">
+    <div class="row">
+      <div class="col-sm-12">
+        <h1>Audience Page Headline</h1>
+      </div>
+    </div>
+  </div>
+
+  <div class="landing-page-hero">
+    <div class="container">
+      <div class="row">
+        <div class="col-sm-7 col-sm-pull-1">
+          <div class="img-hero" style="background-image:url(img/_temp-landing-a-1.jpg)"></div>
+        </div>
+        <div class="col-sm-5 col-sm-offset-5 hero-content">
+          <h2>Secondary Featured Page Headline Here</h2>
+
+          <p>Lorem ised ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ised ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae</p>
+        </div>
+        <div class="col-sm-7 secondary">
+          <div class="img-hero" style="background-image:url(img/_temp-landing-a-2.jpg)"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="container content-wrap">
+    <div class="row">
+      <div class="col-sm-4">
+        <ul class="big-list show-mobile">
+          <li><a href="#">A list item here <span class="arw-right icon-svg"><svg><use xlink:href="/img/spritemap.svg#arw-right"></use></svg></span></a></li>
+          <li><a href="#">A list item here <span class="arw-right icon-svg"><svg><use xlink:href="/img/spritemap.svg#arw-right"></use></svg></span></a></li>
+          <li><a href="#">A list item here <span class="arw-right icon-svg"><svg><use xlink:href="/img/spritemap.svg#arw-right"></use></svg></span></a></li>
+          <li><a href="#">A list item here <span class="arw-right icon-svg"><svg><use xlink:href="/img/spritemap.svg#arw-right"></use></svg></span></a></li>
+          <li><a href="#">A list item here <span class="arw-right icon-svg"><svg><use xlink:href="/img/spritemap.svg#arw-right"></use></svg></span></a></li>
+        </ul>
+      </div>
+      <div class="col-sm-4">
+        <ul class="big-list show-mobile">
+          <li><a href="#">A list item here <span class="arw-right icon-svg"><svg><use xlink:href="/img/spritemap.svg#arw-right"></use></svg></span></a></li>
+          <li><a href="#">A list item here <span class="arw-right icon-svg"><svg><use xlink:href="/img/spritemap.svg#arw-right"></use></svg></span></a></li>
+          <li><a href="#">A list item here <span class="arw-right icon-svg"><svg><use xlink:href="/img/spritemap.svg#arw-right"></use></svg></span></a></li>
+          <li><a href="#">A list item here <span class="arw-right icon-svg"><svg><use xlink:href="/img/spritemap.svg#arw-right"></use></svg></span></a></li>
+          <li><a href="#">A list item here <span class="arw-right icon-svg"><svg><use xlink:href="/img/spritemap.svg#arw-right"></use></svg></span></a></li>
+        </ul>
+      </div>
+      <div class="col-sm-4">
+        <ul class="big-list show-mobile">
+          <li><a href="#">A list item here <span class="arw-right icon-svg"><svg><use xlink:href="/img/spritemap.svg#arw-right"></use></svg></span></a></li>
+          <li><a href="#">A list item here <span class="arw-right icon-svg"><svg><use xlink:href="/img/spritemap.svg#arw-right"></use></svg></span></a></li>
+          <li><a href="#">A list item here <span class="arw-right icon-svg"><svg><use xlink:href="/img/spritemap.svg#arw-right"></use></svg></span></a></li>
+          <li><a href="#">A list item here <span class="arw-right icon-svg"><svg><use xlink:href="/img/spritemap.svg#arw-right"></use></svg></span></a></li>
+          <li><a href="#">A list item here <span class="arw-right icon-svg"><svg><use xlink:href="/img/spritemap.svg#arw-right"></use></svg></span></a></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <div class="breaker">
+    <div class="container">
+      <div class="row">
+        <div class="col-sm-8 col-sm-offset-2">
+          <h2>A Section Headline Here Over Duotone Image</h2>
+          <p>Lorem ised ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beata</p>
+          <a href="#" class="btn btn--white">Learn More <span class="arw-right icon-svg"><svg><use xlink:href="/img/spritemap.svg#arw-right"></use></svg></span></a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="container">
+    <div class="row">
+      <div class="col-sm-12">
+        <div class="row">
+          <div class="col-sm-4">
+            <img src="/img/_temp-rect.jpg" alt="" class="img-full">
+          </div>
+          <div class="col-sm-8">
+            <div class="row">
+              <div class="col-md-8">
+                <h2>Heading Two</h2>
+                <p>Lorem ised ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ised ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam</p>
+              </div>
+            </div>
+            <div class="row">
+              <div class="big-list-wrap">
+                <div class="btn-mobile-toggle col-sm-12" aria-hidden="true" role="presentation"><a href="#">Additional Links <span class="arw-right icon-svg"><svg><use xlink:href="/img/spritemap.svg#arw-right"></use></svg></span></a></div>
+                <ul class="col-md-6 big-list">
+                  <li><a href="#">Another link here <span class="arw-right icon-svg"><svg><use xlink:href="/img/spritemap.svg#arw-right"></use></svg></span></a></li>
+                  <li><a href="#">Another longer link here <span class="arw-right icon-svg"><svg><use xlink:href="/img/spritemap.svg#arw-right"></use></svg></span></a></li>
+                  <li><a href="#">Another link here <span class="arw-right icon-svg"><svg><use xlink:href="/img/spritemap.svg#arw-right"></use></svg></span></a></li>
+                </ul>
+                <ul class="col-md-6 big-list">
+                  <li><a href="#">Another link here <span class="arw-right icon-svg"><svg><use xlink:href="/img/spritemap.svg#arw-right"></use></svg></span></a></li>
+                  <li><a href="#">Another longer link here <span class="arw-right icon-svg"><svg><use xlink:href="/img/spritemap.svg#arw-right"></use></svg></span></a></li>
+                  <li><a href="#">Another link here <span class="arw-right icon-svg"><svg><use xlink:href="/img/spritemap.svg#arw-right"></use></svg></span></a></li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+        <hr>
+      </div>
+    </div>
+  </div>
+
+  <div class="container">
+    <div class="row">
+      <div class="col-sm-12">
+        <div class="row">
+          <div class="col-sm-4">
+            <img src="/img/_temp-rect.jpg" alt="" class="img-full">
+          </div>
+          <div class="col-sm-8">
+            <div class="row">
+              <div class="col-md-8">
+                <h2>Heading Two</h2>
+                <p>Lorem ised ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ised ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam</p>
+              </div>
+            </div>
+            <div class="row">
+              <div class="big-list-wrap">
+                <div class="btn-mobile-toggle col-sm-12" aria-hidden="true" role="presentation"><a href="#">Additional Links <span class="arw-right icon-svg"><svg><use xlink:href="/img/spritemap.svg#arw-right"></use></svg></span></a></div>
+                <ul class="col-md-6 big-list">
+                  <li><a href="#">Another link here <span class="arw-right icon-svg"><svg><use xlink:href="/img/spritemap.svg#arw-right"></use></svg></span></a></li>
+                  <li><a href="#">Another longer link here <span class="arw-right icon-svg"><svg><use xlink:href="/img/spritemap.svg#arw-right"></use></svg></span></a></li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+        <hr>
+      </div>
+    </div>
+  </div>
+
+  <?php include 'inc/footer.php'; ?>
+  <?php include 'inc/scripts.php'; ?>
+</body>
+</html>

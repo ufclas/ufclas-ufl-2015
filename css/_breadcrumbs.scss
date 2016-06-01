@@ -1,0 +1,36 @@
+.breadcrumb-wrap {
+	@extend .cf;
+	margin: 0 0 5px;
+	li {
+		float: left;
+	  margin: 0 20px;
+	  position: relative;
+	  &:before {
+	  	background-color: $orange;
+	  	border-radius: 50%;
+	  	content: '';
+	  	color: #F37021;
+	  	display: block;
+	  	height: 4px;
+	  	left: -22px;
+	  	margin-top: -1px;
+	  	position: absolute;
+	  	top: 50%;
+	  	width: 4px;
+	  }
+		&:first-child {
+			margin-left: 0;
+			&:before {
+				display: none;
+			}
+		}
+	}
+	a {
+		color: #304657;
+		font: 100 14px/14px $fontFamily;
+		letter-spacing: 1px;
+		&:hover {
+			color: $orange;
+		}
+	}
+}

@@ -1,0 +1,37 @@
+.search-form {
+	margin-bottom: 65px;
+	input {
+		width: 600px;
+		width: calc(100% - 67px);
+	}
+	button {
+		background: $orange;
+		border: 0;
+		cursor: pointer;
+		display: inline-block;
+		height: 67px;
+		margin: 0 -2px;
+		position: relative;
+		vertical-align: top;
+		width: 67px;
+		&:hover {
+			background: $orangeDark;
+		}
+		.icon-svg {
+			@extend %centerVert;
+			height: 24px;
+			width: 25px;
+		}
+	}
+}
+.search-results {
+	h2 a {
+		color: $blueLight;
+		&:hover {
+			color: $orange;
+		}
+	}
+	p:last-child {
+		margin: 0;
+	}
+}

@@ -1,0 +1,16 @@
+.texture-wrap {
+	overflow: hidden;
+	position: relative;
+	&:before {
+		background: url(../img/bg-texture-dark.png) center center;
+		content: '';
+		display: block;
+		height: 100%;
+		left: 0;
+		pointer-events: none;
+		position: absolute;
+		top: 0;
+		width: 100%;
+		z-index: 10;
+	}
+}

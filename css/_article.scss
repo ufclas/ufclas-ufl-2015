@@ -1,0 +1,28 @@
+.sidenav {
+	@extend .big-list;
+	list-style: none;
+	margin-bottom: 30px;
+	@include breakFirst(large){
+		margin: 0;
+	}
+	ul {
+		margin: 0;
+	}
+	li {
+		margin: 0;
+    &:before {
+      display: none;
+    }
+    li a {
+    	padding: 13px 20px 13px 35px
+    }
+  }
+	a {
+		font-size: 16px;
+		padding: 13px 20px;
+	}
+	.active a {
+		background: $orange;
+		color: $white;
+	}
+}

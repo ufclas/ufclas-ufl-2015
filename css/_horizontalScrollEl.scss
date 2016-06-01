@@ -1,0 +1,29 @@
+.hor-scroll-wrap {
+  @include breakTo(large){
+    font-size: 0;
+    overflow: scroll;
+    white-space: nowrap;
+    -webkit-overflow-scrolling: touch;
+  }
+  .container {
+    @include breakTo(large){
+      margin: 0;
+      padding: 0;
+    }
+  }
+  .row {
+    @include breakTo(large){
+      margin: 0;
+    }
+  }
+}
+.hor-scroll-el {
+  @include breakTo(large){
+    float: none;
+		font-size: inherit;
+		display: inline-block;
+		vertical-align: top;
+		width: 90%;
+		white-space: normal;
+	}
+}
