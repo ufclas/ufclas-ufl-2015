@@ -1,5 +1,7 @@
+@charset "utf-8";
+
 body {
-  background: $beige url(../img/bg-texture.png);
+  background: $beige url(img/bg-texture.png);
   color: $textColor;
   font-family: $baseFontFamily;
   font-size: ($baseFontSize - 2px);
@@ -13,7 +15,7 @@ body {
   @include breakFirst(large){
     padding-top: 245px;
   }
-  &.home {
+  &.homepage {
     padding-top: 60px;
     @include breakFirst(large){
       padding-top: 150px;
@@ -22,7 +24,7 @@ body {
 }
 
 .bg-texture {
-  background-image: url(../img/bg-texture.png)
+  background-image: url(img/bg-texture.png)
 }
 .open-menu, .open-menu body {
   height: 100vh;
@@ -462,7 +464,7 @@ img {
 
 
 .temp-img {
-  background: url(../img/_temp-landing-a-1.jpg) no-repeat center center;
+  background: url(img/_temp-landing-a-1.jpg) no-repeat center center;
   background-size: cover;
 }
 .kicker {

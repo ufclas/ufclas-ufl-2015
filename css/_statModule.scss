@@ -1,5 +1,5 @@
 .stat-breaker {
-	background: $blueDark url(../img/bg-texture-dark.png);
+	background: $blueDark url(img/bg-texture-dark.png);
 	height: 460px;
 	margin-bottom: 100px;
 	position: relative;
@@ -113,7 +113,7 @@
 	background-size: cover;
 	height: 460px;
 	&:hover, .touch & {
-		background-image: url(../img/_temp-duotone.jpg);
+		background-image: url(img/_temp-duotone.jpg);
 		.info {
 			display: block;
 			opacity: 1;

@@ -1,45 +1,40 @@
-<!DOCTYPE html>
-<html lang="en" class="no-js">
-<head>
-	<meta charset="utf-8">
-	<meta name="viewport" content="width=device-width,initial-scale=1">
-	<title>University of Florida</title>
-	<link href="css/style.css" rel="stylesheet">
-	<link rel="apple-touch-icon" href="img/client-icon-iphone.png">
-	<link rel="apple-touch-icon" sizes="72x72" href="img/client-icon-ipad.png">
-	<link rel="apple-touch-icon" sizes="114x114" href="img/client-icon-iphone-retina.png">
-	<link rel="apple-touch-icon" sizes="144x144" href="img/client-icon-ipad-retina.png">
-	<link rel="icon" href="favicon.png" >
-</head>
-
-<body class="loading">
-  <?php include 'inc/svg.php'; ?>
-  <?php include 'inc/header.php'; ?>
-
+<?php
+/**
+ * The main template file.
+ *
+ * This is the most generic template file in a WordPress theme
+ * and one of the two required files for a theme (the other being style.css).
+ * It is used to display a page when nothing more specific matches a query.
+ * E.g., it puts together the home page when no home.php file exists.
+ *
+ * @link https://codex.wordpress.org/Template_Hierarchy
+ *
+ * @package UFCLAS_UFL_2015
+ */
+get_header(); ?>
+  
   <div id="main" class="container">
   	<div class="row">
   		<div class="col-sm-12">
   			<h1>Templates</h1>
   			<ul class="big-list">
-          <li class="btn-mobile-toggle" aria-hidden="true" role="presentation"><a href="#">View templates <span class="arw-right icon-svg"><svg><use xlink:href="/img/spritemap.svg#arw-right"></use></svg></span></a></li>
-  				<li><a href="home.php">Homepage <span class="arw-right icon-svg"><svg><use xlink:href="/img/spritemap.svg#arw-right"></use></svg></span></a></li>
-  				<li><a href="landing-page.php">Landing Page A <span class="arw-right icon-svg"><svg><use xlink:href="/img/spritemap.svg#arw-right"></use></svg></span></a></li>
-  				<li><a href="landing-page-b.php">Landing Page B <span class="arw-right icon-svg"><svg><use xlink:href="/img/spritemap.svg#arw-right"></use></svg></span></a></li>
-          <li><a href="programs-list.php">Article Directory <span class="arw-right icon-svg"><svg><use xlink:href="/img/spritemap.svg#arw-right"></use></svg></span></a></li>
-          <li><a href="article-list.php">Article List <span class="arw-right icon-svg"><svg><use xlink:href="/img/spritemap.svg#arw-right"></use></svg></span></a></li>
-          <li><a href="article-list-alt.php">Article List Alternative <span class="arw-right icon-svg"><svg><use xlink:href="/img/spritemap.svg#arw-right"></use></svg></span></a></li>
-          <li><a href="article.php">Article <span class="arw-right icon-svg"><svg><use xlink:href="/img/spritemap.svg#arw-right"></use></svg></span></a></li>
-          <li><a href="audience-landing-page.php">Audience Landing Page <span class="arw-right icon-svg"><svg><use xlink:href="/img/spritemap.svg#arw-right"></use></svg></span></a></li>
-          <li><a href="search-result.php">Search Results Page <span class="arw-right icon-svg"><svg><use xlink:href="/img/spritemap.svg#arw-right"></use></svg></span></a></li>
-          <li><a href="home.php?alert=small">Small Emergency Alert <span class="arw-right icon-svg"><svg><use xlink:href="/img/spritemap.svg#arw-right"></use></svg></span></a></li>
-          <li><a href="home.php?alert=big">Big Emergency Alert <span class="arw-right icon-svg"><svg><use xlink:href="/img/spritemap.svg#arw-right"></use></svg></span></a></li>
-          <li><a href="form.php">Form style guide <span class="arw-right icon-svg"><svg><use xlink:href="/img/spritemap.svg#arw-right"></use></svg></span></a></li>
-          <li><a href="unit-header.php">Unit Header <span class="arw-right icon-svg"><svg><use xlink:href="/img/spritemap.svg#arw-right"></use></svg></span></a></li>
+                <li class="btn-mobile-toggle" aria-hidden="true" role="presentation"><a href="#">View templates <span class="arw-right icon-svg"><svg><use xlink:href="<?php echo get_stylesheet_directory_uri(); ?>/img/spritemap.svg#arw-right"></use></svg></span></a></li>
+                <li><a href="<?php echo site_url(); ?>/home/">Homepage <span class="arw-right icon-svg"><svg><use xlink:href="<?php echo get_stylesheet_directory_uri(); ?>/img/spritemap.svg#arw-right"></use></svg></span></a></li>
+                <li><a href="<?php echo site_url(); ?>/landing-page/">Landing Page A <span class="arw-right icon-svg"><svg><use xlink:href="<?php echo get_stylesheet_directory_uri(); ?>/img/spritemap.svg#arw-right"></use></svg></span></a></li>
+                <li><a href="<?php echo site_url(); ?>/landing-page-b/">Landing Page B <span class="arw-right icon-svg"><svg><use xlink:href="<?php echo get_stylesheet_directory_uri(); ?>/img/spritemap.svg#arw-right"></use></svg></span></a></li>
+                <li><a href="<?php echo site_url(); ?>/programs-list/">Article Directory <span class="arw-right icon-svg"><svg><use xlink:href="<?php echo get_stylesheet_directory_uri(); ?>/img/spritemap.svg#arw-right"></use></svg></span></a></li>
+                <li><a href="<?php echo site_url(); ?>/article-list/">Article List <span class="arw-right icon-svg"><svg><use xlink:href="<?php echo get_stylesheet_directory_uri(); ?>/img/spritemap.svg#arw-right"></use></svg></span></a></li>
+                <li><a href="<?php echo site_url(); ?>/article-list-alt/">Article List Alternative <span class="arw-right icon-svg"><svg><use xlink:href="<?php echo get_stylesheet_directory_uri(); ?>/img/spritemap.svg#arw-right"></use></svg></span></a></li>
+                <li><a href="<?php echo site_url(); ?>/article-page/">Article <span class="arw-right icon-svg"><svg><use xlink:href="<?php echo get_stylesheet_directory_uri(); ?>/img/spritemap.svg#arw-right"></use></svg></span></a></li>
+                <li><a href="<?php echo site_url(); ?>/audience-landing-page/">Audience Landing Page <span class="arw-right icon-svg"><svg><use xlink:href="<?php echo get_stylesheet_directory_uri(); ?>/img/spritemap.svg#arw-right"></use></svg></span></a></li>
+                <li><a href="<?php echo site_url(); ?>/search-result/">Search Results Page <span class="arw-right icon-svg"><svg><use xlink:href="<?php echo get_stylesheet_directory_uri(); ?>/img/spritemap.svg#arw-right"></use></svg></span></a></li>
+                <li><a href="<?php echo site_url(); ?>/home/?alert=small">Small Emergency Alert <span class="arw-right icon-svg"><svg><use xlink:href="<?php echo get_stylesheet_directory_uri(); ?>/img/spritemap.svg#arw-right"></use></svg></span></a></li>
+                <li><a href="<?php echo site_url(); ?>/home/?alert=big">Big Emergency Alert <span class="arw-right icon-svg"><svg><use xlink:href="<?php echo get_stylesheet_directory_uri(); ?>/img/spritemap.svg#arw-right"></use></svg></span></a></li>
+                <li><a href="<?php echo site_url(); ?>/form/">Form style guide <span class="arw-right icon-svg"><svg><use xlink:href="<?php echo get_stylesheet_directory_uri(); ?>/img/spritemap.svg#arw-right"></use></svg></span></a></li>
+                <li><a href="<?php echo site_url(); ?>/unit-header/">Unit Header <span class="arw-right icon-svg"><svg><use xlink:href="<?php echo get_stylesheet_directory_uri(); ?>/img/spritemap.svg#arw-right"></use></svg></span></a></li>
   			</ul>
   		</div>
   	</div>
   </div>
-  <?php include 'inc/footer.php'; ?>
-  <?php include 'inc/scripts.php'; ?>
-</body>
-</html>
+  
+<?php get_footer(); ?>

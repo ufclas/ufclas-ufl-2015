@@ -1,3 +1,5 @@
+@charset "utf-8";
+
 .slick-list, .slick-track {
 	height: 100%;
 	width: 100%;
@@ -241,7 +243,7 @@
 		height: 270px;
 	}
 	@include breakTo(large){
-    background-image: url(../img/_temp-bg-stat-hor.jpg);
+    background-image: url(img/_temp-bg-stat-hor.jpg);
     background-repeat: no-repeat;
     background-size: cover;
   }
@@ -251,7 +253,7 @@
 	&.in-bottom {
 		.stat {
 	  	@include breakFirst(large){
-				background-image: url(../img/_temp-bg-stat-in-vert.jpg);
+				background-image: url(img/_temp-bg-stat-in-vert.jpg);
 				background-position: center top;
 			}
 		}
@@ -262,7 +264,7 @@
 	  }
 	  .info {
 	  	@include breakFirst(large){
-				background-image: url(../img/_temp-bg-stat-in-vert.jpg);
+				background-image: url(img/_temp-bg-stat-in-vert.jpg);
 		  	background-position: center bottom;
 	   		bottom: -100%;
 		    transform-origin: top center;
@@ -273,7 +275,7 @@
 	&.in-top {
 		.stat {
 	  	@include breakFirst(large){
-				background-image: url(../img/_temp-bg-stat-in-vert.jpg);
+				background-image: url(img/_temp-bg-stat-in-vert.jpg);
 				background-position: center bottom;
 			}
 		}
@@ -284,7 +286,7 @@
 	  }
 	  .info {
 	  	@include breakFirst(large){
-				background-image: url(../img/_temp-bg-stat-in-vert.jpg);
+				background-image: url(img/_temp-bg-stat-in-vert.jpg);
 		  	background-position: center top;
 	   		top: -100%;
 		    transform-origin: bottom center;
@@ -340,7 +342,7 @@
     	width: 50%;
     }
     @include breakFirst(large){
-	    background-image: url(../img/_temp-bg-stat-hor.jpg);
+	    background-image: url(img/_temp-bg-stat-hor.jpg);
 	    background-repeat: no-repeat;
 	    background-size: cover;
     	width: 100%;
@@ -359,7 +361,7 @@
     	width: 50%;
     }
     @include breakFirst(large){
-	    background-image: url(../img/_temp-bg-stat.jpg);
+	    background-image: url(img/_temp-bg-stat.jpg);
 	    background-repeat: no-repeat;
 	    background-size: cover;
     	position: absolute;
@@ -391,7 +393,7 @@
   }
 }
 .big-stat-wrap, .tweet-block {
-	background: $blue url(../img/bg-big-stat.png) no-repeat center center;
+	background: $blue url(img/bg-big-stat.png) no-repeat center center;
 	background-size: cover;
 	margin-bottom: 20px;
 	min-height: 350px;
@@ -420,7 +422,7 @@
 		}
 	}
 	&.two {
-		background-image: url(../img/bg-big-stat-alert.jpg);
+		background-image: url(img/bg-big-stat-alert.jpg);
 	}
 	&.three {
 		@include breakFirst(large){
@@ -429,7 +431,7 @@
 		}
 	}
 	&.four {
-		background-image: url(../img/_temp3.jpg);
+		background-image: url(img/_temp3.jpg);
 		@include breakFirst(large){
 		  float: left;
 			margin-left: 290px;

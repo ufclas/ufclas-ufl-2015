@@ -1,5 +1,5 @@
 .breaker {
-	background: url(../img/bg-breaker.jpg) no-repeat center center;
+	background: url(img/bg-breaker.jpg) no-repeat center center;
 	background-size: cover;
   margin-bottom: 50px;
   overflow: hidden;
@@ -14,7 +14,7 @@
     margin: 0;
   }
 	&.home-section.last {
-		background-image: url(../img/bg-breaker2.jpg);
+		background-image: url(img/bg-breaker2.jpg);
 	}
 	p {
 		color: $white;
@@ -59,7 +59,7 @@
 }
 .breaker,.stat-breaker {
   &:before, &:after {
-  	background: url(../img/edge-bottom.png);
+  	background: url(img/edge-bottom.png);
   	background-position: top center;
   	bottom: 0;
   	content: '';
@@ -71,15 +71,15 @@
   	z-index: 5;
   }
   &:after {
-  	background-image: url(../img/edge-top.png);
+  	background-image: url(img/edge-top.png);
   	background-position: bottom center;
   	bottom: auto;
   	top: 0;
   }
 	&.edge-blue-top:after {
-		background-image: url(../img/edge-blue-top.png);
+		background-image: url(img/edge-blue-top.png);
 	}
 	&.edge-blue-bottom:before {
-		background-image: url(../img/edge-blue-bottom.png);
+		background-image: url(img/edge-blue-bottom.png);
 	}
 }

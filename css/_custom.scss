@@ -1,0 +1,22 @@
+@charset "utf-8";
+
+.header {
+	.admin-bar & {
+		top: 46px;
+		
+		@include breakFirst(medium){
+			top: 32px;
+		}
+	}
+}
+.landing-page-hero-full {
+	.hero-img-half {
+		height: 225px;
+		background-position: center top;
+	}
+}
+.aux-menu-wrap .aux-nav li:nth-child(4) a {
+    @include breakFirst(wide){
+		padding-left: 15px;
+	}
+}

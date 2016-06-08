@@ -27,7 +27,7 @@
 
 })(jQuery,'smartresize');
 
-$(document).ready(function(){
+jQuery(function($){
 	var $searchForm = $('.search-wrap'),
 		$menuWrap = $('.menu-wrap'),
 		$body = $('body'),
@@ -411,9 +411,9 @@ $(document).ready(function(){
 
 	// Audience nav wrap arrow hover
 	$('.audience-nav-wrap').hover(function(){
-		$(this).find('svg use').attr('xlink:href','/img/spritemap.svg#arw-up');
+		$(this).find('svg use').attr('xlink:href', ufclas_ufl_2015_themeurl + '/img/spritemap.svg#arw-up');
 	},function(){
-		$(this).find('svg use').attr('xlink:href','/img/spritemap.svg#arw-down');
+		$(this).find('svg use').attr('xlink:href', ufclas_ufl_2015_themeurl + '/img/spritemap.svg#arw-down');
 	});
 
 	// Debounced window resize listener
@@ -445,7 +445,7 @@ $(document).ready(function(){
 		$this = $(this);
 
 		// Make new HTML select box
-		var $styledSelect = $('<div class="styled-select" data-select="select'+i+'" tabindex="0"><div class="selected">Standard Dropdown</div><ul></ul><span class="arw-right icon-svg"><svg><use xlink:href="/img/spritemap.svg#arw-down"></use></svg></span></div>');
+		var $styledSelect = $('<div class="styled-select" data-select="select'+i+'" tabindex="0"><div class="selected">Standard Dropdown</div><ul></ul><span class="arw-right icon-svg"><svg><use xlink:href="'+ufclas_ufl_2015_themeurl+'/img/spritemap.svg#arw-down"></use></svg></span></div>');
 		$this.before($styledSelect);
 
 		// Get all options from this select box
@@ -465,7 +465,7 @@ $(document).ready(function(){
 		$select.find('.selected').text($this.text()).addClass('changed');
 
 		// Hide the dropdown
-		$('.styled-select').removeClass('hover').find('svg use').attr('xlink:href','/img/spritemap.svg#arw-down');
+		$('.styled-select').removeClass('hover').find('svg use').attr('xlink:href', ufclas_ufl_2015_themeurl + '/img/spritemap.svg#arw-down');
 
 		$('select[data-select="'+$select.attr('data-select')+'"]').val($(this).attr('data-value'));
 
@@ -478,19 +478,19 @@ $(document).ready(function(){
 
 		// Change the arrow icon
 		if($select.hasClass('hover')){
-			$select.find('svg use').attr('xlink:href','/img/spritemap.svg#arw-up');
+			$select.find('svg use').attr('xlink:href', ufclas_ufl_2015_themeurl + '/img/spritemap.svg#arw-up');
 		} else {
-			$select.find('svg use').attr('xlink:href','/img/spritemap.svg#arw-down');
+			$select.find('svg use').attr('xlink:href', ufclas_ufl_2015_themeurl + '/img/spritemap.svg#arw-down');
 		}
 		// Change the arrow icon
-		$('.styled-select').not($select).find('svg use').attr('xlink:href','/img/spritemap.svg#arw-down');
+		$('.styled-select').not($select).find('svg use').attr('xlink:href', ufclas_ufl_2015_themeurl + '/img/spritemap.svg#arw-down');
 
 		// Close the select on blur
 		window.setTimeout(function(){
 			$(document).one('click.closeSelect',function(e){
 				if(!$(e.target).closest('.styled-select').length){
 					$select.removeClass('hover');
-					$select.find('svg use').attr('xlink:href','/img/spritemap.svg#arw-down');
+					$select.find('svg use').attr('xlink:href',ufclas_ufl_2015_themeurl + '/img/spritemap.svg#arw-down');
 				}
 			});
 		},0);
@@ -517,7 +517,7 @@ $(document).ready(function(){
 
 	// Custom checkboxes
 	$('.uf-check input[type="checkbox"]').each(function(){
-		$(this).after('<div><span class="icon-svg"><svg><use xlink:href="/img/spritemap.svg#close"></use></svg></span></div>')
+		$(this).after('<div><span class="icon-svg"><svg><use xlink:href="'+ufclas_ufl_2015_themeurl+'/img/spritemap.svg#close"></use></svg></span></div>')
 	});
 	// Custom radio buttons
 	$('.uf-check input[type="radio"]').each(function(){
@@ -525,19 +525,21 @@ $(document).ready(function(){
 	});
 
 	//// Homepage infinite scroll
-	if($('.home').length){
-
-		var $firstSection = $('.home-section:first'),
-				$lastSection = $('.home-section:last'),
-				$home = $('#main');
-
-		var intScroll = window.setInterval(homeScroll, 500);
+	if($('.homepage .home-section').length>1){
+		if($('.homepage').length){
+		
+			var $firstSection = $('.home-section:first'),
+					$lastSection = $('.home-section:last'),
+					$home = $('#main');
+		
+			var intScroll = window.setInterval(homeScroll, 500);
+		}
+		
+		$homeHeight = $('.home-section').outerHeight();
+		$('html, body').animate({
+		  scrollTop: $homeHeight
+		}, 0);
 	}
-
-	$homeHeight = $('.home-section').outerHeight();
-  $('html, body').animate({
-      scrollTop: $homeHeight
-  }, 0);
 
 	function homeScroll() {
 		$wScroll = $(window).scrollTop();
@@ -572,4 +574,7 @@ $(document).ready(function(){
 	function newSection(){
 
 	}
+	
+	// Add arrows to big lists
+	$('.big-list li a').append('<span class="arw-right icon-svg"><svg><use xlink:href="'+ufclas_ufl_2015_themeurl+'/img/spritemap.svg#arw-right"></use></svg></span>');
 });

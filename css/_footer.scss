@@ -1,11 +1,11 @@
 .footer-wrap {
 	margin-top: 80px;
 }
-.home .footer-wrap {
+.homepage .footer-wrap {
 	margin: 0 ;
 }
 .footer-top {
-	background: $blue url(../img/bg-texture-dark.png);
+	background: $blue url(img/bg-texture-dark.png);
 	padding: 30px 0;
 	text-align: center;
 	@include breakFirst(medium){

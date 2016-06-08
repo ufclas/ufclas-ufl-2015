@@ -411,7 +411,7 @@ form.search-wrap,.btn-show-aux, .btn-menu,.btn-search-mobile {
 			position: relative;
 			&:after {
 				@include breakFirst(large){
-					background: url(../img/main-menu-hover.png) repeat-x left center;
+					background: url(img/main-menu-hover.png) repeat-x left center;
 					content: '';
 					bottom: -5px;
 					display: block;
