@@ -578,3 +578,49 @@ jQuery(function($){
 	// Add arrows to big lists
 	$('.big-list li a').append('<span class="arw-right icon-svg"><svg><use xlink:href="'+ufclas_ufl_2015_themeurl+'/img/spritemap.svg#arw-right"></use></svg></span>');
 });
+
+
+jQuery(function($){
+  
+  // Smooth Scrolling links with targets within current page
+  $('a[href*="#"]:not([href="#"])').click(function() {
+    if (location.pathname.replace(/^\//,'') == this.pathname.replace(/^\//,'') && location.hostname == this.hostname) {
+      var target = $(this.hash);
+      target = target.length ? target : $('[name=' + this.hash.slice(1) +']');
+	  var fixedHeaderHeight = $('.main-menu-wrap').height() + 50;
+	  console.log( fixedHeaderHeight );
+      if (target.length) {
+        $('html, body').animate({
+          scrollTop: target.offset().top - fixedHeaderHeight
+        }, 500);
+        return false;
+      }
+    }
+  });
+  
+  	// Adjust width of main menu based on number of items
+	if ( $(window).width()>1200 ){
+		var numItems = $('#menu-main-menu > li').length;
+		$('#menu-main-menu > li').css('width', 'calc(100% / ' + numItems + ')');
+	}
+		
+	// Display dropdown menu in two columns
+	$('#menu-main-menu .dropdown').each(function(index) {
+		var $parentItem = $(this).parent();
+		var $menuItems = $(this).find('.menu-item');
+		var menuOffset = Math.ceil($menuItems.length/2);
+		
+		// Create columns
+		$(this).find('ul').addClass('col-md-6');
+		$(this).append('<ul class="col-md-6 menu-item-wrap-2"></ul>');
+		
+		// Move items to second column
+		$menuItems.each(function(index, element){
+			if( index >= menuOffset ){
+				$parentItem.find('.menu-item-wrap-2').append( $(element) );
+			}
+		});
+	});
+
+});
+

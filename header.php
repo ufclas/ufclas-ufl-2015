@@ -2,6 +2,7 @@
 <html <?php language_attributes(); ?> class="no-js">
 <head>
 	<meta charset="<?php bloginfo( 'charset' ); ?>">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
 	<meta name="viewport" content="width=device-width,initial-scale=1">
 	<link rel="apple-touch-icon" href="<?php echo get_stylesheet_directory_uri(); ?>/img/client-icon-iphone.png">
 	<link rel="apple-touch-icon" sizes="72x72" href="<?php echo get_stylesheet_directory_uri(); ?>/img/client-icon-ipad.png">
@@ -12,7 +13,7 @@
 </head>
 
 <body <?php body_class( 'loading' ); ?>>
-  
+<?php include get_stylesheet_directory() . '/inc/google-analytics.php'; ?>
 <?php get_template_part( 'template-parts/content', 'svg' );	?>
 
 <a href="#main" id="skip-link" class="visuallyhidden focusable">Skip to main content</a>
@@ -21,134 +22,48 @@
   <div class="menu-wrap">
   	<div class="main-menu-wrap">
   		<a href="<?php echo site_url('/'); ?>"><span class="icon-svg logo-herbert"><svg><use xlink:href="<?php echo get_stylesheet_directory_uri(); ?>/svg/logo-default.svg#Layer_1"></use></svg></span></a>
-  		<ul>
-  			<li>
-  				<a href="<?php echo site_url('/services/'); ?>" class="main-menu-link"><span>Services</span> <span class="icon-svg icon-caret"><svg><use xlink:href="<?php echo get_stylesheet_directory_uri(); ?>/img/spritemap.svg#caret"></use></svg></span></a>
-  			</li>
-  			<li><a href="#" class="main-menu-link"><span>Academics</span> <span class="icon-svg icon-caret"><svg><use xlink:href="<?php echo get_stylesheet_directory_uri(); ?>/img/spritemap.svg#caret"></use></svg></span></a>
-					<div class="dropdown">
-						<div class="col-md-4">
-							<img src="<?php echo get_stylesheet_directory_uri(); ?>/img/_temp-square.jpg" alt="" class="img-full">
-						</div>
-						<ul class="col-md-4">
-							<li><a href="#">Colleges</a></li>
-							<li><a href="#">Programs</a></li>
-							<li><a href="#">Courses</a></li>
-							<li><a href="#">Online Learning</a></li>
-						</ul>
-						<ul class="col-md-4">
-							<li><a href="#">Certificates</a></li>
-							<li><a href="#">Continuing Education</a></li>
-							<li><a href="#">Libraries</a></li>
-							<li><a href="#">Resources</a></li>
-						</ul>
-					</div>
-  			</li>
-  			<li><a href="#" class="main-menu-link"><span>Admissions</span> <span class="icon-svg icon-caret"><svg><use xlink:href="<?php echo get_stylesheet_directory_uri(); ?>/img/spritemap.svg#caret"></use></svg></span></a>
-					<div class="dropdown">
-						<div class="col-md-4">
-							<img src="<?php echo get_stylesheet_directory_uri(); ?>/img/_temp-square.jpg" alt="" class="img-full">
-						</div>
-						<ul class="col-md-4">
-							<li><a href="#">Undergraduate</a></li>
-							<li><a href="#">Graduate</a></li>
-							<li><a href="#">International</a></li>
-						</ul>
-						<ul class="col-md-4">
-						  <li><a href="#">Online Learning</a></li>
-						  <li><a href="#">Professional</a></li>
-						  <li><a href="#">Financial Aid</a></li>
-						</ul>
-					</div>
-  			</li>
-  			<li><a href="#" class="main-menu-link"><span>Campus Life</span> <span class="icon-svg icon-caret"><svg><use xlink:href="<?php echo get_stylesheet_directory_uri(); ?>/img/spritemap.svg#caret"></use></svg></span></a>
-					<div class="dropdown">
-						<div class="col-md-4">
-							<img src="<?php echo get_stylesheet_directory_uri(); ?>/img/_temp-square.jpg" alt="" class="img-full">
-						</div>
-						<ul class="col-md-4">
-							<li><a href="#">Arts &amp; Culture</a></li>
-						  <li><a href="#">Recreation</a></li>
-						</ul>
-						<ul class="col-md-4">
-							<li><a href="#">Health &amp; Safety</a></li>
-						</ul>
-					</div>
-  			</li>
-  			<li><a href="#" class="main-menu-link"><span>Research</span> <span class="icon-svg icon-caret"><svg><use xlink:href="<?php echo get_stylesheet_directory_uri(); ?>/img/spritemap.svg#caret"></use></svg></span></a>
-					<div class="dropdown">
-						<div class="col-md-4">
-							<img src="<?php echo get_stylesheet_directory_uri(); ?>/img/_temp-square.jpg" alt="" class="img-full">
-						</div>
-						<ul class="col-md-4">
-							<li><a href="#">Centers &amp; Institutes</a></li>
-							<li><a href="#">Undergrad Research</a></li>
-							<li><a href="#">Graduate Research</a></li>
-						  <li><a href="#">Research Administration</a></li>
-						</ul>
-						<ul class="col-md-4">
-						  <li><a href="#">Research Foundation</a></li>
-						  <li><a href="#">Technology Licensing</a></li>
-							<li><a href="#">Research Funding</a></li>
-							<li><a href="#">Economic Impact</a></li>
-						</ul>
-					</div>
-  			</li>
-  			<li><a href="#" class="main-menu-link"><span>Athletics</span> <span class="icon-svg icon-caret"><svg><use xlink:href="<?php echo get_stylesheet_directory_uri(); ?>/img/spritemap.svg#caret"></use></svg></span></a>
-					<div class="dropdown">
-						<div class="col-md-4">
-							<img src="<?php echo get_stylesheet_directory_uri(); ?>/img/_temp-square.jpg" alt="" class="img-full">
-						</div>
-						<ul class="col-md-4">
-							<li><a href="#">GatorZone</a></li>
-							<li><a href="#">Schedule</a></li>
-						</ul>
-						<ul class="col-md-4">
-							<li><a href="#">Tickets</a></li>
-							<li><a href="#">Facilities</a></li>
-						</ul>
-					</div>
-  			</li>
-  			<li><a href="#" class="main-menu-link"><span>Alumni</span> <span class="icon-svg icon-caret"><svg><use xlink:href="<?php echo get_stylesheet_directory_uri(); ?>/img/spritemap.svg#caret"></use></svg></span></a>
-					<div class="dropdown">
-						<div class="col-md-4">
-							<img src="<?php echo get_stylesheet_directory_uri(); ?>/img/_temp-square.jpg" alt="" class="img-full">
-						</div>
-						<ul class="col-md-4">
-							<li><a href="#">Outcomes</a></li>
-							<li><a href="#">Alumni Association</a></li>
-							<li><a href="#">Alumni Clubs</a></li>
-							<li><a href="#">Membership</a></li>
-							<li><a href="#">Reunions</a></li>
-						</ul>
-						<ul class="col-md-4">
-							<li><a href="#">Giving</a></li>
-							<li><a href="#">Area Accommodations</a></li>
-							<li><a href="#">Maps &amp; Directions</a></li>
-							<li><a href="#">Virtual Tour</a></li>
-						</ul>
-					</div>
-  			</li>
-  		</ul>
+  		<?php 
+				wp_nav_menu( array( 
+					'theme_location' => 'main_menu',
+					'container' => '',
+					'depth' => 2, 
+					'walker' => new ufclas_ufl_2015_main_nav_menu(),
+				)); 
+			?>
   	</div>
   	<div class="aux-menu-wrap">
   		<ul class="aux-nav">
-	  		<li class="audience-link"><a href="#">Current Students</a></li>
-	  		<li class="audience-link"><a href="#">Family &amp; Visitors</a></li>
-	  		<li class="audience-link"><a href="#">Faculty &amp; Staff</a></li>
-  			<li><a href="http://clas.ufl.edu/">College of Liberal Arts and Sciences</a></li>
-            <li><a href="#">News &amp; Events</a></li>
-  			<li><a href="#">Majors</a></li>
-  			<li><a href="#">Academic Units</a></li>
-  			<li><a href="#">Alumni &amp; Giving</a></li>
+	  		<?php 
+				wp_nav_menu( array( 
+					'theme_location' => 'audience_nav',
+					'items_wrap' => '%3$s',
+					'container' => '',
+					'depth' => 1,
+					'fallback_cb' => false,
+				)); 
+			?>
+			<?php 
+				wp_nav_menu( array( 
+					'theme_location' => 'global_menu',
+					'items_wrap' => '%3$s',
+					'container' => '',
+					'depth' => 1,
+				)); 
+			?>
   		</ul>
   		<div class="audience-nav-wrap">
-  			<a href="#" class="cur-audience">Welcome to UF</a>
-  			<span class="arw-right icon-svg"><svg><use xlink:href="<?php echo get_stylesheet_directory_uri(); ?>/img/spritemap.svg#arw-down"></use></svg></span>
-	  		<ul>
-	  			<li><a href="#" class="audience-link">Current Students</a></li>
-	  			<li><a href="#" class="audience-link">Family &amp; Visitors</a></li>
-	  			<li><a href="#" class="audience-link">Faculty &amp; Staff</a></li>
+  			<a href="#" class="cur-audience">Quick Links</a>
+            <span class="arw-right icon-svg"><svg><use xlink:href="<?php echo get_stylesheet_directory_uri(); ?>/img/spritemap.svg#arw-down"></use></svg></span>
+            <ul>
+	  			<?php 
+					wp_nav_menu( array( 
+						'theme_location' => 'audience_nav',
+						'items_wrap' => '%3$s',
+						'container' => '',
+						'depth' => 1,
+						'fallback_cb' => false,
+					)); 
+				?>
 	  		</ul>
 	  	</div>
   	</div>
@@ -164,47 +79,21 @@
 	    	</svg>
 	    </span>
 	  </a>
-  	<form action="" method="post" class="search-wrap">
-  		<input type="text" name="search">
-	  	<button type="submit" class="btn-search">
-	  		<span class="icon-svg">
-	      	<svg>
-	        	<use xlink:href="<?php echo get_stylesheet_directory_uri(); ?>/img/spritemap.svg#search"></use>
-	      	</svg>
-	      </span>
-	  	</button>
-	  </form>
+      <?php get_search_form(); ?>
   </div>
 
   <div class="mobile-dropdown-wrap"></div>
 
-  <?php
-  //
-  // Emergency modal demo purposes only
-  //
-
-  if (isset($_GET['alert']) && $_GET['alert'] == 'small') { ?>
-  <div class="alert-small">
-		<span class="icon-svg icon-alert">
-    	<svg>
-      	<use xlink:href="<?php echo get_stylesheet_directory_uri(); ?>/img/spritemap.svg#alert"></use>
-    	</svg>
-    </span>
-    <div class="alert-title"><strong>Emergency Alert</strong> Severe Weather Alert</div>
-    <a href="#" class="alert-link">More <span class="hidden-mobile">Information</span> <span class="arw-right icon-svg"><svg><use xlink:href="<?php echo get_stylesheet_directory_uri(); ?>/img/spritemap.svg#arw-right"></use></svg></span></a>
-  </div>
-
-	<?php }  ?>
-	<form action="" method="post" class="search-wrap mobile">
-		<input type="text" name="search">
-  	<button type="submit" class="btn-search">
-  		<span class="icon-svg">
-      	<svg>
-        	<use xlink:href="<?php echo get_stylesheet_directory_uri(); ?>/img/spritemap.svg#search"></use>
-      	</svg>
-      </span>
-  	</button>
-  </form>
+<?php
+	/*
+	 * Emergency modal demo purposes only
+	 */
+	if (isset($_GET['alert']) && $_GET['alert'] == 'small') {
+		get_template_part( 'template-parts/content', 'alert-small' );
+	}
+  
+	get_search_form(); 
+?>
 
   <a href="#" class="btn-menu">
 		<span class="icon-svg icon-menu">

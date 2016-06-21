@@ -10,9 +10,11 @@
 ?>
 <article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
     
-    <?php the_content(); ?>
+    <div class="entry-content">
+        <?php the_content(); ?>
+	</div><!-- .entry-content -->
     
-    <footer class="entry-footer">
+    <footer class="entry-footer container">
 		<?php
 			wp_link_pages( array(
 				'before' => '<div class="page-links">' . esc_html__( 'Pages:', 'ufclas-ufl-2015' ),

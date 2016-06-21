@@ -18,7 +18,7 @@ function ufclas_ufl_2015_landing_hero($atts, $content = NULL ) {
 	
 	extract( shortcode_atts( 
 		array(
-			'headline' => __('Enter Headline Here', 'ufclas-ufl-2015'),
+			'headline' => '',
 			'image1' => get_stylesheet_directory_uri() . '/img/_temp-landing-a-1.jpg',
 			'image2' => get_stylesheet_directory_uri() . '/img/_temp-landing-a-2.jpg',
 		), $atts )
@@ -27,7 +27,6 @@ function ufclas_ufl_2015_landing_hero($atts, $content = NULL ) {
 	// Support either image ID or image url
 	$image1 = ( is_numeric( $image1 ) )? wp_get_attachment_image_src( $image1, 'large' ) : array($image1);
 	$image2 = ( is_numeric( $image2 ) )? wp_get_attachment_image_src( $image2, 'large' ) : array($image2);
-	$content = ( !empty( $content ) )? $content : __('Enter Content Here', 'ufclas-ufl-2015');
 	
 	// Shortcode callbacks must return content, so use output buffering
 	ob_start();
@@ -39,7 +38,9 @@ function ufclas_ufl_2015_landing_hero($atts, $content = NULL ) {
           <div class="img-hero" style="background-image:url('<?php echo esc_url( $image1[0] ); ?>');"></div>
         </div>
         <div class="col-sm-5 col-sm-offset-5 hero-content">
-			<h2><?php echo esc_html( $headline ); ?></h2>
+			<?php if (!empty( $headline )){ ?>
+                <h2><?php echo esc_html( $headline ); ?></h2>
+            <?php } ?>
 			<?php echo wpautop( wp_kses_post( $content ) ); ?>
         </div>
         <div class="col-sm-7 secondary">
@@ -199,6 +200,54 @@ function ufclas_ufl_2015_content_image_caption($atts, $content = NULL ) {
 add_shortcode('ufclas-content-image-caption', 'ufclas_ufl_2015_content_image_caption');
 
 /**
+ * Add Content with Right Image
+ * 
+ * Example [ufclas-content-image-right][/ufclas-content-image-right]
+ * @param  array $atts Shortcode attributes
+ * @param  string [$content = ''] Content between shortcode tags
+ * @return string Shortcode output
+ */
+function ufclas_ufl_2015_content_image_right($atts, $content = NULL ) {
+	
+	extract( shortcode_atts( 
+		array(
+			'headline' => '',
+			'image' => get_stylesheet_directory_uri() . '/img/_temp-landing-a-1.jpg',
+			'category' => '',
+		), $atts )
+	);
+	
+	// Support either image ID or image url
+	$image = ( is_numeric( $image ) )? wp_get_attachment_image_src( $image, 'large' ) : array($image);
+	
+	// Shortcode callbacks must return content, so use output buffering
+	ob_start();
+	?>
+    <div class="content-box-module">
+		<div class="container">
+			<div class="row">
+				<div class="col-sm-7 content-box-copy">
+                    <?php if (!empty( $headline )){ ?>
+                    	<h2><?php echo esc_html( $headline ); ?></h2>
+					<?php } ?>
+					<?php echo wpautop( wp_kses_post( $content ) ); ?>
+					<?php if (!empty( $category )){ ?>
+                    	<span class="category-tag orange"><?php echo esc_html( $category ); ?></span>
+					<?php } ?>
+				</div>
+				<div class="col-sm-5 content-box-img" style="background-image:url('<?php echo esc_url( $image[0] ); ?>')">
+					<img src="<?php echo esc_url( $image[0] ); ?>" alt="" class="visuallyhidden">
+				</div>
+			</div>
+		</div>
+	</div>
+    <?php 
+	return ob_get_clean();
+}
+add_shortcode('ufclas-content-image-right', 'ufclas_ufl_2015_content_image_right');
+
+
+/**
  * Add Breaker with Cards
  * 
  * Example [ufclas-breaker-cards][/ufclas-breaker-cards]
@@ -212,13 +261,13 @@ function ufclas_ufl_2015_breaker_cards($atts, $content = NULL ) {
 		array(
 			'image' => get_stylesheet_directory_uri() . '/img/bg-breaker.jpg',
 			'card_headline1' => __('Enter Card Headline', 'ufclas-ufl-2015'),
-			'card_image1' => get_stylesheet_directory_uri() . '/img/_temp-square.jpg',
+			'card_image1' => '',
 			'card_text1' => __('Enter Card Text', 'ufclas-ufl-2015'),
 			'card_headline2' => __('Enter Card Headline', 'ufclas-ufl-2015'),
-			'card_image2' => get_stylesheet_directory_uri() . '/img/_temp-square.jpg',
+			'card_image2' => '',
 			'card_text2' => __('Enter Card Text', 'ufclas-ufl-2015'),
 			'card_headline3' => __('Enter Card Headline', 'ufclas-ufl-2015'),
-			'card_image3' => get_stylesheet_directory_uri() . '/img/_temp-square.jpg',
+			'card_image3' => '',
 			'card_text3' => __('Enter Card Text', 'ufclas-ufl-2015'),
 			
 		), $atts )
@@ -248,9 +297,11 @@ function ufclas_ufl_2015_breaker_cards($atts, $content = NULL ) {
             	?>
 				<div class="col-sm-12 col-md-4 img-callout-wrap hor-scroll-el">
 					<div class="img-callout">
-						<img src="<?php echo esc_url( $card['image'][0] ); ?>" alt="" class="img-full">
+						<?php if (!empty( $card['image'] )){ ?> 
+                        <img src="<?php echo esc_url( $card['image'][0] ); ?>" alt="" class="img-full">
+                        <?php } ?>
 						<h2><?php echo esc_html( $card['headline'] ); ?></h2>
-						<?php echo esc_html( $card['text'] ); ?>
+						<?php echo wpautop( wp_kses_post( $card['text'] ) ); ?>
 					</div>
 				</div>
             <?php } ?>
@@ -262,3 +313,30 @@ function ufclas_ufl_2015_breaker_cards($atts, $content = NULL ) {
 	return ob_get_clean();
 }
 add_shortcode('ufclas-breaker-cards', 'ufclas_ufl_2015_breaker_cards');
+
+ /**
+ * Add Icon Shortcode
+ * 
+ * Example [ufclas-icon]
+ * @param  array $atts Shortcode attributes
+ * @param  string [$content = ''] Content between shortcode tags
+ * @return string Shortcode output
+ */
+function ufclas_ufl_2015_icon($atts, $content = NULL ) {
+	
+	extract( shortcode_atts( 
+		array(
+			'name' => 'format-image',
+			'xclass' => '',
+		), $atts )
+	);
+	
+	$classes = array( 'dashicons dashicons-' . esc_attr( $name ) );
+	
+	if ( !empty( $xclass ) ){
+		$classes[] = esc_attr( $xclass );
+	}
+	 
+	return '<span class="' . join(' ', $classes) . '"></span>';
+}
+add_shortcode('ufclas-icon', 'ufclas_ufl_2015_icon');

@@ -12,29 +12,26 @@
  * @package UFCLAS_UFL_2015
  */
 get_header(); ?>
-  
-  <div id="main" class="container">
-  	<div class="row">
-  		<div class="col-sm-12">
-  			<h1>Templates</h1>
-  			<ul class="big-list">
-                <li class="btn-mobile-toggle" aria-hidden="true" role="presentation"><a href="#">View templates <span class="arw-right icon-svg"><svg><use xlink:href="<?php echo get_stylesheet_directory_uri(); ?>/img/spritemap.svg#arw-right"></use></svg></span></a></li>
-                <li><a href="<?php echo site_url(); ?>/home/">Homepage <span class="arw-right icon-svg"><svg><use xlink:href="<?php echo get_stylesheet_directory_uri(); ?>/img/spritemap.svg#arw-right"></use></svg></span></a></li>
-                <li><a href="<?php echo site_url(); ?>/landing-page/">Landing Page A <span class="arw-right icon-svg"><svg><use xlink:href="<?php echo get_stylesheet_directory_uri(); ?>/img/spritemap.svg#arw-right"></use></svg></span></a></li>
-                <li><a href="<?php echo site_url(); ?>/landing-page-b/">Landing Page B <span class="arw-right icon-svg"><svg><use xlink:href="<?php echo get_stylesheet_directory_uri(); ?>/img/spritemap.svg#arw-right"></use></svg></span></a></li>
-                <li><a href="<?php echo site_url(); ?>/programs-list/">Article Directory <span class="arw-right icon-svg"><svg><use xlink:href="<?php echo get_stylesheet_directory_uri(); ?>/img/spritemap.svg#arw-right"></use></svg></span></a></li>
-                <li><a href="<?php echo site_url(); ?>/article-list/">Article List <span class="arw-right icon-svg"><svg><use xlink:href="<?php echo get_stylesheet_directory_uri(); ?>/img/spritemap.svg#arw-right"></use></svg></span></a></li>
-                <li><a href="<?php echo site_url(); ?>/article-list-alt/">Article List Alternative <span class="arw-right icon-svg"><svg><use xlink:href="<?php echo get_stylesheet_directory_uri(); ?>/img/spritemap.svg#arw-right"></use></svg></span></a></li>
-                <li><a href="<?php echo site_url(); ?>/article-page/">Article <span class="arw-right icon-svg"><svg><use xlink:href="<?php echo get_stylesheet_directory_uri(); ?>/img/spritemap.svg#arw-right"></use></svg></span></a></li>
-                <li><a href="<?php echo site_url(); ?>/audience-landing-page/">Audience Landing Page <span class="arw-right icon-svg"><svg><use xlink:href="<?php echo get_stylesheet_directory_uri(); ?>/img/spritemap.svg#arw-right"></use></svg></span></a></li>
-                <li><a href="<?php echo site_url(); ?>/search-result/">Search Results Page <span class="arw-right icon-svg"><svg><use xlink:href="<?php echo get_stylesheet_directory_uri(); ?>/img/spritemap.svg#arw-right"></use></svg></span></a></li>
-                <li><a href="<?php echo site_url(); ?>/home/?alert=small">Small Emergency Alert <span class="arw-right icon-svg"><svg><use xlink:href="<?php echo get_stylesheet_directory_uri(); ?>/img/spritemap.svg#arw-right"></use></svg></span></a></li>
-                <li><a href="<?php echo site_url(); ?>/home/?alert=big">Big Emergency Alert <span class="arw-right icon-svg"><svg><use xlink:href="<?php echo get_stylesheet_directory_uri(); ?>/img/spritemap.svg#arw-right"></use></svg></span></a></li>
-                <li><a href="<?php echo site_url(); ?>/form/">Form style guide <span class="arw-right icon-svg"><svg><use xlink:href="<?php echo get_stylesheet_directory_uri(); ?>/img/spritemap.svg#arw-right"></use></svg></span></a></li>
-                <li><a href="<?php echo site_url(); ?>/unit-header/">Unit Header <span class="arw-right icon-svg"><svg><use xlink:href="<?php echo get_stylesheet_directory_uri(); ?>/img/spritemap.svg#arw-right"></use></svg></span></a></li>
-  			</ul>
-  		</div>
-  	</div>
+
+<div id="main" class="container">
+<div class="row">
+  <div class="col-sm-12">
+    <?php ufclas_ufl_2015_breadcrumbs(); ?>
+    <header class="entry-header">
+      <?php the_title( '<h1 class="entry-title">', '</h1>' ); ?>
+    </header>
+    <!-- .entry-header --> 
   </div>
-  
+</div>
+<div class="row">
+  <div class="col-sm-12">
+    <?php 
+		while ( have_posts() ) : the_post();
+			get_template_part( 'template-parts/content', 'page' );
+		endwhile; // End of the loop. 
+	?>
+  </div>
+</div>
+</div>
+
 <?php get_footer(); ?>

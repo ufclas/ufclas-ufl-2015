@@ -129,7 +129,7 @@ get_header('unit'); ?>
 					<span class="category-tag orange">Category</span>
 				</div>
 				<div class="col-sm-5 content-box-img" style="background-image:url(<?php echo get_stylesheet_directory_uri(); ?>/img/_temp-landing-a-1.jpg)">
-					<img src="http://dummyimage.com/470x532" alt="" class="visuallyhidden">
+					<img src="<?php echo get_stylesheet_directory_uri(); ?>/img/bg-texture.png" alt="" class="visuallyhidden">
 				</div>
 			</div>
 		</div>

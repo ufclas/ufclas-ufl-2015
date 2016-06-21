@@ -223,6 +223,54 @@ function ufclas_ufl_2015_register_content_image_caption() {
 }
 add_action( 'register_shortcode_ui', 'ufclas_ufl_2015_register_content_image_caption' );
 
+/**
+ * Register Shortcode UI for Content with Left Image and Caption
+ * 
+ * @link http://webservices.it.ufl.edu/terminalfour/uf-2015-template/content-types/content-with-list-and-left-image-with-caption/
+ */
+function ufclas_ufl_2015_register_content_image_right() {
+	
+	// Define the UI for attributes of the shortcode. 
+	$shortcode_ui_fields = array(
+		array(
+			'label'		=> esc_html__( 'Headline', 'ufclas-ufl-2015' ),
+			'description' 	=> esc_html__('Heading for the section, optional', 'ufclas-ufl-2015'),
+			'attr' 		=> 'headline',
+			'type' 		=> 'text',
+		),
+		array(
+			'label'		=> esc_html__( 'Image', 'ufclas-ufl-2015' ),
+			'attr' 		=> 'image',
+			'type' 		=> 'attachment',
+			'libraryType' 	=> array( 'Image' ),
+			'addButton'		=> esc_html__( 'Select Image', 'ufclas-ufl-2015' ),
+			'frameTitle'	=> esc_html__( 'Select Image', 'ufclas-ufl-2015' ),
+		),
+		array(
+			'label'		=> esc_html__( 'Category', 'ufclas-ufl-2015' ),
+			'description' 	=> esc_html__('Category title for the content section, optional', 'ufclas-ufl-2015'),
+			'attr' 		=> 'category',
+			'type' 		=> 'text',
+		),
+	);
+	
+	// Define the Shortcode UI arguments
+	$shortcode_ui_args = array(
+		'label' 			=> esc_html__('Content with Right Image and Category', 'ufclas-ufl-2015'),
+		'listItemImage' 	=> 'dashicons-layout',
+		'post_type' 		=> array('page'),
+		'inner_content' 	=> array(
+			'label' 		=> esc_html__('Content', 'ufclas-ufl-2015'),
+			'description' 	=> esc_html__('Content with Right Image and Category', 'ufclas-ufl-2015'),
+		),
+		'attrs' 			=> $shortcode_ui_fields,
+	);
+	
+	shortcode_ui_register_for_shortcode( 'ufclas-content-image-right', $shortcode_ui_args );
+}
+add_action( 'register_shortcode_ui', 'ufclas_ufl_2015_register_content_image_right' );
+
+
  /**
  * Register Shortcode UI for Breaker with Cards
  * 

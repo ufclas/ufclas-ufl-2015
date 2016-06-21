@@ -52,6 +52,14 @@ function ufclas_ufl_2015_setup() {
 		'default-color' => 'ffffff',
 		'default-image' => '',
 	) ) );
+	
+	// This theme uses wp_nav_menu() in one location.
+	register_nav_menus( array(
+		'main_menu' => esc_html__( 'Main Menu', 'ufclas-ufl-2015' ),
+        'global_menu' => esc_html__( 'Global Menu', 'ufclas-ufl-2015' ),
+		'rolebased_nav' => esc_html__( 'Role-Based Navigation', 'ufclas-ufl-2015' ),
+		'audience_nav' => esc_html__( 'Audience Navigation', 'ufclas-ufl-2015' ),
+	) );
 }
 endif; // ufclas_ufl_2015_setup
 add_action( 'after_setup_theme', 'ufclas_ufl_2015_setup' );
@@ -72,7 +80,7 @@ add_action( 'after_setup_theme', 'ufclas_ufl_2015_content_width', 0 );
  * Enqueue scripts and styles.
  */
 function ufclas_ufl_2015_scripts() {
-	wp_enqueue_style( 'style', get_stylesheet_uri() );
+	wp_enqueue_style( 'style', get_stylesheet_uri(), array('dashicons') );
 	wp_enqueue_script('velocity', 'https://cdnjs.cloudflare.com/ajax/libs/velocity/1.2.2/velocity.min.js', array('jquery'), false, true);
 	wp_enqueue_script('velocity-ui', 'https://cdnjs.cloudflare.com/ajax/libs/velocity/1.2.2/velocity.ui.min.js', array('velocity'), false, true);
 	wp_enqueue_script('ufclas-ufl-2015-plugins', get_stylesheet_directory_uri() . '/js/plugins.js', array(), false, true);
@@ -109,11 +117,88 @@ function ufclas_ufl_2015_editor_styles() {
 add_action( 'admin_init', 'ufclas_ufl_2015_editor_styles' );
 
 /**
+ * Displays breadcrumb navigation for current page
+ * 
+ * @since 0.0.0
+ */
+function ufclas_ufl_2015_breadcrumbs() {
+  	global $post;
+
+	$breadcrumb = '<ul class="breadcrumb-wrap">';
+	
+	$post_ancestors = get_post_ancestors($post);
+		
+	if ( !$post_ancestors ) {
+		$breadcrumb .= '<li>&nbsp;</li>';
+	}
+	else {
+		$breadcrumb .= '<li><a href="' . site_url('/') . '">' . esc_html__( 'Home', 'ufclas-ufl-2015' ) . '</a></li>';
+		$post_ancestors = array_reverse($post_ancestors);
+		foreach ( $post_ancestors as $crumb_id ){
+			$breadcrumb .= '<li><a href="' . get_permalink( $crumb_id ) . '">' . get_the_title( $crumb_id ) . '</a></li>';
+		}
+	}
+	$breadcrumb .= "</ul>";
+	
+	echo $breadcrumb;
+}
+
+/**
+ * Page Menu Navigation
+ *
+ * @return string List of page links
+ * @since 0.1.0
+ */
+function ufclas_ufl_2015_sidebar_navigation() {
+	global $post;
+	
+	$post_ancestors = get_post_ancestors( $post );
+	$depth = count($post_ancestors);
+	$top_page = $post->ID;
+	
+	if ( $depth ){
+		$top_page = $post_ancestors[0];
+	}
+	
+	$children = wp_list_pages(array(
+		'title_li' => '',
+		'child_of' => $top_page,
+		'echo' => false,
+		'depth' => 2,
+	));
+	
+	return $children;
+}
+
+/**
+ * Filter the CSS class for the menu list items <li>
+ *
+ * @return array Menu item classes
+ * @since 0.0.0
+ */
+function ufclas_ufl_2015_nav_classes( $classes, $item, $args, $depth ) {
+	if ( 'audience_nav' == $args->theme_location ){
+		$classes[] = 'audience-link';
+	}
+	return $classes;
+}
+add_filter( 'nav_menu_css_class', 'ufclas_ufl_2015_nav_classes', 10, 4 );
+
+/**
  * Load custom theme files 
  */
-
 require get_stylesheet_directory() . '/inc/shortcodes.php';
+require get_stylesheet_directory() . '/inc/walkers.php';
+require get_stylesheet_directory() . '/inc/widgets.php';
+require get_stylesheet_directory() . '/inc/shibboleth.php';
 
+
+// Shortcake Shortcode UI
 if( function_exists( 'shortcode_ui_register_for_shortcode' ) ) {
 	require get_stylesheet_directory() . '/inc/shortcodes-ui.php';
+}
+
+// IssueM newsletter
+if ( class_exists( 'IssueM' ) ) {
+	require get_stylesheet_directory() . '/inc/issuem.php';
 }
