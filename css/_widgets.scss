@@ -1,0 +1,35 @@
+.widget {
+	margin-bottom: 30px;
+	
+	ul {
+		margin-left: 0;
+		
+		li:before {
+			content: normal;
+		}
+		li {
+			margin-bottom: 30px;
+			font-size: 16px;
+		}
+		a {
+			font-weight: 400;
+			letter-spacing: 1px;	
+		}
+		.post-date {
+			display: block;	
+		}
+	}
+	.widgettitle {
+		text-transform: none;
+		font: 500 24px/32px $serifFontFamily;
+		color: $blue;
+	}
+}
+.widget_archive, .widget_categories {
+	select {
+		width: 99%;
+		border: 1px solid #999;
+		padding: 7.5px;
+	}
+}
+

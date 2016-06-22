@@ -2967,6 +2967,17 @@ form textarea {
   .aux-menu-wrap .audience-nav-wrap:hover .arw-right svg, .aux-menu-wrap .audience-nav-wrap:focus .arw-right svg {
     transform: translate(0, 0); }
 
+/* Fixes SVG icon display in FF */
+.big-list .btn-mobile-toggle a svg, .sidenav .btn-mobile-toggle a svg, .sidenav .btn-mobile-toggle a svg, .single-article #secondary .widget ul .btn-mobile-toggle a svg {
+  transform: translate(0, 0) rotate(45deg);
+  transform-origin: center;
+  margin: 22px 0px;
+  top: 0px;
+  left: 0px;
+  width: 100%; }
+.big-list.open-list .btn-mobile-toggle .arw-right svg, .open-list.sidenav .btn-mobile-toggle .arw-right svg, .sidenav.open-list .btn-mobile-toggle .arw-right svg, .single-article #secondary .widget ul.open-list .btn-mobile-toggle .arw-right svg {
+  transform: translate(0, 0) rotate(-45deg); }
+
 .sidenav .page_item_has_children .children {
   display: none; }
 
@@ -3049,5 +3060,15 @@ img.alignleft {
   @media (min-width: 768px) {
     .archive #main, .single #main {
       padding: 45px 60px; } }
+
+.post, .article {
+  margin-bottom: 30px;
+  clear: both;
+  overflow: auto; }
+
+.screen-reader-text {
+  text-indent: -999em;
+  display: block;
+  margin-bottom: -30px; }
 
 /*# sourceMappingURL=editor-style.css.map */

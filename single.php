@@ -1,11 +1,11 @@
 <?php
 /**
- * The main template file.
+ * The template for displaying all pages.
  *
- * This is the most generic template file in a WordPress theme
- * and one of the two required files for a theme (the other being style.css).
- * It is used to display a page when nothing more specific matches a query.
- * E.g., it puts together the home page when no home.php file exists.
+ * This is the template that displays all pages by default.
+ * Please note that this is the WordPress construct of pages
+ * and that other 'pages' on your WordPress site may use a
+ * different template.
  *
  * @link https://codex.wordpress.org/Template_Hierarchy
  *
@@ -15,7 +15,7 @@ get_header(); ?>
 
 <div id="main" class="container">
 <div class="row">
-  <div class="col-sm-12">
+  <div class="col-sm-8 col-sm-offset-3">
     <?php ufclas_ufl_2015_breadcrumbs(); ?>
     <header class="entry-header">
       <?php the_title( '<h1 class="entry-title">', '</h1>' ); ?>
@@ -24,10 +24,15 @@ get_header(); ?>
   </div>
 </div>
 <div class="row">
-  <div class="col-sm-12">
+  <div class="col-sm-3">
+  	
+	<?php get_sidebar('page_sidebar'); ?>
+    
+  </div>
+  <div class="col-sm-8">
     <?php 
 		while ( have_posts() ) : the_post();
-			get_template_part( 'template-parts/content', get_post_format() );
+			get_template_part( 'template-parts/content', 'page' );
 		endwhile; // End of the loop. 
 	?>
   </div>

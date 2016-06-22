@@ -185,6 +185,21 @@ function ufclas_ufl_2015_nav_classes( $classes, $item, $args, $depth ) {
 add_filter( 'nav_menu_css_class', 'ufclas_ufl_2015_nav_classes', 10, 4 );
 
 /**
+ * Adds feed link to category title
+ * 
+ * @since 0.1.0
+ */
+function ufclas_ufl_2015_archive_title( $title ){
+	if ( is_category() ) {
+        $queried_obj = get_queried_object();
+		$title = sprintf( __( '%s' ), single_cat_title( '', false ) );
+		$title .= sprintf('<a href="%s"><i class="mdi mdi-rss"></i></a>', get_category_feed_link( $queried_obj->term_id ) );
+    }
+	return $title;
+}
+add_filter( 'get_the_archive_title', 'ufclas_ufl_2015_archive_title' );
+
+/**
  * Load custom theme files 
  */
 require get_stylesheet_directory() . '/inc/shortcodes.php';

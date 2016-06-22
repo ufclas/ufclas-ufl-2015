@@ -5,11 +5,11 @@ Theme URI: http://clas.ufl.edu/
 Author: Priscilla Chapman (CLAS IT)
 Author URI: http://it.clas.ufl.edu
 Description: Official UF template for Liberal Arts and Sciences. Based on 160 over 90 template.
-Version: 0.0.0
+Version: 0.1.0
 License: GNU General Public License v2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 Text Domain: ufclas-ufl-2015
-Build Date: 20160601
+Build Date: 20160621
 */
 html, body, div, span, applet, object, iframe,
 h1, h2, h3, .kicker, .gform_wrapper .gform_heading .gform_description, .single-article .entry-content p.lead, .single-article .entry-content > p:first-of-type, .featured-story h2, .single-article #secondary h2, h4, h5, dt, h6, p, blockquote, pre,
@@ -3857,6 +3857,17 @@ form.search-wrap, .btn-show-aux, .btn-menu, .btn-search-mobile {
   .aux-menu-wrap .audience-nav-wrap:hover .arw-right svg, .aux-menu-wrap .audience-nav-wrap:focus .arw-right svg {
     transform: translate(0, 0); }
 
+/* Fixes SVG icon display in FF */
+.big-list .btn-mobile-toggle a svg, .sidenav .btn-mobile-toggle a svg, .single-article #secondary .widget ul .btn-mobile-toggle a svg, .sidenav .btn-mobile-toggle a svg, .single-article #secondary .widget ul .btn-mobile-toggle a svg, .single-article #secondary .widget ul .btn-mobile-toggle a svg {
+  transform: translate(0, 0) rotate(45deg);
+  transform-origin: center;
+  margin: 22px 0px;
+  top: 0px;
+  left: 0px;
+  width: 100%; }
+.big-list.open-list .btn-mobile-toggle .arw-right svg, .open-list.sidenav .btn-mobile-toggle .arw-right svg, .single-article #secondary .widget ul.open-list .btn-mobile-toggle .arw-right svg, .sidenav.open-list .btn-mobile-toggle .arw-right svg, .single-article #secondary .widget ul.open-list .btn-mobile-toggle .arw-right svg, .single-article #secondary .widget ul.open-list .btn-mobile-toggle .arw-right svg {
+  transform: translate(0, 0) rotate(-45deg); }
+
 .sidenav .page_item_has_children .children, .single-article #secondary .widget ul .page_item_has_children .children {
   display: none; }
 
@@ -3940,5 +3951,39 @@ img.alignleft {
   @media (min-width: 768px) {
     .archive #main, .single #main {
       padding: 45px 60px; } }
+
+.post, .article {
+  margin-bottom: 30px;
+  clear: both;
+  overflow: auto; }
+
+.screen-reader-text {
+  text-indent: -999em;
+  display: block;
+  margin-bottom: -30px; }
+
+.widget {
+  margin-bottom: 30px; }
+  .widget ul {
+    margin-left: 0; }
+    .widget ul li:before {
+      content: normal; }
+    .widget ul li {
+      margin-bottom: 30px;
+      font-size: 16px; }
+    .widget ul a {
+      font-weight: 400;
+      letter-spacing: 1px; }
+    .widget ul .post-date {
+      display: block; }
+  .widget .widgettitle {
+    text-transform: none;
+    font: 500 24px/32px "quadon", "Helvetica Neue", Helvetica, Arial, sans-serif;
+    color: #00529b; }
+
+.widget_archive select, .widget_categories select {
+  width: 99%;
+  border: 1px solid #999;
+  padding: 7.5px; }
 
 /*# sourceMappingURL=style.css.map */

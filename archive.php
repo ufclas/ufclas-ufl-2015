@@ -1,6 +1,6 @@
 <?php
 /**
- * The main template file.
+ * The template file for archives.
  *
  * This is the most generic template file in a WordPress theme
  * and one of the two required files for a theme (the other being style.css).
@@ -18,18 +18,21 @@ get_header(); ?>
   <div class="col-sm-12">
     <?php ufclas_ufl_2015_breadcrumbs(); ?>
     <header class="entry-header">
-      <?php the_title( '<h1 class="entry-title">', '</h1>' ); ?>
+      <?php the_archive_title( '<h1 class="page-title">', '</h1>' ); ?>
     </header>
     <!-- .entry-header --> 
   </div>
 </div>
 <div class="row">
-  <div class="col-sm-12">
+  <div class="col-md-9">
     <?php 
 		while ( have_posts() ) : the_post();
 			get_template_part( 'template-parts/content', get_post_format() );
 		endwhile; // End of the loop. 
 	?>
+  </div>
+  <div class="col-md-3">
+    <?php get_sidebar('post_sidebar'); ?>
   </div>
 </div>
 </div>
