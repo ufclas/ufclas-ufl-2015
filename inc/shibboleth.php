@@ -32,7 +32,7 @@ function ufl_shibboleth_valid_user() {
 
 // Get current protocol from options, fallback to server variable.
 function ufl_get_protocol() {
-	$shib_protocol = 'http';
+	$shib_protocol = 'https';
 	if ( !empty( $shib_protocol ) ) {
 		return $shib_protocol.'://';
 	} elseif ( is_ssl() ) {

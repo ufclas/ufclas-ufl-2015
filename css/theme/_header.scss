@@ -1,0 +1,12 @@
+@charset "utf-8";
+
+.header {
+	.admin-bar & {
+		top: 46px;
+		position: absolute; 
+		
+		@include breakFirst(medium){
+			top: 32px;
+		}
+	}
+}

@@ -588,7 +588,6 @@ jQuery(function($){
       var target = $(this.hash);
       target = target.length ? target : $('[name=' + this.hash.slice(1) +']');
 	  var fixedHeaderHeight = $('.main-menu-wrap').height() + 50;
-	  console.log( fixedHeaderHeight );
       if (target.length) {
         $('html, body').animate({
           scrollTop: target.offset().top - fixedHeaderHeight

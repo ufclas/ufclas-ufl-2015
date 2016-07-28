@@ -16,11 +16,12 @@ get_header(); ?>
 <div id="main" class="container">
 <div class="row">
   <div class="col-sm-12">
-    <?php ufclas_ufl_2015_breadcrumbs(); ?>
-    <header class="entry-header">
-      <?php the_title( '<h1 class="entry-title">', '</h1>' ); ?>
-    </header>
-    <!-- .entry-header --> 
+    <?php if ( !is_home() && !is_front_page() ): ?>
+		<?php ufclas_ufl_2015_breadcrumbs(); ?>
+        <header class="entry-header">
+          <?php the_title( '<h1 class="entry-title">', '</h1>' ); ?>
+        </header><!-- .entry-header --> 
+    <?php endif; ?>
   </div>
 </div>
 <div class="row">

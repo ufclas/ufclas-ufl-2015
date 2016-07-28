@@ -340,3 +340,127 @@ function ufclas_ufl_2015_icon($atts, $content = NULL ) {
 	return '<span class="' . join(' ', $classes) . '"></span>';
 }
 add_shortcode('ufclas-icon', 'ufclas_ufl_2015_icon');
+
+/**
+ * Add Left Image with Right Quote and Caption
+ * 
+ * Example [ufclas-image-right-quote][/ufclas-image-right-quote]
+ * @param  array $atts Shortcode attributes
+ * @param  string [$content = ''] Content between shortcode tags
+ * @return string Shortcode output
+ */
+function ufclas_ufl_2015_image_right_quote($atts, $content = NULL ) {
+	
+	extract( shortcode_atts( 
+		array(
+			'image' => get_stylesheet_directory_uri() . '/img/ImgResponsive_Placeholder.png',
+			'quote' => '',
+			'caption' => '',
+			'credit' => '',
+		), $atts )
+	);
+	
+	// Support either image ID or image url
+	$image = ( is_numeric( $image ) )? wp_get_attachment_image_src( $image, 'large' ) : array($image);
+	$image_alt = ( is_numeric( $image ) )? get_post($image)->post_excerpt : '';
+	
+	// Shortcode callbacks must return content, so use output buffering
+	ob_start();
+	?>
+    <div class="container-fluid image-right-quote">
+    <div class="row">
+    <div class="col-md-6">
+    	<img class="center-block img-responsive pic" src="<?php echo esc_url( $image[0] ); ?>" alt="<?php echo esc_attr( $image_alt ); ?>">
+        <h4 class="text">
+			<?php echo esc_html( $caption ); ?> 
+            <?php if ( !empty( $credit ) ): ?>
+            <img class="img-valign" src="<?php echo get_stylesheet_directory_uri(); ?>/svg/camera.svg" alt="Photo credit" width="13px"> 
+            <span style="color:#999999;"><?php echo esc_html( $credit ); ?></span>
+            <?php endif; ?>
+        </h4>
+    </div>
+ 	<div class="col-md-6">
+    	<div class="quote">
+        	<h3><?php echo esc_html( $quote ); ?></h3>
+        </div>
+	</div>
+    </div>
+    </div>
+    <?php 
+	return ob_get_clean();
+}
+add_shortcode('ufclas-image-right-quote', 'ufclas_ufl_2015_image_right_quote');
+
+/**
+ * Add Full Width Image with Caption
+ * 
+ * Example [ufclas-image-full-width]
+ * @param  array $atts Shortcode attributes
+ * @param  string [$content = ''] Content between shortcode tags
+ * @return string Shortcode output
+ */
+function ufclas_ufl_2015_image_full_width($atts, $content = NULL ) {
+	
+	extract( shortcode_atts( 
+		array(
+			'image' => get_stylesheet_directory_uri() . '/img/ImgResponsive_Placeholder.png',
+			'caption' => '',
+			'credit' => '',
+		), $atts )
+	);
+	
+	// Support either image ID or image url
+	$image = ( is_numeric( $image ) )? wp_get_attachment_image_src( $image, 'large' ) : array($image);
+	$image_alt = ( is_numeric( $image ) )? get_post($image)->post_excerpt : '';
+	
+	// Shortcode callbacks must return content, so use output buffering
+	ob_start();
+	?>
+    <div class="container-fluid image-full-width">
+    <figure class="image">
+    	<img class="img-responsive" src="<?php echo esc_url( $image[0] ); ?>" alt="<?php echo esc_attr( $image_alt ); ?>">
+        <figcaption class="container">
+        <?php echo esc_html( $caption ); ?> 
+		<?php if ( !empty( $credit ) ): ?>
+        <img class="img-valign" src="<?php echo get_stylesheet_directory_uri(); ?>/svg/camera.svg" alt="Photo credit" width="13px"> 
+        <span style="color:#999999;"><?php echo esc_html( $credit ); ?></span>
+        <?php endif; ?>
+        </figcaption>
+    </figure>
+    </div>
+   <?php 
+	return ob_get_clean();
+}
+add_shortcode('ufclas-image-full-width', 'ufclas_ufl_2015_image_full_width');
+
+/**
+ * Add Full Width Image with Caption
+ * 
+ * Example [ufclas-video-full-width]
+ * @param  array $atts Shortcode attributes
+ * @param  string [$content = ''] Content between shortcode tags
+ * @return string Shortcode output
+ */
+function ufclas_ufl_2015_video_full_width($atts, $content = NULL ) {
+	
+	extract( shortcode_atts( 
+		array(
+			'url' => '',
+		), $atts )
+	);
+	
+	// Shortcode callbacks must return content, so use output buffering
+	ob_start();
+	?>
+    <div class="container-fluid">
+    <div class="embed-responsive embed-responsive-16by9">
+    	<?php 
+			$shortcode = sprintf('[embed]%s[/embed]', esc_url( $url ));
+			echo do_shortcode( $shortcode ); 
+		?>
+    </div>
+    </div>
+   <?php 
+	return ob_get_clean();
+}
+add_shortcode('ufclas-video-full-width', 'ufclas_ufl_2015_video_full_width');

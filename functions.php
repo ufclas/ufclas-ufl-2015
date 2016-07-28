@@ -72,7 +72,7 @@ add_action( 'after_setup_theme', 'ufclas_ufl_2015_setup' );
  * @global int $content_width
  */
 function ufclas_ufl_2015_content_width() {
-	$GLOBALS['content_width'] = apply_filters( 'ufclas_ufl_2015_content_width', 640 );
+	$GLOBALS['content_width'] = apply_filters( 'ufclas_ufl_2015_content_width', 960 );
 }
 add_action( 'after_setup_theme', 'ufclas_ufl_2015_content_width', 0 );
 
@@ -85,6 +85,11 @@ function ufclas_ufl_2015_scripts() {
 	wp_enqueue_script('velocity-ui', 'https://cdnjs.cloudflare.com/ajax/libs/velocity/1.2.2/velocity.ui.min.js', array('velocity'), false, true);
 	wp_enqueue_script('ufclas-ufl-2015-plugins', get_stylesheet_directory_uri() . '/js/plugins.js', array(), false, true);
 	wp_enqueue_script('ufclas-ufl-2015-scripts', get_stylesheet_directory_uri() . '/js/scripts.js', array(), false, true);
+	
+	if ( WP_DEBUG ){
+		$custom_css = '#querylist h2, #querylist ul li, #querylist ol li { text-transform: none; } #querylist ul li:before, #querylist ol li:before { content: none; }';
+		wp_add_inline_style( 'style', $custom_css );
+	}
 	
 	// Pass site data to Javascript
 	wp_localize_script( 'ufclas-ufl-2015-plugins', 'ufclas_ufl_2015_themeurl', get_stylesheet_directory_uri() );
@@ -127,7 +132,7 @@ function ufclas_ufl_2015_breadcrumbs() {
 	$breadcrumb = '<ul class="breadcrumb-wrap">';
 	
 	$post_ancestors = get_post_ancestors($post);
-		
+	
 	if ( !$post_ancestors ) {
 		$breadcrumb .= '<li>&nbsp;</li>';
 	}
@@ -200,6 +205,20 @@ function ufclas_ufl_2015_archive_title( $title ){
 add_filter( 'get_the_archive_title', 'ufclas_ufl_2015_archive_title' );
 
 /**
+ * Change the default embed height to 16:9 dimensions
+ * 
+ * @since 0.1.0
+ */
+function ufclas_ufl_2015_embed_defaults( $size, $url ) {
+	//extract( $size );
+	$width = (int) $GLOBALS['content_width'];
+	$height = min( ceil( $width * 0.5625 ), 1000 );
+	
+	return compact( 'width', 'height' );
+}
+add_filter( 'embed_defaults', 'ufclas_ufl_2015_embed_defaults', 2, 10 );
+
+/**
  * Load custom theme files 
  */
 require get_stylesheet_directory() . '/inc/shortcodes.php';
@@ -210,10 +229,10 @@ require get_stylesheet_directory() . '/inc/shibboleth.php';
 
 // Shortcake Shortcode UI
 if( function_exists( 'shortcode_ui_register_for_shortcode' ) ) {
-	require get_stylesheet_directory() . '/inc/shortcodes-ui.php';
+	require get_stylesheet_directory() . '/inc/shortcake/shortcodes-ui.php';
 }
 
 // IssueM newsletter
 if ( class_exists( 'IssueM' ) ) {
-	require get_stylesheet_directory() . '/inc/issuem.php';
+	require get_stylesheet_directory() . '/inc/issuem/issuem.php';
 }

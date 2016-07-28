@@ -12,7 +12,7 @@ get_header(); ?>
   <div class="col-sm-12">
     <header class="entry-header">
       <?php 
-	  	$issue_title = ( is_page() )? get_the_title() : ufclas_ufl_2015_issuem_newsletter_title();
+	  	$issue_title = ufclas_ufl_2015_issuem_newsletter_title();
 	  	printf( "<h1 class=\"entry-title\">%s</h1>", $issue_title );
       ?>
     </header>
@@ -72,11 +72,13 @@ get_header(); ?>
     </div>
     </article>
     <?php endwhile; ?>
-    
-    <p><a href="#content" class="read-more btn btn-primary">Back to top</a></p>
-    
-  </div>
+  </div>   
 </div>
+    <div class="row">
+    	<div class="col-md-12">
+    	<p><a href="#main" class="read-more btn btn-primary">Back to top</a></p>
+        </div>
+    </div>
 </div>
 
 <?php get_footer(); ?>

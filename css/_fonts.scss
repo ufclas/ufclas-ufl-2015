@@ -3,13 +3,23 @@ UF Branding Fonts
 ----------------------------*/
 @font-face {
     font-family: 'quadon';
-    src: url('fonts/rene_bieder_-_quadon_medium-webfont.eot');
+    src: url('fonts/rene_bieder_-_quadon_medium-webfont.eot'); 
     src: url('fonts/rene_bieder_-_quadon_medium-webfont.eot?#iefix') format('embedded-opentype'),
          url('fonts/rene_bieder_-_quadon_medium-webfont.woff') format('woff'),
          url('fonts/rene_bieder_-_quadon_medium-webfont.ttf') format('truetype'),
          url('fonts/rene_bieder_-_quadon_medium-webfont.svg#quadon') format('svg');
     font-weight: 500;
     font-style: normal;
+}
+@font-face {
+    font-family: 'quadon';
+    src: url('fonts/rene_bieder_-_quadon_extrabolditalic-webfont.eot');
+    src: url('fonts/rene_bieder_-_quadon_extrabolditalic-webfont.eot?#iefix') format('embedded-opentype'),
+         url('fonts/rene_bieder_-_quadon_extrabolditalic-webfont.woff') format('woff'),
+         url('fonts/rene_bieder_-_quadon_extrabolditalic-webfont.ttf') format('truetype'),
+         url('fonts/rene_bieder_-_quadon_extrabolditalic-webfont.svg#quadon') format('svg');
+    font-weight: 800;
+    font-style: italic;
 }
 @font-face {
     font-family: 'gentona';
@@ -49,5 +59,25 @@ UF Branding Fonts
          url('fonts/rene_bieder_-_gentona_light_italic-webfont.ttf') format('truetype'),
          url('fonts/rene_bieder_-_gentona_light_italic-webfont.svg#gentona') format('svg');
     font-weight: 100;
+    font-style: italic;
+}
+@font-face {
+    font-family: 'gentona';
+    src: url('fonts/rene_bieder_-_gentona_heavy-webfont.eot');
+    src: url('fonts/rene_bieder_-_gentona_heavy-webfont.eot?#iefix') format('embedded-opentype'),
+         url('fonts/rene_bieder_-_gentona_heavy-webfont.woff') format('woff'),
+         url('fonts/rene_bieder_-_gentona_heavy-webfont.ttf') format('truetype'),
+         url('fonts/rene_bieder_-_gentona_heavy-webfont.svg#gentona') format('svg');
+    font-weight: 800;
+    font-style: normal;
+}
+@font-face {
+    font-family: 'gentona';
+    src: url('fonts/rene_bieder_-_gentona_heavy_italic-webfont.eot');
+    src: url('fonts/rene_bieder_-_gentona_heavy_italic-webfont.eot?#iefix') format('embedded-opentype'),
+         url('fonts/rene_bieder_-_gentona_heavy_italic-webfont.woff') format('woff'),
+         url('fonts/rene_bieder_-_gentona_heavy_italic-webfont.ttf') format('truetype'),
+         url('fonts/rene_bieder_-_gentona_heavy_italic-webfont.svg#gentona') format('svg');
+    font-weight: 800;
     font-style: italic;
 }

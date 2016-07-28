@@ -1,6 +1,6 @@
 <?php
 /**
- * Full Width Page (no sidebars or widgets)
+ * IssueM Article template
  * 
  * @package UFCLAS_UFL_2015
  *
