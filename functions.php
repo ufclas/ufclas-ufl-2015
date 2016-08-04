@@ -60,6 +60,14 @@ function ufclas_ufl_2015_setup() {
 		'rolebased_nav' => esc_html__( 'Role-Based Navigation', 'ufclas-ufl-2015' ),
 		'audience_nav' => esc_html__( 'Audience Navigation', 'ufclas-ufl-2015' ),
 	) );
+	
+	// Add support for custom logos in the Customizer, use flex-width/height to skip cropping
+	add_theme_support( 'custom-logo', array(
+		'width' => 240,
+		'height' => 58,
+		'flex-width' => true,
+		'flex-height' => true,
+	) );
 }
 endif; // ufclas_ufl_2015_setup
 add_action( 'after_setup_theme', 'ufclas_ufl_2015_setup' );
@@ -217,6 +225,26 @@ function ufclas_ufl_2015_embed_defaults( $size, $url ) {
 	return compact( 'width', 'height' );
 }
 add_filter( 'embed_defaults', 'ufclas_ufl_2015_embed_defaults', 2, 10 );
+
+/**
+ * Custom logo backwards compatibility with versions older than 4.5
+ * @since 0.2.3
+ */
+function ufclas_ufl_2015_get_custom_logo() {
+	$custom_logo = '';
+	
+	if ( function_exists( 'the_custom_logo' ) ) {
+		$blog_id = get_current_blog_id();
+		if ( has_custom_logo( $blog_id ) ){
+		  $custom_logo = get_custom_logo();
+		  $custom_logo = preg_replace("/(.+)src=\"([^\"]*)\"(.+)/", "$2", $custom_logo);
+		}
+		else {
+		 $custom_logo = get_stylesheet_directory_uri() . '/svg/clas-logo.svg';
+		}	
+   }
+   return $custom_logo;
+}
 
 /**
  * Load custom theme files 
