@@ -88,6 +88,18 @@ add_action( 'after_setup_theme', 'ufclas_ufl_2015_content_width', 0 );
  * Enqueue scripts and styles.
  */
 function ufclas_ufl_2015_scripts() {
+	// Bootstrap
+	wp_enqueue_style('bootstrap', get_template_directory_uri() . '/inc/bootstrap/css/bootstrap.min.css');
+	wp_enqueue_script('bootstrap', get_template_directory_uri() . '/inc/bootstrap/js/bootstrap.min.js', array('jquery'), false, true);
+	
+	wp_register_script( 'ie_html5shiv', get_template_directory_uri(). '/js/html5shiv.min.js' );
+	wp_enqueue_script( 'ie_html5shiv');
+	wp_script_add_data( 'ie_html5shiv', 'conditional', 'lt IE 9' );
+	
+	wp_register_script( 'ie_respond', get_template_directory_uri() . '/js/respond.min.js' );
+	wp_enqueue_script( 'ie_respond');
+	wp_script_add_data( 'ie_respond', 'conditional', 'lt IE 9' );
+	
 	wp_enqueue_style( 'style', get_stylesheet_uri(), array('dashicons') );
 	wp_enqueue_script('velocity', 'https://cdnjs.cloudflare.com/ajax/libs/velocity/1.2.2/velocity.min.js', array('jquery'), false, true);
 	wp_enqueue_script('velocity-ui', 'https://cdnjs.cloudflare.com/ajax/libs/velocity/1.2.2/velocity.ui.min.js', array('velocity'), false, true);
@@ -252,6 +264,7 @@ function ufclas_ufl_2015_get_custom_logo() {
 require get_stylesheet_directory() . '/inc/shortcodes.php';
 require get_stylesheet_directory() . '/inc/walkers.php';
 require get_stylesheet_directory() . '/inc/widgets.php';
+require get_stylesheet_directory() . '/inc/metaboxes.php';
 require get_stylesheet_directory() . '/inc/shibboleth.php';
 
 
