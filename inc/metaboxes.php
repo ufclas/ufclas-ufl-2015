@@ -14,7 +14,7 @@ if(function_exists("register_field_group"))
 		'title' => 'Page Options',
 		'fields' => array (
 			array (
-				'key' => 'field_57a8fc624ff76',
+				'key' => 'field_57a905164b0d2',
 				'label' => 'Subtitle Text',
 				'name' => 'custom_meta_page_subtitle',
 				'type' => 'text',
@@ -27,7 +27,7 @@ if(function_exists("register_field_group"))
 				'maxlength' => '',
 			),
 			array (
-				'key' => 'field_57a8fc62509ec',
+				'key' => 'field_57a905164badf',
 				'label' => 'Title Override Text',
 				'name' => 'custom_meta_page_title_override',
 				'type' => 'text',
