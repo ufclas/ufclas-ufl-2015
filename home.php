@@ -27,13 +27,14 @@ $homepage_layout_color = ( 0 )? ' homepage_layout_white':''; // debug
 <div id="main" class="container">
 <div class="row">
   <div class="col-sm-12">
-    <?php 
-		while ( have_posts() ) : the_post();
-			//get_template_part( 'template-parts/content', get_post_format() );
-		endwhile; // End of the loop. 
-	?>
+  	
+	<div id="secondary" class="widget-area" role="complementary">
+		<?php ufandshands_secondary_widget_area(); ?>
+    </div><!-- .widget-area -->
+    
   </div>
 </div>
 </div>
+
 
 <?php get_footer(); ?>
