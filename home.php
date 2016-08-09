@@ -8,7 +8,7 @@
  */
 get_header(); 
 
-$story_stacker = 0; // debug
+$story_stacker = get_theme_mod('story_stacker');
 $homepage_layout_color = ( 0 )? ' homepage_layout_white':''; // debug
 
 ?>

@@ -254,6 +254,7 @@ require get_stylesheet_directory() . '/inc/walkers.php';
 require get_stylesheet_directory() . '/inc/widgets.php';
 require get_stylesheet_directory() . '/inc/metaboxes.php';
 require get_stylesheet_directory() . '/inc/shibboleth.php';
+require get_stylesheet_directory() . '/inc/customizer.php';
 
 
 // Shortcake Shortcode UI
