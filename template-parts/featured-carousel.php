@@ -38,8 +38,7 @@ if ( $slider_query->have_posts() ):
             <?php 
                  while( $slider_query->have_posts() ): $slider_query->the_post();
 					$custom_meta = array(
-						/*'custom_meta_image_type' => get_field('custom_meta_image_type'),*/ 
-						'custom_meta_image_type' => 1, // debug
+						'custom_meta_image_type' => get_field('custom_meta_image_type'),
 					);
 					$image_type = ( isset($custom_meta['custom_meta_image_type']) )? $custom_meta['custom_meta_image_type'][0]:NULL;
 					$slider_first_id = $slider_query->posts[0]->ID;
