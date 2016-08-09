@@ -1,0 +1,31 @@
+/*--------------------------------------------------------------
+# Typography
+--------------------------------------------------------------*/
+$font__text: 'gentonalight', Slabo, sans-serif;
+$font__headings: 'gentona_bookbold', Arial, sans-serif;
+$font__headings_serif: 'quadonmedium', Georgia, serif;
+$font__size: 17;
+$font__size_3xl: 60/$font__size + rem;
+$font__size_2xl: 48/$font__size + rem;
+$font__size_xl: 32/$font__size + rem;
+$font__size_lg: 24/$font__size + rem;
+$font__size_md: 18/$font__size + rem;
+$font__size_sm: 16/$font__size + rem;
+$font__size_xs: 14/$font__size + rem;
+$font__size_xxs: 12/$font__size + rem;
+
+/*--------------------------------------------------------------
+# Structure
+--------------------------------------------------------------*/
+// Carousel
+$size__carousel_width: 930px;
+$size__carousel_height: 325px;
+$size__carousel_width_md: 1140px;
+$size__carousel_height_md: 399px;
+
+// Stacker
+$size__stacker_width: 630px;
+$size__stacker_height: 399px;
+$size__stacker_height_md: 325px;
+$size__stacker_item_height: 88px;
+

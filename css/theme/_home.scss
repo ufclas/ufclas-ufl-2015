@@ -1,0 +1,370 @@
+.carousel-row {
+	color: $white;
+	text-align: center;
+
+	.home & {
+		background-color: transparent;
+		background-image: none;
+		margin-top: -95px;
+	}
+	.carousel-wrap {
+		padding: $grid-gutter-width*1.5 0;
+		margin: 0 auto;
+		
+		@media screen and (max-width: $screen-sm-max){
+			padding: 0;
+		}
+	}
+}
+.carousel-inner {
+	width: 100%;
+	margin: 0 auto;
+	
+	@media screen and (min-width: $screen-sm){
+		
+	}
+	@media screen and (min-width: $screen-md){
+		width: $size__carousel_width_md;
+		height: $size__carousel_height_md;
+	}
+}
+.carousel-control {
+	display: none;
+	
+	@media screen and (min-width: $screen-md){
+		width: $grid-gutter-width*2;
+		display: block;
+	}
+	&.left {
+		background-image: none;	
+		left: -$grid-gutter-width;
+		color: $white;
+	}
+	&.right {
+		background-image: none;	
+		right: -$grid-gutter-width;
+		color: $white;
+	}
+}
+#featured-carousel {
+	
+	.carousel-indicators {
+		display: none;
+	}
+	.carousel-control {
+		color: #999;
+	}
+	.slide-image {
+		width: 100%;	
+	}
+	.item.half-image-feature, .item.full-image-feature {
+		width: 100%;
+		height: $size__carousel_height;
+		
+		@media screen and (min-width: $screen-sm){
+			//width: $size__carousel_width;
+		}
+		@media screen and (min-width: $screen-md){
+			//width: $size__carousel_width_md;
+			height: $size__carousel_height_md;
+		}
+	}
+	.item.full-image-feature img {
+		width: auto;
+		height: $size__carousel_height;;
+		
+		@media screen and (min-width: $screen-md){
+			width: $size__carousel_width_md;
+			height: $size__carousel_height_md;
+		}
+	}
+	.item.half-image-feature img {
+		width: auto;
+		height: $size__carousel_height;
+		
+		@media screen and (min-width: $screen-md){
+			width: auto;
+			height: $size__carousel_height_md;
+			float: right;
+			margin-left: $grid-gutter-width*1.5;
+		}
+	}
+	.half-image-feature {
+		background-color: $blueLight;
+		
+		.carousel-caption {
+			position: absolute;
+			left: 0;
+			top: 0;
+			padding: $grid-gutter-width*1.5 $grid-gutter-width 0;
+			width: 100%;
+			height: $size__carousel_height;
+			overflow: hidden;
+			text-align: left;
+			background-color: rgba(0, 0, 0, 0.8);
+			
+			h3 {
+				color: $white;
+				font-family: $font__headings;
+				text-transform: uppercase;
+			}
+			p {
+				font-size: $font__size_xs;
+				line-height: 22px;	
+			}
+			a, a:visited {
+				color: $white;
+			}
+			@media screen and (min-width: $screen-sm){
+				padding: $grid-gutter-width*3 $grid-gutter-width*3 0;
+			}
+			@media screen and (min-width: $screen-md){
+				right: 0;
+				bottom: 0;
+				padding: $grid-gutter-width*1.5 $grid-gutter-width*2 0;
+				background-color: transparent;
+				width: 60%;
+				
+				h3 {
+					margin-top: $grid-gutter-width*2.5;
+				}
+				p {
+					font-size: $font__size_md;
+					line-height: 26px;
+				}
+			}
+		}
+		
+	}
+	.full-image-feature {
+		.carousel-caption {
+			position: absolute;
+			left: 0;
+			top: 0;
+			padding: $grid-gutter-width*1.5 $grid-gutter-width 0;
+			width: 100%;
+			height: $size__carousel_height;
+			overflow: hidden;
+			text-align: left;
+			background-color: rgba(0, 0, 0, 0.8);
+			
+			h3 {
+				color: $white;
+				margin-bottom: $grid-gutter-width*0.75;
+				font-family: $font__headings;
+				text-transform: uppercase;
+			}
+			p {
+				font-size: $font__size_xs;
+				line-height: 22px;	
+			}
+			.read-more {
+				font-weight: bold;	
+			}
+			a, a:visited {
+				color: $white;	
+			}
+			@media screen and (min-width: $screen-sm){
+				padding: $grid-gutter-width*3 $grid-gutter-width*3 0;
+			}
+			@media screen and (min-width: $screen-md){
+				padding: $grid-gutter-width  $grid-gutter-width*0.75;
+				left: $grid-gutter-width/2;
+				top: auto;
+				bottom: $grid-gutter-width/2;
+				width: 50%;
+				height: auto;
+			}
+		}
+	}
+}
+#featured-stacker {
+	.stacker-control {	
+		background-color: $white;
+		padding: 0;
+	}
+	.carousel-indicators {
+		color: #000;
+		position: relative;
+		left: 0;
+		bottom: auto;
+		width: 100%;
+		margin: 0;
+		text-align: left;
+		
+		li {
+			display: block;
+			width: 100%;
+			height: $size__stacker_height/3;
+			border-radius: 0;
+			border: none;
+			text-indent: 0;
+			padding: 0;
+			margin: 0;
+			overflow: hidden;
+			
+			@media screen and (min-width: $screen-md){
+				height: $size__stacker_height_md/3;
+				margin: 0;
+			}
+		}
+		.active {
+			background-color: $beigeDark;
+		}
+		img {
+			float: left;
+			margin-right: $grid-gutter-width/2;
+			width: $size__stacker_height/3;
+			height: $size__stacker_height/3;
+			
+			@media screen and (min-width: $screen-md){
+				height: $size__stacker_height_md/3;
+			}
+		}
+		.excerpt {
+			margin: $grid-gutter-width/2;	
+		}
+		h3 {
+			letter-spacing: normal;
+			text-transform: uppercase;
+			font-family: $font__headings;
+			font-weight: normal;
+			font-size: $font__size_sm;
+			line-height: 20px;
+			margin-bottom: 0;		
+		}
+		.meta {
+			font-size: $font__size_xs;
+		}
+		a, a:visited {
+			color: $blueDark;	
+		}
+	}
+	.carousel-inner {
+		width: auto;
+		height: $size__stacker_height;
+
+		@media screen and (min-width: $screen-md){
+			height: $size__stacker_height_md;
+		}
+	}
+	.item.half-image-feature, .item.full-image-feature {
+		width: 100%;
+		max-height: $size__stacker_height;
+		
+		@media screen and (min-width: $screen-md){
+			height: $size__stacker_height_md;
+		}
+	}
+	.item.full-image-feature img {
+		width: auto;
+		height: $size__stacker_height;;
+		
+		@media screen and (min-width: $screen-md){
+			width: 100%;
+			height: $size__stacker_height_md;
+		}
+	}
+	.item.half-image-feature img {
+		width: auto;
+		height: $size__stacker_height;;
+		
+		@media screen and (min-width: $screen-md){
+			width: auto;
+			height: $size__stacker_height_md;
+		}
+	}
+	.full-image-feature, .half-image-feature {
+		background-color: $beigeDark;
+		
+		.carousel-caption {
+			position: absolute;
+			left: 0;
+			top: auto;
+			bottom: 0;
+			padding: $grid-gutter-width;
+			width: 100%;
+			max-height: $size__stacker_height;
+			overflow: hidden;
+			text-align: left;
+			background-color: rgba(0, 0, 0, 0.8);
+			
+			@media screen and (min-width: $screen-md){
+				padding: $grid-gutter-width/2 $grid-gutter-width/2 $grid-gutter-width/4;
+				left: $grid-gutter-width/2;
+				top: auto;
+				bottom: $grid-gutter-width/2;
+				width: 80%;
+				height: auto;
+			}
+			
+			h3 {
+				color: $white;
+				margin-bottom: $grid-gutter-width/2;
+				font-family: $font__headings;
+				text-transform: uppercase;
+				font-size: $font__size_md;
+			}
+			p {
+				font-size: $font__size_xs;
+				line-height: 18px;	
+			}
+			.read-more {
+				font-weight: bold;	
+			}
+			a, a:visited {
+				color: $white;	
+			}
+			
+			
+		}
+	}
+}
+/* Carousel Fade - http://codepen.io/Rowno/pen/Afykb */
+.carousel-fade {
+    .carousel-inner {
+        .item {
+            transition-property: opacity;
+        }
+        
+        .item,
+        .active.left,
+        .active.right {
+            opacity: 0;
+        }
+
+        .active,
+        .next.left,
+        .prev.right {
+            opacity: 1;
+        }
+
+        .next,
+        .prev,
+        .active.left,
+        .active.right {
+            left: 0;
+            transform: translate3d(0, 0, 0);
+        }
+    }
+
+    .carousel-control {
+        z-index: 2;
+    }
+	.entry-content & {
+		.carousel-control {
+			display: none;	
+		}
+		.carousel-inner > .item > a > img, .carousel-inner > .item > img {
+			width: 100%;	
+		}
+		.item {
+			background-color: transparent;	
+		}
+		@media screen and (min-width: $screen-sm){
+			.carousel-indicators {
+				bottom: $grid-gutter-width;
+			}
+		}
+	}
+}

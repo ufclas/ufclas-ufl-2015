@@ -7,10 +7,8 @@
  * @package UF_CLAS_2015
  */
 
-// $slider_category = of_get_option('opt_featured_category');
-// $slider_number_of_posts = of_get_option('opt_number_of_posts_to_show');
-$slider_category = 4; // debug
-$slider_number_of_posts = 3; // debug
+$slider_category = get_theme_mod('featured_category');
+$slider_number_of_posts = 3;
 
 $slider_query = new WP_Query(array(
 	'cat' => $slider_category,

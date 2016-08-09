@@ -177,9 +177,11 @@ jQuery(function($){
 			$(this).closest('.footer-menu').toggleClass('open');
 		}
 	});
-
+	
+	/*
 	//// Homepage featured story
 	// Setting homepage hero story on load
+	
 	$('.featured-story-img-wrap').each(function(){
 		$(this).find('.featured-story-img:first').addClass('active');
 	});
@@ -211,6 +213,7 @@ jQuery(function($){
 			$el.prependTo($container);
 		});
 	});
+	*/
 
 	// Homepage feature bio wrap
 	function bioSize(){
@@ -581,21 +584,6 @@ jQuery(function($){
 
 
 jQuery(function($){
-  
-  // Smooth Scrolling links with targets within current page
-  $('a[href*="#"]:not([href="#"])').click(function() {
-    if (location.pathname.replace(/^\//,'') == this.pathname.replace(/^\//,'') && location.hostname == this.hostname) {
-      var target = $(this.hash);
-      target = target.length ? target : $('[name=' + this.hash.slice(1) +']');
-	  var fixedHeaderHeight = $('.main-menu-wrap').height() + 50;
-      if (target.length) {
-        $('html, body').animate({
-          scrollTop: target.offset().top - fixedHeaderHeight
-        }, 500);
-        return false;
-      }
-    }
-  });
   
   	// Adjust width of main menu based on number of items
 	if ( $(window).width()>1200 ){

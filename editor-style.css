@@ -3753,6 +3753,12 @@ form.search-wrap, .btn-show-aux, .btn-menu, .btn-search-mobile {
   .content-box-module--tweet .tweet-block .visible-mobile {
     width: 75%; }
 
+/*--------------------------------------------------------------
+# Typography
+--------------------------------------------------------------*/
+/*--------------------------------------------------------------
+# Structure
+--------------------------------------------------------------*/
 .category #main, .tax-issuem_issue_categories #main, .single #main {
   background-color: #fff; }
   @media (min-width: 768px) {
