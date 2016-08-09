@@ -32,9 +32,7 @@ if ( $slider_query->have_posts() ):
             <div class="carousel-inner" role="listbox">
             <?php 
                  while( $slider_query->have_posts() ): $slider_query->the_post();
-					$custom_meta = array(
-						'custom_meta_image_type' => get_field('custom_meta_image_type'),
-					);
+					$custom_meta = get_post_custom( get_the_ID() );
 					$image_full_width = ( isset($custom_meta['custom_meta_image_type']) )? $custom_meta['custom_meta_image_type'][0]:NULL;
 					// $slider_disable_dates = of_get_option('opt_story_stacker_disable_dates');
 					$slider_disable_dates = false; // debug
