@@ -37,7 +37,7 @@ function ufclas_ufl_2015_setup() {
 
 	// Set up the WordPress core custom background feature.
 	add_theme_support( 'custom-background', apply_filters( 'ufclas_ufl_2015_custom_background_args', array(
-		'default-color' => 'ffffff',
+		'default-color' => 'faf8f1',
 		'default-image' => '',
 	) ) );
 	

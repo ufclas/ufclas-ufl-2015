@@ -6,7 +6,7 @@
  */
 function ufclas_ufl_2015_widgets_init() {
 	
-	$homepage_layout = '3c-thirds';
+	$homepage_layout = get_theme_mod('homepage_layout');
 	$disabled_global_elements = false;
 	
 	// Legacy Sidebars
@@ -107,8 +107,7 @@ add_action( 'widgets_init', 'ufclas_ufl_2015_widgets_init' );
  * @since 0.2.5
  */
 function ufandshands_secondary_widget_area() {
-	//$homepage_layout = of_get_option("opt_homepage_layout");
-	$homepage_layout = "2c-bias"; // debug
+	$homepage_layout = get_theme_mod('homepage_layout');
 	
 	switch($homepage_layout) {
 	

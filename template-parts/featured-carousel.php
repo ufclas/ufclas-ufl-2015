@@ -16,11 +16,10 @@ $slider_query = new WP_Query(array(
 ));
 
 if ( $slider_query->have_posts() ):
-
-	//$slider_speed = of_get_option('opt_featured_speed');
-	$slider_speed = 7000; // debug 
-	//$slider_disable_link = of_get_option('opt_featured_disable_link');
-	$slider_disable_link = 0; // debug
+	
+	// Get slider speed and convert it to miliseconds
+	$slider_speed = ( !empty(get_theme_mod('featured_speed')) )? get_theme_mod('featured_speed') * 1000:7000;
+	$slider_disable_link = get_theme_mod('featured_disable_link');
 ?>
 <div class="carousel-row">
     <div class="container carousel-wrap">

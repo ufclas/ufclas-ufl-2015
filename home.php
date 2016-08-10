@@ -9,8 +9,6 @@
 get_header(); 
 
 $story_stacker = get_theme_mod('story_stacker');
-$homepage_layout_color = ( 0 )? ' homepage_layout_white':''; // debug
-
 ?>
 
 <?php 
@@ -24,9 +22,9 @@ $homepage_layout_color = ( 0 )? ' homepage_layout_white':''; // debug
 	}
 ?>
 
-<div id="main" class="container">
-<div class="row">
-  <div class="col-sm-12">
+<div id="main" class="container-fluid">
+<div class="container">
+  <div class="row">
   	
 	<div id="secondary" class="widget-area" role="complementary">
 		<?php ufandshands_secondary_widget_area(); ?>

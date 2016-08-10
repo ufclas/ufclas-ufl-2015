@@ -17,11 +17,10 @@ $slider_query = new WP_Query(array(
 
 if ( $slider_query->have_posts() ):
 
-	//$slider_speed = of_get_option('opt_featured_speed');
-	//$slider_disable_link = of_get_option('opt_featured_disable_link');
-	$slider_speed = 7000; // debug 	
-	$slider_disable_link = 0; // debug
-	$slider_type = ' carousel-fade'; // debug
+	// Get slider speed and convert it to miliseconds
+	$slider_speed = ( !empty(get_theme_mod('featured_speed')) )? get_theme_mod('featured_speed') * 1000:7000;
+	$slider_disable_link = get_theme_mod('featured_disable_link');
+	$slider_type = ' carousel-fade';
 	
 ?>
 <div class="carousel-row row">
@@ -34,8 +33,7 @@ if ( $slider_query->have_posts() ):
                  while( $slider_query->have_posts() ): $slider_query->the_post();
 					$custom_meta = get_post_custom( get_the_ID() );
 					$image_full_width = ( isset($custom_meta['custom_meta_image_type']) )? $custom_meta['custom_meta_image_type'][0]:NULL;
-					// $slider_disable_dates = of_get_option('opt_story_stacker_disable_dates');
-					$slider_disable_dates = false; // debug
+					$slider_disable_dates = get_theme_mod('story_stacker_disable_dates');
 					$slider_first_id = $slider_query->posts[0]->ID;
                     $slide_class = ( $slider_first_id == get_the_ID() )? ' active':'';
 					$slide_class .= ( $image_full_width )? ' full-image-feature':' half-image-feature';
