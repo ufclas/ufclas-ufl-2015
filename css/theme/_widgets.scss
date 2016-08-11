@@ -1,3 +1,9 @@
+.widget-area {
+	.home & {
+		padding-top: $grid-gutter-width;
+	}
+}
+
 .widget {
 	margin-bottom: 30px;
 	
@@ -38,3 +44,31 @@
 	}
 }
 
+.widget_listcategorypostswidget {
+	li {
+		text-transform: none;
+		clear: both;
+		overflow: auto;
+		margin-bottom: $grid-gutter-width/2;
+	}
+	
+	li > a {
+		display: block;	
+		float: left;
+	}
+	img {
+		margin-right: $grid-gutter-width;
+		margin-bottom: $grid-gutter-width/2;
+	}
+	h3 {
+		font-family: $fontFamily;
+		font-size: 32px;
+		line-height: 36px;
+		margin-bottom: $grid-gutter-width/2;
+		text-transform: uppercase;
+		
+		a {
+			font-weight: 700;	
+		}
+	}
+}

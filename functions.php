@@ -227,7 +227,7 @@ function ufclas_ufl_2015_embed_defaults( $size, $url ) {
 add_filter( 'embed_defaults', 'ufclas_ufl_2015_embed_defaults', 2, 10 );
 
 /**
- * Custom logo backwards compatibility with versions older than 4.5
+ * Custom logo backwards compatibility with WordPress versions older than 4.5
  * @since 0.2.3
  */
 function ufclas_ufl_2015_get_custom_logo() {
@@ -245,6 +245,36 @@ function ufclas_ufl_2015_get_custom_logo() {
    }
    return $custom_logo;
 }
+
+/**
+ * Custom image sizes, 
+ *
+ * @since 0.2.5
+ */
+function ufclas_ufl_2015_image_sizes(){
+	// Legacy sizes
+	add_image_size('full-width-thumb', 930, 325, array('center', 'top'));
+	add_image_size('half-width-thumb', 464, 399, array('center', 'top'));
+	add_image_size('page_header', 680, 220, array('center', 'top'));
+	add_image_size('ufl_post_thumb', 600, 210, false);	
+}
+add_action( 'after_setup_theme', 'ufclas_ufl_2015_image_sizes' );
+
+/**
+ * Show additional sizes in the insert image dialog
+ *
+ * @param array $sizes	All defined image sizes
+ * @since 0.2.5
+ */
+function ufclas_ufl_2015_show_custom_sizes( $sizes ) {
+    return array_merge( $sizes, array(
+		'full-width-thumb' => __( 'Full Width Thumbnail' ),
+		'half-width-thumb' => __( 'Half Width Thumbnail' ),
+		'page_header' => __( 'Page Header' ),
+		'ufl_post_thumb' => __( 'Post Thumbnail' ),
+    ) );
+}
+add_filter( 'image_size_names_choose', 'ufclas_ufl_2015_show_custom_sizes' );
 
 /**
  * Load custom theme files 

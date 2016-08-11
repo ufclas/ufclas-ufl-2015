@@ -54,6 +54,7 @@ function ufclas_ufl_2015_customize_register( $wp_customize ) {
 	$wp_customize->add_setting( 'featured_category', array( 'default' => 0 ));
 	$wp_customize->add_setting( 'story_stacker', array( 'default' => 0 ));
 	$wp_customize->add_setting( 'number_of_posts_to_show', array( 'default' => 3 ));
+	$wp_customize->add_setting( 'featured_style', array( 'default' => 'slider-dark' ));
 	$wp_customize->add_setting( 'featured_speed', array( 'default' => 7 ));
 	$wp_customize->add_setting( 'featured_disable_link', array( 'default' => 0 ));
 	$wp_customize->add_setting( 'story_stacker_disable_dates', array( 'default' => 0 ));
@@ -74,6 +75,17 @@ function ufclas_ufl_2015_customize_register( $wp_customize ) {
 		'section' => 'homepage',
 		'type' => 'select',
 		'choices' => ufclas_ufl_2015_customize_range( 1, 15 ),
+	));
+	
+	$wp_customize->add_control( 'featured_style', array(
+		'label' => __('Featured Slider Style', 'ufclas-ufl-2015'),
+		'description' => __('Select a color scheme for the featured slider', 'ufclas-ufl-2015'),
+		'section' => 'homepage',
+		'type' => 'select',
+		'choices' => array(
+			'slider-light' => __('Light', 'ufclas-ufl-2015'),
+			'slider-dark' => __('Dark', 'ufclas-ufl-2015'),
+		),
 	));
 	
 	$wp_customize->add_control( 'featured_speed', array(

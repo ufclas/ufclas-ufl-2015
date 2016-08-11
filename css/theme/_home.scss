@@ -46,6 +46,8 @@
 		color: $white;
 	}
 }
+
+
 #featured-carousel {
 	
 	.carousel-indicators {
@@ -85,13 +87,41 @@
 		@media screen and (min-width: $screen-md){
 			width: auto;
 			height: $size__carousel_height_md;
-			float: right;
-			margin-left: $grid-gutter-width*1.5;
+			float: left;
+			margin-right: $grid-gutter-width*1.5;
 		}
 	}
-	.half-image-feature {
-		background-color: $blueLight;
+	
+	.slider-dark {
+		background-color: $blue;
 		
+		.carousel-caption {
+			background: $blue url('img/bg-big-stat.png') repeat-x center center;
+		}
+		
+		h3, a, p, li {
+			color: $white !important;
+		}
+	}
+	
+	.slider-light {
+		background-color: $white;
+		
+		.carousel-caption {
+			background-color: $white;
+			text-shadow: none;
+		}
+		h3 {
+			margin-top: 0 !important;	
+		}
+		
+		p, li {
+			color: $blueDark !important;
+			font-weight: 400;
+		}
+	}
+	
+	.half-image-feature {
 		.carousel-caption {
 			position: absolute;
 			left: 0;
@@ -101,36 +131,40 @@
 			height: $size__carousel_height;
 			overflow: hidden;
 			text-align: left;
-			background-color: rgba(0, 0, 0, 0.8);
+			text-shadow: none;
+			//background-color: rgba(0, 0, 0, 0.8);
 			
 			h3 {
-				color: $white;
-				font-family: $font__headings;
+				font-family: $fontFamily;
+				font-weight: 700;
+				font-size: 28px;
+				line-height: 32px;
 				text-transform: uppercase;
+				margin-bottom: 0;
+				letter-spacing: 2px;
 			}
 			p {
-				font-size: $font__size_xs;
-				line-height: 22px;	
-			}
-			a, a:visited {
-				color: $white;
+				font-size: 16px;
+				line-height: 24px;	
 			}
 			@media screen and (min-width: $screen-sm){
 				padding: $grid-gutter-width*3 $grid-gutter-width*3 0;
 			}
 			@media screen and (min-width: $screen-md){
+				left: initial;
+				top: initial;
 				right: 0;
 				bottom: 0;
-				padding: $grid-gutter-width*1.5 $grid-gutter-width*2 0;
-				background-color: transparent;
-				width: 60%;
+				padding: $grid-gutter-width $grid-gutter-width*1.167 0 $grid-gutter-width*1.83;
+				width: 50%;
+				height: 100%;
 				
 				h3 {
-					margin-top: $grid-gutter-width*2.5;
+					margin-top: $grid-gutter-width*1.5;
 				}
 				p {
-					font-size: $font__size_md;
-					line-height: 26px;
+					//font-size: $font__size_md;
+					//line-height: 26px;
 				}
 			}
 		}

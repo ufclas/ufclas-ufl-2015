@@ -9,6 +9,7 @@
 
 $slider_category = get_theme_mod('featured_category');
 $slider_number_of_posts = get_theme_mod('number_of_posts_to_show');
+$slider_style = get_theme_mod('featured_style');
 
 $slider_query = new WP_Query(array(
 	'cat' => $slider_category,
@@ -39,14 +40,18 @@ if ( $slider_query->have_posts() ):
 					$custom_meta = get_post_custom( get_the_ID() );
 					$image_type = ( isset($custom_meta['custom_meta_image_type']) )? $custom_meta['custom_meta_image_type'][0]:NULL;
 					$slider_first_id = $slider_query->posts[0]->ID;
-                    $slider_class = ( $slider_first_id == get_the_ID() )? 'active':'';
 					$slide_url = esc_url( get_permalink() );
 					$slide_thumbnail = ( has_post_thumbnail() )? get_the_post_thumbnail( get_the_ID(), 'half-width-thumb'):'';
+					
+					// Slider classes
+					$slider_classes = array();
+                    $slider_classes[] = ( $slider_first_id == get_the_ID() )? 'active':'';
+					$slider_classes[] = ( !empty( $slider_style ) )? esc_attr( $slider_style ):'';
 						
                 ?>
                 <!-- Full-Size Image Output -->
                 <?php if ($image_type): ?>
-                <div class="item full-image-feature <?php echo $slider_class; ?>" id="item-<?php the_ID(); ?>">
+                <div class="item full-image-feature <?php echo join(' ', $slider_classes); ?>" id="item-<?php the_ID(); ?>">
                     
 					<?php if ( has_post_thumbnail() ): ?>
                     <div class="slide-image">
@@ -69,7 +74,7 @@ if ( $slider_query->have_posts() ):
                 <?php else: ?>
                 
                 <!-- Half-Width Image Output -->
-                <div class="item half-image-feature <?php echo $slider_class; ?>" id="item-<?php the_ID(); ?>">
+                <div class="item half-image-feature <?php echo join(' ', $slider_classes); ?>" id="item-<?php the_ID(); ?>">
                     <div class="slide-image">
                         <?php 
 						if( !$slider_disable_link ){ // Add link to the image and title
