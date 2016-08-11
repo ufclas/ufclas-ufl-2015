@@ -7,9 +7,9 @@
  * @package UF_CLAS_2015
  */
 
-$slider_category = get_theme_mod('featured_category');
-$slider_number_of_posts = get_theme_mod('number_of_posts_to_show');
-$slider_style = get_theme_mod('featured_style');
+$slider_category = get_theme_mod('featured_category', 0);
+$slider_number_of_posts = get_theme_mod('number_of_posts_to_show', 5);
+$slider_style = get_theme_mod('featured_style', 'slider-dark');
 
 $slider_query = new WP_Query(array(
 	'cat' => $slider_category,
@@ -19,8 +19,9 @@ $slider_query = new WP_Query(array(
 if ( $slider_query->have_posts() ):
 	
 	// Get slider speed and convert it to miliseconds
-	$slider_speed = ( !empty(get_theme_mod('featured_speed')) )? get_theme_mod('featured_speed') * 1000:7000;
-	$slider_disable_link = get_theme_mod('featured_disable_link');
+	$slider_speed = get_theme_mod('featured_speed', 7);
+	$slider_speed = $slider_speed * 1000;
+	$slider_disable_link = get_theme_mod('featured_disable_link', 0);
 ?>
 <div class="carousel-row">
     <div class="container carousel-wrap">
