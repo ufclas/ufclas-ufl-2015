@@ -89,11 +89,9 @@ if ( $slider_query->have_posts() ):
                     <div class="carousel-caption">
                         <?php 
 						if( !$slider_disable_link ){ // Add link to the image and title
-							//echo '<div class="slide-image"><a href="' . $slide_url . '">' . $slide_thumbnail . '</a></div>';
 							the_title( sprintf('<h3><a href="%s">', $slide_url), '</a></h3>' );
 						}
 						else{
-							//echo '<div class="slide-image">' . $slide_thumbnail . '</div>';
 							the_title( '<h3>', '</h3>' );
 						}
 						?>

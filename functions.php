@@ -218,7 +218,6 @@ add_filter( 'get_the_archive_title', 'ufclas_ufl_2015_archive_title' );
  * @since 0.1.0
  */
 function ufclas_ufl_2015_embed_defaults( $size, $url ) {
-	//extract( $size );
 	$width = (int) $GLOBALS['content_width'];
 	$height = min( ceil( $width * 0.5625 ), 1000 );
 	
@@ -275,6 +274,37 @@ function ufclas_ufl_2015_show_custom_sizes( $sizes ) {
     ) );
 }
 add_filter( 'image_size_names_choose', 'ufclas_ufl_2015_show_custom_sizes' );
+
+/**
+ * Change the Read More Text from the default (legacy)
+ */
+function ufclas_ufl_2015_excerpt_more( $more ){
+	error_log( 'MORE: ' . $more );
+	global $post;
+	$custom_meta = get_post_custom($post->ID);
+	$custom_button_text = ( isset($custom_meta['custom_meta_featured_content_button_text']) )? $custom_meta['custom_meta_featured_content_button_text'][0]:'';
+	$label = ( empty($custom_button_text) )? "Read&nbsp;More":$custom_button_text;
+	return '<a href="'. get_permalink($post->ID) . '" title="'. get_the_title($post->ID) . '" class="read-more">' . $label . '</a>';   
+}
+add_filter('excerpt_more', 'ufclas_ufl_2015_excerpt_more');
+
+//add_filter('the_content_more_link', 'ufclas_ufl_2015_excerpt_more');
+
+/**
+ * Show either the_content or the_excerpt based on whether post contains the <!--more--> tag (legacy)
+ */
+function ufclas_ufl_2015_teaser_excerpt( $excerpt ){
+	global $post;
+	$has_teaser = (strpos($post->post_content, '<!--more') !== false);
+	if ($has_teaser){
+		// Remove extra formatting from the content
+		return strip_tags( get_the_content(), '<a><br><br/>' );
+	}
+	else {
+		return $excerpt;	
+	}
+}
+//add_filter( 'get_the_excerpt', 'ufclas_ufl_2015_teaser_excerpt');
 
 /**
  * Load custom theme files 
