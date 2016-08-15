@@ -6,7 +6,7 @@
  */
 function ufclas_ufl_2015_widgets_init() {
 	
-	$homepage_layout = '3c-thirds';
+	$homepage_layout = get_theme_mod('homepage_layout', '2c-bias');
 	$disabled_global_elements = false;
 	
 	// Legacy Sidebars
@@ -100,4 +100,84 @@ function ufclas_ufl_2015_widgets_init() {
 	) );
 }
 add_action( 'widgets_init', 'ufclas_ufl_2015_widgets_init' );
+
+/**
+ * Homepage Secondary Area (Widgets)
+ * 
+ * @since 0.2.5
+ */
+function ufandshands_secondary_widget_area() {
+	$homepage_layout = get_theme_mod('homepage_layout', '2c-bias');
+	
+	switch($homepage_layout) {
+	
+	case "3c-default":
+		echo '<div class="col-md-6" role="complementary">';
+			dynamic_sidebar('home_left');
+		echo "</div>";
+		
+		echo '<div class="col-md-3" role="complementary">';
+			dynamic_sidebar('home_middle');
+		echo "</div>";
+		
+		echo '<div class="col-md-3" role="complementary">';
+			dynamic_sidebar('home_right');
+		echo "</div>";
+	break;		
+	
+	case "3c-thirds":
+		echo '<div class="col-md-4" role="complementary">';
+			dynamic_sidebar('home_left');
+		echo "</div>";
+		
+		echo '<div class="col-md-4" role="complementary">';
+			dynamic_sidebar('home_middle');
+		echo "</div>";
+		
+		echo '<div class="col-md-4" role="complementary">';
+			dynamic_sidebar('home_right');
+		echo "</div>";
+	break;
+		
+	case "2c-bias":
+		echo '<div class="col-md-8" role="complementary">';
+			dynamic_sidebar('home_left');
+		echo "</div>";
+						
+		echo '<div class="col-md-4" role="complementary">';
+			dynamic_sidebar('home_right');
+		echo "</div>";
+	break;
+		
+	case "2c-half":
+		echo '<div class="col-md-6" role="complementary">';
+			dynamic_sidebar('home_left');
+		echo "</div>";
+						
+		echo '<div class="col-md-6" role="complementary">';
+			dynamic_sidebar('home_right');
+		echo "</div>";
+	break;
+		
+	case "1c-100":
+		echo '<div class="col-md-12" role="complementary">';
+			dynamic_sidebar('home_left');
+		echo "</div>";
+	break;
+		
+	case "1c-100-2c-half":
+		echo '<div class="col-md-12" role="complementary">';
+			dynamic_sidebar('home_left');
+		echo "</div>";
+
+		echo '<div class="col-md-6" role="complementary">';
+			dynamic_sidebar('home_middle');
+		echo "</div>";
+						
+		echo '<div class="col-md-6" role="complementary">';
+			dynamic_sidebar('home_right');
+		echo "</div>";
+	break;
+	}
+}
 

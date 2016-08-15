@@ -11,7 +11,7 @@
 						<li><a href="https://www.instagram.com/uf_clas/" class="btn-circle icon-svg icon-instagram"><svg><use xlink:href="<?php echo get_stylesheet_directory_uri(); ?>/img/spritemap.svg#instagram"></use></svg><span class="visuallyhidden">Instagram</span></a></li>
 						<li><a href="http://www.youtube.com/user/universityofflorida/" class="btn-circle icon-svg icon-youtube"><svg><use xlink:href="<?php echo get_stylesheet_directory_uri(); ?>/img/spritemap.svg#youtube"></use></svg><span class="visuallyhidden">YouTube</span></a></li>
 					</ul>
-					<p class="address">CLAS IT<br>Bryant Space Science Center, Rm. 301<br>University of Florida<br>Gainesville, FL 32611<br>(352) 392-1990</p>
+					<p class="address">CLAS IT<br>Bryant Space Science Center, Rm. 301<br>University of Florida<br>Gainesville, FL 32611<br>(352) 846-1990</p>
 				</div>
 
 				<div class="col-md-8 col-md-pull-4">

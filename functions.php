@@ -35,21 +35,9 @@ function ufclas_ufl_2015_setup() {
 		'caption',
 	) );
 
-	/*
-	 * Enable support for Post Formats.
-	 * See https://developer.wordpress.org/themes/functionality/post-formats/
-	 */
-	add_theme_support( 'post-formats', array(
-		'aside',
-		'image',
-		'video',
-		'quote',
-		'link',
-	) );
-
 	// Set up the WordPress core custom background feature.
 	add_theme_support( 'custom-background', apply_filters( 'ufclas_ufl_2015_custom_background_args', array(
-		'default-color' => 'ffffff',
+		'default-color' => 'faf8f1',
 		'default-image' => '',
 	) ) );
 	
@@ -88,6 +76,18 @@ add_action( 'after_setup_theme', 'ufclas_ufl_2015_content_width', 0 );
  * Enqueue scripts and styles.
  */
 function ufclas_ufl_2015_scripts() {
+	// Bootstrap
+	wp_enqueue_style('bootstrap', get_template_directory_uri() . '/inc/bootstrap/css/bootstrap.min.css');
+	wp_enqueue_script('bootstrap', get_template_directory_uri() . '/inc/bootstrap/js/bootstrap.min.js', array('jquery'), false, true);
+	
+	wp_register_script( 'ie_html5shiv', get_template_directory_uri(). '/js/html5shiv.min.js' );
+	wp_enqueue_script( 'ie_html5shiv');
+	wp_script_add_data( 'ie_html5shiv', 'conditional', 'lt IE 9' );
+	
+	wp_register_script( 'ie_respond', get_template_directory_uri() . '/js/respond.min.js' );
+	wp_enqueue_script( 'ie_respond');
+	wp_script_add_data( 'ie_respond', 'conditional', 'lt IE 9' );
+	
 	wp_enqueue_style( 'style', get_stylesheet_uri(), array('dashicons') );
 	wp_enqueue_script('velocity', 'https://cdnjs.cloudflare.com/ajax/libs/velocity/1.2.2/velocity.min.js', array('jquery'), false, true);
 	wp_enqueue_script('velocity-ui', 'https://cdnjs.cloudflare.com/ajax/libs/velocity/1.2.2/velocity.ui.min.js', array('velocity'), false, true);
@@ -218,7 +218,6 @@ add_filter( 'get_the_archive_title', 'ufclas_ufl_2015_archive_title' );
  * @since 0.1.0
  */
 function ufclas_ufl_2015_embed_defaults( $size, $url ) {
-	//extract( $size );
 	$width = (int) $GLOBALS['content_width'];
 	$height = min( ceil( $width * 0.5625 ), 1000 );
 	
@@ -227,7 +226,7 @@ function ufclas_ufl_2015_embed_defaults( $size, $url ) {
 add_filter( 'embed_defaults', 'ufclas_ufl_2015_embed_defaults', 2, 10 );
 
 /**
- * Custom logo backwards compatibility with versions older than 4.5
+ * Custom logo backwards compatibility with WordPress versions older than 4.5
  * @since 0.2.3
  */
 function ufclas_ufl_2015_get_custom_logo() {
@@ -247,13 +246,84 @@ function ufclas_ufl_2015_get_custom_logo() {
 }
 
 /**
+ * Custom image sizes, 
+ *
+ * @since 0.2.5
+ */
+function ufclas_ufl_2015_image_sizes(){
+	// Legacy sizes
+	add_image_size('full-width-thumb', 1140, 399, array('center', 'top'));
+	add_image_size('half-width-thumb', 570, 399, array('center', 'top'));
+	add_image_size('page_header', 750, 250, array('center', 'top'));
+	add_image_size('ufl_post_thumb', 600, 210, false);	
+}
+add_action( 'after_setup_theme', 'ufclas_ufl_2015_image_sizes' );
+
+/**
+ * Show additional sizes in the insert image dialog
+ *
+ * @param array $sizes	All defined image sizes
+ * @since 0.2.5
+ */
+function ufclas_ufl_2015_show_custom_sizes( $sizes ) {
+    return array_merge( $sizes, array(
+		'full-width-thumb' => __( 'Full Width Thumbnail' ),
+		'half-width-thumb' => __( 'Half Width Thumbnail' ),
+		'page_header' => __( 'Page Header' ),
+		'ufl_post_thumb' => __( 'Post Thumbnail' ),
+    ) );
+}
+add_filter( 'image_size_names_choose', 'ufclas_ufl_2015_show_custom_sizes' );
+
+/**
+ * Change the Read More Text from the default (legacy)
+ */
+function ufclas_ufl_2015_excerpt_more( $more ){
+	$custom_meta = get_post_custom( get_the_ID() );
+	$custom_button_text = ( isset($custom_meta['custom_meta_featured_content_button_text']) )? $custom_meta['custom_meta_featured_content_button_text'][0]:'';
+	$label = ( empty($custom_button_text) )? __('Read&nbsp;More', 'ufclas-ufl-2015'):$custom_button_text;
+	return '&hellip; <a href="'. get_permalink() . '" title="'. get_the_title() . '" class="read-more">' . $label . '</a>';
+}
+add_filter('excerpt_more', 'ufclas_ufl_2015_excerpt_more');
+add_filter('the_content_more_link', 'ufclas_ufl_2015_excerpt_more');
+
+/**
+ * Show either the_content or the_excerpt based on whether post contains the <!--more--> tag (legacy)
+ */
+function ufclas_ufl_2015_teaser_excerpt( $excerpt ){
+	
+	global $post;
+	$has_teaser = (strpos($post->post_content, '<!--more') !== false);
+	if ($has_teaser){
+		// Remove extra formatting from the content
+		return strip_tags( get_the_content(), '<a><br><br/>' );
+	}
+	else {
+		return $excerpt;
+	}
+}
+add_filter( 'get_the_excerpt', 'ufclas_ufl_2015_teaser_excerpt', 9, 1);
+
+/**
+ * Change the default excerpt length of 55 words
+ *
+ * @param int $length Excerpt length.
+ * @return int (Maybe) modified excerpt length.
+ */
+function ufclas_ufl_2015_excerpt_length( $length ) {
+    return 50;
+}
+add_filter( 'excerpt_length', 'ufclas_ufl_2015_excerpt_length', 999 );
+
+/**
  * Load custom theme files 
  */
 require get_stylesheet_directory() . '/inc/shortcodes.php';
 require get_stylesheet_directory() . '/inc/walkers.php';
 require get_stylesheet_directory() . '/inc/widgets.php';
+require get_stylesheet_directory() . '/inc/metaboxes.php';
 require get_stylesheet_directory() . '/inc/shibboleth.php';
-
+require get_stylesheet_directory() . '/inc/customizer.php';
 
 // Shortcake Shortcode UI
 if( function_exists( 'shortcode_ui_register_for_shortcode' ) ) {
