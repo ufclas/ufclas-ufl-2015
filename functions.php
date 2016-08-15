@@ -252,9 +252,9 @@ function ufclas_ufl_2015_get_custom_logo() {
  */
 function ufclas_ufl_2015_image_sizes(){
 	// Legacy sizes
-	add_image_size('full-width-thumb', 930, 325, array('center', 'top'));
-	add_image_size('half-width-thumb', 464, 399, array('center', 'top'));
-	add_image_size('page_header', 680, 220, array('center', 'top'));
+	add_image_size('full-width-thumb', 1140, 399, array('center', 'top'));
+	add_image_size('half-width-thumb', 570, 399, array('center', 'top'));
+	add_image_size('page_header', 750, 250, array('center', 'top'));
 	add_image_size('ufl_post_thumb', 600, 210, false);	
 }
 add_action( 'after_setup_theme', 'ufclas_ufl_2015_image_sizes' );
@@ -279,21 +279,19 @@ add_filter( 'image_size_names_choose', 'ufclas_ufl_2015_show_custom_sizes' );
  * Change the Read More Text from the default (legacy)
  */
 function ufclas_ufl_2015_excerpt_more( $more ){
-	error_log( 'MORE: ' . $more );
-	global $post;
-	$custom_meta = get_post_custom($post->ID);
+	$custom_meta = get_post_custom( get_the_ID() );
 	$custom_button_text = ( isset($custom_meta['custom_meta_featured_content_button_text']) )? $custom_meta['custom_meta_featured_content_button_text'][0]:'';
-	$label = ( empty($custom_button_text) )? "Read&nbsp;More":$custom_button_text;
-	return '<a href="'. get_permalink($post->ID) . '" title="'. get_the_title($post->ID) . '" class="read-more">' . $label . '</a>';   
+	$label = ( empty($custom_button_text) )? __('Read&nbsp;More', 'ufclas-ufl-2015'):$custom_button_text;
+	return '&hellip; <a href="'. get_permalink() . '" title="'. get_the_title() . '" class="read-more">' . $label . '</a>';
 }
 add_filter('excerpt_more', 'ufclas_ufl_2015_excerpt_more');
-
-//add_filter('the_content_more_link', 'ufclas_ufl_2015_excerpt_more');
+add_filter('the_content_more_link', 'ufclas_ufl_2015_excerpt_more');
 
 /**
  * Show either the_content or the_excerpt based on whether post contains the <!--more--> tag (legacy)
  */
 function ufclas_ufl_2015_teaser_excerpt( $excerpt ){
+	
 	global $post;
 	$has_teaser = (strpos($post->post_content, '<!--more') !== false);
 	if ($has_teaser){
@@ -301,10 +299,21 @@ function ufclas_ufl_2015_teaser_excerpt( $excerpt ){
 		return strip_tags( get_the_content(), '<a><br><br/>' );
 	}
 	else {
-		return $excerpt;	
+		return $excerpt;
 	}
 }
-//add_filter( 'get_the_excerpt', 'ufclas_ufl_2015_teaser_excerpt');
+add_filter( 'get_the_excerpt', 'ufclas_ufl_2015_teaser_excerpt', 9, 1);
+
+/**
+ * Change the default excerpt length of 55 words
+ *
+ * @param int $length Excerpt length.
+ * @return int (Maybe) modified excerpt length.
+ */
+function ufclas_ufl_2015_excerpt_length( $length ) {
+    return 50;
+}
+add_filter( 'excerpt_length', 'ufclas_ufl_2015_excerpt_length', 999 );
 
 /**
  * Load custom theme files 

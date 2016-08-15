@@ -74,10 +74,10 @@ while ( have_posts() ):
   $lcp_display_output .= $this->get_comments($post);
 
   //Show date:
-  $lcp_display_output .= ' ' . $this->get_date($post);
+  $lcp_display_output .= ' <span class="lcp_date">' . $this->get_date($post) . '</span>';
 
   //Show date modified:
-  $lcp_display_output .= ' ' . $this->get_modified_date($post);
+  $lcp_display_output .= ' <span class="lcp_modified_date">' . $this->get_modified_date($post) . '</span>';
 
   //Show author
   $lcp_display_output .= $this->get_author($post);
@@ -95,7 +95,7 @@ while ( have_posts() ):
    * Post content - Example of how to use tag and class parameters:
    * This will produce:<div class="lcp_excerpt">The content</div>
    */
-  $lcp_display_output .= $this->get_excerpt($post, 'div', 'lcp_excerpt');
+  $lcp_display_output .= $this->get_excerpt($post, 'p', 'lcp_excerpt');
 
   // Get Posts "More" link:
   $lcp_display_output .= $this->get_posts_morelink($post);

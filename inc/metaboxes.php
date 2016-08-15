@@ -153,7 +153,7 @@ if(function_exists("register_field_group"))
 				'name' => 'custom_meta_image_type',
 				'type' => 'checkbox',
 				'choices' => array (
-					1 => 'Image will use 100% of the allowed width. Recommended size is 930px x 325px',
+					1 => 'Image will use 100% of the allowed width. Recommended size is 1140px x 399px',
 				),
 				'default_value' => 0,
 				'layout' => 'vertical',

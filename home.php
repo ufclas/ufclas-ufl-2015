@@ -8,11 +8,10 @@
  */
 get_header(); 
 
-$story_stacker = get_theme_mod('story_stacker');
 ?>
 
 <?php 
-	if ( $story_stacker ){
+	if ( get_theme_mod('story_stacker', 0) ){
 		// Display Featured Story Stacker
 		get_template_part( 'template-parts/featured', 'story-stacker' );
 	}

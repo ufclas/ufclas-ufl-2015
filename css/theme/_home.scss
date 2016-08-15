@@ -5,7 +5,11 @@
 	.home & {
 		background-color: transparent;
 		background-image: none;
-		margin-top: -95px;
+		margin-top: -30px;
+		
+		@include breakFirst(large){
+			margin-top: -95px;
+		}
 	}
 	.carousel-wrap {
 		padding: $grid-gutter-width*1.5 0;
@@ -95,10 +99,17 @@
 	.slider-dark {
 		background-color: $blue;
 		
-		.carousel-caption {
-			background: $blue url('img/bg-big-stat.png') repeat-x center center;
+		&.half-image-feature .carousel-caption {
+			@include breakFirst(large){
+				background-color: $blue;
+				background-image: url('img/bg-big-stat.png');
+				background-repeat: repeat-x;
+				background-position: center center;
+			}
 		}
-		
+		.carousel-caption {
+			background-color: rgba(0, 0, 0, 0.7);
+		}
 		h3, a, p, li {
 			color: $white !important;
 		}
@@ -132,7 +143,6 @@
 			overflow: hidden;
 			text-align: left;
 			text-shadow: none;
-			//background-color: rgba(0, 0, 0, 0.8);
 			
 			h3 {
 				font-family: $fontFamily;
@@ -144,8 +154,15 @@
 				letter-spacing: 2px;
 			}
 			p {
-				font-size: 16px;
-				line-height: 24px;	
+				display: none;
+				font-size: 14px;
+				line-height: 20px;
+				
+				@include breakFirst(medium){
+					display: block;
+					font-size: 16px;
+					line-height: 24px;
+				}
 			}
 			@media screen and (min-width: $screen-sm){
 				padding: $grid-gutter-width*3 $grid-gutter-width*3 0;
@@ -161,10 +178,6 @@
 				
 				h3 {
 					margin-top: $grid-gutter-width*1.5;
-				}
-				p {
-					//font-size: $font__size_md;
-					//line-height: 26px;
 				}
 			}
 		}
@@ -184,13 +197,23 @@
 			
 			h3 {
 				color: $white;
-				margin-bottom: $grid-gutter-width*0.75;
-				font-family: $font__headings;
 				text-transform: uppercase;
+				font-family: $fontFamily;
+				font-weight: 700;
+				font-size: 28px;
+				line-height: 32px;
+				text-transform: uppercase;
+				margin-bottom: 0;
+				letter-spacing: 2px;
 			}
 			p {
-				font-size: $font__size_xs;
-				line-height: 22px;	
+				display: none;
+				
+				@include breakFirst(medium){
+					display: block;
+					font-size: 14px;
+					line-height: 20px;
+				}
 			}
 			.read-more {
 				font-weight: bold;	

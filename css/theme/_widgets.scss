@@ -25,9 +25,9 @@
 			display: block;	
 		}
 	}
-	.widgettitle {
+	.widgettitle, .widget-title {
 		text-transform: none;
-		font: 500 24px/32px $serifFontFamily;
+		font: 500 24px/32px $serifFontFamily; 
 		color: $blue;
 	}
 }
@@ -70,5 +70,46 @@
 		a {
 			font-weight: 700;	
 		}
+	}
+	.widget-title + strong {
+		margin-bottom: $grid-gutter-width/2;
+		
+		@include breakFirst(medium){
+			margin-bottom: 0;
+		}
+	}
+	.widget-title + strong a {
+		text-transform: uppercase;
+		border: 5px solid transparent;
+		color: $blue;
+		background-color: $white;
+		font-weight: 700;
+		font-size: 13px;
+		letter-spacing: 2px;
+		padding: 1px 14px;
+		
+		@include breakFirst(medium){
+			position: absolute;
+			top: 0;
+			right: 30px;
+		}
+		&:before {
+			content: 'More ';	
+		}
+		&:focus, &:hover {
+			background-color: $white;	
+		}
+	}
+}
+.tribe-events-list-widget {
+	.tribe-event-title {
+		font-size: 18px;
+		line-height: 26px;
+		// text-transform: none;
+		margin-bottom: 0;
+	}
+	.tribe-event-duration {
+		font-size: 16px;
+		line-height: 26px;	
 	}
 }
