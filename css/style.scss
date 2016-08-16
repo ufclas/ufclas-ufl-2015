@@ -4,36 +4,32 @@ Theme URI: https://clas.ufl.edu/
 Author: Priscilla Chapman (CLAS IT)
 Author URI: https://it.clas.ufl.edu/
 Description: Official UF template for Liberal Arts and Sciences. Based on 160 over 90 template.
-Version: 0.2.5
+Version: 0.2.6
 License: GNU General Public License v2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 Text Domain: ufclas-ufl-2015
-Build Date: 20160815
+Build Date: 20160816
 */
-@import '_reset';
-@import '_variables';
-@import '_mixins';
-@import '_grid';
-@import '_fonts';
-
-@import '_format';
-
-@import '_header';
-@import '_footer';
-@import '_alertModule';
-@import '_breadcrumbs';
-
-@import '_horizontalScrollEl';
-
-@import '_home';
-@import '_landingPage';
-@import '_programList';
-@import '_article';
-@import '_searchResult';
-@import '_breaker';
-@import '_bioModule';
-@import '_statModule';
-@import '_contentBoxModule';
+@import 'template/reset';
+@import 'template/variables';
+@import 'template/mixins';
+@import 'template/grid';
+@import 'template/fonts';
+@import 'template/format';
+@import 'template/header';
+@import 'template/footer';
+@import 'template/alertModule';
+@import 'template/breadcrumbs';
+@import 'template/horizontalScrollEl';
+@import 'template/home';
+@import 'template/landingPage';
+@import 'template/programList';
+@import 'template/article';
+@import 'template/searchResult';
+@import 'template/breaker';
+@import 'template/bioModule';
+@import 'template/statModule';
+@import 'template/contentBoxModule';
  
 @import 'theme/variables';
 @import 'theme/theme';
@@ -44,3 +40,4 @@ Build Date: 20160815
 @import 'theme/post';
 @import 'theme/home';
 @import 'theme/issuem';
+ 
