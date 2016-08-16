@@ -1,0 +1,246 @@
+@charset "utf-8";
+
+.category, .single {
+	#main {
+		background-color: $white;
+		
+		@include breakFirst(medium){
+			padding: 45px 60px;
+		}	
+	}
+}
+
+.page-template-landing-page {
+	.footer-wrap {
+		margin-top: 0;	
+	}
+	.breaker {
+		margin-bottom: 0;	
+	}
+	/* Adds positioning for half hero image size */
+	.landing-page-hero-full .hero-img-half {
+		height: 225px;
+		
+		@include breakFirst(wide){
+			height: 375px;
+			background-position: center center;
+		}
+	}
+}
+a:focus, a:hover {
+	text-decoration: none;	
+}
+.entry-content {
+	a {
+		letter-spacing: 1px;
+		font-weight: 500;
+	}
+	h2 {
+		margin-top: 60px;	
+		
+		.gal-list-wrap & {
+				
+		}
+	}
+	h5 {
+		line-height: 24px;
+	}
+	ul, ol {
+		li {
+			text-transform: none;
+		}
+		&.big-list a {
+			letter-spacing: 2px;
+			text-transform: uppercase; 
+		}
+	}
+	.img-circle {
+		border-radius: 50%;
+	}
+	.img-icon {
+		width: 150px; 
+		height: 150px;
+		line-height: 150px;
+		font-size: 100px;
+		background-color: $cyan;
+		color: $blueLight;
+		border-radius: 50%;
+		text-align: center;
+		margin-left: 15px;
+		display: none;
+		
+		@include breakFirst(medium){
+			display: inline-block; 
+		}
+	}
+	.img-icon-left {
+		margin: 0 15px 60px 10px;
+		float: left;	
+	}
+	.img-icon-nobg {
+		background-color: transparent;
+		height: 100px;
+		width: 100px;
+		margin-bottom: 15px;
+	}
+	.img-icon-alt {
+		margin-top: 30px;
+	}
+	.img-icon-nobottom {
+		margin-bottom: 0;	
+	}
+	.img-icon-spacer {
+		margin: 0;
+		width: 0px;
+		background-color: transparent;	
+		
+		@include breakFirst(wide){
+			margin: 0 15px 60px 10px;
+			width: 150px; 
+		}
+	}
+	h2 + div {
+		margin-top: 30px;	
+	}
+}
+img.alignleft {
+	margin-bottom: 30px;
+	
+	@include breakFirst(medium){
+		float: left;
+		margin-top: 7px;
+		margin-right: 30px;
+	}	
+}
+.screen-reader-text {
+	/*text-indent: -999em;
+	display: block;
+	margin-bottom: -30px;*/
+	@extend .visuallyhidden;
+}
+.img-responsive {
+    display: block;
+    max-width: 100%;
+    height: auto;
+}
+
+/* 
+ * Required Core WordPress 
+ * https://codex.wordpress.org/CSS
+*/
+.sticky {
+	background-color: $white;
+	padding: 30px;
+}
+.gallery-caption {
+	
+}
+.bypostauthor {
+	
+}
+img.alignnone, img.aligncenter {
+	@extend .img-responsive;
+}
+.alignnone {
+    margin: 5px 20px 20px 0;
+}
+
+.aligncenter,
+div.aligncenter {
+    display: block;
+    margin: 5px auto 5px auto;
+}
+
+.alignright {
+    float:right;
+    margin: 5px 0 20px 20px;
+}
+
+.alignleft {
+    float: left;
+    margin: 5px 20px 20px 0;
+}
+
+a img.alignright {
+    float: right;
+    margin: 5px 0 20px 20px;
+}
+
+a img.alignnone {
+    margin: 5px 20px 20px 0;
+}
+
+a img.alignleft {
+    float: left;
+    margin: 5px 20px 20px 0;
+}
+
+a img.aligncenter {
+    display: block;
+    margin-left: auto;
+    margin-right: auto
+}
+.wp-caption {
+    background: #fff;
+    border: 1px solid #f0f0f0;
+    max-width: 96%; /* Image does not overflow the content area */
+    padding: 5px 3px 10px;
+    text-align: center;
+}
+
+.wp-caption.alignnone {
+    margin: 5px 20px 20px 0;
+}
+
+.wp-caption.alignleft {
+    margin: 5px 20px 20px 0;
+}
+
+.wp-caption.alignright {
+    margin: 5px 0 20px 20px;
+}
+
+.wp-caption img {
+    border: 0 none;
+    height: auto;
+    margin: 0;
+    max-width: 98.5%;
+    padding: 0;
+    width: auto;
+}
+
+.wp-caption p.wp-caption-text {
+    font-size: 11px;
+    line-height: 17px;
+    margin: 0;
+    padding: 0 4px 5px;
+}
+
+/* Text meant only for screen readers. */
+.screen-reader-text {
+	clip: rect(1px, 1px, 1px, 1px);
+	position: absolute !important;
+	height: 1px;
+	width: 1px;
+	overflow: hidden;
+}
+
+.screen-reader-text:focus {
+	background-color: #f1f1f1;
+	border-radius: 3px;
+	box-shadow: 0 0 2px 2px rgba(0, 0, 0, 0.6);
+	clip: auto !important;
+	color: #21759b;
+	display: block;
+	font-size: 14px;
+	font-size: 0.875rem;
+	font-weight: bold;
+	height: auto;
+	left: 5px;
+	line-height: normal;
+	padding: 15px 23px 14px;
+	text-decoration: none;
+	top: 5px;
+	width: auto;
+	z-index: 100000; /* Above WP toolbar. */
+}

@@ -325,6 +325,10 @@ require get_stylesheet_directory() . '/inc/metaboxes.php';
 require get_stylesheet_directory() . '/inc/shibboleth.php';
 require get_stylesheet_directory() . '/inc/customizer.php';
 
+// The Events Calendar
+if ( class_exists('Tribe__Events__Main') ) {
+	require get_stylesheet_directory() . '/inc/the-events-calendar.php';
+}
 
 // Shortcake Shortcode UI
 if( function_exists( 'shortcode_ui_register_for_shortcode' ) ) {
@@ -335,3 +339,4 @@ if( function_exists( 'shortcode_ui_register_for_shortcode' ) ) {
 if ( class_exists( 'IssueM' ) ) {
 	require get_stylesheet_directory() . '/inc/issuem/issuem.php';
 }
+

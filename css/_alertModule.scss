@@ -1,0 +1,272 @@
+.alert-small {
+	background: $white;
+	background: rgba(255,253,246,.9);
+  bottom: 0;
+	min-height: 65px;
+	position: absolute;
+	transform: translateY(100%);
+  width: 100%;
+  z-index: $zUI - 10;
+  @include breakFirst(large){
+		height: 65px;
+	}
+}
+.emergency-modal, .alert-small {
+	.icon-alert {
+		background: $red;
+		display: inline-block;
+		height: 65px;
+		position: relative;
+		vertical-align: middle;
+		width: 65px;
+		svg {
+			@extend %centerVertAll;
+			color: $white;
+			height: 20px;
+			width: 23px;
+		}
+	}
+	.alert-title strong {
+		color: $red;
+		&:after {
+			@include breakFirst(medium){
+				color: $grayDark;
+				content: ' - ';
+				display: inline;
+			}
+		}
+	}
+	.alert-title,.alert-link {
+		color: $grayDark;
+		display: inline-block;
+		font: 500 16px/16px $fontFamily;
+		letter-spacing: 1px;
+		margin-left: 15px;
+		text-transform: uppercase;
+		vertical-align: middle;
+		@include breakFirst(large){
+			margin-left: 30px;
+		}
+	}
+	.alert-link {
+		font: 500 14px/14px $fontFamily;
+		position: absolute;
+		right: 15px;
+		top: 50%;
+		transform: translateY(-50%);
+		@include breakFirst(large){
+			float: right;
+			margin: 0 33px 0 0;
+			position: relative;
+		}
+		&:hover {
+			color: $white;
+		}
+		.arw-right {
+			height: 10px;
+			margin-left: 10px;
+			width: 12px;
+		}
+	}
+}
+.emergency-modal-wrap {
+	height: 100%;
+	left: 0;
+	position: absolute;
+	top: 60px;
+	width: 100%;
+	z-index: $zUI - 1;
+	@include break(mediumLand){
+		background: none;
+	}
+	&.fixed {
+		background: #f9f6ed;
+		background: transparentize(#f9f6ed,.6);
+		@include breakFirst(large){
+			position: fixed;
+			top: 0;
+		}
+	}
+}
+.alert-small {
+	@include breakTo(medium){
+		font-size: 0;
+		padding: 15px;
+	}
+  .alert-title {
+		@include breakTo(medium){
+			font-size: 13px;
+	  	margin: 0;
+	  	width: 70%;
+		}
+	}
+	.icon-alert {
+		@include breakTo(medium){
+			display: none;
+		}
+	}
+	.alert-title strong {
+		@include breakTo(medium){
+			display: block;
+		}
+	}
+	.alert-link {
+		@include breakTo(medium){
+			display: inline-block;
+			font-size: 13px;
+			float: none;
+			margin: 0;
+			position: relative;
+			text-align: right;
+			top: auto;
+			transform: none;
+			width: 30%;
+		}
+	}
+}
+.emergency-modal {
+	margin: 80px auto 20px;
+	min-height: 450px;
+	@include breakFirst(medium){
+		width: 100%;
+	}
+	@include breakFirst(large){
+		margin: 200px auto;
+		width: 970px;
+	}
+ .fixed & {
+		@extend %centerVert;
+		margin: 80px 0 0;
+		@include breakFirst(medium){
+			margin: 0;
+		}
+		.emergency-modal-content {
+			box-shadow: none
+		}
+	}
+}
+
+.emergency-modal-header {
+	background: $red;
+	color: $white;
+	position: relative;
+	width: 100%;
+	.alert-title {
+		color: $white;
+		font: 700 18px/1 $fontFamily;
+		padding: 13px 0;
+		@include breakFirst(medium){
+			font-size: 22px;
+			padding: 0;
+		}
+	}
+	.alert-link {
+		color: $grayDark;
+		margin: 0;
+		left: 15px;
+		position: absolute;
+		top: 70px;
+		@include breakFirst(medium){
+			color: $white;
+			left: auto;
+			right:98px;
+			top: 50%;
+		}
+		&:hover {
+			color: $grayDark;
+		}
+	}
+	a {
+		color: $white;
+	}
+	.icon-alert {
+		background: $redLight;
+		display: none;
+		@include breakFirst(medium){
+			display: inline-block;
+		}
+		svg {
+			color: $white;
+		}
+	}
+}
+.emergency-modal-content {
+	background: $beige;
+	box-shadow: 0 0 100px 0 rgba(0,0,0,.5);
+	color: $grayDark;
+	padding: 50px 15px 15px;
+	@include break(mediumLand){
+		padding: 15px;
+	}
+	a {
+		color: $grayDark;
+		text-decoration: underline;
+		&:hover {
+			color: $red
+		}
+	}
+	h2 {
+		color: $grayDark;
+		font: 700 32px/36px $fontFamily;
+		letter-spacing: 1px;
+		margin-bottom: 10px;
+	}
+	h3 {
+		color: $grayDark;
+		font: 500 16px/20px $serifFontFamily;
+		letter-spacing: 3px;
+		margin-bottom: 20px;
+		text-transform: uppercase
+	}
+}
+.resources-wrap {
+	background: $beigeLight;
+	padding: 0;
+	h2 {
+		font: 700px 22px/26px $fontFamily;
+		margin: 0 !important;
+		padding: 10px 20px;
+	}
+	ul {
+		margin: 0;
+	}
+	li {
+		margin: 0;
+		&:before {
+			display: none;
+		}
+		&:nth-child(odd){
+			background: #fcfaf2;
+		}
+	}
+	a {
+		color: $red;
+		display: block;
+		font: 100 18px/22px $fontFamily;
+		padding: 10px 20px;
+		text-decoration: none;
+		text-transform: none;
+		&:hover {
+			color: $grayDark;
+		}
+	}
+}
+.emergency-modal-close {
+	background: $redLight;
+	float: right;
+	height: 44px;
+	position: relative;
+	width: 44px;
+	@include breakFirst(medium){
+		height: 65px;
+		width: 65px;
+	}
+	&:hover {
+		background: $red;
+	}
+	.icon-svg {
+		@extend %centerVertAll;
+		height: 14px;
+		width: 15px;
+	}
+}

@@ -1,0 +1,216 @@
+.footer-wrap {
+	margin-top: 80px;
+}
+.homepage .footer-wrap {
+	margin: 0 ;
+}
+.footer-top {
+	background: $blue url(img/bg-texture-dark.png);
+	padding: 30px 0;
+	text-align: center;
+	@include breakFirst(medium){
+		padding: 55px 0;
+	}
+	@include breakFirst(large){
+		text-align: left;
+	}
+}
+.footer-contact-wrap {
+	padding: 40px 0;
+	text-align: center;
+	@include breakFirst(large){
+		text-align: left;
+		padding: 0;
+	}
+}
+.footer-audience-nav {
+	margin: 0;
+	li {
+		float: left;
+		margin: 0 0 20px 20px;
+		width: 50%;
+		width: calc(50% - 10px);
+		@include breakFirst(medium){
+			margin: 0 0 0 20px;
+			width: 23%;
+			width: calc(25% - 15px);
+		}
+		&:first-child {
+			margin: 0;
+		}
+		&:nth-child(3){
+			margin: 0;
+			@include breakFirst(medium){
+				margin-left: 20px;
+			}
+		}
+		&:nth-child(4){
+			@include breakTo(medium){
+				margin-bottom: 0
+			}
+		}
+		&:before {
+			display: none;
+		}
+	}
+	a {
+		background: $blueDark;
+		color: $white;
+		display: block;
+		font: 700 16px/24px $fontFamily;
+		letter-spacing: 2px;
+		padding: 18px;
+		text-align: center;
+		text-transform: uppercase;
+		&:hover {
+			background: $blueLight;
+		}
+	}
+}
+.footer-logo {
+	display: inline-block;
+	height: 51px;
+	margin-bottom: 30px;
+	width: 279px;
+	@include breakFirst(medium){
+		height: 46px;
+		margin-bottom: 20px;
+		width: 220px;
+	}
+	@include breakFirst(large){
+		height: 59px;
+		margin-bottom: 30px;
+		width: 323px;
+	}
+}
+.social-nav {
+	margin: 0 0 30px 0;
+	@include break(medium){
+		margin: 0 0 20px 0;
+	}
+	li {
+		display: inline-block;
+		margin: 0 10px 0 0;
+		@include break(medium){
+			margin: 0 5px 0 0;
+		}
+		&:before {
+			display: none;
+		}
+	}
+	a {
+		border-color: $orange;
+		&:hover {
+			background: $orange;
+			color: $white;
+		}
+	}
+	.icon-facebook {
+		svg{
+			height: 19px;
+			width: 11px;
+		}
+	}
+	.icon-twitter {
+		svg{
+			height: 17px;
+			width: 20px;
+		}
+	}
+	.icon-instagram {
+		svg{
+			height: 18px;
+			width: 18px;
+		}
+	}
+	.icon-youtube {
+		svg{
+			height: 16px;
+			width: 22px;
+		}
+	}
+}
+.footer-bottom {
+	background: $white;
+	@include breakFirst(medium){
+		padding: 75px 0;
+	}
+	.address {
+		font: 100 16px/22px $fontFamily;
+	}
+}
+.footer-menu {
+	padding: 0;
+	@include breakFirst(medium){
+		padding-left: 15px;
+		padding-right: 15px;
+	}
+	&.open {
+		ul {
+			@include break(small){
+				display: block;
+				margin-bottom: 20px;
+			}
+		}
+		h2 {
+			@include break(small){
+				margin-bottom: 10px;
+				padding-bottom: 0;
+			}
+			.icon-caret {
+				margin-top: 8px;
+				transform: rotate(-90deg);
+			}
+		}
+	}
+	ul {
+		display: none;
+		margin: 0;
+		@include breakFirst(medium){
+			display: block;
+		}
+		li {
+			margin: 0;
+			&:before {
+				display: none;
+			}
+		}
+	}
+	h2 {
+		border-top: 1px solid $teal;
+		color: $blue;
+		font: 700 22px/30px $fontFamily;
+		letter-spacing: 1px;
+		margin-bottom: 0;
+		padding: 30px 20px;
+		position: relative;
+		text-transform: uppercase;
+		@include breakFirst(medium){
+			border: none;
+			margin-bottom: 12px;
+			padding: 0;
+		}
+		.icon-caret {
+			color: $orange;
+			height: 14px;
+			margin-top: -7px;
+			position: absolute;
+			right: 20px;
+			top: 50%;
+			transform: rotate(90deg);
+			transition: transform .25s ease-out;
+			width: 9px;
+			@include breakFirst(medium){
+				display: none;
+			}
+		}
+	}
+	a {
+		display: block;
+		font: 100 18px/26px $fontFamily;
+		padding: 10px 20px;
+		@include breakFirst(medium){
+			padding: 12px 0;
+		}
+	}
+}

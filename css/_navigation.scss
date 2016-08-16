@@ -1,0 +1,85 @@
+@charset "utf-8";
+
+.main-menu-wrap {
+	// Show white background if not menu set,
+	@include breakFirst(medium){
+		min-height: 100px;
+	}
+}
+.main-menu-wrap .main-menu-link {
+	@include breakTo(wide){
+		font-size: 14px;
+	}
+}
+.aux-menu-wrap .aux-nav a {
+	font-size: 12px;
+	font-weight: 400;
+}
+
+/* Bring first link in global nav closer to the UF logo */
+.aux-menu-wrap .aux-nav li.global-menu-title a {
+	font-size: 14px;
+	font-weight: 700;
+	color: $beigeDark;
+	
+	@include breakFirst(wide){
+		padding-left: 13px;
+		padding-right: 20px;
+		font-size: 15px;
+	}
+}
+
+/* Prevent global menu from dropping down on smaller screens */
+.aux-menu-wrap {
+    @include breakFirst(wide){
+		position: absolute;
+      	top: 0;
+	}
+	
+	/* Fixes SVG icon display in FF */
+	.audience-nav-wrap { 
+		.arw-right svg {
+			transform: translate(0, 0);
+			margin: 18px 12px;
+			top: 0;
+			left: 0;
+		}
+		&:hover .arw-right svg, &:focus .arw-right svg {
+			transform: translate(0, 0);
+		}
+	}
+}
+
+/* Fixes SVG icon display in FF */
+.big-list, .sidenav, .single-article #secondary .widget ul {
+	.btn-mobile-toggle a svg {
+		transform: translate(0, 0) rotate(45deg);
+		transform-origin: center;
+		margin: 22px 0px;
+		top: 0px;
+		left: 0px;
+		width: 100%;
+	}
+	&.open-list .btn-mobile-toggle .arw-right svg {
+		transform: translate(0, 0) rotate(-45deg);
+	}
+}
+
+.sidenav .page_item_has_children .children {
+	display: none;	
+}
+.sidenav .page_item_has_children.current_page_item .children,
+.sidenav .page_item_has_children.current_page_ancestor .children {
+	display: block;	
+}
+.sidenav .current_page_item > a {
+	background: $orange;
+	color: $white;
+}
+.social-nav .icon-svg svg {
+    top: 14px;
+    left: 11px;
+    transform: translate(0%, 0%);
+	width: 19px;
+	height: 19px;
+}

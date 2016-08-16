@@ -1,0 +1,152 @@
+.widget-area {
+	.home & {
+		padding-top: $grid-gutter-width;
+	}
+}
+
+.widget {
+	margin-bottom: 30px;
+	
+	ul {
+		margin-left: 0;
+		
+		li:before {
+			content: normal;
+		}
+		li {
+			margin-bottom: 30px;
+			font-size: 16px;
+		}
+		a {
+			font-weight: 400;
+			letter-spacing: 1px;	
+		}
+		.post-date {
+			display: block;	
+		}
+	}
+	.widgettitle, .widget-title {
+		text-transform: none;
+		font: 500 24px/32px $serifFontFamily; 
+		color: $blue;
+	}
+}
+.widget_archive, .widget_categories {
+	select {
+		width: 99%;
+		border: 1px solid #999;
+		padding: 7.5px;
+	}
+	label {
+		text-indent: -999em;
+		display: block;
+		margin-bottom: -30px;
+	}
+}
+
+.widget_listcategorypostswidget {
+	li {
+		text-transform: none;
+		clear: both;
+		overflow: auto;
+		margin-bottom: $grid-gutter-width/2;
+	}
+	
+	li > a {
+		display: block;	
+		float: left;
+	}
+	img {
+		margin-right: $grid-gutter-width;
+		margin-bottom: $grid-gutter-width/2;
+	}
+	h3 {
+		font-family: $fontFamily;
+		font-size: 32px;
+		line-height: 36px;
+		margin-bottom: $grid-gutter-width/2;
+		text-transform: uppercase;
+		
+		a {
+			font-weight: 700;	
+		}
+	}
+	.widget-title + strong {
+		margin-bottom: $grid-gutter-width/2;
+		
+		@include breakFirst(medium){
+			margin-bottom: 0;
+		}
+	}
+	.widget-title + strong a {
+		text-transform: uppercase;
+		border: 5px solid transparent;
+		//color: $blue;
+		background-color: $white;
+		font-weight: 700;
+		font-size: 13px;
+		letter-spacing: 2px;
+		padding: 1px 14px;
+		
+		@include breakFirst(medium){
+			position: absolute;
+			top: 0;
+			right: 30px;
+		}
+		&:before {
+			content: 'More ';	
+		}
+		&:focus, &:hover {
+			background-color: $white;	
+		}
+	}
+}
+.tribe-events-list-widget {
+	.tribe-list-widget { 
+		margin-left: 0;
+		
+		li {
+			position: relative;
+			margin-left: 55px;
+			padding-left: 10px;
+			border-left: 1px solid #ccc;
+		}
+	}
+	.tribe-event-title {
+		font-size: 16px;
+		line-height: 22px;
+		letter-spacing: 1px;
+		margin-bottom: 0;
+		
+		em {
+			text-transform: none;
+			font-size: 16px;	
+		}
+	}
+	.tribe-event-duration {
+		font-size: 16px;
+		line-height: 26px;	
+	}
+	.event-date {
+		position: absolute;
+		top: 0;
+		left: -50px;
+		width: 45px;
+		font-family: $fontFamily;
+		text-align: center;
+		color: #888;
+	}
+	.event-month {
+		font-size: 20px;
+		font-weight: 400;
+	}
+	.event-day {
+		font-size: 32px;
+		letter-spacing: -1px;
+	}
+	.tribe-events-widget-link {
+		text-transform: uppercase;
+		letter-spacing: 1px;
+		margin-left: 65px;	
+	}
+}
