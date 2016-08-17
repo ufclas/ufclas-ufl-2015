@@ -4076,16 +4076,22 @@ a img.aligncenter {
   margin-bottom: 15px; }
 .widget_listcategorypostswidget h3, .widget_listcategorypostswidget .kicker, .widget_listcategorypostswidget .gform_wrapper .gform_heading .gform_description, .gform_wrapper .gform_heading .widget_listcategorypostswidget .gform_description, .widget_listcategorypostswidget .single-article .entry-content p.lead, .single-article .entry-content .widget_listcategorypostswidget p.lead, .widget_listcategorypostswidget .featured-story h2, .featured-story .widget_listcategorypostswidget h2, .widget_listcategorypostswidget .featured-story .entry-content .lead, .featured-story .entry-content .widget_listcategorypostswidget .lead, .widget_listcategorypostswidget .entry-content .featured-story .lead, .entry-content .featured-story .widget_listcategorypostswidget .lead, .widget_listcategorypostswidget .single-article #secondary h2, .single-article #secondary .widget_listcategorypostswidget h2, .widget_listcategorypostswidget .single-article #secondary .entry-content .lead, .single-article #secondary .entry-content .widget_listcategorypostswidget .lead, .widget_listcategorypostswidget .entry-content .single-article #secondary .lead, .entry-content .single-article #secondary .widget_listcategorypostswidget .lead {
   font-family: "gentona", "Georgia", serif;
-  font-size: 32px;
-  line-height: 36px;
+  font-size: 20px;
+  line-height: 24px;
   margin-bottom: 15px;
   text-transform: uppercase; }
+  @media (min-width: 768px) {
+    .widget_listcategorypostswidget h3, .widget_listcategorypostswidget .kicker, .widget_listcategorypostswidget .gform_wrapper .gform_heading .gform_description, .gform_wrapper .gform_heading .widget_listcategorypostswidget .gform_description, .widget_listcategorypostswidget .single-article .entry-content p.lead, .single-article .entry-content .widget_listcategorypostswidget p.lead, .widget_listcategorypostswidget .featured-story h2, .featured-story .widget_listcategorypostswidget h2, .widget_listcategorypostswidget .featured-story .entry-content .lead, .featured-story .entry-content .widget_listcategorypostswidget .lead, .widget_listcategorypostswidget .entry-content .featured-story .lead, .entry-content .featured-story .widget_listcategorypostswidget .lead, .widget_listcategorypostswidget .single-article #secondary h2, .single-article #secondary .widget_listcategorypostswidget h2, .widget_listcategorypostswidget .single-article #secondary .entry-content .lead, .single-article #secondary .entry-content .widget_listcategorypostswidget .lead, .widget_listcategorypostswidget .entry-content .single-article #secondary .lead, .entry-content .single-article #secondary .widget_listcategorypostswidget .lead {
+      font-size: 32px;
+      line-height: 36px; } }
   .widget_listcategorypostswidget h3 a, .widget_listcategorypostswidget .kicker a, .widget_listcategorypostswidget .gform_wrapper .gform_heading .gform_description a, .gform_wrapper .gform_heading .widget_listcategorypostswidget .gform_description a, .widget_listcategorypostswidget .single-article .entry-content p.lead a, .single-article .entry-content .widget_listcategorypostswidget p.lead a, .widget_listcategorypostswidget .featured-story h2 a, .featured-story .widget_listcategorypostswidget h2 a, .widget_listcategorypostswidget .featured-story .entry-content .lead a, .featured-story .entry-content .widget_listcategorypostswidget .lead a, .widget_listcategorypostswidget .entry-content .featured-story .lead a, .entry-content .featured-story .widget_listcategorypostswidget .lead a, .widget_listcategorypostswidget .single-article #secondary h2 a, .single-article #secondary .widget_listcategorypostswidget h2 a, .widget_listcategorypostswidget .single-article #secondary .entry-content .lead a, .single-article #secondary .entry-content .widget_listcategorypostswidget .lead a, .widget_listcategorypostswidget .entry-content .single-article #secondary .lead a, .entry-content .single-article #secondary .widget_listcategorypostswidget .lead a {
     font-weight: 700; }
 .widget_listcategorypostswidget .widget-title + strong {
-  margin-bottom: 15px; }
+  margin-bottom: 15px;
+  display: block; }
   @media (min-width: 768px) {
     .widget_listcategorypostswidget .widget-title + strong {
+      display: inline;
       margin-bottom: 0; } }
 .widget_listcategorypostswidget .widget-title + strong a {
   text-transform: uppercase;
@@ -4093,10 +4099,10 @@ a img.aligncenter {
   background-color: #fff;
   font-weight: 700;
   font-size: 13px;
-  letter-spacing: 2px;
-  padding: 1px 14px; }
+  letter-spacing: 2px; }
   @media (min-width: 768px) {
     .widget_listcategorypostswidget .widget-title + strong a {
+      padding: 1px 14px;
       position: absolute;
       top: 0;
       right: 30px; } }

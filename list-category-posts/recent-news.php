@@ -1,31 +1,8 @@
 <?php
 /*
 Plugin Name: List Category Posts - Template "Recent News"
-Plugin URI: http://picandocodigo.net/programacion/wordpress/list-category-posts-wordpress-plugin-english/
 Description: Template file for List Category Post Plugin for Wordpress which is used by plugin by argument template=value.php
 Version: 0.9
-Author: Radek Uldrych & Fernando Briano
-Author URI: http://picandocodigo.net http://radoviny.net
-*/
-
-/*
-Copyright 2009 Radek Uldrych (email : verex@centrum.cz)
-Copyright 2009-2015 Fernando Briano (http://picandocodigo.net)
-
-This program is free software; you can redistribute it and/or modify
-it under the terms of the GNU General Public License as published by
-the Free Software Foundation; either version 3 of the License, or any
-later version.
-
-This program is distributed in the hope that it will be useful, but
-WITHOUT ANY WARRANTY; without even the implied warranty of
-MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
-General Public License for more details.
-
-You should have received a copy of the GNU General Public License
-along with this program; if not, write to the Free Software
-Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA 02110-1301
-USA
 */
 
 /**
@@ -57,9 +34,12 @@ $lcp_display_output .= '<ul class="lcp_catlist">';
  * html tag as a parameter. This tag will sorround the info you want
  * to display. You can also assign a specific CSS class to each field.
 */
+
 global $post;
 while ( have_posts() ):
   the_post();
+  
+  
 
   //Start a List Item for each post:
   $lcp_display_output .= "<li>";
@@ -74,10 +54,10 @@ while ( have_posts() ):
   $lcp_display_output .= $this->get_comments($post);
 
   //Show date:
-  $lcp_display_output .= ' <span class="lcp_date">' . $this->get_date($post) . '</span>';
+  $lcp_display_output .= $this->get_date($post, 'span', 'lcp_date');
 
   //Show date modified:
-  $lcp_display_output .= ' <span class="lcp_modified_date">' . $this->get_modified_date($post) . '</span>';
+  $lcp_display_output .= $this->get_modified_date($post, 'span', 'lcp_modified_date');
 
   //Show author
   $lcp_display_output .= $this->get_author($post);
@@ -102,6 +82,7 @@ while ( have_posts() ):
 
   //Close li tag
   $lcp_display_output .= '</li>';
+
 endwhile;
 
 // Close the wrapper I opened at the beginning:
@@ -117,3 +98,4 @@ $lcp_display_output .= $this->get_category_count();
 $lcp_display_output .= $this->get_pagination();
 
 $this->lcp_output = $lcp_display_output;
+
