@@ -1,4 +1,4 @@
-<form action="http://search.ufl.edu/search" method="get" class="search-wrap" role="search">
+<form action="https://search.ufl.edu/search" method="get" class="search-wrap" role="search">
 <label for="query" class="visuallyhidden"><?php esc_html_e('Search'); ?></label>
 <input type="text" name="query" placeholder="<?php esc_attr_e('Search'); ?>" />
 <button type="submit" class="btn-search">
