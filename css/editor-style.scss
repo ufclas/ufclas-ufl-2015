@@ -1,33 +1,30 @@
-@import '_reset';
-@import '_variables';
-@import '_mixins';
-@import '_grid';
-@import '_fonts';
+@import 'template/reset';
+@import 'template/variables';
+@import 'template/mixins';
+@import 'template/grid';
+@import 'template/fonts';
+@import 'template/format';
+@import 'template/header';
+@import 'template/footer';
+@import 'template/alertModule';
+@import 'template/breadcrumbs';
+@import 'template/horizontalScrollEl';
+@import 'template/home';
+@import 'template/landingPage';
+@import 'template/programList';
+@import 'template/article';
+@import 'template/searchResult';
+@import 'template/breaker';
+@import 'template/bioModule';
+@import 'template/statModule';
+@import 'template/contentBoxModule';
 
-@import '_format';
-
-@import '_header';
-@import '_footer';
-@import '_alertModule';
-@import '_breadcrumbs';
-
-@import '_horizontalScrollEl';
-
-@import '_home';
-@import '_landingPage';
-@import '_programList';
-@import '_article';
-@import '_searchResult';
-@import '_breaker';
-@import '_bioModule';
-@import '_statModule';
-@import '_contentBoxModule';
-
-@import 'theme/variables';
-@import 'theme/theme';
-@import 'theme/header';
-@import 'theme/navigation';
-@import 'theme/widgets';
-@import 'theme/gravityforms';
-@import 'theme/post';
-@import 'theme/issuem';
+@import 'variables';
+@import 'main';
+@import 'header';
+@import 'navigation';
+@import 'widgets';
+@import 'gravityforms';
+@import 'post';
+@import 'issuem';
+ 

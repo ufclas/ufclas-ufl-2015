@@ -81,7 +81,7 @@
 	.widget-title + strong a {
 		text-transform: uppercase;
 		border: 5px solid transparent;
-		color: $blue;
+		//color: $blue;
 		background-color: $white;
 		font-weight: 700;
 		font-size: 13px;
@@ -102,14 +102,51 @@
 	}
 }
 .tribe-events-list-widget {
+	.tribe-list-widget { 
+		margin-left: 0;
+		
+		li {
+			position: relative;
+			margin-left: 55px;
+			padding-left: 10px;
+			border-left: 1px solid #ccc;
+		}
+	}
 	.tribe-event-title {
-		font-size: 18px;
-		line-height: 26px;
-		// text-transform: none;
+		font-size: 16px;
+		line-height: 22px;
+		letter-spacing: 1px;
 		margin-bottom: 0;
+		
+		em {
+			text-transform: none;
+			font-size: 16px;	
+		}
 	}
 	.tribe-event-duration {
 		font-size: 16px;
 		line-height: 26px;	
+	}
+	.event-date {
+		position: absolute;
+		top: 0;
+		left: -50px;
+		width: 45px;
+		font-family: $fontFamily;
+		text-align: center;
+		color: #888;
+	}
+	.event-month {
+		font-size: 20px;
+		font-weight: 400;
+	}
+	.event-day {
+		font-size: 32px;
+		letter-spacing: -1px;
+	}
+	.tribe-events-widget-link {
+		text-transform: uppercase;
+		letter-spacing: 1px;
+		margin-left: 65px;	
 	}
 }

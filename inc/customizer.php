@@ -29,17 +29,11 @@ function ufclas_ufl_2015_customize_range( $min = 0, $max = 10 ) {
  * @since 0.2.5
  */
 function ufclas_ufl_2015_customize_css() {
-	$homepage_layout_color = get_theme_mod( 'homepage_layout_color', '' );
-	$background_color = get_theme_mod( 'background_color', '' );
-	$custom_css = '';
+	$homepage_layout_color = get_theme_mod( 'homepage_layout_color' );
+	$background_color = get_theme_mod( 'background_color' );
 	
-	if ( !empty( $background_color ) ){
-		$custom_css .= "body {background-color: {$background_color};}\n";
-	}
-	if ( !empty( $homepage_layout_color ) ){
-		$custom_css .= ".home #main {background-color: {$homepage_layout_color};}\n";
-	}
-	
+    $custom_css = "body {background-color: {$background_color};}\n";
+	$custom_css .= ".home #main {background-color: {$homepage_layout_color};}\n";
     wp_add_inline_style( 'style', $custom_css );
 }
 add_action('wp_enqueue_scripts', 'ufclas_ufl_2015_customize_css');

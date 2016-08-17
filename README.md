@@ -21,7 +21,6 @@ Requirements and Suggested Plugins
 * Advanced Custom Fields (optional) - visual interface for custom fields
 * Shortcake (Shortcode UI) (optional) - visual interface for shortcodes
 * List Category Posts (optional) - replacement for custom recent posts widget
-* The Events Calendar (optional) - styles available for widgets
 
 Documentation
 --------------

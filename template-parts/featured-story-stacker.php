@@ -34,7 +34,7 @@ if ( $slider_query->have_posts() ):
                  while( $slider_query->have_posts() ): $slider_query->the_post();
 					$custom_meta = get_post_custom( get_the_ID() );
 					$image_full_width = ( isset($custom_meta['custom_meta_image_type']) )? $custom_meta['custom_meta_image_type'][0]:NULL;
-					$slider_disable_dates = get_theme_mod('story_stacker_disable_dates', 0);
+					$slider_disable_dates = get_theme_mod('story_stacker_disable_dates');
 					$slider_first_id = $slider_query->posts[0]->ID;
                     $slide_class = ( $slider_first_id == get_the_ID() )? ' active':'';
 					$slide_class .= ( $image_full_width )? ' full-image-feature':' half-image-feature';

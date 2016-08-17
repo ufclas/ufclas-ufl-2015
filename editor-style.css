@@ -1347,11 +1347,11 @@ form textarea {
 @media screen and (min-width: 991px) and (max-width: 1250px) {
   .header.unit .main-menu-wrap {
     padding-left: 220px; } }
-.header.unit .main-menu-wrap a .logo-herbert {
+.header.unit .main-menu-wrap .logo-herbert {
   color: #fff;
   display: none; }
   @media (min-width: 992px) {
-    .header.unit .main-menu-wrap a .logo-herbert {
+    .header.unit .main-menu-wrap .logo-herbert {
       height: 58px;
       width: 240px;
       position: absolute;
@@ -1361,7 +1361,7 @@ form textarea {
       display: block;
       color: #00529b; } }
   @media screen and (min-width: 991px) and (max-width: 1250px) {
-    .header.unit .main-menu-wrap a .logo-herbert {
+    .header.unit .main-menu-wrap .logo-herbert {
       width: 180px;
       margin-left: 20px; } }
 @media screen and (min-width: 991px) and (max-width: 1250px) {
@@ -3952,7 +3952,7 @@ a img.aligncenter {
 .admin-bar .header {
   top: 46px;
   position: absolute; }
-  @media (min-width: 768px) {
+  @media (min-width: 783px) {
     .admin-bar .header {
       top: 32px; } }
 
@@ -4090,7 +4090,6 @@ a img.aligncenter {
 .widget_listcategorypostswidget .widget-title + strong a {
   text-transform: uppercase;
   border: 5px solid transparent;
-  color: #00529b;
   background-color: #fff;
   font-weight: 700;
   font-size: 13px;
@@ -4106,13 +4105,42 @@ a img.aligncenter {
   .widget_listcategorypostswidget .widget-title + strong a:focus, .widget_listcategorypostswidget .widget-title + strong a:hover {
     background-color: #fff; }
 
+.tribe-events-list-widget .tribe-list-widget {
+  margin-left: 0; }
+  .tribe-events-list-widget .tribe-list-widget li {
+    position: relative;
+    margin-left: 55px;
+    padding-left: 10px;
+    border-left: 1px solid #ccc; }
 .tribe-events-list-widget .tribe-event-title {
-  font-size: 18px;
-  line-height: 26px;
+  font-size: 16px;
+  line-height: 22px;
+  letter-spacing: 1px;
   margin-bottom: 0; }
+  .tribe-events-list-widget .tribe-event-title em {
+    text-transform: none;
+    font-size: 16px; }
 .tribe-events-list-widget .tribe-event-duration {
   font-size: 16px;
   line-height: 26px; }
+.tribe-events-list-widget .event-date {
+  position: absolute;
+  top: 0;
+  left: -50px;
+  width: 45px;
+  font-family: "gentona", "Georgia", serif;
+  text-align: center;
+  color: #888; }
+.tribe-events-list-widget .event-month {
+  font-size: 20px;
+  font-weight: 400; }
+.tribe-events-list-widget .event-day {
+  font-size: 32px;
+  letter-spacing: -1px; }
+.tribe-events-list-widget .tribe-events-widget-link {
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  margin-left: 65px; }
 
 .gform_wrapper .gform_body select, .gform_wrapper .gform_body textarea, .gform_wrapper .gform_body input[type="text"], .gform_wrapper .gform_body input[type="email"] {
   padding: 15px 7.5px;
