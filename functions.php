@@ -311,7 +311,7 @@ add_filter( 'get_the_excerpt', 'ufclas_ufl_2015_teaser_excerpt', 9, 1);
  * @return int (Maybe) modified excerpt length.
  */
 function ufclas_ufl_2015_excerpt_length( $length ) {
-    return 50;
+    return 40;
 }
 add_filter( 'excerpt_length', 'ufclas_ufl_2015_excerpt_length', 999 );
 

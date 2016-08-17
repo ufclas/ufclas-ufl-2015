@@ -5,8 +5,8 @@
 		top: 46px;
 		position: absolute; 
 		
-		@include breakFirst(medium){
-			top: 32px;
+		@include breakFirst(783px){
+			top: 32px; 
 		}
 	}
 }

@@ -3964,7 +3964,7 @@ a img.aligncenter {
 .admin-bar .header {
   top: 46px;
   position: absolute; }
-  @media (min-width: 768px) {
+  @media (min-width: 783px) {
     .admin-bar .header {
       top: 32px; } }
 
@@ -4334,59 +4334,75 @@ figcaption, .entry-content img + h4.text {
     margin: 0 auto; }
     @media screen and (max-width: 991px) {
       .carousel-row .carousel-wrap {
-        padding: 0; } }
+        padding: 0;
+        max-width: 100%;
+        width: 100%; } }
 
 .carousel-inner {
   width: 100%;
   margin: 0 auto; }
-  @media screen and (min-width: 992px) {
+  @media screen and (min-width: 1220px) {
     .carousel-inner {
       width: 1140px;
       height: 399px; } }
 
-.carousel-control {
-  display: none; }
-  @media screen and (min-width: 992px) {
-    .carousel-control {
-      width: 60px;
-      display: block; } }
+@media screen and (min-width: 992px) {
+  .carousel-control {
+    width: 60px;
+    display: block; } }
+.carousel-control.left {
+  background-image: none;
+  left: 0;
+  color: #fff; }
+.carousel-control.right {
+  background-image: none;
+  right: 0;
+  color: #fff; }
+@media screen and (min-width: 1220px) {
   .carousel-control.left {
-    background-image: none;
     left: -30px;
-    color: #fff; }
+    color: #999; }
   .carousel-control.right {
-    background-image: none;
     right: -30px;
-    color: #fff; }
+    color: #999; } }
 
 #featured-carousel .carousel-indicators {
   display: none; }
-#featured-carousel .carousel-control {
-  color: #999; }
 #featured-carousel .slide-image {
   width: 100%; }
 #featured-carousel .item.half-image-feature, #featured-carousel .item.full-image-feature {
   width: 100%;
   height: 325px; }
-  @media screen and (min-width: 992px) {
+  @media screen and (min-width: 1220px) {
     #featured-carousel .item.half-image-feature, #featured-carousel .item.full-image-feature {
+      width: 1140px;
       height: 399px; } }
 #featured-carousel .item.full-image-feature img {
   width: auto;
   height: 325px; }
-  @media screen and (min-width: 992px) {
+  @media screen and (min-width: 970px) {
+    #featured-carousel .item.full-image-feature img {
+      width: 970px;
+      height: 325px; } }
+  @media screen and (min-width: 1220px) {
     #featured-carousel .item.full-image-feature img {
       width: 1140px;
       height: 399px; } }
 #featured-carousel .item.half-image-feature img {
   width: auto;
   height: 325px; }
+  @media (min-width: 768px) {
+    #featured-carousel .item.half-image-feature img {
+      width: 100%;
+      height: auto; } }
   @media screen and (min-width: 992px) {
     #featured-carousel .item.half-image-feature img {
       width: auto;
-      height: 399px;
-      float: left;
-      margin-right: 45px; } }
+      height: 325px;
+      float: right; } }
+  @media screen and (min-width: 1220px) {
+    #featured-carousel .item.half-image-feature img {
+      height: 399px; } }
 #featured-carousel .slider-dark {
   background-color: #00529b; }
   @media (min-width: 992px) {
@@ -4413,22 +4429,24 @@ figcaption, .entry-content img + h4.text {
   position: absolute;
   left: 0;
   top: 0;
-  padding: 45px 30px 0;
+  padding: 37.5px 30px 0;
   width: 100%;
   height: 325px;
   overflow: hidden;
-  text-align: left;
   text-shadow: none; }
   #featured-carousel .half-image-feature .carousel-caption h3, #featured-carousel .half-image-feature .carousel-caption .kicker, #featured-carousel .half-image-feature .carousel-caption .gform_wrapper .gform_heading .gform_description, .gform_wrapper .gform_heading #featured-carousel .half-image-feature .carousel-caption .gform_description, #featured-carousel .half-image-feature .carousel-caption .single-article .entry-content p.lead, .single-article .entry-content #featured-carousel .half-image-feature .carousel-caption p.lead, #featured-carousel .half-image-feature .carousel-caption .featured-story h2, .featured-story #featured-carousel .half-image-feature .carousel-caption h2, #featured-carousel .half-image-feature .carousel-caption .featured-story .entry-content .lead, .featured-story .entry-content #featured-carousel .half-image-feature .carousel-caption .lead, #featured-carousel .half-image-feature .carousel-caption .entry-content .featured-story .lead, .entry-content .featured-story #featured-carousel .half-image-feature .carousel-caption .lead, #featured-carousel .half-image-feature .carousel-caption .single-article #secondary h2, .single-article #secondary #featured-carousel .half-image-feature .carousel-caption h2, #featured-carousel .half-image-feature .carousel-caption .single-article #secondary .entry-content .lead, .single-article #secondary .entry-content #featured-carousel .half-image-feature .carousel-caption .lead, #featured-carousel .half-image-feature .carousel-caption .entry-content .single-article #secondary .lead, .entry-content .single-article #secondary #featured-carousel .half-image-feature .carousel-caption .lead {
     font-family: "gentona", "Georgia", serif;
     font-weight: 700;
-    font-size: 28px;
-    line-height: 32px;
+    font-size: 20px;
+    line-height: 26px;
     text-transform: uppercase;
     margin-bottom: 0;
     letter-spacing: 2px; }
+    @media (min-width: 768px) {
+      #featured-carousel .half-image-feature .carousel-caption h3, #featured-carousel .half-image-feature .carousel-caption .kicker, #featured-carousel .half-image-feature .carousel-caption .gform_wrapper .gform_heading .gform_description, .gform_wrapper .gform_heading #featured-carousel .half-image-feature .carousel-caption .gform_description, #featured-carousel .half-image-feature .carousel-caption .single-article .entry-content p.lead, .single-article .entry-content #featured-carousel .half-image-feature .carousel-caption p.lead, #featured-carousel .half-image-feature .carousel-caption .featured-story h2, .featured-story #featured-carousel .half-image-feature .carousel-caption h2, #featured-carousel .half-image-feature .carousel-caption .featured-story .entry-content .lead, .featured-story .entry-content #featured-carousel .half-image-feature .carousel-caption .lead, #featured-carousel .half-image-feature .carousel-caption .entry-content .featured-story .lead, .entry-content .featured-story #featured-carousel .half-image-feature .carousel-caption .lead, #featured-carousel .half-image-feature .carousel-caption .single-article #secondary h2, .single-article #secondary #featured-carousel .half-image-feature .carousel-caption h2, #featured-carousel .half-image-feature .carousel-caption .single-article #secondary .entry-content .lead, .single-article #secondary .entry-content #featured-carousel .half-image-feature .carousel-caption .lead, #featured-carousel .half-image-feature .carousel-caption .entry-content .single-article #secondary .lead, .entry-content .single-article #secondary #featured-carousel .half-image-feature .carousel-caption .lead {
+        font-size: 28px;
+        line-height: 32px; } }
   #featured-carousel .half-image-feature .carousel-caption p {
-    display: none;
     font-size: 14px;
     line-height: 20px; }
     @media (min-width: 768px) {
@@ -4438,16 +4456,19 @@ figcaption, .entry-content img + h4.text {
         line-height: 24px; } }
   @media screen and (min-width: 768px) {
     #featured-carousel .half-image-feature .carousel-caption {
-      padding: 90px 90px 0; } }
+      padding: 60px 90px 0;
+      text-align: left; } }
   @media screen and (min-width: 992px) {
     #featured-carousel .half-image-feature .carousel-caption {
-      left: initial;
-      top: initial;
-      right: 0;
-      bottom: 0;
+      padding: 45px 7.5px 0 54.9px;
+      left: 0;
+      top: 0;
+      height: 100%;
+      width: 50%; } }
+  @media screen and (min-width: 1220px) {
+    #featured-carousel .half-image-feature .carousel-caption {
       padding: 30px 35.01px 0 54.9px;
-      width: 50%;
-      height: 100%; }
+      width: 50%; }
       #featured-carousel .half-image-feature .carousel-caption h3, #featured-carousel .half-image-feature .carousel-caption .kicker, #featured-carousel .half-image-feature .carousel-caption .gform_wrapper .gform_heading .gform_description, .gform_wrapper .gform_heading #featured-carousel .half-image-feature .carousel-caption .gform_description, #featured-carousel .half-image-feature .carousel-caption .single-article .entry-content p.lead, .single-article .entry-content #featured-carousel .half-image-feature .carousel-caption p.lead, #featured-carousel .half-image-feature .carousel-caption .featured-story h2, .featured-story #featured-carousel .half-image-feature .carousel-caption h2, #featured-carousel .half-image-feature .carousel-caption .featured-story .entry-content .lead, .featured-story .entry-content #featured-carousel .half-image-feature .carousel-caption .lead, #featured-carousel .half-image-feature .carousel-caption .entry-content .featured-story .lead, .entry-content .featured-story #featured-carousel .half-image-feature .carousel-caption .lead, #featured-carousel .half-image-feature .carousel-caption .single-article #secondary h2, .single-article #secondary #featured-carousel .half-image-feature .carousel-caption h2, #featured-carousel .half-image-feature .carousel-caption .single-article #secondary .entry-content .lead, .single-article #secondary .entry-content #featured-carousel .half-image-feature .carousel-caption .lead, #featured-carousel .half-image-feature .carousel-caption .entry-content .single-article #secondary .lead, .entry-content .single-article #secondary #featured-carousel .half-image-feature .carousel-caption .lead {
         margin-top: 45px; } }
 #featured-carousel .full-image-feature .carousel-caption {
@@ -4458,39 +4479,39 @@ figcaption, .entry-content img + h4.text {
   width: 100%;
   height: 325px;
   overflow: hidden;
-  text-align: left;
   background-color: rgba(0, 0, 0, 0.8); }
   #featured-carousel .full-image-feature .carousel-caption h3, #featured-carousel .full-image-feature .carousel-caption .kicker, #featured-carousel .full-image-feature .carousel-caption .gform_wrapper .gform_heading .gform_description, .gform_wrapper .gform_heading #featured-carousel .full-image-feature .carousel-caption .gform_description, #featured-carousel .full-image-feature .carousel-caption .single-article .entry-content p.lead, .single-article .entry-content #featured-carousel .full-image-feature .carousel-caption p.lead, #featured-carousel .full-image-feature .carousel-caption .featured-story h2, .featured-story #featured-carousel .full-image-feature .carousel-caption h2, #featured-carousel .full-image-feature .carousel-caption .featured-story .entry-content .lead, .featured-story .entry-content #featured-carousel .full-image-feature .carousel-caption .lead, #featured-carousel .full-image-feature .carousel-caption .entry-content .featured-story .lead, .entry-content .featured-story #featured-carousel .full-image-feature .carousel-caption .lead, #featured-carousel .full-image-feature .carousel-caption .single-article #secondary h2, .single-article #secondary #featured-carousel .full-image-feature .carousel-caption h2, #featured-carousel .full-image-feature .carousel-caption .single-article #secondary .entry-content .lead, .single-article #secondary .entry-content #featured-carousel .full-image-feature .carousel-caption .lead, #featured-carousel .full-image-feature .carousel-caption .entry-content .single-article #secondary .lead, .entry-content .single-article #secondary #featured-carousel .full-image-feature .carousel-caption .lead {
     color: #fff;
     text-transform: uppercase;
     font-family: "gentona", "Georgia", serif;
     font-weight: 700;
-    font-size: 28px;
-    line-height: 32px;
+    font-size: 20px;
+    line-height: 26px;
     text-transform: uppercase;
     margin-bottom: 0;
     letter-spacing: 2px; }
-  #featured-carousel .full-image-feature .carousel-caption p {
-    display: none; }
     @media (min-width: 768px) {
-      #featured-carousel .full-image-feature .carousel-caption p {
-        display: block;
-        font-size: 14px;
-        line-height: 20px; } }
+      #featured-carousel .full-image-feature .carousel-caption h3, #featured-carousel .full-image-feature .carousel-caption .kicker, #featured-carousel .full-image-feature .carousel-caption .gform_wrapper .gform_heading .gform_description, .gform_wrapper .gform_heading #featured-carousel .full-image-feature .carousel-caption .gform_description, #featured-carousel .full-image-feature .carousel-caption .single-article .entry-content p.lead, .single-article .entry-content #featured-carousel .full-image-feature .carousel-caption p.lead, #featured-carousel .full-image-feature .carousel-caption .featured-story h2, .featured-story #featured-carousel .full-image-feature .carousel-caption h2, #featured-carousel .full-image-feature .carousel-caption .featured-story .entry-content .lead, .featured-story .entry-content #featured-carousel .full-image-feature .carousel-caption .lead, #featured-carousel .full-image-feature .carousel-caption .entry-content .featured-story .lead, .entry-content .featured-story #featured-carousel .full-image-feature .carousel-caption .lead, #featured-carousel .full-image-feature .carousel-caption .single-article #secondary h2, .single-article #secondary #featured-carousel .full-image-feature .carousel-caption h2, #featured-carousel .full-image-feature .carousel-caption .single-article #secondary .entry-content .lead, .single-article #secondary .entry-content #featured-carousel .full-image-feature .carousel-caption .lead, #featured-carousel .full-image-feature .carousel-caption .entry-content .single-article #secondary .lead, .entry-content .single-article #secondary #featured-carousel .full-image-feature .carousel-caption .lead {
+        font-size: 28px;
+        line-height: 32px; } }
+  #featured-carousel .full-image-feature .carousel-caption p {
+    font-size: 14px;
+    line-height: 20px; }
   #featured-carousel .full-image-feature .carousel-caption .read-more {
     font-weight: bold; }
   #featured-carousel .full-image-feature .carousel-caption a, #featured-carousel .full-image-feature .carousel-caption a:visited {
     color: #fff; }
   @media screen and (min-width: 768px) {
     #featured-carousel .full-image-feature .carousel-caption {
-      padding: 90px 90px 0; } }
+      padding: 90px 60px 0 90px;
+      text-align: left; } }
   @media screen and (min-width: 992px) {
     #featured-carousel .full-image-feature .carousel-caption {
       padding: 30px 22.5px;
       left: 15px;
       top: auto;
       bottom: 15px;
-      width: 50%;
+      width: 60%;
       height: auto; } }
 
 #featured-stacker .stacker-control {

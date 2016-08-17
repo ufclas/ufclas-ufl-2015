@@ -17,6 +17,8 @@
 		
 		@media screen and (max-width: $screen-sm-max){
 			padding: 0;
+			max-width: 100%; 
+			width: 100%;
 		}
 	}
 }
@@ -27,13 +29,13 @@
 	@media screen and (min-width: $screen-sm){
 		
 	}
-	@media screen and (min-width: $screen-md){
+	@media screen and (min-width: $screen-lg){
 		width: $size__carousel_width_md;
 		height: $size__carousel_height_md;
 	}
 }
 .carousel-control {
-	display: none;
+	//display: none;
 	
 	@media screen and (min-width: $screen-md){
 		width: $grid-gutter-width*2;
@@ -41,24 +43,30 @@
 	}
 	&.left {
 		background-image: none;	
-		left: -$grid-gutter-width;
+		left: 0;
 		color: $white;
 	}
 	&.right {
 		background-image: none;	
-		right: -$grid-gutter-width;
+		right: 0;
 		color: $white;
 	}
+	@media screen and (min-width: $screen-lg){
+		&.left {	
+			left: -$grid-gutter-width;
+			color: #999;
+		}
+		&.right {
+			right: -$grid-gutter-width;
+			color: #999;
+		}
+	}
 }
-
 
 #featured-carousel {
 	
 	.carousel-indicators {
 		display: none;
-	}
-	.carousel-control {
-		color: #999;
 	}
 	.slide-image {
 		width: 100%;	
@@ -67,11 +75,8 @@
 		width: 100%;
 		height: $size__carousel_height;
 		
-		@media screen and (min-width: $screen-sm){
-			//width: $size__carousel_width;
-		}
-		@media screen and (min-width: $screen-md){
-			//width: $size__carousel_width_md;
+		@media screen and (min-width: $screen-lg){
+			width: $size__carousel_width_md;
 			height: $size__carousel_height_md;
 		}
 	}
@@ -79,7 +84,11 @@
 		width: auto;
 		height: $size__carousel_height;;
 		
-		@media screen and (min-width: $screen-md){
+		@media screen and (min-width: $size__carousel_width){
+			width: $size__carousel_width;
+			height: $size__carousel_height;
+		}
+		@media screen and (min-width: $screen-lg){
 			width: $size__carousel_width_md;
 			height: $size__carousel_height_md;
 		}
@@ -88,11 +97,18 @@
 		width: auto;
 		height: $size__carousel_height;
 		
+		@include breakFirst(medium){
+			width: 100%;
+			height: auto;
+		}
 		@media screen and (min-width: $screen-md){
 			width: auto;
+			height: $size__carousel_height;
+			//float: left;
+			float: right;
+		}
+		@media screen and (min-width: $screen-lg){
 			height: $size__carousel_height_md;
-			float: left;
-			margin-right: $grid-gutter-width*1.5;
 		}
 	}
 	
@@ -137,24 +153,27 @@
 			position: absolute;
 			left: 0;
 			top: 0;
-			padding: $grid-gutter-width*1.5 $grid-gutter-width 0;
+			padding: $grid-gutter-width*1.25 $grid-gutter-width 0;
 			width: 100%;
 			height: $size__carousel_height;
 			overflow: hidden;
-			text-align: left;
 			text-shadow: none;
 			
 			h3 {
 				font-family: $fontFamily;
 				font-weight: 700;
-				font-size: 28px;
-				line-height: 32px;
+				font-size: 20px;
+				line-height: 26px;
 				text-transform: uppercase;
 				margin-bottom: 0;
 				letter-spacing: 2px;
+				
+				@include breakFirst(medium){
+					font-size: 28px;
+					line-height: 32px;
+				}
 			}
 			p {
-				display: none;
 				font-size: 14px;
 				line-height: 20px;
 				
@@ -165,16 +184,24 @@
 				}
 			}
 			@media screen and (min-width: $screen-sm){
-				padding: $grid-gutter-width*3 $grid-gutter-width*3 0;
+				padding: $grid-gutter-width*2 $grid-gutter-width*3 0;
+				text-align: left;
 			}
 			@media screen and (min-width: $screen-md){
-				left: initial;
-				top: initial;
-				right: 0;
-				bottom: 0;
+				padding: $grid-gutter-width*1.5 $grid-gutter-width/4 0 $grid-gutter-width*1.83;
+				left: 0;
+				top: 0;
+				height: 100%;
+				width: 50%;
+				//padding: $grid-gutter-width*1.5 $grid-gutter-width/2 0 $grid-gutter-width;
+				//left: initial;
+				//top: initial;
+				//right: 0;
+				//bottom: 0;
+			}
+			@media screen and (min-width: $screen-lg){
 				padding: $grid-gutter-width $grid-gutter-width*1.167 0 $grid-gutter-width*1.83;
 				width: 50%;
-				height: 100%;
 				
 				h3 {
 					margin-top: $grid-gutter-width*1.5;
@@ -192,7 +219,6 @@
 			width: 100%;
 			height: $size__carousel_height;
 			overflow: hidden;
-			text-align: left;
 			background-color: rgba(0, 0, 0, 0.8);
 			
 			h3 {
@@ -200,20 +226,20 @@
 				text-transform: uppercase;
 				font-family: $fontFamily;
 				font-weight: 700;
-				font-size: 28px;
-				line-height: 32px;
+				font-size: 20px;
+				line-height: 26px;
 				text-transform: uppercase;
 				margin-bottom: 0;
 				letter-spacing: 2px;
-			}
-			p {
-				display: none;
 				
 				@include breakFirst(medium){
-					display: block;
-					font-size: 14px;
-					line-height: 20px;
+					font-size: 28px;
+					line-height: 32px;
 				}
+			}
+			p {
+				font-size: 14px;
+				line-height: 20px;
 			}
 			.read-more {
 				font-weight: bold;	
@@ -222,14 +248,15 @@
 				color: $white;	
 			}
 			@media screen and (min-width: $screen-sm){
-				padding: $grid-gutter-width*3 $grid-gutter-width*3 0;
+				padding: $grid-gutter-width*3 $grid-gutter-width*2 0 $grid-gutter-width*3;
+				text-align: left;
 			}
 			@media screen and (min-width: $screen-md){
 				padding: $grid-gutter-width  $grid-gutter-width*0.75;
 				left: $grid-gutter-width/2;
 				top: auto;
 				bottom: $grid-gutter-width/2;
-				width: 50%;
+				width: 60%;
 				height: auto;
 			}
 		}

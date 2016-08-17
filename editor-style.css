@@ -3952,7 +3952,7 @@ a img.aligncenter {
 .admin-bar .header {
   top: 46px;
   position: absolute; }
-  @media (min-width: 768px) {
+  @media (min-width: 783px) {
     .admin-bar .header {
       top: 32px; } }
 
