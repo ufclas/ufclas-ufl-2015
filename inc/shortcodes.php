@@ -354,7 +354,7 @@ function ufclas_ufl_2015_image_right_quote($atts, $content = NULL ) {
 	extract( shortcode_atts( 
 		array(
 			'image' => get_stylesheet_directory_uri() . '/img/ImgResponsive_Placeholder.png',
-			'quote' => '',
+			'quote' => 'Image quote',
 			'caption' => '',
 			'credit' => '',
 		), $atts )
@@ -371,13 +371,13 @@ function ufclas_ufl_2015_image_right_quote($atts, $content = NULL ) {
     <div class="row">
     <div class="col-md-6">
     	<img class="center-block img-responsive pic" src="<?php echo esc_url( $image[0] ); ?>" alt="<?php echo esc_attr( $image_alt ); ?>">
-        <h4 class="text">
+        <p class="text">
 			<?php echo esc_html( $caption ); ?> 
             <?php if ( !empty( $credit ) ): ?>
             <img class="img-valign" src="<?php echo get_stylesheet_directory_uri(); ?>/svg/camera.svg" alt="Photo credit" width="13px"> 
             <span style="color:#999999;"><?php echo esc_html( $credit ); ?></span>
             <?php endif; ?>
-        </h4>
+        </p>
     </div>
  	<div class="col-md-6">
     	<div class="quote">
