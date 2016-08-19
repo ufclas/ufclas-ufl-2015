@@ -127,7 +127,8 @@ jQuery(function($){
 				$('.aux-menu-wrap a').off('click.mobileNoClick')
 			} else {
 				$body.addClass('open-mobile-dropdown');
-				$mobileDropdown.html('<h2><a href="'+$this.attr('href')+'">'+ $this.text() + '</a></h2>' + $this.next('.dropdown').html());
+				var dropdownHtml = ( $this.next('.dropdown').html() != undefined )? $this.next('.dropdown').html():'';
+				$mobileDropdown.html('<h2><a href="'+$this.attr('href')+'">'+ $this.text() + '</a></h2>' + dropdownHtml );
 
 				// Mobile dropdown height if VH isn't supported
 				if(!Modernizr.cssvhunit){
