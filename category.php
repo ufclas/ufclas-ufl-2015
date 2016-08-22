@@ -24,12 +24,15 @@ get_header(); ?>
   </div>
 </div>
 <div class="row">
-  <div class="col-md-12">
+  <div class="col-md-9">
     <?php 
 		while ( have_posts() ) : the_post();
 			get_template_part( 'template-parts/content', get_post_type() );
 		endwhile; // End of the loop. 
 	?>
+  </div>
+  <div class="col-md-3">
+    <?php get_sidebar('post_sidebar'); ?>
   </div>
 </div>
 </div>
