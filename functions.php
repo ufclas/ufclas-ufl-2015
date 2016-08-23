@@ -208,6 +208,9 @@ function ufclas_ufl_2015_archive_title( $title ){
 		$title = sprintf( __( '%s' ), single_cat_title( '', false ) );
 		$title .= sprintf('<a href="%s"><i class="mdi mdi-rss"></i></a>', get_category_feed_link( $queried_obj->term_id ) );
     }
+	else {
+		$title = str_replace( __('Archives: ', 'ufclas-ufl-2015'), '', $title);	
+	}
 	return $title;
 }
 add_filter( 'get_the_archive_title', 'ufclas_ufl_2015_archive_title' );
@@ -254,7 +257,7 @@ function ufclas_ufl_2015_image_sizes(){
 	// Legacy sizes
 	add_image_size('full-width-thumb', 1140, 399, array('center', 'top'));
 	add_image_size('half-width-thumb', 570, 399, array('center', 'top'));
-	add_image_size('page_header', 750, 250, array('center', 'top'));
+	add_image_size('page_header', 750, 399, array('center', 'top'));
 	add_image_size('ufl_post_thumb', 600, 210, false);	
 }
 add_action( 'after_setup_theme', 'ufclas_ufl_2015_image_sizes' );
@@ -314,6 +317,40 @@ function ufclas_ufl_2015_excerpt_length( $length ) {
     return 40;
 }
 add_filter( 'excerpt_length', 'ufclas_ufl_2015_excerpt_length', 999 );
+
+/**
+ * Get featured image html
+ *
+ * @return string Figure tag or empty string.
+ * @since 0.2.8
+ */
+function ufclas_ufl_2015_post_featured_image(){
+	global $post;
+	$html = '';
+	$details = array(
+		'id' => '',
+		'caption' => '',
+		'description' => '',
+	);
+	
+	// Get the image id, caption, and description
+	$id = get_post_thumbnail_id();
+	$image = get_post( $id );
+	$details['id'] = $id;
+	$details['caption'] = $image->post_excerpt;
+	$details['description'] = $image->post_content;
+	
+	$custom_meta = get_post_custom( $post->ID );
+	$img_full_width = ( isset($custom_meta['custom_meta_image_type']) )? $custom_meta['custom_meta_image_type'][0]:NULL;
+	$details['size'] = ( $img_full_width )? 'full_width_thumb':'half-width-thumb';
+	$details['classes'] = ( $img_full_width )? array('full-width','img-responsive'):array('alignleft');
+	
+	$html .= get_the_post_thumbnail( $post->ID, $details['size'] );
+	$html .= sprintf( '<figcaption>%s</figcaption>', $details['caption'] );
+	$html = sprintf( '<figure class="%s">%s</figure>', implode(' ', $details['classes']), $html );
+		
+	return $html;
+}
 
 /**
  * Load custom theme files 

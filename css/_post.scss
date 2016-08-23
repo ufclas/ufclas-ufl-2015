@@ -4,21 +4,16 @@
     margin-bottom: 30px;
 	clear: both;
 	overflow: auto;
-	
-	.single-post & {
-		max-width: 960px;
-		margin: auto;
-		padding-left: 25px;
-		padding-right: 25px;
-		overflow-x: hidden;
-		
-		@media screen and (min-width: 991px) {
-			padding-left: 120px;
-			padding-right: 120px;
-			max-width: 960px;
-		}
-	}
 }
+figcaption {
+	font-family: $fontFamily;
+	font-weight: 100;
+	font-size: 14px;
+	font-style: italic;
+	line-height: 125%;
+	color: #000;
+	margin-top: 10px;
+}/*
 .single-post {
 	.entry-content, .entry-header {
 		.container-fluid {
@@ -42,15 +37,7 @@
 		}
 	}
 }
-figcaption {
-	font-family: $fontFamily;
-	font-weight: 100;
-	font-size: 12px;
-	font-style: italic;
-	line-height: 125%;
-	color: #000;
-	margin-top: 10px;
-}
+
 .entry-header {
 	figure {
 		padding-bottom: 25px;
@@ -202,3 +189,4 @@ figcaption {
 	}
 }
 
+*/

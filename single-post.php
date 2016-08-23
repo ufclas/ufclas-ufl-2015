@@ -16,16 +16,23 @@ get_header(); ?>
 <div id="main" class="container">
 <div class="row">
   <div class="col-sm-12">
-		<?php ufclas_ufl_2015_breadcrumbs(); ?>
+    <?php ufclas_ufl_2015_breadcrumbs(); ?>
+    <header class="entry-header">
+      <?php the_title( '<h1 class="page-title">', '</h1>' ); ?>
+    </header>
+    <!-- .entry-header --> 
   </div>
 </div>
 <div class="row">
-  <div class="col-sm-12">
+  <div class="col-md-9">
     <?php 
 		while ( have_posts() ) : the_post();
-			get_template_part( 'template-parts/content', 'post' );
+			get_template_part( 'template-parts/content', get_post_type() );
 		endwhile; // End of the loop. 
 	?>
+  </div>
+  <div class="col-md-3">
+    <?php get_sidebar('post_sidebar'); ?>
   </div>
 </div>
 </div>
