@@ -586,14 +586,33 @@ jQuery(function($){
 
 jQuery(function($){
   
-  	// Adjust width of main menu based on number of items
-	if ( $(window).width()>1200 ){
-		var numItems = $('#menu-main-menu > li').length;
-		$('#menu-main-menu > li').css('width', 'calc(100% / ' + numItems + ')');
+  	// Adjust width of main menu based on number of menu items
+	dropdownColumns();
+	
+	$( window ).resize( dropdownColumns );
+	
+	function dropdownColumns(){
+		if ( $(window).width() > 1200 ){
+			var numItems = $('.main-menu-wrap .menu > li').length;
+			
+			if ( numItems <=6 ){
+				$('.main-menu-wrap .menu > li').css({
+					'width': 'calc(100% / ' + numItems + ')',
+				});
+			}
+			else {
+				$('.header.unit .main-menu-wrap').css({'min-width': '1600px'});
+				$('.main-menu-wrap .menu > li').css({'width': 'auto'});
+				$('.main-menu-wrap .menu > li .main-menu-link').css({'padding-left': '15px', 'padding-right': '15px'});
+			}
+		}
+		else {
+			$('.main-menu-wrap .menu > li').css({'width': 'auto'});
+		}
 	}
-		
+			
 	// Display dropdown menu in two columns
-	$('#menu-main-menu .dropdown').each(function(index) {
+	$('.main-menu-wrap .menu .dropdown').each(function(index) {
 		var $parentItem = $(this).parent();
 		var $menuItems = $(this).find('.menu-item');
 		var menuOffset = Math.ceil($menuItems.length/2);

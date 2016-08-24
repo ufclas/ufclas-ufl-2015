@@ -3960,7 +3960,7 @@ a img.aligncenter {
 
 @media (min-width: 768px) {
   .main-menu-wrap {
-    min-height: 100px; } }
+    height: 100px; } }
 
 @media (max-width: 1220px) {
   .main-menu-wrap .main-menu-link {

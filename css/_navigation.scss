@@ -3,7 +3,7 @@
 .main-menu-wrap {
 	// Show white background if not menu set,
 	@include breakFirst(medium){
-		min-height: 100px;
+		height: 100px;
 	}
 }
 .main-menu-wrap .main-menu-link {
