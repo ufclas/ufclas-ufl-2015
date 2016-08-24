@@ -1,6 +1,6 @@
 @charset "utf-8";
 
-.category, .single {
+.category, .single, .page, .archive {
 	#main {
 		background-color: $white;
 		
@@ -9,7 +9,11 @@
 		}	
 	}
 }
-
+.page-template {
+	#main {
+		background-color: transparent;
+	}
+}
 .page-template-landing-page {
 	.footer-wrap {
 		margin-top: 0;	
