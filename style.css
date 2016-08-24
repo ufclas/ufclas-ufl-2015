@@ -3766,11 +3766,14 @@ form.search-wrap, .btn-show-aux, .btn-menu, .btn-search-mobile {
 /*--------------------------------------------------------------
 # Structure
 --------------------------------------------------------------*/
-.category #main, .tax-issuem_issue_categories #main, .single #main {
+.category #main, .tax-issuem_issue_categories #main, .single #main, .page #main, .archive #main {
   background-color: #fff; }
   @media (min-width: 768px) {
-    .category #main, .tax-issuem_issue_categories #main, .single #main {
+    .category #main, .tax-issuem_issue_categories #main, .single #main, .page #main, .archive #main {
       padding: 45px 60px; } }
+
+.page-template #main {
+  background-color: transparent; }
 
 .page-template-landing-page {
   /* Adds positioning for half hero image size */ }
@@ -4026,10 +4029,6 @@ a img.aligncenter {
 .sidenav .page_item_has_children.current_page_ancestor .children,
 .single-article #secondary .widget ul .page_item_has_children.current_page_ancestor .children {
   display: block; }
-
-.sidenav .current_page_item > a, .single-article #secondary .widget ul .current_page_item > a {
-  background: #f37021;
-  color: #fff; }
 
 .social-nav .icon-svg svg {
   top: 14px;
