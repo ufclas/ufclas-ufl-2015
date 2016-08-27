@@ -42,7 +42,7 @@
 	else {
 		// WordPress login
 		?>
-		<p><a href="<?php echo wp_login_url( get_permalink() ); ?>" class="btn btn-primary btn-lg" title="Login"><?php esc_html_e( 'WordPress Login', 'ufclas-ufl-2015' ); ?></a></p>
+		<p><a href="<?php echo wp_login_url( get_permalink() ); ?>" class="btn btn-lg" title="Login"><?php esc_html_e( 'WordPress Login', 'ufclas-ufl-2015' ); ?></a></p>
         <?php
 	}
 }

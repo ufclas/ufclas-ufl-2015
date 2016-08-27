@@ -3762,6 +3762,9 @@ form.search-wrap, .btn-show-aux, .btn-menu, .btn-search-mobile {
 
 .page-template #main {
   background-color: transparent; }
+  @media (min-width: 768px) {
+    .page-template #main {
+      padding: 0; } }
 
 .page-template-landing-page {
   /* Adds positioning for half hero image size */ }
@@ -3946,6 +3949,9 @@ a img.aligncenter {
   z-index: 100000;
   /* Above WP toolbar. */ }
 
+.btn {
+  border-radius: 0; }
+
 .admin-bar .header {
   top: 46px;
   position: absolute; }
@@ -4129,7 +4135,7 @@ a img.aligncenter {
   width: 45px;
   font-family: "gentona", "Georgia", serif;
   text-align: center;
-  color: #888; }
+  color: #4c87b5; }
 .tribe-events-list-widget .event-month {
   font-size: 20px;
   font-weight: 400; }

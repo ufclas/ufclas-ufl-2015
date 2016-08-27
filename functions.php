@@ -145,7 +145,6 @@ function ufclas_ufl_2015_breadcrumbs() {
 		$breadcrumb .= '<li>&nbsp;</li>';
 	}
 	else {
-		$breadcrumb .= '<li><a href="' . site_url('/') . '">' . esc_html__( 'Home', 'ufclas-ufl-2015' ) . '</a></li>';
 		$post_ancestors = array_reverse($post_ancestors);
 		foreach ( $post_ancestors as $crumb_id ){
 			$breadcrumb .= '<li><a href="' . get_permalink( $crumb_id ) . '">' . get_the_title( $crumb_id ) . '</a></li>';

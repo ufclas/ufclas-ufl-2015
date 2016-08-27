@@ -12,6 +12,10 @@
 .page-template {
 	#main {
 		background-color: transparent;
+		
+		@include breakFirst(medium){
+			padding: 0;
+		}	
 	}
 }
 .page-template-landing-page {
@@ -243,4 +247,7 @@ a img.aligncenter {
 	top: 5px;
 	width: auto;
 	z-index: 100000; /* Above WP toolbar. */
+}
+.btn {
+	border-radius: 0;	
 }
