@@ -1,3 +1,50 @@
+// Main menu dropdown adjustments
+jQuery(function($){
+  
+  	// Adjust width of main menu based on number of menu items
+	dropdownColumns();
+	
+	function dropdownColumns(){
+		if ( $(window).width() > 1200 ){
+			var numItems = $('.main-menu-wrap .menu > li').length;
+			var maxItems = 6;
+			
+            if ( numItems <= maxItems ){
+				$('.main-menu-wrap .menu > li').css({
+					'width': 'calc(100% / ' + numItems + ')',
+				});
+			}
+			else {
+				// Remove all items after the max number of items
+                var $moreMenuItems = $('.main-menu-wrap .menu > li').slice(maxItems).detach();
+                $moreMenuItems.find('.dropdown').remove();
+                $moreMenuItems.find('a').removeClass('main-menu-link');
+                
+                // Add a new 'More' menu item after the maxItem
+                var $moreItem = $('<li id="menu-item-more" class="menu-item"><a href="#" class="main-menu-link"><span>More</span></a></li>');
+                $moreItem.append('<div class="dropdown"><ul></ul></div>');
+                $('.main-menu-wrap .menu').append( $moreItem );
+                $('#menu-item-more .dropdown ul').append($moreMenuItems);
+              }
+		}
+	}
+			
+	// Display dropdown menu in two columns
+	$('.main-menu-wrap .menu .dropdown').each(function(index) {
+		var $parentItem = $(this).parent();
+		var $menuItems = $(this).find('.menu-item');
+		var menuOffset = Math.ceil($menuItems.length/2);
+		
+		// Create columns
+		$(this).find('ul').addClass('col-md-6');
+		$(this).append('<ul class="col-md-6 menu-item-wrap-2"></ul>');
+		
+		// Move items to second column
+        $parentItem.find('.menu-item-wrap-2').append( $menuItems.slice(menuOffset) );
+	});
+
+});
+
 // Smartresize
 (function($,sr){
 
@@ -584,50 +631,5 @@ jQuery(function($){
 });
 
 
-jQuery(function($){
-  
-  	// Adjust width of main menu based on number of menu items
-	dropdownColumns();
-	
-	$( window ).resize( dropdownColumns );
-	
-	function dropdownColumns(){
-		if ( $(window).width() > 1200 ){
-			var numItems = $('.main-menu-wrap .menu > li').length;
-			
-			if ( numItems <=6 ){
-				$('.main-menu-wrap .menu > li').css({
-					'width': 'calc(100% / ' + numItems + ')',
-				});
-			}
-			else {
-				$('.header.unit .main-menu-wrap').css({'min-width': '1600px'});
-				$('.main-menu-wrap .menu > li').css({'width': 'auto'});
-				$('.main-menu-wrap .menu > li .main-menu-link').css({'padding-left': '15px', 'padding-right': '15px'});
-			}
-		}
-		else {
-			$('.main-menu-wrap .menu > li').css({'width': 'auto'});
-		}
-	}
-			
-	// Display dropdown menu in two columns
-	$('.main-menu-wrap .menu .dropdown').each(function(index) {
-		var $parentItem = $(this).parent();
-		var $menuItems = $(this).find('.menu-item');
-		var menuOffset = Math.ceil($menuItems.length/2);
-		
-		// Create columns
-		$(this).find('ul').addClass('col-md-6');
-		$(this).append('<ul class="col-md-6 menu-item-wrap-2"></ul>');
-		
-		// Move items to second column
-		$menuItems.each(function(index, element){
-			if( index >= menuOffset ){
-				$parentItem.find('.menu-item-wrap-2').append( $(element) );
-			}
-		});
-	});
 
-});
 
