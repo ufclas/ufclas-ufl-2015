@@ -92,7 +92,7 @@ function ufclas_ufl_2015_issuem_setup(){
 		'newsletter-primary' => esc_html__( 'Newsletter Primary Menu', 'ufclas-ufl-2015' ),
 	) );*/
 	
-	add_theme_support( 'post-formats', array( 'aside' ) );	
+	//add_theme_support( 'post-formats', array( 'aside' ) );	
 }
 add_action( 'after_setup_theme', 'ufclas_ufl_2015_issuem_setup' );
 

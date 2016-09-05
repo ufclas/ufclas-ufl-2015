@@ -1,7 +1,7 @@
 @charset "UTF-8";
 /*
 Theme Name: UFCLAS UFL 2015
-Theme URI: https://it.clas.ufl.edu/
+Theme URI: https://it.clas.ufl.edu/services/web-services/
 Author: Priscilla Chapman (CLAS IT)
 Author URI: https://it.clas.ufl.edu/
 Description: Official UF template for Liberal Arts and Sciences. Based on 160 over 90 template.
@@ -3963,6 +3963,12 @@ a img.aligncenter {
 
 .btn {
   border-radius: 0; }
+
+.gallery-caption {
+  /* required */ }
+
+.bypostauthor {
+  /* required */ }
 
 .admin-bar .header {
   top: 46px;
