@@ -95,7 +95,7 @@ function ufclas_ufl_2015_register_landing_hero_full() {
 			'attr' 		=> 'button_link',
 			'type' 		=> 'url',
 			'meta' 		=> array(
-							'placeholder' => esc_html__( 'http:// or https://' ),
+							'placeholder' => esc_html__( 'http:// or https://', 'ufclas-ufl-2015' ),
 			),
 		),
 	);
@@ -155,7 +155,7 @@ function ufclas_ufl_2015_register_breaker() {
 			'attr' 		=> 'button_link',
 			'type' 		=> 'url',
 			'meta' 		=> array(
-							'placeholder' => esc_html__( 'http:// or https://' ),
+							'placeholder' => esc_html__( 'http:// or https://', 'ufclas-ufl-2015' ),
 			),
 		),
 	);

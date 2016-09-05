@@ -88,8 +88,8 @@ function ufclas_ufl_2015_issuem_get_categories(){
  */
 function ufclas_ufl_2015_issuem_setup(){
 	/*register_nav_menus( array(
-		'newsletter-global' => esc_html__( 'Newsletter Global Menu', 'ufclas-clasnet' ),
-		'newsletter-primary' => esc_html__( 'Newsletter Primary Menu', 'ufclas-clasnet' ),
+		'newsletter-global' => esc_html__( 'Newsletter Global Menu', 'ufclas-ufl-2015' ),
+		'newsletter-primary' => esc_html__( 'Newsletter Primary Menu', 'ufclas-ufl-2015' ),
 	) );*/
 	
 	add_theme_support( 'post-formats', array( 'aside' ) );	
@@ -195,7 +195,7 @@ add_filter( 'parse_query','ufclas_ufl_2015_issuem_article_filter' );
  * @since 1.1.0
  */
 function ufclas_ufl_2015_issuem_readmore( $more ) {
-	return '<p class="read-more"><a class="read-more" href="'. get_permalink( get_the_ID() ) . '">' . __('Read More', 'ufclas_newsletter') . '</a></p>';
+	return '<p class="read-more"><a class="read-more" href="'. get_permalink( get_the_ID() ) . '">' . __('Read More', 'ufclas-ufl-2015') . '</a></p>';
 }
 add_filter('excerpt_more', 'ufclas_ufl_2015_issuem_readmore');
 add_filter( 'the_content_more_link', 'ufclas_ufl_2015_issuem_readmore' );

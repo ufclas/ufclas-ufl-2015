@@ -44,7 +44,7 @@ get_header(); ?>
                 <?php if ( $article_issue ): ?>
                     <p><a href="<?php echo $article_issue['url']; ?>" title="<?php echo $article_issue['title']; ?>" class="btn"><span class="glyphicon glyphicon-circle-arrow-left"></span> Back to Issue</a></p>
                 <?php endif; ?>
-                <?php edit_post_link( __( 'Edit Article', 'ufclas-clasnet' ), '<p class="edit-link">', '</p>' ); ?>
+                <?php edit_post_link( __( 'Edit Article', 'ufclas-ufl-2015' ), '<p class="edit-link">', '</p>' ); ?>
             </footer> <!-- .entry-footer --> 
         </article>
         <!-- #post-## -->
