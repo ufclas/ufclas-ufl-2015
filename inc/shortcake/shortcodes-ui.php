@@ -292,21 +292,21 @@ function ufclas_ufl_2015_register_breaker_cards() {
 	
 	for($i=1; $i<=3; $i++){
 		$shortcode_ui_fields[] = array(
-			'label'		=> sprint( '%s %d', esc_html__('Card Headline', 'ufclas-ufl-2015'), $i),
+			'label'		=> sprintf( '%s %d', esc_html__('Card Headline', 'ufclas-ufl-2015'), $i),
 			'description' 	=> esc_html__('', 'ufclas-ufl-2015'),
 			'attr' 		=> 'card_headline' . $i,
 			'type' 		=> 'text',
 		);
 		$shortcode_ui_fields[] = array(
-			'label'		=> sprint( '%s %d', esc_html__('Card Image', 'ufclas-ufl-2015'), $i),
+			'label'		=> sprintf( '%s %d', esc_html__('Card Image', 'ufclas-ufl-2015'), $i),
 			'attr' 		=> 'card_image' . $i,
 			'type' 		=> 'attachment',
 			'libraryType' 	=> array( 'Image' ),
-			'addButton'		=> sprint( '%s %d', esc_html__( 'Select Image', 'ufclas-ufl-2015' ), $i),
-			'frameTitle'	=> sprint( '%s %d', esc_html__( 'Select Image', 'ufclas-ufl-2015' ), $i),
+			'addButton'		=> sprintf( '%s %d', esc_html__( 'Select Image', 'ufclas-ufl-2015' ), $i),
+			'frameTitle'	=> sprintf( '%s %d', esc_html__( 'Select Image', 'ufclas-ufl-2015' ), $i),
 		);
 		$shortcode_ui_fields[] = array(
-			'label'		=> sprint( '%s %d', esc_html__( 'Card Text', 'ufclas-ufl-2015' ), $i),
+			'label'		=> sprintf( '%s %d', esc_html__( 'Card Text', 'ufclas-ufl-2015' ), $i),
 			'description' 	=> esc_html__('Text displayed in card, optional', 'ufclas-ufl-2015'),
 			'attr' 		=> 'card_text' . $i,
 			'type' 		=> 'textarea',
