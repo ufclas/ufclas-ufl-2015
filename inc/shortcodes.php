@@ -2,6 +2,16 @@
 /**
  * Theme shortcodes
  *
+ *	[ufclas-landing-page-hero][/ufclas-landing-page-hero]
+ *	[ufclas-landing-page-hero-full][/ufclas-landing-page-hero]
+ *	[ufclas-content-image-caption][/ufclas-content-image-caption]
+ *	[ufclas-content-image-right][/ufclas-content-image-right]
+ *	[ufclas-breaker-cards][/ufclas-breaker-cards]
+ *	[ufclas-icon]
+ *	[ufclas-image-right-quote][/ufclas-image-right-quote]
+ *	[ufclas-image-full-width]
+ *	[ufclas-video-full-width]
+ *	[ufclas-image]
  *
  * @package UFCLAS_UFL_2015
  */
@@ -464,3 +474,5 @@ function ufclas_ufl_2015_video_full_width($atts, $content = NULL ) {
 	return ob_get_clean();
 }
 add_shortcode('ufclas-video-full-width', 'ufclas_ufl_2015_video_full_width');
+
+

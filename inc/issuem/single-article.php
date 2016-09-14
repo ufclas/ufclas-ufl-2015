@@ -29,7 +29,10 @@ get_header(); ?>
         <article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
             <?php 
                 if( has_post_thumbnail() ){
-					the_post_thumbnail(array( 300, 300 ), array( 'class' => 'img-responsive img-thumbnail alignleft' ));
+					//the_post_thumbnail(array( 300, 300 ), array( 'class' => 'img-responsive img-thumbnail alignleft' ));
+					//the_post_thumbnail_caption();
+					error_log( sprintf('[ufclas-image image="%s"]', get_post_thumbnail_id()) );
+					do_shortcode( sprintf('[caption image="%s"]', get_post_thumbnail_id() ) );
             	}
             ?>
             
