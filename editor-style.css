@@ -3952,6 +3952,15 @@ a img.aligncenter {
 .btn {
   border-radius: 0; }
 
+strong {
+  font-weight: 400; }
+
+.gallery-caption {
+  /* required */ }
+
+.bypostauthor {
+  /* required */ }
+
 .admin-bar .header {
   top: 46px;
   position: absolute; }
@@ -4004,6 +4013,8 @@ a img.aligncenter {
     left: 0; }
   .aux-menu-wrap .audience-nav-wrap:hover .arw-right svg, .aux-menu-wrap .audience-nav-wrap:focus .arw-right svg {
     transform: translate(0, 0); }
+  .aux-menu-wrap .audience-nav-wrap .cur-audience {
+    background-color: #dd661e; }
 
 /* Fixes SVG icon display in FF */
 .big-list .btn-mobile-toggle a svg, .sidenav .btn-mobile-toggle a svg, .single-article #secondary .widget ul .btn-mobile-toggle a svg, .sidenav .btn-mobile-toggle a svg, .single-article #secondary .widget ul .btn-mobile-toggle a svg, .single-article #secondary .widget ul .btn-mobile-toggle a svg {

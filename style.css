@@ -3964,6 +3964,9 @@ a img.aligncenter {
 .btn {
   border-radius: 0; }
 
+strong {
+  font-weight: 400; }
+
 .gallery-caption {
   /* required */ }
 
