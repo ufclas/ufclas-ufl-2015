@@ -3892,11 +3892,9 @@ a img.aligncenter {
 
 .wp-caption {
   background: #fff;
-  border: 1px solid #f0f0f0;
   max-width: 96%;
   /* Image does not overflow the content area */
-  padding: 5px 3px 10px;
-  text-align: center; }
+  padding: 5px 3px 10px; }
 
 .wp-caption.alignnone {
   margin: 5px 20px 20px 0; }
@@ -3914,6 +3912,14 @@ a img.aligncenter {
   max-width: 98.5%;
   padding: 0;
   width: auto; }
+
+figure.wp-caption img {
+  float: none; }
+
+.wp-caption-text {
+  color: #333132; }
+  .wp-caption-text a {
+    color: #333132; }
 
 .wp-caption p.wp-caption-text {
   font-size: 11px;
@@ -3953,7 +3959,10 @@ a img.aligncenter {
   border-radius: 0; }
 
 strong {
-  font-weight: 400; }
+  font-weight: 500; }
+
+.entry-footer {
+  clear: both; }
 
 .gallery-caption {
   /* required */ }

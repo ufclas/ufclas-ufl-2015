@@ -29,21 +29,20 @@ get_header(); ?>
         <article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
             <?php 
                 if( has_post_thumbnail() ){
-					//the_post_thumbnail(array( 300, 300 ), array( 'class' => 'img-responsive img-thumbnail alignleft' ));
-					//the_post_thumbnail_caption();
-					error_log( sprintf('[ufclas-image image="%s"]', get_post_thumbnail_id()) );
-					do_shortcode( sprintf('[caption image="%s"]', get_post_thumbnail_id() ) );
+					$img_data = wp_prepare_attachment_for_js( get_post_thumbnail_id() );
+					$img_size = 'medium';
+					$img_align = 'alignleft';
+					$img = get_the_post_thumbnail( get_the_ID(), $img_size, array( 'class' => 'img-responsive ' . $img_align ) );
+					echo do_shortcode( sprintf('[caption align="%s" width="%d"]%s %s[/caption]', $img_align, $img_data['sizes'][$img_size]['width'], $img, $img_data['description'] ) );
             	}
             ?>
             
             <div class="entry-content">
-            <?php the_content(); ?></div> <!-- .entry-content -->
+            	<?php the_content(); ?>
+            </div> <!-- .entry-content -->
             
             <footer class="entry-footer">
-                <?php 
-                    
-                ?>
-                <p class="posted-on">By <?php the_author(); ?>, <?php ufclas_ufl_2015_issuem_posted_on(); ?></p>
+                 <p class="posted-on">By <?php the_author(); ?>, <?php ufclas_ufl_2015_issuem_posted_on(); ?></p>
                 <?php if ( $article_issue ): ?>
                     <p><a href="<?php echo $article_issue['url']; ?>" title="<?php echo $article_issue['title']; ?>" class="btn"><span class="glyphicon glyphicon-circle-arrow-left"></span> Back to Issue</a></p>
                 <?php endif; ?>

@@ -186,10 +186,8 @@ a img.aligncenter {
 }
 .wp-caption {
     background: #fff;
-    border: 1px solid #f0f0f0;
     max-width: 96%; /* Image does not overflow the content area */
     padding: 5px 3px 10px;
-    text-align: center;
 }
 
 .wp-caption.alignnone {
@@ -211,6 +209,18 @@ a img.aligncenter {
     max-width: 98.5%;
     padding: 0;
     width: auto;
+}
+
+figure.wp-caption img {
+	float: none;
+}
+
+.wp-caption-text {
+	color: $grayDark;
+	
+	a {
+		color: $grayDark;	
+	}
 }
 
 .wp-caption p.wp-caption-text {
@@ -253,6 +263,9 @@ a img.aligncenter {
 }
 strong {
 	font-weight: 500;	
+}
+.entry-footer {
+	clear: both;	
 }
 
 // Required WordPress styles
