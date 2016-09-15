@@ -1,15 +1,15 @@
 @charset "UTF-8";
 /*
 Theme Name: UFCLAS UFL 2015
-Theme URI: https://it.clas.ufl.edu/
+Theme URI: https://it.clas.ufl.edu/services/web-services/
 Author: Priscilla Chapman (CLAS IT)
 Author URI: https://it.clas.ufl.edu/
 Description: Official UF template for Liberal Arts and Sciences. Based on 160 over 90 template.
-Version: 0.2.12
+Version: 0.2.13
 License: GNU General Public License v2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 Text Domain: ufclas-ufl-2015
-Build Date: 20160824
+Build Date: 20160915
 */
 html, body, div, span, applet, object, iframe,
 h1, h2, h3, .kicker, .gform_wrapper .gform_heading .gform_description, .single-article .entry-content p.lead, .featured-story h2, .single-article #secondary h2, h4, h5, dt, h6, p, blockquote, pre,
@@ -3774,6 +3774,9 @@ form.search-wrap, .btn-show-aux, .btn-menu, .btn-search-mobile {
 
 .page-template #main {
   background-color: transparent; }
+  @media (min-width: 768px) {
+    .page-template #main {
+      padding: 0; } }
 
 .page-template-landing-page {
   /* Adds positioning for half hero image size */ }
@@ -3901,11 +3904,9 @@ a img.aligncenter {
 
 .wp-caption {
   background: #fff;
-  border: 1px solid #f0f0f0;
   max-width: 96%;
   /* Image does not overflow the content area */
-  padding: 5px 3px 10px;
-  text-align: center; }
+  padding: 5px 3px 10px; }
 
 .wp-caption.alignnone {
   margin: 5px 20px 20px 0; }
@@ -3923,6 +3924,14 @@ a img.aligncenter {
   max-width: 98.5%;
   padding: 0;
   width: auto; }
+
+figure.wp-caption img {
+  float: none; }
+
+.wp-caption-text {
+  color: #333132; }
+  .wp-caption-text a {
+    color: #333132; }
 
 .wp-caption p.wp-caption-text {
   font-size: 11px;
@@ -3957,6 +3966,21 @@ a img.aligncenter {
   width: auto;
   z-index: 100000;
   /* Above WP toolbar. */ }
+
+.btn {
+  border-radius: 0; }
+
+strong {
+  font-weight: 500; }
+
+.entry-footer {
+  clear: both; }
+
+.gallery-caption {
+  /* required */ }
+
+.bypostauthor {
+  /* required */ }
 
 .admin-bar .header {
   top: 46px;
@@ -4010,6 +4034,8 @@ a img.aligncenter {
     left: 0; }
   .aux-menu-wrap .audience-nav-wrap:hover .arw-right svg, .aux-menu-wrap .audience-nav-wrap:focus .arw-right svg {
     transform: translate(0, 0); }
+  .aux-menu-wrap .audience-nav-wrap .cur-audience {
+    background-color: #dd661e; }
 
 /* Fixes SVG icon display in FF */
 .big-list .btn-mobile-toggle a svg, .sidenav .btn-mobile-toggle a svg, .single-article #secondary .widget ul .btn-mobile-toggle a svg, .sidenav .btn-mobile-toggle a svg, .single-article #secondary .widget ul .btn-mobile-toggle a svg, .single-article #secondary .widget ul .btn-mobile-toggle a svg {
@@ -4141,7 +4167,7 @@ a img.aligncenter {
   width: 45px;
   font-family: "gentona", "Georgia", serif;
   text-align: center;
-  color: #888; }
+  color: #4c87b5; }
 .tribe-events-list-widget .event-month {
   font-size: 20px;
   font-weight: 400; }
@@ -4452,7 +4478,6 @@ figcaption {
   @media (min-width: 992px) {
     #featured-carousel .slider-dark.half-image-feature .carousel-caption {
       background-color: #00529b;
-      background-image: url("img/bg-big-stat.png");
       background-repeat: repeat-x;
       background-position: center center; } }
   #featured-carousel .slider-dark .carousel-caption {

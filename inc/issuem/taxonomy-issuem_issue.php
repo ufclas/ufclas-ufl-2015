@@ -76,7 +76,7 @@ get_header(); ?>
 </div>
     <div class="row">
     	<div class="col-md-12">
-    	<p><a href="#main" class="read-more btn btn-primary">Back to top</a></p>
+    	<p><a href="#main" class="read-more btn">Back to top</a></p>
         </div>
     </div>
 </div>

@@ -47,7 +47,10 @@
 		&:hover .arw-right svg, &:focus .arw-right svg {
 			transform: translate(0, 0);
 		}
-	}
+        .cur-audience {
+            background-color: $orangeDark;
+        }
+    }
 }
 
 /* Fixes SVG icon display in FF */

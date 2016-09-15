@@ -51,14 +51,14 @@ function ufclas_ufl_2015_customize_register( $wp_customize ) {
 		'priority' => '160',
 	));
 	
-	$wp_customize->add_setting( 'featured_category', array( 'default' => 0 ));
-	$wp_customize->add_setting( 'story_stacker', array( 'default' => 0 ));
-	$wp_customize->add_setting( 'number_of_posts_to_show', array( 'default' => 3 ));
-	$wp_customize->add_setting( 'featured_style', array( 'default' => 'slider-dark' ));
-	$wp_customize->add_setting( 'featured_speed', array( 'default' => 7 ));
-	$wp_customize->add_setting( 'featured_disable_link', array( 'default' => 0 ));
-	$wp_customize->add_setting( 'story_stacker_disable_dates', array( 'default' => 0 ));
-	$wp_customize->add_setting( 'homepage_layout', array( 'default' => '2c-bias' ));
+	$wp_customize->add_setting( 'featured_category', array( 'default' => 0, 'sanitize_callback' => 'absint' ));
+	$wp_customize->add_setting( 'story_stacker', array( 'default' => 0, 'sanitize_callback' => 'absint' ));
+	$wp_customize->add_setting( 'number_of_posts_to_show', array( 'default' => 3, 'sanitize_callback' => 'absint' ));
+	$wp_customize->add_setting( 'featured_style', array( 'default' => 'slider-dark', 'sanitize_callback' => 'sanitize_key' ));
+	$wp_customize->add_setting( 'featured_speed', array( 'default' => 7, 'sanitize_callback' => 'absint' ));
+	$wp_customize->add_setting( 'featured_disable_link', array( 'default' => 0, 'sanitize_callback' => 'absint' ));
+	$wp_customize->add_setting( 'story_stacker_disable_dates', array( 'default' => 0, 'sanitize_callback' => 'absint' ));
+	$wp_customize->add_setting( 'homepage_layout', array( 'default' => '2c-bias', 'sanitize_callback' => 'sanitize_key' ));
 	$wp_customize->add_setting( 'homepage_layout_color', array( 'default' => '', 'sanitize_callback' => 'sanitize_hex_color' ));
 	
 	$wp_customize->add_control( 'featured_category', array(

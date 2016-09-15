@@ -32,10 +32,7 @@ function ufl_shibboleth_valid_user() {
 
 // Get current protocol from options, fallback to server variable.
 function ufl_get_protocol() {
-	$shib_protocol = 'https';
-	if ( !empty( $shib_protocol ) ) {
-		return $shib_protocol.'://';
-	} elseif ( is_ssl() ) {
+	if ( is_ssl() ) {
 		return 'https://';
 	} else {
 		return 'http://';
@@ -46,7 +43,7 @@ function ufl_get_protocol() {
 function ufl_shibboleth_login_button() {
 	global $post;
 	$url_parts = parse_url( get_permalink($post->ID) );
-	echo '<p><a class="btn btn-primary btn-lg" href="'.ufl_get_protocol().$_SERVER['SERVER_NAME'].'/Shibboleth.sso/Login?target='.urlencode( ufl_get_protocol().$url_parts['host'].$url_parts['path'] ).'">Login with GatorLink</a></p>';
+	echo '<p><a class="btn btn-lg" href="'.ufl_get_protocol().$_SERVER['SERVER_NAME'].'/Shibboleth.sso/Login?target='.urlencode( ufl_get_protocol().$url_parts['host'].$url_parts['path'] ).'">Login with GatorLink</a></p>';
 }
 
 // Check if authed with Shib.

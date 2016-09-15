@@ -145,7 +145,6 @@ function ufclas_ufl_2015_breadcrumbs() {
 		$breadcrumb .= '<li>&nbsp;</li>';
 	}
 	else {
-		$breadcrumb .= '<li><a href="' . site_url('/') . '">' . esc_html__( 'Home', 'ufclas-ufl-2015' ) . '</a></li>';
 		$post_ancestors = array_reverse($post_ancestors);
 		foreach ( $post_ancestors as $crumb_id ){
 			$breadcrumb .= '<li><a href="' . get_permalink( $crumb_id ) . '">' . get_the_title( $crumb_id ) . '</a></li>';
@@ -205,7 +204,7 @@ add_filter( 'nav_menu_css_class', 'ufclas_ufl_2015_nav_classes', 10, 4 );
 function ufclas_ufl_2015_archive_title( $title ){
 	if ( is_category() ) {
         $queried_obj = get_queried_object();
-		$title = sprintf( __( '%s' ), single_cat_title( '', false ) );
+		$title = sprintf( __( '%s', 'ufclas-ufl-2015' ), single_cat_title( '', false ) );
 		$title .= sprintf('<a href="%s"><i class="mdi mdi-rss"></i></a>', get_category_feed_link( $queried_obj->term_id ) );
     }
 	else {
@@ -270,10 +269,10 @@ add_action( 'after_setup_theme', 'ufclas_ufl_2015_image_sizes' );
  */
 function ufclas_ufl_2015_show_custom_sizes( $sizes ) {
     return array_merge( $sizes, array(
-		'full-width-thumb' => __( 'Full Width Thumbnail' ),
-		'half-width-thumb' => __( 'Half Width Thumbnail' ),
-		'page_header' => __( 'Page Header' ),
-		'ufl_post_thumb' => __( 'Post Thumbnail' ),
+		'full-width-thumb' => __( 'Full Width Thumbnail', 'ufclas-ufl-2015' ),
+		'half-width-thumb' => __( 'Half Width Thumbnail', 'ufclas-ufl-2015' ),
+		'page_header' => __( 'Page Header', 'ufclas-ufl-2015' ),
+		'ufl_post_thumb' => __( 'Post Thumbnail', 'ufclas-ufl-2015' ),
     ) );
 }
 add_filter( 'image_size_names_choose', 'ufclas_ufl_2015_show_custom_sizes' );

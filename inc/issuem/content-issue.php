@@ -37,4 +37,4 @@ else {
 </article>
 <?php endwhile; ?>
 
-<p><a href="#content" class="read-more btn btn-primary">Back to top</a></p>
+<p><a href="#content" class="read-more btn">Back to top</a></p>
