@@ -88,11 +88,19 @@ function ufclas_ufl_2015_scripts() {
 	wp_enqueue_script( 'ie_respond');
 	wp_script_add_data( 'ie_respond', 'conditional', 'lt IE 9' );
 	
+	// Theme
 	wp_enqueue_style( 'style', get_stylesheet_uri(), array('dashicons') );
 	wp_enqueue_script('velocity', 'https://cdnjs.cloudflare.com/ajax/libs/velocity/1.2.2/velocity.min.js', array('jquery'), false, true);
 	wp_enqueue_script('velocity-ui', 'https://cdnjs.cloudflare.com/ajax/libs/velocity/1.2.2/velocity.ui.min.js', array('velocity'), false, true);
 	wp_enqueue_script('ufclas-ufl-2015-plugins', get_stylesheet_directory_uri() . '/js/plugins.js', array(), false, true);
 	wp_enqueue_script('ufclas-ufl-2015-scripts', get_stylesheet_directory_uri() . '/js/scripts.js', array(), false, true);
+	
+	// Inline CSS
+	$collapse_sidebar_nav = get_theme_mod('collapse_sidebar_nav', 1);
+	if ( $collapse_sidebar_nav ) {
+		$custom_css  = '.sidenav .page_item_has_children .children {display: none;}';
+		wp_add_inline_style('style', $custom_css);
+  	}
 	
 	if ( WP_DEBUG ){
 		$custom_css = '#querylist h2, #querylist ul li, #querylist ol li { text-transform: none; } #querylist ul li:before, #querylist ol li:before { content: none; }';

@@ -4036,8 +4036,15 @@ strong {
 .big-list.open-list .btn-mobile-toggle .arw-right svg, .open-list.sidenav .btn-mobile-toggle .arw-right svg, .single-article #secondary .widget ul.open-list .btn-mobile-toggle .arw-right svg, .sidenav.open-list .btn-mobile-toggle .arw-right svg, .single-article #secondary .widget ul.open-list .btn-mobile-toggle .arw-right svg, .single-article #secondary .widget ul.open-list .btn-mobile-toggle .arw-right svg {
   transform: translate(0, 0) rotate(-45deg); }
 
-.sidenav .page_item_has_children .children, .single-article #secondary .widget ul .page_item_has_children .children {
-  display: none; }
+.sidenav a, .single-article #secondary .widget ul a {
+  line-height: 20px;
+  letter-spacing: 1px; }
+
+.sidenav li li a, .single-article #secondary .widget ul li li a {
+  font-size: 14px;
+  letter-spacing: 0;
+  line-height: 18px;
+  text-transform: none; }
 
 .sidenav .page_item_has_children.current_page_item .children, .single-article #secondary .widget ul .page_item_has_children.current_page_item .children,
 .sidenav .page_item_has_children.current_page_ancestor .children,

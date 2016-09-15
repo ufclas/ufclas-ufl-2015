@@ -25,6 +25,26 @@ function ufclas_ufl_2015_customize_range( $min = 0, $max = 10 ) {
 }
 
 /**
+ * Sanitize radio and select boxes using choices
+ *
+ * @return string Valid input or the default value for the setting 
+ * @since 0.3.0
+ * @see http://cachingandburning.com/wordpress-theme-customizer-sanitizing-radio-buttons-and-select-lists/
+ */
+function ufclas_ufl_2015_sanitize_choices( $input, $setting ) {
+	global $wp_customize;
+	
+	$control = $wp_customize->get_control( $setting->id );
+	
+	if ( array_key_exists( $input, $control->choices ) ){
+		return $input;
+	}
+	else {
+		return $setting->default;	
+	}
+}
+
+/**
  * Add Customizer CSS
  * @since 0.2.5
  */
@@ -43,12 +63,86 @@ add_action('wp_enqueue_scripts', 'ufclas_ufl_2015_customize_css');
  * @since 0.2.5
  */
 function ufclas_ufl_2015_customize_register( $wp_customize ) {
+	// Colors section
+	$wp_customize->add_control( 
+		new WP_Customize_Color_Control( $wp_customize, 'homepage_layout_color', 
+		array(
+			'label' => __('Homepage Widgets Background', 'ufclas-ufl-2015'),
+			'section' => 'colors',
+			'settings' => 'homepage_layout_color',
+		)
+		)
+	);
+	
+	// Add a Theme Option panel for backwards compatibility
+	$wp_customize->add_panel( 'theme_options', array(
+		'title' => __('Theme Options', 'ufclas-ufl-2015'),
+		'description' => __('Options for modifying the theme.', 'ufclas-ufl-2015'),
+		'priority' => '160',
+	));
+	
+	// General
+	$wp_customize->add_section( 'theme_options_general', array(
+		'title' => __('General', 'ufclas-ufl-2015'),
+		'description' => __('', 'ufclas-ufl-2015'),
+		'panel' => 'theme_options',
+	));
+	
+	$wp_customize->add_setting( 'parent_colleges_institutes', array( 'default' => 'None', 'sanitize_callback' => 'ufclas_ufl_2015_sanitize_choices' ));
+	$wp_customize->add_setting( 'analytics_acct', array( 'default' => '', 'sanitize_callback' => 'sanitize_text_field' ));
+	$wp_customize->add_setting( 'mega_menu', array( 'default' => 1, 'sanitize_callback' => 'absint' ));
+	$wp_customize->add_setting( 'collapse_sidebar_nav', array( 'default' => 1, 'sanitize_callback' => 'absint' ));
+	$wp_customize->add_setting( 'shibboleth_protocol', array( 'default' => (is_ssl())? 'https':'http', 'sanitize_callback' => 'ufclas_ufl_2015_sanitize_choices' ));
+	
+	$wp_customize->add_control( 'parent_colleges_institutes', array(
+		'label' => __('Parent College / Institute', 'ufclas-ufl-2015'),
+		'description' => __('Select your parent organization.', 'ufclas-ufl-2015'),
+		'section' => 'theme_options_general',
+		'type' => 'select',
+		'choices' => array(
+			'University of Florida' => __('University of Florida', 'ufclas-ufl-2015'),
+			'College of Liberal Arts and Sciences' => __('CLAS', 'ufclas-ufl-2015'),
+			'Information Technology' => __('Information Technology', 'ufclas-ufl-2015'),
+			'UF Academic Health Center' => __('UF Academic Health Center', 'ufclas-ufl-2015'),
+			'Shands HealthCare' => __('Shands HealthCare', 'ufclas-ufl-2015'),
+			'None' => __('None', 'ufclas-ufl-2015'),
+		),
+	));
+	$wp_customize->add_control( 'analytics_acct', array(
+		'label' => __('Google Analytics Account Number', 'ufclas-ufl-2015'),
+		'description' => __("(e.g., 'UA-xxxxxxx-x' or 'UA-xxxxxxx-xx' )", 'ufclas-ufl-2015'),
+		'section' => 'theme_options_general',
+		'type' => 'text',
+	));
+	$wp_customize->add_control( 'mega_menu', array(
+		'label' => __('Enable Mega Drop Down Menu', 'ufclas-ufl-2015'),
+		'description' => __('Main menu items appear in 2 columns', 'ufclas-ufl-2015'),
+		'section' => 'theme_options_general',
+		'type' => 'checkbox',
+	));
+	$wp_customize->add_control( 'collapse_sidebar_nav', array(
+		'label' => __('Collapse Sidebar Navigation', 'ufclas-ufl-2015'),
+		'description' => __('Useful for larger sites - keeps the sidebar navigation a manageable height', 'ufclas-ufl-2015'),
+		'section' => 'theme_options_general',
+		'type' => 'checkbox',
+	));
+	$wp_customize->add_control( 'shibboleth_protocol', array(
+		'label' => __('Shibboleth Protocol', 'ufclas-ufl-2015'),
+		'description' => __('Select the protocol you have Shibboleth enabled on.', 'ufclas-ufl-2015'),
+		'section' => 'theme_options_general',
+		'type' => 'select',
+		'choices' => array(
+			'http' => 'http',
+			'https' => 'https',
+		),
+	));
+
 		
 	// Homepage
-	$wp_customize->add_section( 'homepage', array(
+	$wp_customize->add_section( 'theme_options_homepage', array(
 		'title' => __('Homepage', 'ufclas-ufl-2015'),
-		'description' => __('Options for modifying the homepage. The below options edit the featured slider.', 'ufclas-ufl-2015'),
-		'priority' => '160',
+		'description' => __('The options below edit the homepage featured slider.', 'ufclas-ufl-2015'),
+		'panel' => 'theme_options',
 	));
 	
 	$wp_customize->add_setting( 'featured_category', array( 'default' => 0, 'sanitize_callback' => 'absint' ));
@@ -64,7 +158,7 @@ function ufclas_ufl_2015_customize_register( $wp_customize ) {
 	$wp_customize->add_control( 'featured_category', array(
 		'label' => __('Select a Category', 'ufclas-ufl-2015'),
 		'description' => __('Choose a category for the featured post slider.', 'ufclas-ufl-2015'),
-		'section' => 'homepage',
+		'section' => 'theme_options_homepage',
 		'type' => 'select',
 		'choices' => ufclas_ufl_2015_customize_categories(),
 	));
@@ -72,7 +166,7 @@ function ufclas_ufl_2015_customize_register( $wp_customize ) {
 	$wp_customize->add_control( 'number_of_posts_to_show', array(
 		'label' => __('Number of Posts to Display in Slider', 'ufclas-ufl-2015'),
 		'description' => __('Number of posts to display in your slider (Story Stacker is fixed at 3)', 'ufclas-ufl-2015'),
-		'section' => 'homepage',
+		'section' => 'theme_options_homepage',
 		'type' => 'select',
 		'choices' => ufclas_ufl_2015_customize_range( 1, 15 ),
 	));
@@ -80,7 +174,7 @@ function ufclas_ufl_2015_customize_register( $wp_customize ) {
 	$wp_customize->add_control( 'featured_style', array(
 		'label' => __('Featured Slider Style', 'ufclas-ufl-2015'),
 		'description' => __('Select a color scheme for the featured slider', 'ufclas-ufl-2015'),
-		'section' => 'homepage',
+		'section' => 'theme_options_homepage',
 		'type' => 'select',
 		'choices' => array(
 			'slider-light' => __('Light', 'ufclas-ufl-2015'),
@@ -91,35 +185,35 @@ function ufclas_ufl_2015_customize_register( $wp_customize ) {
 	$wp_customize->add_control( 'featured_speed', array(
 		'label' => __('Slider Speed', 'ufclas-ufl-2015'),
 		'description' => __('Time in seconds to display each slide', 'ufclas-ufl-2015'),
-		'section' => 'homepage',
+		'section' => 'theme_options_homepage',
 		'type' => 'number',
 	));
 	
 	$wp_customize->add_control( 'featured_disable_link', array(
 		'label' => __('Disable Slider Links', 'ufclas-ufl-2015'),
 		'description' => __('Disable links from being created on the homepage slider.', 'ufclas-ufl-2015'),
-		'section' => 'homepage',
+		'section' => 'theme_options_homepage',
 		'type' => 'checkbox',
 	));
 	
 	$wp_customize->add_control( 'story_stacker', array(
 		'label' => __('Story Stacker', 'ufclas-ufl-2015'),
 		'description' => __('Change the slider to a large image with three smaller stories', 'ufclas-ufl-2015'),
-		'section' => 'homepage',
+		'section' => 'theme_options_homepage',
 		'type' => 'checkbox',
 	));
 	
 	$wp_customize->add_control( 'story_stacker_disable_dates', array(
 		'label' => __('Story Stacker - Disable Dates', 'ufclas-ufl-2015'),
 		'description' => __('Disable dates from appearing underneath your post titles.', 'ufclas-ufl-2015'),
-		'section' => 'homepage',
+		'section' => 'theme_options_homepage',
 		'type' => 'checkbox',
 	));
 	
 	$wp_customize->add_control( 'homepage_layout', array(
 		'label' => __('Homepage Layout for Widgets', 'ufclas-ufl-2015'),
 		'description' => __('Select a layout to use for your widgets on the homepage', 'ufclas-ufl-2015'),
-		'section' => 'homepage',
+		'section' => 'theme_options_homepage',
 		'type' => 'select',
 		'choices' => array(
 			'3c-default' => __('Three Columns, 1/2 1/4 1/4', 'ufclas-ufl-2015'),
@@ -131,15 +225,7 @@ function ufclas_ufl_2015_customize_register( $wp_customize ) {
 		),
 	));
 	
-	$wp_customize->add_control( 
-		new WP_Customize_Color_Control( $wp_customize, 'homepage_layout_color', 
-		array(
-			'label' => __('Homepage Widgets Background', 'ufclas-ufl-2015'),
-			'section' => 'colors',
-			'settings' => 'homepage_layout_color',
-		)
-		)
-	);
+	
 	
 }
 add_action('customize_register','ufclas_ufl_2015_customize_register');

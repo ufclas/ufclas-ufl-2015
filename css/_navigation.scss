@@ -53,7 +53,7 @@
     }
 }
 
-/* Fixes SVG icon display in FF */
+/* Fixes SVG icon display in FF */ 
 .big-list, .sidenav, .single-article #secondary .widget ul {
 	.btn-mobile-toggle a svg {
 		transform: translate(0, 0) rotate(45deg);
@@ -67,16 +67,19 @@
 		transform: translate(0, 0) rotate(-45deg);
 	}
 }
-
-.sidenav .page_item_has_children .children {
-	display: none;	
+.sidenav a {
+    line-height: 20px;
+	letter-spacing: 1px;
+}
+.sidenav li li a {
+    font-size: 14px;
+	letter-spacing: 0;
+	line-height: 18px;
+	text-transform: none;
 }
 .sidenav .page_item_has_children.current_page_item .children,
 .sidenav .page_item_has_children.current_page_ancestor .children {
 	display: block;	
-}
-.sidenav .current_page_item > a {
-	//border-bottom: 3px solid $orange;
 }
 .social-nav .icon-svg svg {
     top: 14px;
