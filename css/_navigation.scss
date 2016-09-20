@@ -81,10 +81,18 @@
 .sidenav .page_item_has_children.current_page_ancestor .children {
 	display: block;	
 }
-.social-nav .icon-svg svg {
-    top: 14px;
-    left: 11px;
-    transform: translate(0%, 0%);
-	width: 19px;
-	height: 19px;
+.social-nav {
+	margin-bottom: 0;
+	
+	li:last-of-type {
+		padding-bottom: $grid-gutter-width/2;	
+	}
+	
+	.icon-svg svg {
+		top: 14px;
+		left: 11px;
+		transform: translate(0%, 0%);
+		width: 19px;
+		height: 19px;
+	}
 }

@@ -4052,15 +4052,21 @@ strong {
 .single-article #secondary .widget ul .page_item_has_children.current_page_ancestor .children {
   display: block; }
 
-.social-nav .icon-svg svg {
-  top: 14px;
-  left: 11px;
-  transform: translate(0%, 0%);
-  width: 19px;
-  height: 19px; }
+.social-nav {
+  margin-bottom: 0; }
+  .social-nav li:last-of-type {
+    padding-bottom: 15px; }
+  .social-nav .icon-svg svg {
+    top: 14px;
+    left: 11px;
+    transform: translate(0%, 0%);
+    width: 19px;
+    height: 19px; }
 
 .home .widget-area {
   padding-top: 30px; }
+.home .footer-bottom .widget-area {
+  padding-top: 0; }
 
 .widget {
   margin-bottom: 30px; }
@@ -4089,6 +4095,11 @@ strong {
   text-indent: -999em;
   display: block;
   margin-bottom: -30px; }
+
+.footer-bottom .widget_text .textwidget {
+  font-size: 16px;
+  line-height: 24px;
+  padding-right: 15px; }
 
 .widget_listcategorypostswidget li {
   text-transform: none;
