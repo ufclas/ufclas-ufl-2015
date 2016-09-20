@@ -6,6 +6,13 @@
 .tax-issuem_issue_categories {
 	@extend .category;	
 }
+.issuem-description {
+	@include breakFirst(medium){
+		margin-left: 15px;
+		margin-right: 15px;
+		padding-bottom: 15px;
+	}
+}
 .issuem-article {
 	.big-stat-wrap, .tweet-block {
 		width: 100%;

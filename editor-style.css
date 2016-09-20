@@ -4384,6 +4384,12 @@ figcaption {
 }
 
 */
+@media (min-width: 768px) {
+  .issuem-description {
+    margin-left: 15px;
+    margin-right: 15px;
+    padding-bottom: 15px; } }
+
 .issuem-article .big-stat-wrap, .issuem-article .tweet-block {
   width: 100%;
   background-position: top center; }
