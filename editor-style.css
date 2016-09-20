@@ -3755,7 +3755,8 @@ form.search-wrap, .btn-show-aux, .btn-menu, .btn-search-mobile {
 # Structure
 --------------------------------------------------------------*/
 .category #main, .tax-issuem_issue_categories #main, .single #main, .page #main, .archive #main {
-  background-color: #fff; }
+  background-color: #fff;
+  padding-top: 30px; }
   @media (min-width: 768px) {
     .category #main, .tax-issuem_issue_categories #main, .single #main, .page #main, .archive #main {
       padding: 45px 60px; } }
@@ -4405,7 +4406,10 @@ figcaption {
     .issuem-article .big-stat-wrap.four, .issuem-article .tweet-block.four {
       margin-left: 0; } }
 .issuem-article .big-stat-copy {
-  padding-bottom: 15px; }
+  padding-bottom: 15px;
+  bottom: 0;
+  left: 0;
+  position: absolute; }
   @media (min-width: 768px) {
     .issuem-article .big-stat-copy {
       float: none; } }

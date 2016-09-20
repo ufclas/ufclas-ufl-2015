@@ -35,7 +35,10 @@
 	}
 	.big-stat-copy {
 		padding-bottom: 15px;
-		
+		bottom: 0;
+		left: 0;
+		position: absolute;
+				
 		@media (min-width: 768px) {
 			float: none;
 		}
