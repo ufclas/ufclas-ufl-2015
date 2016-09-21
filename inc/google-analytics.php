@@ -1,6 +1,6 @@
 <?php 
-	$opt_analytics_acct = 'UA-1145687-24';
-	if ( !empty( $opt_analytics_acct ) && !is_user_logged_in () ):
+	$opt_analytics_acct = get_theme_mod( 'analytics_acct', false );
+	if ( $opt_analytics_acct && !is_user_logged_in () ):
 ?>
 <!-- Google Analytics -->
 <script>

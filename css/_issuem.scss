@@ -6,6 +6,13 @@
 .tax-issuem_issue_categories {
 	@extend .category;	
 }
+.issuem-description {
+	@include breakFirst(medium){
+		margin-left: $grid-gutter-width/2;
+		margin-right: $grid-gutter-width/2;
+		padding-bottom: $grid-gutter-width/2;
+	}
+}
 .issuem-article {
 	.big-stat-wrap, .tweet-block {
 		width: 100%;
@@ -14,7 +21,7 @@
 		&.four {
 			@media (min-width: 768px) {
 				float: none;
-				margin-bottom: 30px;
+				margin-bottom: $grid-gutter-width;
 			}
 			@media (min-width: 992px) {
 				float: none;
@@ -27,8 +34,11 @@
 		}
 	}
 	.big-stat-copy {
-		padding-bottom: 15px;
-		
+		padding-bottom: $grid-gutter-width/2;
+		bottom: 0;
+		left: 0;
+		position: absolute;
+				
 		@media (min-width: 768px) {
 			float: none;
 		}
@@ -52,12 +62,12 @@
 		}	
 	}
 	#secondary {
-		margin-left: 30px;
+		margin-left: $grid-gutter-width;
 		
 		h2 {
 			@extend h3;
 			text-transform: none;
-			margin-bottom: 15px;
+			margin-bottom: $grid-gutter-width/2;
 		}
 		.widget ul {
 			@extend .sidenav;

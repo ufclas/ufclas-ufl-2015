@@ -88,11 +88,19 @@ function ufclas_ufl_2015_scripts() {
 	wp_enqueue_script( 'ie_respond');
 	wp_script_add_data( 'ie_respond', 'conditional', 'lt IE 9' );
 	
+	// Theme
 	wp_enqueue_style( 'style', get_stylesheet_uri(), array('dashicons') );
 	wp_enqueue_script('velocity', 'https://cdnjs.cloudflare.com/ajax/libs/velocity/1.2.2/velocity.min.js', array('jquery'), false, true);
 	wp_enqueue_script('velocity-ui', 'https://cdnjs.cloudflare.com/ajax/libs/velocity/1.2.2/velocity.ui.min.js', array('velocity'), false, true);
 	wp_enqueue_script('ufclas-ufl-2015-plugins', get_stylesheet_directory_uri() . '/js/plugins.js', array(), false, true);
 	wp_enqueue_script('ufclas-ufl-2015-scripts', get_stylesheet_directory_uri() . '/js/scripts.js', array(), false, true);
+	
+	// Inline CSS
+	$collapse_sidebar_nav = get_theme_mod('collapse_sidebar_nav', 1);
+	if ( $collapse_sidebar_nav ) {
+		$custom_css  = '.sidenav .page_item_has_children .children {display: none;}';
+		wp_add_inline_style('style', $custom_css);
+  	}
 	
 	if ( WP_DEBUG ){
 		$custom_css = '#querylist h2, #querylist ul li, #querylist ol li { text-transform: none; } #querylist ul li:before, #querylist ol li:before { content: none; }';
@@ -349,6 +357,29 @@ function ufclas_ufl_2015_post_featured_image(){
 	$html = sprintf( '<figure class="%s">%s</figure>', implode(' ', $details['classes']), $html );
 		
 	return $html;
+}
+
+/**
+ * Template tag to display list of social network links only if they are set in the Customizer theme options
+ * @since 0.3.0
+ */
+function ufclas_ufl_2015_socialnetworks() {
+	$social_networks = array(
+		'facebook' => 'Facebook',
+		'twitter' => 'Twitter',
+		'youtube' => 'YouTube',
+		'instagram' => 'Instagram',
+		'siteblog' => 'Blog',
+	);
+	
+	foreach( $social_networks as $name => $title ){
+		$link = esc_url( get_theme_mod("{$name}_url") );
+		$icon = get_stylesheet_directory_uri();
+		$icon .= ( 'siteblog' != $name )? "/img/spritemap.svg#{$name}" : '/svg/menu.svg#Layer_1';
+		if( !empty($link) ){
+			printf('<li><a href="%s" class="btn-circle icon-svg icon-%s"><svg><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="%s"></use></svg><span class="visuallyhidden">%s</span></a></li>', $link, $name, $icon, $title );
+		}
+	}
 }
 
 /**

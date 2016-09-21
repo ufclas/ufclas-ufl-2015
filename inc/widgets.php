@@ -1,5 +1,33 @@
 <?php 
 /**
+ * Get the number of widget in a specific sidebar
+ * 
+ * @param string $sidebar_id
+ * @return int Number of widgets
+ * @since 0.3.0
+ * @link https://generatewp.com/snippet/2V0V0gy/
+ */
+function ufclas_ufl_2015_sidebar_widget_classes( $sidebar_id ){
+    global $_wp_sidebars_widgets;
+	
+	/** 
+	 * If loading from front page, consult $_wp_sidebars_widgets rather than options 
+	 * to see if wp_convert_widget_settings() has made manipulations in memory.
+	 */
+	$sidebars_widget_count = ( !empty( $_wp_sidebars_widgets ) )? $_wp_sidebars_widgets : get_option( 'sidebars_widgets', array() );
+	
+	if ( !isset( $sidebars_widget_count[$sidebar_id] ) ){
+		return;		
+	}
+	else {
+		$widget_count_max = 3;
+		$widget_count = count( $sidebars_widget_count[$sidebar_id] );
+		$widget_count_columns = ( $widget_count < $widget_count_max )? $widget_count : $widget_count_max;
+		return 'col-md-' . ceil( 12 / $widget_count_columns );
+	}
+}
+
+/**
  * Register widget areas.
  *
  * @link https://developer.wordpress.org/themes/functionality/sidebars/#registering-a-sidebar
@@ -69,9 +97,18 @@ function ufclas_ufl_2015_widgets_init() {
 		'after_title'   => '</h2>',
 	) );
 	register_sidebar( array(
-		'name'          => esc_html__( 'Footer', 'ufclas-ufl-2015' ),
+		'name'          => esc_html__( 'Footer Left', 'ufclas-ufl-2015' ),
 		'id'            => 'site_footer',
-		'description'   => '',
+		'description'   => 'Content that replaces the institutional links in the footer.',
+		'before_widget' => '<aside id="%1$s" class="widget %2$s ' . ufclas_ufl_2015_sidebar_widget_classes('site_footer') . '">',
+		'after_widget'  => '</aside>',
+		'before_title'  => '<h2 class="widget-title">',
+		'after_title'   => '</h2>',
+	) );
+	register_sidebar( array(
+		'name'          => esc_html__( 'Footer Right', 'ufclas-ufl-2015' ),
+		'id'            => 'footer_right',
+		'description'   => 'Content that appears below the logo and social links in the footer.',
 		'before_widget' => '<aside id="%1$s" class="widget %2$s">',
 		'after_widget'  => '</aside>',
 		'before_title'  => '<h2 class="widget-title">',
@@ -180,4 +217,3 @@ function ufandshands_secondary_widget_area() {
 	break;
 	}
 }
-

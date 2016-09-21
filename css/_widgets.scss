@@ -2,10 +2,13 @@
 	.home & {
 		padding-top: $grid-gutter-width;
 	}
+	.home .footer-bottom & {
+		padding-top: 0;
+	}
 }
 
 .widget {
-	margin-bottom: 30px;
+	margin-bottom: $grid-gutter-width;
 	
 	ul {
 		margin-left: 0;
@@ -14,7 +17,7 @@
 			content: normal;
 		}
 		li {
-			margin-bottom: 30px;
+			margin-bottom: $grid-gutter-width;
 			font-size: 16px;
 		}
 		a {
@@ -40,7 +43,15 @@
 	label {
 		text-indent: -999em;
 		display: block;
-		margin-bottom: -30px;
+		margin-bottom: -$grid-gutter-width;
+	}
+}
+
+.widget_text {
+	.footer-bottom & .textwidget {
+		font-size: 16px;
+		line-height: 24px;
+		padding-right: $grid-gutter-width/2;
 	}
 }
 
@@ -98,7 +109,7 @@
 			padding: 1px 14px;
 			position: absolute;
 			top: 0;
-			right: 30px;
+			right: $grid-gutter-width;
 		}
 		&:before {
 			content: 'More ';	

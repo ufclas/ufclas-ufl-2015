@@ -3,6 +3,7 @@
 .category, .single, .page, .archive {
 	#main {
 		background-color: $white;
+		padding-top: 30px; 
 		
 		@include breakFirst(medium){
 			padding: 45px 60px;

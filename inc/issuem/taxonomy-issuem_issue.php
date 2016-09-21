@@ -13,7 +13,14 @@ get_header(); ?>
     <header class="entry-header">
       <?php 
 	  	$issue_title = ufclas_ufl_2015_issuem_newsletter_title();
-	  	printf( "<h1 class=\"entry-title\">%s</h1>", $issue_title );
+		printf( '<h1 class="entry-title">%s</h1>', $issue_title );
+		
+		/* Display Issue Description, if exists */
+		$issue_description = term_description( get_term_by( 'slug', get_active_issuem_issue(), 'issuem_issue' ) );
+		
+		if ( !empty($issue_description) ){
+			printf( '<div class="taxonomy-description issuem-description">%s</div>', $issue_description );
+		}
       ?>
     </header>
     <!-- .entry-header --> 
