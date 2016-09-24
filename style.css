@@ -4022,12 +4022,17 @@ strong {
       font-size: 15px; } }
 
 /* Prevent global menu from dropping down on smaller screens */
-.aux-menu-wrap {
+@media (min-width: 1220px) {
+  .aux-menu-wrap {
+    position: absolute;
+    top: 0; } }
+.aux-menu-wrap .audience-nav-wrap {
+  background-color: #dd661e;
   /* Fixes SVG icon display in FF */ }
-  @media (min-width: 1220px) {
-    .aux-menu-wrap {
-      position: absolute;
-      top: 0; } }
+  @media (min-width: 768px) {
+    .aux-menu-wrap .audience-nav-wrap {
+      margin-right: 50px;
+      position: absolute; } }
   .aux-menu-wrap .audience-nav-wrap .arw-right svg {
     transform: translate(0, 0);
     margin: 18px 12px;
