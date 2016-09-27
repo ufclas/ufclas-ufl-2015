@@ -5,7 +5,8 @@ jQuery(function($){
 	dropdownColumns();
 	
 	function dropdownColumns(){
-		if ( $(window).width() > 1200 ){
+		console.log( $(window).width() );
+        if ( $(window).width() > 992px ){
 			var numItems = $('.main-menu-wrap .menu > li').length;
 			var maxItems = 6;
 			
@@ -26,23 +27,22 @@ jQuery(function($){
                 $('.main-menu-wrap .menu').append( $moreItem );
                 $('#menu-item-more .dropdown ul').append($moreMenuItems);
               }
+            
+            // Display dropdown menu in two columns
+            $('.main-menu-wrap .menu .dropdown').each(function(index) {
+                var $parentItem = $(this).parent();
+                var $menuItems = $(this).find('.menu-item');
+                var menuOffset = Math.ceil($menuItems.length/2);
+
+                // Create columns
+                $(this).find('ul').addClass('col-md-6');
+                $(this).append('<ul class="col-md-6 menu-item-wrap-2"></ul>');
+
+                // Move items to second column
+                $parentItem.find('.menu-item-wrap-2').append( $menuItems.slice(menuOffset) );
+            });
 		}
 	}
-			
-	// Display dropdown menu in two columns
-	$('.main-menu-wrap .menu .dropdown').each(function(index) {
-		var $parentItem = $(this).parent();
-		var $menuItems = $(this).find('.menu-item');
-		var menuOffset = Math.ceil($menuItems.length/2);
-		
-		// Create columns
-		$(this).find('ul').addClass('col-md-6');
-		$(this).append('<ul class="col-md-6 menu-item-wrap-2"></ul>');
-		
-		// Move items to second column
-        $parentItem.find('.menu-item-wrap-2').append( $menuItems.slice(menuOffset) );
-	});
-
 });
 
 // Smartresize
