@@ -22,4 +22,10 @@ Requirements and Suggested Plugins
 * Shortcake (Shortcode UI) (optional) - visual interface for shortcodes
 * List Category Posts (optional) - replacement for custom recent posts widget
 
+Documentation
+--------------
 
+* [Web Services UF 2015 Template](http://webservices.it.ufl.edu/terminalfour/uf-2015-template/)
+
+To-Do
+------

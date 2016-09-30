@@ -3990,6 +3990,9 @@ strong {
     .admin-bar .header {
       top: 32px; } }
 
+.main-menu-wrap li:nth-child(odd) {
+  background: #fff; }
+
 .header.unit {
   /*svg {
   	fill: currentColor;

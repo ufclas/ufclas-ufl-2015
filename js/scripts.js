@@ -4,11 +4,13 @@ jQuery(function($){
   	// Adjust width of main menu based on number of menu items
 	dropdownColumns();
 	
+	$(window).resize( dropdownColumns );
+	
 	function dropdownColumns(){
-		console.log( $(window).width() );
-        if ( $(window).width() > 992px ){
+		
+        if ( $(window).width() > 992 ){
 			var numItems = $('.main-menu-wrap .menu > li').length;
-			var maxItems = 6;
+			var maxItems = 7;
 			
             if ( numItems <= maxItems ){
 				$('.main-menu-wrap .menu > li').css({
