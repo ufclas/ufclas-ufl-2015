@@ -95,22 +95,46 @@ function ufclas_ufl_2015_scripts() {
 	wp_enqueue_script('ufclas-ufl-2015-plugins', get_stylesheet_directory_uri() . '/js/plugins.js', array(), false, true);
 	wp_enqueue_script('ufclas-ufl-2015-scripts', get_stylesheet_directory_uri() . '/js/scripts.js', array(), false, true);
 	
-	// Inline CSS
-	$collapse_sidebar_nav = get_theme_mod('collapse_sidebar_nav', 1);
-	if ( $collapse_sidebar_nav ) {
-		$custom_css  = '.sidenav .page_item_has_children .children {display: none;}';
-		wp_add_inline_style('style', $custom_css);
-  	}
-	
-	if ( WP_DEBUG ){
-		$custom_css = '#querylist h2, #querylist ul li, #querylist ol li { text-transform: none; } #querylist ul li:before, #querylist ol li:before { content: none; }';
-		wp_add_inline_style( 'style', $custom_css );
-	}
-	
 	// Pass site data to Javascript
-	wp_localize_script( 'ufclas-ufl-2015-plugins', 'ufclas_ufl_2015_themeurl', get_stylesheet_directory_uri() );
+	$site_data = array(
+		'theme_url' => get_stylesheet_directory_uri(),
+	);
+	wp_localize_script( 'ufclas-ufl-2015-plugins', 'ufclas_ufl_2015_sitedata', $site_data );
 }
 add_action( 'wp_enqueue_scripts', 'ufclas_ufl_2015_scripts' );
+
+/**
+ * Enqueue inline styles.
+ * @since 0.3.0
+ */
+function ufclas_ufl_2015_inline_styles() {
+	$custom_css = '';
+	
+	// Adjust main menu width
+	if ( has_nav_menu('main_menu') ){
+		$menu_item_count = 0;
+		$menu_locations = get_nav_menu_locations();
+		$menu_items = wp_get_nav_menu_items( $menu_locations[ 'main_menu' ] );
+		
+		foreach ( $menu_items as $item ) {
+			// Only count top level menu items
+			if ( $item->menu_item_parent == 0 ){
+				$menu_item_count++; 
+			}	
+		}
+		$custom_css .= '@media screen and (min-width:992px){ .main-menu-wrap .menu > li { width: calc(100%/' . $menu_item_count . '); } ';
+	}
+	
+	// Custom css for sidenav
+	$collapse_sidebar_nav = get_theme_mod('collapse_sidebar_nav', 1);
+	if ( $collapse_sidebar_nav ) {
+		$custom_css  .= '.sidenav .page_item_has_children .children {display: none;} ';	
+  	}
+	
+	wp_add_inline_style('style', $custom_css);
+}
+add_action('wp_enqueue_scripts', 'ufclas_ufl_2015_inline_styles');
+
 
 /**
  * Adds custom classes to the array of body classes.

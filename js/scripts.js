@@ -1,21 +1,17 @@
 // Main menu dropdown adjustments
 jQuery(function($){
   
-  	// Adjust width of main menu based on number of menu items
-	dropdownColumns();
-	
-	$(window).resize( dropdownColumns );
-	
-	function dropdownColumns(){
+  	function dropdownColumns(){
 		
         if ( $(window).width() > 992 ){
+			console.log( $(window).width() );
 			var numItems = $('.main-menu-wrap .menu > li').length;
 			var maxItems = 7;
 			
             if ( numItems <= maxItems ){
-				$('.main-menu-wrap .menu > li').css({
+				/*$('.main-menu-wrap .menu > li').css({
 					'width': 'calc(100% / ' + numItems + ')',
-				});
+				});*/
 			}
 			else {
 				// Remove all items after the max number of items
@@ -45,6 +41,11 @@ jQuery(function($){
             });
 		}
 	}
+	
+	// Adjust width of main menu based on number of menu items
+	$(window).load(dropdownColumns);
+	$(window).resize(dropdownColumns);
+	
 });
 
 // Smartresize
@@ -464,9 +465,9 @@ jQuery(function($){
 
 	// Audience nav wrap arrow hover
 	$('.audience-nav-wrap').hover(function(){
-		$(this).find('svg use').attr('xlink:href', ufclas_ufl_2015_themeurl + '/img/spritemap.svg#arw-up');
+		$(this).find('svg use').attr('xlink:href', ufclas_ufl_2015_sitedata.theme_url + '/img/spritemap.svg#arw-up');
 	},function(){
-		$(this).find('svg use').attr('xlink:href', ufclas_ufl_2015_themeurl + '/img/spritemap.svg#arw-down');
+		$(this).find('svg use').attr('xlink:href', ufclas_ufl_2015_sitedata.theme_url + '/img/spritemap.svg#arw-down');
 	});
 
 	// Debounced window resize listener
@@ -498,7 +499,7 @@ jQuery(function($){
 		$this = $(this);
 
 		// Make new HTML select box
-		var $styledSelect = $('<div class="styled-select" data-select="select'+i+'" tabindex="0"><div class="selected">Standard Dropdown</div><ul></ul><span class="arw-right icon-svg"><svg><use xlink:href="'+ufclas_ufl_2015_themeurl+'/img/spritemap.svg#arw-down"></use></svg></span></div>');
+		var $styledSelect = $('<div class="styled-select" data-select="select'+i+'" tabindex="0"><div class="selected">Standard Dropdown</div><ul></ul><span class="arw-right icon-svg"><svg><use xlink:href="'+ufclas_ufl_2015_sitedata.theme_url+'/img/spritemap.svg#arw-down"></use></svg></span></div>');
 		$this.before($styledSelect);
 
 		// Get all options from this select box
@@ -518,7 +519,7 @@ jQuery(function($){
 		$select.find('.selected').text($this.text()).addClass('changed');
 
 		// Hide the dropdown
-		$('.styled-select').removeClass('hover').find('svg use').attr('xlink:href', ufclas_ufl_2015_themeurl + '/img/spritemap.svg#arw-down');
+		$('.styled-select').removeClass('hover').find('svg use').attr('xlink:href', ufclas_ufl_2015_sitedata.theme_url + '/img/spritemap.svg#arw-down');
 
 		$('select[data-select="'+$select.attr('data-select')+'"]').val($(this).attr('data-value'));
 
@@ -531,19 +532,19 @@ jQuery(function($){
 
 		// Change the arrow icon
 		if($select.hasClass('hover')){
-			$select.find('svg use').attr('xlink:href', ufclas_ufl_2015_themeurl + '/img/spritemap.svg#arw-up');
+			$select.find('svg use').attr('xlink:href', ufclas_ufl_2015_sitedata.theme_url + '/img/spritemap.svg#arw-up');
 		} else {
-			$select.find('svg use').attr('xlink:href', ufclas_ufl_2015_themeurl + '/img/spritemap.svg#arw-down');
+			$select.find('svg use').attr('xlink:href', ufclas_ufl_2015_sitedata.theme_url + '/img/spritemap.svg#arw-down');
 		}
 		// Change the arrow icon
-		$('.styled-select').not($select).find('svg use').attr('xlink:href', ufclas_ufl_2015_themeurl + '/img/spritemap.svg#arw-down');
+		$('.styled-select').not($select).find('svg use').attr('xlink:href', ufclas_ufl_2015_sitedata.theme_url + '/img/spritemap.svg#arw-down');
 
 		// Close the select on blur
 		window.setTimeout(function(){
 			$(document).one('click.closeSelect',function(e){
 				if(!$(e.target).closest('.styled-select').length){
 					$select.removeClass('hover');
-					$select.find('svg use').attr('xlink:href',ufclas_ufl_2015_themeurl + '/img/spritemap.svg#arw-down');
+					$select.find('svg use').attr('xlink:href',ufclas_ufl_2015_sitedata.theme_url + '/img/spritemap.svg#arw-down');
 				}
 			});
 		},0);
@@ -570,7 +571,7 @@ jQuery(function($){
 
 	// Custom checkboxes
 	$('.uf-check input[type="checkbox"]').each(function(){
-		$(this).after('<div><span class="icon-svg"><svg><use xlink:href="'+ufclas_ufl_2015_themeurl+'/img/spritemap.svg#close"></use></svg></span></div>')
+		$(this).after('<div><span class="icon-svg"><svg><use xlink:href="'+ufclas_ufl_2015_sitedata.theme_url+'/img/spritemap.svg#close"></use></svg></span></div>')
 	});
 	// Custom radio buttons
 	$('.uf-check input[type="radio"]').each(function(){
@@ -629,7 +630,7 @@ jQuery(function($){
 	}
 	
 	// Add arrows to big lists
-	$('.big-list li a').append('<span class="arw-right icon-svg"><svg><use xlink:href="'+ufclas_ufl_2015_themeurl+'/img/spritemap.svg#arw-right"></use></svg></span>');
+	$('.big-list li a').append('<span class="arw-right icon-svg"><svg><use xlink:href="'+ufclas_ufl_2015_sitedata.theme_url+'/img/spritemap.svg#arw-right"></use></svg></span>');
 });
 
 
