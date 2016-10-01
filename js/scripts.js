@@ -3,17 +3,12 @@ jQuery(function($){
   
   	function dropdownColumns(){
 		
-        if ( $(window).width() > 992 ){
-			console.log( $(window).width() );
-			var numItems = $('.main-menu-wrap .menu > li').length;
+		if ( $(window).width() > 992 ){
 			var maxItems = 7;
+			var numItems = $('.main-menu-wrap .menu > li').length;
 			
-            if ( numItems <= maxItems ){
-				/*$('.main-menu-wrap .menu > li').css({
-					'width': 'calc(100% / ' + numItems + ')',
-				});*/
-			}
-			else {
+            if ( numItems > maxItems ){
+				
 				// Remove all items after the max number of items
                 var $moreMenuItems = $('.main-menu-wrap .menu > li').slice(maxItems).detach();
                 $moreMenuItems.find('.dropdown').remove();
@@ -29,21 +24,24 @@ jQuery(function($){
             // Display dropdown menu in two columns
             $('.main-menu-wrap .menu .dropdown').each(function(index) {
                 var $parentItem = $(this).parent();
-                var $menuItems = $(this).find('.menu-item');
-                var menuOffset = Math.ceil($menuItems.length/2);
 
-                // Create columns
-                $(this).find('ul').addClass('col-md-6');
-                $(this).append('<ul class="col-md-6 menu-item-wrap-2"></ul>');
+                // Create columns, if they don't already exist
+				if ( $parentItem.find('.menu-item-wrap-2 li').length == 0 ){
+					var $menuItems = $(this).find('.menu-item');
+                	var menuOffset = Math.ceil($menuItems.length/2);
+					
+					$(this).find('ul').addClass('col-md-6');
+					$(this).append('<ul class="col-md-6 menu-item-wrap-2"></ul>');
 
-                // Move items to second column
-                $parentItem.find('.menu-item-wrap-2').append( $menuItems.slice(menuOffset) );
+                	// Move items to second column
+                	$parentItem.find('.menu-item-wrap-2').append( $menuItems.slice(menuOffset) );
+				}
             });
 		}
 	}
 	
 	// Adjust width of main menu based on number of menu items
-	$(window).load(dropdownColumns);
+	dropdownColumns();
 	$(window).resize(dropdownColumns);
 	
 });

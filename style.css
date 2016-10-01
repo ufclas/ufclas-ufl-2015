@@ -3993,14 +3993,6 @@ strong {
 .main-menu-wrap li:nth-child(odd) {
   background: #fff; }
 
-.header.unit {
-  /*svg {
-  	fill: currentColor;
-  }
-  .LAS_Text {
-  	color: $blue;
-  }*/ }
-
 @media (min-width: 768px) {
   .main-menu-wrap {
     height: 100px; } }

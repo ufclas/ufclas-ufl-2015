@@ -122,7 +122,8 @@ function ufclas_ufl_2015_inline_styles() {
 				$menu_item_count++; 
 			}	
 		}
-		$custom_css .= '@media screen and (min-width:992px){ .main-menu-wrap .menu > li { width: calc(100%/' . $menu_item_count . '); } ';
+		$custom_css .= '@media screen and (min-width:992px) and (max-width: 1249px){ .header.unit .main-menu-wrap .menu > li > .main-menu-link { padding-left: 15px; padding-right: 15px; }';
+		$custom_css .= '@media screen and (min-width:1250px){ .main-menu-wrap .menu > li { width: calc(100%/' . $menu_item_count . '); } ';
 	}
 	
 	// Custom css for sidenav

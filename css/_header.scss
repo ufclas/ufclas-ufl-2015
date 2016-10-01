@@ -13,11 +13,8 @@
 .main-menu-wrap li:nth-child(odd) {
     background: $white;
 }
-.header.unit  {
-	/*svg {
-		fill: currentColor;
+.main-menu-wrap li {
+	@include breakFirst(wide){
+		//width: auto; 
 	}
-	.LAS_Text {
-		color: $blue;
-	}*/
 }
