@@ -4037,6 +4037,15 @@ strong {
 .big-list.open-list .btn-mobile-toggle .arw-right svg, .open-list.sidenav .btn-mobile-toggle .arw-right svg, .single-article #secondary .widget ul.open-list .btn-mobile-toggle .arw-right svg, .sidenav.open-list .btn-mobile-toggle .arw-right svg, .single-article #secondary .widget ul.open-list .btn-mobile-toggle .arw-right svg, .single-article #secondary .widget ul.open-list .btn-mobile-toggle .arw-right svg {
   transform: translate(0, 0) rotate(-45deg); }
 
+/* Fix horizontal page scrolling on FF */
+@media (min-width: 768px) {
+  .mobile-dropdown-wrap {
+    display: none; } }
+
+@media (min-width: 768px) {
+  .search-wrap input[name="query"] {
+    display: none; } }
+
 .sidenav a, .single-article #secondary .widget ul a {
   line-height: 20px;
   letter-spacing: 1px; }
