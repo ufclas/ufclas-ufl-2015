@@ -24,19 +24,20 @@ get_header(); ?>
   </div>
 </div>
 <div class="row">
-  <div class="col-sm-3">
-  	
-	<?php get_sidebar('page_sidebar'); ?>
-    
-  </div>
-  <div class="col-sm-8">
+  
+  <?php get_sidebar('page_sidebar'); ?>  
+  
+  <div class="<?php echo ufclas_page_column_class(); ?>">
     <?php 
 		while ( have_posts() ) : the_post();
 			get_template_part( 'template-parts/content', 'page' );
 		endwhile; // End of the loop. 
 	?>
   </div>
-</div>
-</div>
+  
+  <?php get_sidebar('page_right'); ?> 
+  
+</div><!-- .row -->
+</div><!-- #main -->
 
 <?php get_footer(); ?>
