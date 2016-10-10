@@ -73,16 +73,20 @@
 	}
 }
 
-/* Fix horizontal page scrolling on FF */
-.mobile-dropdown-wrap{
-	@include breakFirst(medium){
-		display: none;
+.search-form {
+	position: relative;
+	
+	button.btn-search {
+		height: 58px;
+		top: 0;
+		right: 0;
+		position: absolute;
 	}
 }
-.search-wrap input[name="query"] {
-	@include breakFirst(medium){
-		display: none;
-	}	
+.search-wrap {
+	&.mobile input {
+		background-color: $white;
+	}
 }
 
 .sidenav a {

@@ -3766,11 +3766,11 @@ form.search-wrap, .btn-show-aux, .btn-menu, .btn-search-mobile {
 /*--------------------------------------------------------------
 # Structure
 --------------------------------------------------------------*/
-.category #main, .tax-issuem_issue_categories #main, .single #main, .page #main, .archive #main {
+.category #main, .tax-issuem_issue_categories #main, .single #main, .page #main, .archive #main, .page.page-template #main {
   background-color: #fff;
   padding-top: 30px; }
   @media (min-width: 768px) {
-    .category #main, .tax-issuem_issue_categories #main, .single #main, .page #main, .archive #main {
+    .category #main, .tax-issuem_issue_categories #main, .single #main, .page #main, .archive #main, .page.page-template #main {
       padding: 45px 60px; } }
 
 .page-template #main {
@@ -4049,14 +4049,16 @@ strong {
 .big-list.open-list .btn-mobile-toggle .arw-right svg, .open-list.sidenav .btn-mobile-toggle .arw-right svg, .single-article #secondary .widget ul.open-list .btn-mobile-toggle .arw-right svg, .sidenav.open-list .btn-mobile-toggle .arw-right svg, .single-article #secondary .widget ul.open-list .btn-mobile-toggle .arw-right svg, .single-article #secondary .widget ul.open-list .btn-mobile-toggle .arw-right svg {
   transform: translate(0, 0) rotate(-45deg); }
 
-/* Fix horizontal page scrolling on FF */
-@media (min-width: 768px) {
-  .mobile-dropdown-wrap {
-    display: none; } }
+.search-form {
+  position: relative; }
+  .search-form button.btn-search {
+    height: 58px;
+    top: 0;
+    right: 0;
+    position: absolute; }
 
-@media (min-width: 768px) {
-  .search-wrap input[name="query"] {
-    display: none; } }
+.search-wrap.mobile input {
+  background-color: #fff; }
 
 .sidenav a, .single-article #secondary .widget ul a {
   line-height: 20px;

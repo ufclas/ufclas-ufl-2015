@@ -85,22 +85,13 @@
 	    	</svg>
 	    </span>
 	  </a>
-      <?php get_search_form(); ?>
+      <?php ufclas_get_search_form( 'menu' ); ?>
   </div>
 
   <div class="mobile-dropdown-wrap"></div>
-
-<?php
-	/*
-	 * Emergency modal demo purposes only
-	 */
-	if (isset($_GET['alert']) && $_GET['alert'] == 'small') {
-		get_template_part( 'template-parts/content', 'alert-small' );
-	}
   
-	get_search_form(); 
-?>
-
+  <?php ufclas_get_search_form( 'mobile' ); ?>
+  
   <a href="#" class="btn-menu">
 		<span class="icon-svg icon-menu">
     	<svg>
@@ -113,5 +104,7 @@
     	</svg>
     </span>
   </a>
-</div>
+  
+  </div><!-- .header.unit -->
+
 <!-- END HEADER -->
