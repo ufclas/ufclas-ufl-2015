@@ -56,7 +56,5 @@
 		$form = str_replace( 'search-form', 'search-wrap', $form );
 	 }
 	 
-	 dbgx_trace_var( $form );
-	 dbgx_trace_var( $location );
 	 echo $form;	 
  }
