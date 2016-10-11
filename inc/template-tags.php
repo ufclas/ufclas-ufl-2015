@@ -5,6 +5,25 @@
  * @package UFCLAS_UFL_2015
  */
  
+/**
+ * Custom logo backwards compatibility with WordPress versions older than 4.5
+ * @since 0.2.3
+ */
+function ufclas_ufl_2015_get_custom_logo() {
+	$custom_logo = '';
+	
+	if ( function_exists( 'the_custom_logo' ) ) {
+		$blog_id = get_current_blog_id();
+		if ( has_custom_logo( $blog_id ) ){
+		  $custom_logo = get_custom_logo();
+		  $custom_logo = preg_replace("/(.+)src=\"([^\"]*)\"(.+)/", "$2", $custom_logo);
+		}
+		else {
+		 $custom_logo = get_stylesheet_directory_uri() . '/svg/clas-logo.svg';
+		}	
+   }
+   return $custom_logo;
+}
  
 /**
  * Determine page content class based on presence of sidebars
