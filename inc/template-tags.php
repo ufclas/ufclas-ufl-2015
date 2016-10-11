@@ -103,4 +103,20 @@ function ufclas_nav_menu_name_by_location( $location ){
 		return ( $menu )? $menu->name : '';
 	}
 }
- 
+
+/**
+ * Displays a parent organization menu link
+ *
+ * @since 0.3.3
+ */
+function ufclas_global_parent_organization(){
+	$parent_organization = get_theme_mod( 'parent_colleges_institutes' );
+	
+	if ( 'None' != $parent_organization ){
+		$parent_org = explode( '|', $parent_organization );
+		$org_title = esc_html( trim($parent_org[0]) );
+		$org_link = esc_url( trim($parent_org[1]) );
+		
+		printf( '<li id="global-menu-title" class="menu-item"><a href="%s">%s</a></li>', $org_link, $org_title );
+	}	
+}

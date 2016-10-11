@@ -100,11 +100,8 @@ function ufclas_ufl_2015_customize_register( $wp_customize ) {
 		'section' => 'theme_options_general',
 		'type' => 'select',
 		'choices' => array(
-			'University of Florida' => __('University of Florida', 'ufclas-ufl-2015'),
-			'College of Liberal Arts and Sciences' => __('CLAS', 'ufclas-ufl-2015'),
-			'Information Technology' => __('Information Technology', 'ufclas-ufl-2015'),
-			'UF Academic Health Center' => __('UF Academic Health Center', 'ufclas-ufl-2015'),
-			'Shands HealthCare' => __('Shands HealthCare', 'ufclas-ufl-2015'),
+			'University of Florida|http://ufl.edu' => __('University of Florida', 'ufclas-ufl-2015'),
+			'College of Liberal Arts and Sciences|http://clas.ufl.edu/' => __('CLAS', 'ufclas-ufl-2015'),
 			'None' => __('None', 'ufclas-ufl-2015'),
 		),
 	));

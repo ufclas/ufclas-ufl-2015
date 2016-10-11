@@ -39,6 +39,7 @@
   	<div class="aux-menu-wrap">
   		<ul class="aux-nav">
 	  		<?php 
+				// Audience menu
 				if ( has_nav_menu( 'audience_nav' ) ):
 					wp_nav_menu( array( 
 						'theme_location' => 'audience_nav',
@@ -48,8 +49,11 @@
 						'fallback_cb' => false,
 					));
 				endif;
-			?>
-			<?php 
+				
+				// Display parent organization link
+				ufclas_global_parent_organization();
+				
+				// Global menu
 				wp_nav_menu( array( 
 					'theme_location' => 'global_menu',
 					'items_wrap' => '%3$s',
