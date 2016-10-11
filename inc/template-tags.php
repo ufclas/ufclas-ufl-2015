@@ -26,7 +26,8 @@
 	else {
 		
 		// Default page template
-		$has_sidebar_nav = !empty( ufclas_ufl_2015_sidebar_navigation() );
+		$sidebar_nav = ufclas_ufl_2015_sidebar_navigation();
+		$has_sidebar_nav = !empty( $sidebar_nav );
 		$has_page_sidebar = is_active_sidebar( 'page_sidebar' );
 		$has_page_right = is_active_sidebar( 'page_right' );
 		
