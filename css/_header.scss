@@ -9,12 +9,18 @@
 			top: 32px; 
 		}
 	}
+	.disable-global & .menu-wrap {
+		background-color: transparent;
+		
+		@include breakFirst(medium){
+			height: 100px; 
+		}
+		
+		.main-menu-wrap {
+			top: 0;	
+		}
+	}
 }
 .main-menu-wrap li:nth-child(odd) {
     background: $white;
-}
-.main-menu-wrap li {
-	@include breakFirst(wide){
-		//width: auto; 
-	}
 }

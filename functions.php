@@ -149,6 +149,10 @@ function ufclas_ufl_2015_body_classes( $classes ) {
 	if ( is_page_template('page-templates/homepage.php') ) {
 		$classes[] = 'homepage';
 	}
+	
+	if ( get_theme_mod('disable_global_elements') ){
+		$classes[] = 'disable-global';
+	}
 
 	return $classes;
 }

@@ -3995,6 +3995,13 @@ strong {
   @media (min-width: 783px) {
     .admin-bar .header {
       top: 32px; } }
+.disable-global .header .menu-wrap {
+  background-color: transparent; }
+  @media (min-width: 768px) {
+    .disable-global .header .menu-wrap {
+      height: 100px; } }
+  .disable-global .header .menu-wrap .main-menu-wrap {
+    top: 0; }
 
 .main-menu-wrap li:nth-child(odd) {
   background: #fff; }
