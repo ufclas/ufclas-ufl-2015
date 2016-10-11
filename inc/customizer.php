@@ -142,6 +142,7 @@ function ufclas_ufl_2015_customize_register( $wp_customize ) {
 		'panel' => 'theme_options',
 	));
 	
+	$wp_customize->add_setting( 'homepage_layout_color', array( 'default' => '', 'sanitize_callback' => 'sanitize_hex_color' ));
 	$wp_customize->add_setting( 'featured_category', array( 'default' => 0, 'sanitize_callback' => 'absint' ));
 	$wp_customize->add_setting( 'story_stacker', array( 'default' => 0, 'sanitize_callback' => 'absint' ));
 	$wp_customize->add_setting( 'number_of_posts_to_show', array( 'default' => 3, 'sanitize_callback' => 'absint' ));
@@ -150,7 +151,21 @@ function ufclas_ufl_2015_customize_register( $wp_customize ) {
 	$wp_customize->add_setting( 'featured_disable_link', array( 'default' => 0, 'sanitize_callback' => 'absint' ));
 	$wp_customize->add_setting( 'story_stacker_disable_dates', array( 'default' => 0, 'sanitize_callback' => 'absint' ));
 	$wp_customize->add_setting( 'homepage_layout', array( 'default' => '2c-bias', 'sanitize_callback' => 'sanitize_key' ));
-	$wp_customize->add_setting( 'homepage_layout_color', array( 'default' => '', 'sanitize_callback' => 'sanitize_hex_color' ));
+	
+	$wp_customize->add_control( 'homepage_layout', array(
+		'label' => __('Homepage Layout for Widgets', 'ufclas-ufl-2015'),
+		'description' => __('Select a layout to use for your widgets on the homepage', 'ufclas-ufl-2015'),
+		'section' => 'theme_options_homepage',
+		'type' => 'select',
+		'choices' => array(
+			'3c-default' => __('Three Columns, 1/2 1/4 1/4', 'ufclas-ufl-2015'),
+			'3c-thirds' => __('Three Columns, 1/3 1/3 1/3', 'ufclas-ufl-2015'),
+			'2c-bias' => __('Two Columns, 2/3, 1/3', 'ufclas-ufl-2015'),
+			'2c-half' => __('Two Columns, 1/2 1/2', 'ufclas-ufl-2015'),
+			'1c-100' => __('One Column', 'ufclas-ufl-2015'),
+			'1c-100-2c-half' => __('One Column w/ Two Columns', 'ufclas-ufl-2015')
+		),
+	));
 	
 	$wp_customize->add_control( 'featured_category', array(
 		'label' => __('Select a Category', 'ufclas-ufl-2015'),
@@ -168,6 +183,7 @@ function ufclas_ufl_2015_customize_register( $wp_customize ) {
 		'choices' => ufclas_ufl_2015_customize_range( 1, 15 ),
 	));
 	
+	/*
 	$wp_customize->add_control( 'featured_style', array(
 		'label' => __('Featured Slider Style', 'ufclas-ufl-2015'),
 		'description' => __('Select a color scheme for the featured slider', 'ufclas-ufl-2015'),
@@ -178,6 +194,7 @@ function ufclas_ufl_2015_customize_register( $wp_customize ) {
 			'slider-dark' => __('Dark', 'ufclas-ufl-2015'),
 		),
 	));
+	*/
 	
 	$wp_customize->add_control( 'featured_speed', array(
 		'label' => __('Slider Speed', 'ufclas-ufl-2015'),
@@ -207,20 +224,7 @@ function ufclas_ufl_2015_customize_register( $wp_customize ) {
 		'type' => 'checkbox',
 	));
 	
-	$wp_customize->add_control( 'homepage_layout', array(
-		'label' => __('Homepage Layout for Widgets', 'ufclas-ufl-2015'),
-		'description' => __('Select a layout to use for your widgets on the homepage', 'ufclas-ufl-2015'),
-		'section' => 'theme_options_homepage',
-		'type' => 'select',
-		'choices' => array(
-			'3c-default' => __('Three Columns, 1/2 1/4 1/4', 'ufclas-ufl-2015'),
-			'3c-thirds' => __('Three Columns, 1/3 1/3 1/3', 'ufclas-ufl-2015'),
-			'2c-bias' => __('Two Columns, 2/3, 1/3', 'ufclas-ufl-2015'),
-			'2c-half' => __('Two Columns, 1/2 1/2', 'ufclas-ufl-2015'),
-			'1c-100' => __('One Column', 'ufclas-ufl-2015'),
-			'1c-100-2c-half' => __('One Column w/ Two Columns', 'ufclas-ufl-2015')
-		),
-	));
+	
 	
 	// Footer
 	$wp_customize->add_section( 'theme_options_footer', array(
