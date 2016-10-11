@@ -65,6 +65,11 @@ function ufclas_ufl_2015_get_custom_logo() {
 	return join( ' ', $classes ); 
  }
  
+/**
+ * Display a custom version of the search form based on location
+ *
+ * @since 0.3.2
+ */
  function ufclas_get_search_form( $location = '' ){
 	 $form = get_search_form( false );
 	 
@@ -78,3 +83,24 @@ function ufclas_ufl_2015_get_custom_logo() {
 	 
 	 echo $form;	 
  }
+ 
+/**
+ * Get a nav menu's name by location
+ *
+ * @param string $location Nav menu location
+ * @return string Nav menu name or empty string
+ * @since 0.3.3
+ */
+function ufclas_nav_menu_name_by_location( $location ){
+	$menu_locations = get_nav_menu_locations();
+	
+	if ( !isset( $menu_locations[$location] ) ){
+		return '';
+	}
+	else {	
+		$menu_id = $menu_locations[$location];
+		$menu = wp_get_nav_menu_object( $menu_id );
+		return ( $menu )? $menu->name : '';
+	}
+}
+ 

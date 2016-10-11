@@ -39,13 +39,15 @@
   	<div class="aux-menu-wrap">
   		<ul class="aux-nav">
 	  		<?php 
-				wp_nav_menu( array( 
-					'theme_location' => 'audience_nav',
-					'items_wrap' => '%3$s',
-					'container' => '',
-					'depth' => 1,
-					'fallback_cb' => false,
-				)); 
+				if ( has_nav_menu( 'audience_nav' ) ):
+					wp_nav_menu( array( 
+						'theme_location' => 'audience_nav',
+						'items_wrap' => '%3$s',
+						'container' => '',
+						'depth' => 1,
+						'fallback_cb' => false,
+					));
+				endif;
 			?>
 			<?php 
 				wp_nav_menu( array( 
@@ -58,19 +60,20 @@
 			?>
   		</ul>
   		<div class="audience-nav-wrap">
-  			<a href="#" class="cur-audience">Quick Links</a>
-            <span class="arw-right icon-svg"><svg><use xlink:href="<?php echo get_stylesheet_directory_uri(); ?>/img/spritemap.svg#arw-down"></use></svg></span>
-            <ul>
-	  			<?php 
-					wp_nav_menu( array( 
-						'theme_location' => 'audience_nav',
-						'items_wrap' => '%3$s',
-						'container' => '',
-						'depth' => 1,
-						'fallback_cb' => false,
-					)); 
-				?>
-	  		</ul>
+			<?php 
+            if ( has_nav_menu( 'audience_nav' ) ): ?>
+                <a href="#" class="cur-audience"><?php echo ufclas_nav_menu_name_by_location( 'audience_nav' ); ?></a>
+                <span class="arw-right icon-svg"><svg><use xlink:href="<?php echo get_stylesheet_directory_uri(); ?>/img/spritemap.svg#arw-down"></use></svg></span>
+            <?php 
+                wp_nav_menu( array( 
+                    'theme_location' => 'audience_nav',
+                    'items_wrap' => '<ul>%3$s</ul>',
+                    'container' => '',
+                    'depth' => 1,
+                    'fallback_cb' => false,
+                ));
+			endif;
+            ?>
 	  	</div>
   	</div>
   	<a href="#" class="btn-show-aux">
