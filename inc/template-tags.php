@@ -110,7 +110,7 @@ function ufclas_nav_menu_name_by_location( $location ){
  * @since 0.3.3
  */
 function ufclas_global_parent_organization(){
-	$parent_organization = get_theme_mod( 'parent_colleges_institutes' );
+	$parent_organization = get_theme_mod( 'parent_colleges_institutes', 'None' );
 	
 	if ( 'None' != $parent_organization ){
 		$parent_org = explode( '|', $parent_organization );
@@ -118,5 +118,5 @@ function ufclas_global_parent_organization(){
 		$org_link = esc_url( trim($parent_org[1]) );
 		
 		printf( '<li id="global-menu-title" class="menu-item"><a href="%s">%s</a></li>', $org_link, $org_title );
-	}	
+	}
 }
