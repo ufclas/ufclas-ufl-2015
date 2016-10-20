@@ -95,22 +95,47 @@ function ufclas_ufl_2015_scripts() {
 	wp_enqueue_script('ufclas-ufl-2015-plugins', get_stylesheet_directory_uri() . '/js/plugins.js', array(), false, true);
 	wp_enqueue_script('ufclas-ufl-2015-scripts', get_stylesheet_directory_uri() . '/js/scripts.js', array(), false, true);
 	
-	// Inline CSS
-	$collapse_sidebar_nav = get_theme_mod('collapse_sidebar_nav', 1);
-	if ( $collapse_sidebar_nav ) {
-		$custom_css  = '.sidenav .page_item_has_children .children {display: none;}';
-		wp_add_inline_style('style', $custom_css);
-  	}
-	
-	if ( WP_DEBUG ){
-		$custom_css = '#querylist h2, #querylist ul li, #querylist ol li { text-transform: none; } #querylist ul li:before, #querylist ol li:before { content: none; }';
-		wp_add_inline_style( 'style', $custom_css );
-	}
-	
 	// Pass site data to Javascript
-	wp_localize_script( 'ufclas-ufl-2015-plugins', 'ufclas_ufl_2015_themeurl', get_stylesheet_directory_uri() );
+	$site_data = array(
+		'theme_url' => get_stylesheet_directory_uri(),
+	);
+	wp_localize_script( 'ufclas-ufl-2015-plugins', 'ufclas_ufl_2015_sitedata', $site_data );
 }
 add_action( 'wp_enqueue_scripts', 'ufclas_ufl_2015_scripts' );
+
+/**
+ * Enqueue inline styles.
+ * @since 0.3.0
+ */
+function ufclas_ufl_2015_inline_styles() {
+	$custom_css = '';
+	
+	// Adjust main menu width
+	if ( has_nav_menu('main_menu') ){
+		$menu_item_count = 0;
+		$menu_locations = get_nav_menu_locations();
+		$menu_items = wp_get_nav_menu_items( $menu_locations[ 'main_menu' ] );
+		
+		foreach ( $menu_items as $item ) {
+			// Only count top level menu items
+			if ( $item->menu_item_parent == 0 ){
+				$menu_item_count++; 
+			}	
+		}
+		$custom_css .= '@media screen and (min-width:992px) and (max-width: 1249px){ .header.unit .main-menu-wrap .menu > li > .main-menu-link { padding-left: 15px; padding-right: 15px; }';
+		$custom_css .= '@media screen and (min-width:1250px){ .main-menu-wrap .menu > li { width: calc(100%/' . $menu_item_count . '); } ';
+	}
+	
+	// Custom css for sidenav
+	$collapse_sidebar_nav = get_theme_mod('collapse_sidebar_nav', 1);
+	if ( $collapse_sidebar_nav ) {
+		$custom_css  .= '.sidenav .page_item_has_children .children {display: none;} ';	
+  	}
+	
+	wp_add_inline_style('style', $custom_css);
+}
+add_action('wp_enqueue_scripts', 'ufclas_ufl_2015_inline_styles');
+
 
 /**
  * Adds custom classes to the array of body classes.
@@ -123,6 +148,10 @@ function ufclas_ufl_2015_body_classes( $classes ) {
 	
 	if ( is_page_template('page-templates/homepage.php') ) {
 		$classes[] = 'homepage';
+	}
+	
+	if ( get_theme_mod('disable_global_elements') ){
+		$classes[] = 'disable-global';
 	}
 
 	return $classes;
@@ -234,26 +263,6 @@ function ufclas_ufl_2015_embed_defaults( $size, $url ) {
 	return compact( 'width', 'height' );
 }
 add_filter( 'embed_defaults', 'ufclas_ufl_2015_embed_defaults', 2, 10 );
-
-/**
- * Custom logo backwards compatibility with WordPress versions older than 4.5
- * @since 0.2.3
- */
-function ufclas_ufl_2015_get_custom_logo() {
-	$custom_logo = '';
-	
-	if ( function_exists( 'the_custom_logo' ) ) {
-		$blog_id = get_current_blog_id();
-		if ( has_custom_logo( $blog_id ) ){
-		  $custom_logo = get_custom_logo();
-		  $custom_logo = preg_replace("/(.+)src=\"([^\"]*)\"(.+)/", "$2", $custom_logo);
-		}
-		else {
-		 $custom_logo = get_stylesheet_directory_uri() . '/svg/clas-logo.svg';
-		}	
-   }
-   return $custom_logo;
-}
 
 /**
  * Custom image sizes, 
@@ -391,6 +400,7 @@ require get_stylesheet_directory() . '/inc/widgets.php';
 require get_stylesheet_directory() . '/inc/metaboxes.php';
 require get_stylesheet_directory() . '/inc/shibboleth.php';
 require get_stylesheet_directory() . '/inc/customizer.php';
+require get_stylesheet_directory() . '/inc/template-tags.php';
 
 // The Events Calendar
 if ( class_exists('Tribe__Events__Main') ) {

@@ -9,12 +9,18 @@
 			top: 32px; 
 		}
 	}
-}
-.header.unit  {
-	/*svg {
-		fill: currentColor;
+	.disable-global & .menu-wrap {
+		background-color: transparent;
+		
+		@include breakFirst(medium){
+			height: 100px; 
+		}
+		
+		.main-menu-wrap {
+			top: 0;	
+		}
 	}
-	.LAS_Text {
-		color: $blue;
-	}*/
+}
+.main-menu-wrap li:nth-child(odd) {
+    background: $white;
 }

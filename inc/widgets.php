@@ -23,6 +23,7 @@ function ufclas_ufl_2015_sidebar_widget_classes( $sidebar_id ){
 		$widget_count_max = 3;
 		$widget_count = count( $sidebars_widget_count[$sidebar_id] );
 		$widget_count_columns = ( $widget_count < $widget_count_max )? $widget_count : $widget_count_max;
+		$widget_count_columns = ( $widget_count_columns > 0 )? $widget_count_columns : 1;
 		return 'col-md-' . ceil( 12 / $widget_count_columns );
 	}
 }

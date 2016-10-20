@@ -35,10 +35,15 @@
 		position: absolute;
       	top: 0;
 	}
-	
-	/* Fixes SVG icon display in FF */
 	.audience-nav-wrap { 
-		.arw-right svg {
+        background-color: $orangeDark;
+        
+        @include breakFirst(medium){
+            margin-right: 50px;
+            position: absolute;
+        }
+        /* Fixes SVG icon display in FF */
+        .arw-right svg {
 			transform: translate(0, 0);
 			margin: 18px 12px;
 			top: 0;
@@ -67,6 +72,23 @@
 		transform: translate(0, 0) rotate(-45deg);
 	}
 }
+
+.search-form {
+	position: relative;
+	
+	button.btn-search {
+		height: 58px;
+		top: 0;
+		right: 0;
+		position: absolute;
+	}
+}
+.search-wrap {
+	&.mobile input {
+		background-color: $white;
+	}
+}
+
 .sidenav a {
     line-height: 20px;
 	letter-spacing: 1px;

@@ -1,4 +1,4 @@
-<form action="https://search.ufl.edu/search" method="get" class="search-wrap" role="search">
+<form action="https://search.ufl.edu/search" method="get" class="search-form" role="search">
 <label for="query" class="visuallyhidden"><?php esc_html_e('Search', 'ufclas-ufl-2015'); ?></label>
 <input type="text" name="query" placeholder="<?php esc_attr_e('Search', 'ufclas-ufl-2015'); ?>" />
 <button type="submit" class="btn-search">
