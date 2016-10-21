@@ -4,11 +4,6 @@
 	<meta charset="<?php bloginfo( 'charset' ); ?>">
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
 	<meta name="viewport" content="width=device-width,initial-scale=1">
-	<link rel="apple-touch-icon" href="<?php echo get_stylesheet_directory_uri(); ?>/img/client-icon-iphone.png">
-	<link rel="apple-touch-icon" sizes="72x72" href="<?php echo get_stylesheet_directory_uri(); ?>/img/client-icon-ipad.png">
-	<link rel="apple-touch-icon" sizes="114x114" href="<?php echo get_stylesheet_directory_uri(); ?>/img/client-icon-iphone-retina.png">
-	<link rel="apple-touch-icon" sizes="144x144" href="<?php echo get_stylesheet_directory_uri(); ?>/img/client-icon-ipad-retina.png">
-	<link rel="icon" href="<?php echo get_stylesheet_directory_uri(); ?>/favicon.png">
     <?php wp_head(); ?>
 </head>
 
