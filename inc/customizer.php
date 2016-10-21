@@ -238,7 +238,7 @@ function ufclas_ufl_2015_customize_register( $wp_customize ) {
 	$wp_customize->add_setting( 'makeagift_url', array( 'default' => '', 'sanitize_callback' => 'esc_url_raw' ));
 	$wp_customize->add_setting( 'footer_widgets_visibility', array( 'default' => 'all_pages', 'sanitize_callback' => 'ufclas_ufl_2015_sanitize_choices' ));
 	
-	$wp_customize->add_control( 'webmaster_email', array(
+	/*$wp_customize->add_control( 'webmaster_email', array(
 		'label' => __('Webmaster Email or URL', 'ufclas-ufl-2015'),
 		'description' => __("Enter the email address or contact page URL for webmaster contact requests (e.g. webmaster@yourdomain.edu OR http://yourdomain.edu/contact)", 'ufclas-ufl-2015'),
 		'section' => 'theme_options_footer',
@@ -257,7 +257,7 @@ function ufclas_ufl_2015_customize_register( $wp_customize ) {
 		'description' => __("Enter the URL to your unit's specific fund/giving page at the UF Foundation. Find available online funds at the <a href='https://www.uff.ufl.edu/OnlineGiving/Advanced.asp' target='_blank'>UF Foundation</a>", 'ufclas-ufl-2015'),
 		'section' => 'theme_options_footer',
 		'type' => 'text',
-	));
+	));*/
 	
 	$wp_customize->add_control( 'footer_widgets_visibility', array(
 		'label' => __('Footer Widget Visibility', 'ufclas-ufl-2015'),
