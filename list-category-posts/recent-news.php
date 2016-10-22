@@ -36,55 +36,34 @@ $lcp_display_output .= '<ul class="lcp_catlist">';
 */
 
 global $post;
-while ( have_posts() ):
-  the_post();
-  
-  
 
-  //Start a List Item for each post:
-  $lcp_display_output .= "<li>";
-
-  //Show the title and link to the post:
-  $lcp_display_output .= $this->get_post_title($post, 'h3', 'lcp_post');
-  
-  //Post Thumbnail
-  $lcp_display_output .= $this->get_thumbnail($post);
-
-  //Show comments:
-  $lcp_display_output .= $this->get_comments($post);
-
-  //Show date:
-  $lcp_display_output .= $this->get_date($post, 'span', 'lcp_date');
-
-  //Show date modified:
-  $lcp_display_output .= $this->get_modified_date($post, 'span', 'lcp_modified_date');
-
-  //Show author
-  $lcp_display_output .= $this->get_author($post);
-
-  //Custom fields:
-  $lcp_display_output .= $this->get_custom_fields($post);
-
-  /**
-   * Post content - Example of how to use tag and class parameters:
-   * This will produce:<p class="lcp_content">The content</p>
-   */
-  $lcp_display_output .= $this->get_content($post, 'p', 'lcp_content');
-
-  /**
-   * Post content - Example of how to use tag and class parameters:
-   * This will produce:<div class="lcp_excerpt">The content</div>
-   */
-  $lcp_display_output .= $this->get_excerpt($post, 'p', 'lcp_excerpt');
-
-  // Get Posts "More" link:
-  $lcp_display_output .= $this->get_posts_morelink($post);
-
-  //Close li tag
-  $lcp_display_output .= '</li>';
-
+ob_start();
+while ( have_posts() ) : the_post();
+ 	
+	/**
+	 * Display posts, this doesn't change when widget options change
+	 */
+  	echo '<li>';
+	the_title( sprintf( '<h3 class="lcp_post"><a href="%s" rel="bookmark">', esc_url( get_permalink() ) ), '</a></h3>' ); 
+  	
+	if ( has_post_thumbnail() ):
+  	
+	echo '<a href="' . esc_url( get_permalink() ) . '">';
+	the_post_thumbnail( 'thumbnail', array( 'class' => '' ) );
+	echo '</a>';
+	
+  	endif;
+	
+	the_date('', '<span class="lcp_date">', '</span>');
+	
+	echo '<p class="lcp_excerpt">';
+	the_excerpt();
+	echo '</p>';
+	echo '</li>';
+	
 endwhile;
-
+ $lcp_display_output .= ob_get_clean();
+ 
 // Close the wrapper I opened at the beginning:
 $lcp_display_output .= '</ul>';
 
@@ -98,4 +77,5 @@ $lcp_display_output .= $this->get_category_count();
 $lcp_display_output .= $this->get_pagination();
 
 $this->lcp_output = $lcp_display_output;
+
 

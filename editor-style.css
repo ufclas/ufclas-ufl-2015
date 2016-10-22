@@ -4061,6 +4061,9 @@ strong {
 .search-wrap.mobile input {
   background-color: #fff; }
 
+.sidenav, .single-article #secondary .widget ul {
+  margin-bottom: 30px !important; }
+
 .sidenav a, .single-article #secondary .widget ul a {
   line-height: 20px;
   letter-spacing: 1px; }
@@ -4158,7 +4161,6 @@ strong {
 .widget_listcategorypostswidget .widget-title + strong a {
   text-transform: uppercase;
   border: 5px solid transparent;
-  background-color: #fff;
   font-weight: 700;
   font-size: 13px;
   letter-spacing: 2px; }

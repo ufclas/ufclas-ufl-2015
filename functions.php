@@ -392,6 +392,23 @@ function ufclas_ufl_2015_socialnetworks() {
 }
 
 /**
+ * Set a default favicon image
+ *
+ * @param string $url Site icon image url
+ * @param int $size Size of the image
+ * @param int $blog_id 
+ * @return string Url of the site icon
+ * @since 0.3.4
+ */
+function ufclas_ufl_2015_icon_url( $url, $size, $blog_id ){
+	if ( empty($url) ){
+		$url = get_stylesheet_directory_uri() . '/favicon.png';
+	}
+	return $url;
+}
+add_filter( 'get_site_icon_url', 'ufclas_ufl_2015_icon_url', 10, 3 );
+
+/**
  * Load custom theme files 
  */
 require get_stylesheet_directory() . '/inc/shortcodes.php';
