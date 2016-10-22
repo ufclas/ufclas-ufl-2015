@@ -89,6 +89,9 @@
 	}
 }
 
+.sidenav {
+	margin-bottom: $grid-gutter-width !important;
+}
 .sidenav a {
     line-height: 20px;
 	letter-spacing: 1px;
