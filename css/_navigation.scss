@@ -121,3 +121,77 @@
 		height: 19px;
 	}
 }
+
+/* Page/Post Navigation */
+
+.pagination, .post-navigation {
+	border-top: 5px solid $orange;
+	border-image: url(img/main-menu-hover.png) 25 30 10 20 repeat;
+	padding: $grid-gutter-width/2 0;
+	margin-bottom: $grid-gutter-width;
+	width: 100%;
+	clear: both;
+	overflow: auto;
+	font-family: $serifFontFamily;
+	font-size: 16px;
+	line-height: 22px;
+}
+.pagination {
+	text-align: center;
+	font-weight: 500;
+	
+	.page-numbers {
+		padding: $grid-gutter-width/4 $grid-gutter-width/2;
+		display: none;
+		
+		@include breakFirst(medium){
+			display: inline;
+		}
+		
+		&.prev, &.next {
+			text-transform: uppercase;
+			font-family: $fontFamily;
+			font-weight: 700;
+			padding-top: 0;
+			display: block;
+			padding-top: 0;
+		}
+		
+		&.prev {
+			float: left;	
+		}
+		&.next {
+			float: right;
+		}
+	}
+}
+.post-navigation {
+	
+	.nav-previous, .nav-next {
+		padding: 0 $grid-gutter-width/4;
+		
+		@include breakFirst(medium){
+			width: 45%;
+		}
+	}
+	.nav-previous {
+		@include breakFirst(medium){
+			float: left;
+		}
+	}
+	.nav-next {
+		padding-top: $grid-gutter-width/2;
+		
+		@include breakFirst(medium){
+			float: right;
+			text-align: right;
+			padding-top: 0;
+		}
+	}
+	.meta-nav {
+		text-transform: uppercase;
+		font-family: $fontFamily;
+		font-weight: 700;
+		display: block;
+	}
+}

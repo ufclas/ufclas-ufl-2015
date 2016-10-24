@@ -28,7 +28,16 @@ get_header(); ?>
     <?php 
 		while ( have_posts() ) : the_post();
 			get_template_part( 'template-parts/content', get_post_type() );
-		endwhile; // End of the loop. 
+		endwhile; // End of the loop.
+		
+		the_post_navigation( array(
+			'next_text' => '<span class="meta-nav" aria-hidden="true">' . __( 'Next', 'twentysixteen' ) . '</span> ' .
+				'<span class="screen-reader-text">' . __( 'Next post:', 'twentysixteen' ) . '</span> ' .
+				'<span class="post-title">%title</span>',
+			'prev_text' => '<span class="meta-nav" aria-hidden="true">' . __( 'Previous', 'twentysixteen' ) . '</span> ' .
+				'<span class="screen-reader-text">' . __( 'Previous post:', 'twentysixteen' ) . '</span> ' .
+				'<span class="post-title">%title</span>',
+		) );
 	?>
   </div>
   <div class="col-md-3">

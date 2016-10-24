@@ -4090,6 +4090,61 @@ strong {
     width: 19px;
     height: 19px; }
 
+/* Page/Post Navigation */
+.pagination, .post-navigation {
+  border-top: 5px solid #f37021;
+  border-image: url(img/main-menu-hover.png) 25 30 10 20 repeat;
+  padding: 15px 0;
+  margin-bottom: 30px;
+  width: 100%;
+  clear: both;
+  overflow: auto;
+  font-family: "quadon", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-size: 16px;
+  line-height: 22px; }
+
+.pagination {
+  text-align: center;
+  font-weight: 500; }
+  .pagination .page-numbers {
+    padding: 7.5px 15px;
+    display: none; }
+    @media (min-width: 768px) {
+      .pagination .page-numbers {
+        display: inline; } }
+    .pagination .page-numbers.prev, .pagination .page-numbers.next {
+      text-transform: uppercase;
+      font-family: "gentona", "Georgia", serif;
+      font-weight: 700;
+      padding-top: 0;
+      display: block;
+      padding-top: 0; }
+    .pagination .page-numbers.prev {
+      float: left; }
+    .pagination .page-numbers.next {
+      float: right; }
+
+.post-navigation .nav-previous, .post-navigation .nav-next {
+  padding: 0 7.5px; }
+  @media (min-width: 768px) {
+    .post-navigation .nav-previous, .post-navigation .nav-next {
+      width: 45%; } }
+@media (min-width: 768px) {
+  .post-navigation .nav-previous {
+    float: left; } }
+.post-navigation .nav-next {
+  padding-top: 15px; }
+  @media (min-width: 768px) {
+    .post-navigation .nav-next {
+      float: right;
+      text-align: right;
+      padding-top: 0; } }
+.post-navigation .meta-nav {
+  text-transform: uppercase;
+  font-family: "gentona", "Georgia", serif;
+  font-weight: 700;
+  display: block; }
+
 .home .widget-area {
   padding-top: 30px; }
 .home .footer-bottom .widget-area {
