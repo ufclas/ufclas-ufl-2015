@@ -3971,6 +3971,10 @@ strong {
 .entry-footer {
   clear: both; }
 
+ul li:before, ol li:before {
+  content: none;
+  margin-right: 0; }
+
 .gallery-caption {
   /* required */ }
 

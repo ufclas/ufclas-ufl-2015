@@ -3983,6 +3983,10 @@ strong {
 .entry-footer {
   clear: both; }
 
+ul li:before, ol li:before {
+  content: none;
+  margin-right: 0; }
+
 .gallery-caption {
   /* required */ }
 
@@ -4872,5 +4876,60 @@ figcaption {
   .single-article #secondary .widget ul a:hover {
     background-color: transparent !important;
     color: #f79f6a !important; }
+
+/* CSS Document */
+#tribe-events .tribe-events-button {
+  border: 3px solid #f37021;
+  color: #f37021;
+  font-family: "gentona", "Georgia", serif;
+  font-size: 16px;
+  padding: 15px;
+  background-color: transparent; }
+  #tribe-events .tribe-events-button:hover, #tribe-events .tribe-events-button:active {
+    background-color: #f37021;
+    color: #fff; }
+
+.events-archive .tribe-events-event-meta {
+  margin: 15px 0;
+  font-size: 100%;
+  line-height: 30px;
+  font-weight: 500; }
+
+.single-tribe_events .tribe-events-single-event-title {
+  text-transform: none;
+  font-size: 30px;
+  font-weight: 500;
+  margin-bottom: 50px; }
+  .single-tribe_events .tribe-events-single-event-title em {
+    font-weight: 100; }
+  @media (min-width: 768px) {
+    .single-tribe_events .tribe-events-single-event-title {
+      font-size: 48px; } }
+.single-tribe_events .tribe-events-single-section-title {
+  font-weight: 500; }
+.single-tribe_events .tribe-events-schedule {
+  background: transparent;
+  border: none;
+  padding: 0;
+  margin: 15px 0; }
+  .single-tribe_events .tribe-events-schedule h2 {
+    margin-top: 0;
+    font-size: 18px;
+    font-weight: 500;
+    color: #00529b; }
+    @media (min-width: 768px) {
+      .single-tribe_events .tribe-events-schedule h2 {
+        font-size: 18px; } }
+.single-tribe_events .tribe-events-event-meta {
+  background-color: #faf8f1;
+  border-color: #eae5d7;
+  font-size: 100%; }
+.single-tribe_events #tribe-events-footer {
+  border-top: 5px solid #f37021;
+  border-image: url(img/main-menu-hover.png) 25 30 10 20 repeat;
+  padding: 30px 0 0;
+  margin-bottom: 30px;
+  font-family: "quadon", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-size: 16px; }
 
 /*# sourceMappingURL=style.css.map */
