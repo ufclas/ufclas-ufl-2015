@@ -271,6 +271,12 @@ strong {
 .entry-footer {
 	clear: both;	
 }
+ul, ol {
+	li:before {
+		content: none;
+		margin-right: 0;	
+	}
+}
 
 // Required WordPress styles
 .gallery-caption {

@@ -5,11 +5,11 @@ Theme URI: https://it.clas.ufl.edu/services/web-services/
 Author: Priscilla Chapman (CLAS IT)
 Author URI: https://it.clas.ufl.edu/
 Description: Official UF template for Liberal Arts and Sciences. Based on 160 over 90 template.
-Version: 0.3.4
+Version: 0.3.5
 License: GNU General Public License v2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 Text Domain: ufclas-ufl-2015
-Build Date: 20161021
+Build Date: 20161024
 */
 html, body, div, span, applet, object, iframe,
 h1, h2, h3, .kicker, .gform_wrapper .gform_heading .gform_description, .single-article .entry-content p.lead, .featured-story h2, .single-article #secondary h2, h4, h5, dt, h6, p, blockquote, pre,
@@ -3983,6 +3983,10 @@ strong {
 .entry-footer {
   clear: both; }
 
+ul li:before, ol li:before {
+  content: none;
+  margin-right: 0; }
+
 .gallery-caption {
   /* required */ }
 
@@ -4101,6 +4105,61 @@ strong {
     transform: translate(0%, 0%);
     width: 19px;
     height: 19px; }
+
+/* Page/Post Navigation */
+.pagination, .post-navigation {
+  border-top: 5px solid #f37021;
+  border-image: url(img/main-menu-hover.png) 25 30 10 20 repeat;
+  padding: 15px 0;
+  margin-bottom: 30px;
+  width: 100%;
+  clear: both;
+  overflow: auto;
+  font-family: "quadon", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-size: 16px;
+  line-height: 22px; }
+
+.pagination {
+  text-align: center;
+  font-weight: 500; }
+  .pagination .page-numbers {
+    padding: 7.5px 15px;
+    display: none; }
+    @media (min-width: 768px) {
+      .pagination .page-numbers {
+        display: inline; } }
+    .pagination .page-numbers.prev, .pagination .page-numbers.next {
+      text-transform: uppercase;
+      font-family: "gentona", "Georgia", serif;
+      font-weight: 700;
+      padding-top: 0;
+      display: block;
+      padding-top: 0; }
+    .pagination .page-numbers.prev {
+      float: left; }
+    .pagination .page-numbers.next {
+      float: right; }
+
+.post-navigation .nav-previous, .post-navigation .nav-next {
+  padding: 0 7.5px; }
+  @media (min-width: 768px) {
+    .post-navigation .nav-previous, .post-navigation .nav-next {
+      width: 45%; } }
+@media (min-width: 768px) {
+  .post-navigation .nav-previous {
+    float: left; } }
+.post-navigation .nav-next {
+  padding-top: 15px; }
+  @media (min-width: 768px) {
+    .post-navigation .nav-next {
+      float: right;
+      text-align: right;
+      padding-top: 0; } }
+.post-navigation .meta-nav {
+  text-transform: uppercase;
+  font-family: "gentona", "Georgia", serif;
+  font-weight: 700;
+  display: block; }
 
 .home .widget-area {
   padding-top: 30px; }
@@ -4817,5 +4876,60 @@ figcaption {
   .single-article #secondary .widget ul a:hover {
     background-color: transparent !important;
     color: #f79f6a !important; }
+
+/* CSS Document */
+#tribe-events .tribe-events-button {
+  border: 3px solid #f37021;
+  color: #f37021;
+  font-family: "gentona", "Georgia", serif;
+  font-size: 16px;
+  padding: 15px;
+  background-color: transparent; }
+  #tribe-events .tribe-events-button:hover, #tribe-events .tribe-events-button:active {
+    background-color: #f37021;
+    color: #fff; }
+
+.events-archive .tribe-events-event-meta {
+  margin: 15px 0;
+  font-size: 100%;
+  line-height: 30px;
+  font-weight: 500; }
+
+.single-tribe_events .tribe-events-single-event-title {
+  text-transform: none;
+  font-size: 30px;
+  font-weight: 500;
+  margin-bottom: 50px; }
+  .single-tribe_events .tribe-events-single-event-title em {
+    font-weight: 100; }
+  @media (min-width: 768px) {
+    .single-tribe_events .tribe-events-single-event-title {
+      font-size: 48px; } }
+.single-tribe_events .tribe-events-single-section-title {
+  font-weight: 500; }
+.single-tribe_events .tribe-events-schedule {
+  background: transparent;
+  border: none;
+  padding: 0;
+  margin: 15px 0; }
+  .single-tribe_events .tribe-events-schedule h2 {
+    margin-top: 0;
+    font-size: 18px;
+    font-weight: 500;
+    color: #00529b; }
+    @media (min-width: 768px) {
+      .single-tribe_events .tribe-events-schedule h2 {
+        font-size: 18px; } }
+.single-tribe_events .tribe-events-event-meta {
+  background-color: #faf8f1;
+  border-color: #eae5d7;
+  font-size: 100%; }
+.single-tribe_events #tribe-events-footer {
+  border-top: 5px solid #f37021;
+  border-image: url(img/main-menu-hover.png) 25 30 10 20 repeat;
+  padding: 30px 0 0;
+  margin-bottom: 30px;
+  font-family: "quadon", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-size: 16px; }
 
 /*# sourceMappingURL=style.css.map */
