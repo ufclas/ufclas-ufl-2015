@@ -1,6 +1,6 @@
 @charset "utf-8";
 
-.category, .single, .page, .archive, .home,
+.category, .single, .page, .archive,
 .page.page-template-right-two-columns, 
 .page.page-template-full-width,
 .page.page-template-membersonly {
@@ -10,13 +10,6 @@
 		
 		@include breakFirst(medium){
 			padding: 45px 60px;
-		}	
-	}
-}
-.home {
-	#main {
-		@include breakFirst(medium){
-			padding: 0;
 		}	
 	}
 }
