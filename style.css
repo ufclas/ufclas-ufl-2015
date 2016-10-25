@@ -3785,16 +3785,23 @@ form.search-wrap, .btn-show-aux, .btn-menu, .btn-search-mobile {
     .page-template #main {
       padding: 0; } }
 
-.page-template-landing-page {
+.page-template-landing-page .footer-wrap, .page-template-landing-page-title .footer-wrap, .page-template-landing-page-full-width .footer-wrap {
+  margin-top: 0; }
+.page-template-landing-page .breaker, .page-template-landing-page-title .breaker, .page-template-landing-page-full-width .breaker {
+  margin-bottom: 0; }
+
+.landing-page-hero-full {
   /* Adds positioning for half hero image size */ }
-  .page-template-landing-page .footer-wrap {
-    margin-top: 0; }
-  .page-template-landing-page .breaker {
-    margin-bottom: 0; }
-  .page-template-landing-page .landing-page-hero-full .hero-img-half {
+  @media (min-width: 1220px) {
+    .landing-page-hero-full {
+      margin-bottom: 60px; } }
+  .landing-page-hero-full .hero-img h1 {
+    text-shadow: 2px 3px 2px #333132;
+    letter-spacing: 2px; }
+  .landing-page-hero-full .hero-img-half {
     height: 225px; }
     @media (min-width: 1220px) {
-      .page-template-landing-page .landing-page-hero-full .hero-img-half {
+      .landing-page-hero-full .hero-img-half {
         height: 375px;
         background-position: center center; } }
 
@@ -4499,7 +4506,7 @@ figcaption {
 
 */
 .home #main {
-  background-color: transparent; }
+  background-color: #fff; }
 
 .carousel-row {
   color: #fff;
