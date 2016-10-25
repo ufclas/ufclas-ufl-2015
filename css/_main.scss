@@ -275,7 +275,15 @@ strong {
 .entry-footer {
 	clear: both;	
 }
-
+ul, ol {
+	li:before {
+		content: none;
+		margin-right: 0;	
+	}
+	li {
+		text-transform: none;
+	}
+}
 
 // Required WordPress styles
 .gallery-caption {
