@@ -5,11 +5,11 @@ Theme URI: https://it.clas.ufl.edu/services/web-services/
 Author: Priscilla Chapman (CLAS IT)
 Author URI: https://it.clas.ufl.edu/
 Description: Official UF template for Liberal Arts and Sciences. Based on 160 over 90 template.
-Version: 0.3.5
+Version: 0.3.6
 License: GNU General Public License v2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 Text Domain: ufclas-ufl-2015
-Build Date: 20161024
+Build Date: 20161025
 */
 html, body, div, span, applet, object, iframe,
 h1, h2, h3, .kicker, .gform_wrapper .gform_heading .gform_description, .single-article .entry-content p.lead, .featured-story h2, .single-article #secondary h2, h4, h5, dt, h6, p, blockquote, pre,
@@ -3785,37 +3785,47 @@ form.search-wrap, .btn-show-aux, .btn-menu, .btn-search-mobile {
     .page-template #main {
       padding: 0; } }
 
-.page-template-landing-page {
+.page-template-landing-page .footer-wrap, .page-template-landing-page-title .footer-wrap, .page-template-landing-page-full-width .footer-wrap {
+  margin-top: 0; }
+.page-template-landing-page .breaker, .page-template-landing-page-title .breaker, .page-template-landing-page-full-width .breaker {
+  margin-bottom: 0; }
+
+.landing-page-hero-full {
   /* Adds positioning for half hero image size */ }
-  .page-template-landing-page .footer-wrap {
-    margin-top: 0; }
-  .page-template-landing-page .breaker {
-    margin-bottom: 0; }
-  .page-template-landing-page .landing-page-hero-full .hero-img-half {
+  @media (min-width: 1220px) {
+    .landing-page-hero-full {
+      margin-bottom: 60px; } }
+  .landing-page-hero-full .hero-img h1 {
+    text-shadow: 2px 3px 2px #333132;
+    letter-spacing: 2px; }
+  .landing-page-hero-full .hero-img-half {
     height: 225px; }
     @media (min-width: 1220px) {
-      .page-template-landing-page .landing-page-hero-full .hero-img-half {
+      .landing-page-hero-full .hero-img-half {
         height: 375px;
         background-position: center center; } }
 
 a:focus, a:hover {
   text-decoration: none; }
 
-.entry-content a {
+.entry-content a, .wp-editor a {
   letter-spacing: 1px;
   font-weight: 500; }
-.entry-content h2 {
+.entry-content h2, .wp-editor h2 {
   margin-top: 60px; }
-.entry-content h5, .entry-content dt {
+.entry-content h5, .entry-content dt, .wp-editor h5, .wp-editor dt {
   line-height: 24px; }
-.entry-content ul li, .entry-content ol li {
+.entry-content ul li:before, .entry-content ol li:before, .wp-editor ul li:before, .wp-editor ol li:before {
+  content: none;
+  margin-right: 0; }
+.entry-content ul li, .entry-content ol li, .wp-editor ul li, .wp-editor ol li {
   text-transform: none; }
-.entry-content ul.big-list a, .entry-content ul.sidenav a, .entry-content .single-article #secondary .widget ul a, .single-article #secondary .widget .entry-content ul a, .entry-content ol.big-list a, .entry-content ol.sidenav a {
+.entry-content ul.big-list a, .entry-content ul.sidenav a, .entry-content .single-article #secondary .widget ul a, .single-article #secondary .widget .entry-content ul a, .entry-content ol.big-list a, .entry-content ol.sidenav a, .wp-editor ul.big-list a, .wp-editor ul.sidenav a, .wp-editor .single-article #secondary .widget ul a, .single-article #secondary .widget .wp-editor ul a, .wp-editor ol.big-list a, .wp-editor ol.sidenav a {
   letter-spacing: 2px;
   text-transform: uppercase; }
-.entry-content .img-circle {
+.entry-content .img-circle, .wp-editor .img-circle {
   border-radius: 50%; }
-.entry-content .img-icon {
+.entry-content .img-icon, .wp-editor .img-icon {
   width: 150px;
   height: 150px;
   line-height: 150px;
@@ -3827,29 +3837,29 @@ a:focus, a:hover {
   margin-left: 15px;
   display: none; }
   @media (min-width: 768px) {
-    .entry-content .img-icon {
+    .entry-content .img-icon, .wp-editor .img-icon {
       display: inline-block; } }
-.entry-content .img-icon-left {
+.entry-content .img-icon-left, .wp-editor .img-icon-left {
   margin: 0 15px 60px 10px;
   float: left; }
-.entry-content .img-icon-nobg {
+.entry-content .img-icon-nobg, .wp-editor .img-icon-nobg {
   background-color: transparent;
   height: 100px;
   width: 100px;
   margin-bottom: 15px; }
-.entry-content .img-icon-alt {
+.entry-content .img-icon-alt, .wp-editor .img-icon-alt {
   margin-top: 30px; }
-.entry-content .img-icon-nobottom {
+.entry-content .img-icon-nobottom, .wp-editor .img-icon-nobottom {
   margin-bottom: 0; }
-.entry-content .img-icon-spacer {
+.entry-content .img-icon-spacer, .wp-editor .img-icon-spacer {
   margin: 0;
   width: 0px;
   background-color: transparent; }
   @media (min-width: 1220px) {
-    .entry-content .img-icon-spacer {
+    .entry-content .img-icon-spacer, .wp-editor .img-icon-spacer {
       margin: 0 15px 60px 10px;
       width: 150px; } }
-.entry-content h2 + div {
+.entry-content h2 + div, .wp-editor h2 + div {
   margin-top: 30px; }
 
 .screen-reader-text {
@@ -3986,6 +3996,8 @@ strong {
 ul li:before, ol li:before {
   content: none;
   margin-right: 0; }
+ul li, ol li {
+  text-transform: none; }
 
 .gallery-caption {
   /* required */ }
@@ -4493,6 +4505,9 @@ figcaption {
 }
 
 */
+.home #main {
+  background-color: #fff; }
+
 .carousel-row {
   color: #fff;
   text-align: center; }

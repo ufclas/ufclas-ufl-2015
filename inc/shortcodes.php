@@ -80,7 +80,7 @@ function ufclas_ufl_2015_landing_hero_full($atts, $content = NULL ) {
 			'headline' => '',
 			'image' => get_stylesheet_directory_uri() . '/img/_temp1.jpg',
 			'image_height' => '',
-			'hide_button' => false,
+			'hide_button' => true,
 			'button_text' => __('Enter Button Text Here', 'ufclas-ufl-2015'),
 			'button_link' => '#',
 		), $atts )
@@ -93,7 +93,7 @@ function ufclas_ufl_2015_landing_hero_full($atts, $content = NULL ) {
 	// Shortcode callbacks must return content, so use output buffering
 	ob_start();
 	?>
-    <div id="main" class="landing-page-hero-full">
+    <div class="landing-page-hero-full">
         <div class="hero-img gradient-bg<?php echo $image_class; ?>" style="background-image:url('<?php echo esc_url( $image[0] ); ?>');">
             <?php printf( '<h1>%s</h1>', esc_html( $headline ) ); ?>
         </div>

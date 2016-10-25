@@ -77,23 +77,23 @@ add_action( 'after_setup_theme', 'ufclas_ufl_2015_content_width', 0 );
  */
 function ufclas_ufl_2015_scripts() {
 	// Bootstrap
-	wp_enqueue_style('bootstrap', get_template_directory_uri() . '/inc/bootstrap/css/bootstrap.min.css');
-	wp_enqueue_script('bootstrap', get_template_directory_uri() . '/inc/bootstrap/js/bootstrap.min.js', array('jquery'), false, true);
+	wp_enqueue_style('bootstrap', get_template_directory_uri() . '/inc/bootstrap/css/bootstrap.min.css', array(), null);
+	wp_enqueue_script('bootstrap', get_template_directory_uri() . '/inc/bootstrap/js/bootstrap.min.js', array('jquery'), null, true);
 	
-	wp_register_script( 'ie_html5shiv', get_template_directory_uri(). '/js/html5shiv.min.js' );
+	wp_register_script( 'ie_html5shiv', get_template_directory_uri(). '/js/html5shiv.min.js', array(), null );
 	wp_enqueue_script( 'ie_html5shiv');
 	wp_script_add_data( 'ie_html5shiv', 'conditional', 'lt IE 9' );
 	
-	wp_register_script( 'ie_respond', get_template_directory_uri() . '/js/respond.min.js' );
+	wp_register_script( 'ie_respond', get_template_directory_uri() . '/js/respond.min.js', array(), null );
 	wp_enqueue_script( 'ie_respond');
 	wp_script_add_data( 'ie_respond', 'conditional', 'lt IE 9' );
 	
 	// Theme
-	wp_enqueue_style( 'style', get_stylesheet_uri(), array('dashicons') );
-	wp_enqueue_script('velocity', 'https://cdnjs.cloudflare.com/ajax/libs/velocity/1.2.2/velocity.min.js', array('jquery'), false, true);
-	wp_enqueue_script('velocity-ui', 'https://cdnjs.cloudflare.com/ajax/libs/velocity/1.2.2/velocity.ui.min.js', array('velocity'), false, true);
-	wp_enqueue_script('ufclas-ufl-2015-plugins', get_stylesheet_directory_uri() . '/js/plugins.js', array(), false, true);
-	wp_enqueue_script('ufclas-ufl-2015-scripts', get_stylesheet_directory_uri() . '/js/scripts.js', array(), false, true);
+	wp_enqueue_style( 'style', get_stylesheet_uri(), array('dashicons'), '0.3.5' );
+	wp_enqueue_script('velocity', 'https://cdnjs.cloudflare.com/ajax/libs/velocity/1.2.2/velocity.min.js', array('jquery'), null, true);
+	wp_enqueue_script('velocity-ui', 'https://cdnjs.cloudflare.com/ajax/libs/velocity/1.2.2/velocity.ui.min.js', array('velocity'), null, true);
+	wp_enqueue_script('ufclas-ufl-2015-plugins', get_stylesheet_directory_uri() . '/js/plugins.js', array(), null, true);
+	wp_enqueue_script('ufclas-ufl-2015-scripts', get_stylesheet_directory_uri() . '/js/scripts.js', array(), null, true);
 	
 	// Pass site data to Javascript
 	$site_data = array(
