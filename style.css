@@ -3766,18 +3766,22 @@ form.search-wrap, .btn-show-aux, .btn-menu, .btn-search-mobile {
 /*--------------------------------------------------------------
 # Structure
 --------------------------------------------------------------*/
-.category #main, .tax-issuem_issue_categories #main, .single #main, .page #main, .archive #main,
+.category #main, .tax-issuem_issue_categories #main, .single #main, .page #main, .archive #main, .home #main,
 .page.page-template-right-two-columns #main,
 .page.page-template-full-width #main,
 .page.page-template-membersonly #main {
   background-color: #fff;
   padding-top: 30px; }
   @media (min-width: 768px) {
-    .category #main, .tax-issuem_issue_categories #main, .single #main, .page #main, .archive #main,
+    .category #main, .tax-issuem_issue_categories #main, .single #main, .page #main, .archive #main, .home #main,
     .page.page-template-right-two-columns #main,
     .page.page-template-full-width #main,
     .page.page-template-membersonly #main {
       padding: 45px 60px; } }
+
+@media (min-width: 768px) {
+  .home #main {
+    padding: 0; } }
 
 .page-template #main {
   background-color: transparent; }
