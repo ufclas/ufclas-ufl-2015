@@ -49,7 +49,7 @@
 a:focus, a:hover {
 	text-decoration: none;	
 }
-.entry-content {
+.entry-content, .wp-editor {
 	a {
 		letter-spacing: 1px;
 		font-weight: 500;
@@ -65,6 +65,10 @@ a:focus, a:hover {
 		line-height: 24px;
 	}
 	ul, ol {
+		li:before {
+			content: none;
+			margin-right: 0;	
+		}
 		li {
 			text-transform: none;
 		}
@@ -278,12 +282,7 @@ strong {
 .entry-footer {
 	clear: both;	
 }
-ul, ol {
-	li:before {
-		content: none;
-		margin-right: 0;	
-	}
-}
+
 
 // Required WordPress styles
 .gallery-caption {
