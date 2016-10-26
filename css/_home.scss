@@ -1,6 +1,9 @@
-.home {
-	#main {
+#main {
+	.home & {
 		background-color: $white;
+	}
+	.page-template-landing-page-full-width & {
+		background-color: transparent;
 	}
 }
 

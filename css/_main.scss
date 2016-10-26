@@ -30,6 +30,13 @@
 		margin-bottom: 0;	
 	}
 }
+.page-template-landing-page-full-width {
+	padding-top: 0;
+		
+	@include breakFirst(medium){
+		padding-top: 150px;
+	}		
+}
 .landing-page-hero-full { 
 	
 	@include breakFirst(wide){
