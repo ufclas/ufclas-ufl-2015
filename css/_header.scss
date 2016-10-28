@@ -19,6 +19,23 @@
 		.main-menu-wrap {
 			top: 0;	
 		}
+<<<<<<< HEAD
+=======
+	}
+	&.unit .logo {
+		display: none;
+		
+		@include breakFirst(large){
+			display: block;
+		}	
+	}
+	&.unit .logo.mobile {
+		display: block;
+		
+		@include breakFirst(large){
+			display: none;
+		}	
+>>>>>>> develop
 	}
 }
 .main-menu-wrap li:nth-child(odd) {

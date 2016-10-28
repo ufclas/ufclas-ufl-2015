@@ -5,11 +5,19 @@ Theme URI: https://it.clas.ufl.edu/services/web-services/
 Author: Priscilla Chapman (CLAS IT)
 Author URI: https://it.clas.ufl.edu/
 Description: Official UF template for Liberal Arts and Sciences. Based on 160 over 90 template.
+<<<<<<< HEAD
 Version: 0.3.6
 License: GNU General Public License v2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 Text Domain: ufclas-ufl-2015
 Build Date: 20161025
+=======
+Version: 0.4.0
+License: GNU General Public License v2 or later
+License URI: http://www.gnu.org/licenses/gpl-2.0.html
+Text Domain: ufclas-ufl-2015
+Build Date: 20161026
+>>>>>>> develop
 */
 html, body, div, span, applet, object, iframe,
 h1, h2, h3, .kicker, .gform_wrapper .gform_heading .gform_description, .single-article .entry-content p.lead, .featured-story h2, .single-article #secondary h2, h4, h5, dt, h6, p, blockquote, pre,
@@ -3790,6 +3798,15 @@ form.search-wrap, .btn-show-aux, .btn-menu, .btn-search-mobile {
 .page-template-landing-page .breaker, .page-template-landing-page-title .breaker, .page-template-landing-page-full-width .breaker {
   margin-bottom: 0; }
 
+<<<<<<< HEAD
+=======
+.page-template-landing-page-full-width {
+  padding-top: 0; }
+  @media (min-width: 768px) {
+    .page-template-landing-page-full-width {
+      padding-top: 150px; } }
+
+>>>>>>> develop
 .landing-page-hero-full {
   /* Adds positioning for half hero image size */ }
   @media (min-width: 1220px) {
@@ -4018,6 +4035,19 @@ ul li, ol li {
       height: 100px; } }
   .disable-global .header .menu-wrap .main-menu-wrap {
     top: 0; }
+<<<<<<< HEAD
+=======
+.header.unit .logo {
+  display: none; }
+  @media (min-width: 992px) {
+    .header.unit .logo {
+      display: block; } }
+.header.unit .logo.mobile {
+  display: block; }
+  @media (min-width: 992px) {
+    .header.unit .logo.mobile {
+      display: none; } }
+>>>>>>> develop
 
 .main-menu-wrap li:nth-child(odd) {
   background: #fff; }
@@ -4151,6 +4181,7 @@ ul li, ol li {
       float: left; }
     .pagination .page-numbers.next {
       float: right; }
+<<<<<<< HEAD
 
 .post-navigation .nav-previous, .post-navigation .nav-next {
   padding: 0 7.5px; }
@@ -4173,6 +4204,30 @@ ul li, ol li {
   font-weight: 700;
   display: block; }
 
+=======
+
+.post-navigation .nav-previous, .post-navigation .nav-next {
+  padding: 0 7.5px; }
+  @media (min-width: 768px) {
+    .post-navigation .nav-previous, .post-navigation .nav-next {
+      width: 45%; } }
+@media (min-width: 768px) {
+  .post-navigation .nav-previous {
+    float: left; } }
+.post-navigation .nav-next {
+  padding-top: 15px; }
+  @media (min-width: 768px) {
+    .post-navigation .nav-next {
+      float: right;
+      text-align: right;
+      padding-top: 0; } }
+.post-navigation .meta-nav {
+  text-transform: uppercase;
+  font-family: "gentona", "Georgia", serif;
+  font-weight: 700;
+  display: block; }
+
+>>>>>>> develop
 .home .widget-area {
   padding-top: 30px; }
 .home .footer-bottom .widget-area {
@@ -4258,6 +4313,7 @@ ul li, ol li {
   .widget_listcategorypostswidget .widget-title + strong a:focus, .widget_listcategorypostswidget .widget-title + strong a:hover {
     background-color: #fff; }
 
+<<<<<<< HEAD
 .tribe-events-list-widget .tribe-list-widget {
   margin-left: 0; }
   .tribe-events-list-widget .tribe-list-widget li {
@@ -4294,6 +4350,12 @@ ul li, ol li {
   text-transform: uppercase;
   letter-spacing: 1px;
   margin-left: 65px; }
+=======
+.page-sections .widgettitle, .page-sections .widget-title {
+  display: none; }
+.page-sections .widget {
+  margin-bottom: 0; }
+>>>>>>> develop
 
 .gform_wrapper .gform_body select, .gform_wrapper .gform_body textarea, .gform_wrapper .gform_body input[type="text"], .gform_wrapper .gform_body input[type="email"] {
   padding: 15px 7.5px;
@@ -4507,6 +4569,11 @@ figcaption {
 */
 .home #main {
   background-color: #fff; }
+<<<<<<< HEAD
+=======
+.page-template-landing-page-full-width #main {
+  background-color: transparent; }
+>>>>>>> develop
 
 .carousel-row {
   color: #fff;
@@ -4892,7 +4959,47 @@ figcaption {
     background-color: transparent !important;
     color: #f79f6a !important; }
 
+<<<<<<< HEAD
 /* CSS Document */
+=======
+.tribe-events-list-widget .tribe-list-widget {
+  margin-left: 0; }
+  .tribe-events-list-widget .tribe-list-widget li {
+    position: relative;
+    margin-left: 55px;
+    padding-left: 10px;
+    border-left: 1px solid #ccc; }
+.tribe-events-list-widget .tribe-event-title {
+  font-size: 16px;
+  line-height: 22px;
+  letter-spacing: 1px;
+  margin-bottom: 0; }
+  .tribe-events-list-widget .tribe-event-title em {
+    text-transform: none;
+    font-size: 16px; }
+.tribe-events-list-widget .tribe-event-duration {
+  font-size: 16px;
+  line-height: 26px; }
+.tribe-events-list-widget .event-date {
+  position: absolute;
+  top: 0;
+  left: -50px;
+  width: 45px;
+  font-family: "gentona", "Georgia", serif;
+  text-align: center;
+  color: #4c87b5; }
+.tribe-events-list-widget .event-month {
+  font-size: 20px;
+  font-weight: 400; }
+.tribe-events-list-widget .event-day {
+  font-size: 32px;
+  letter-spacing: -1px; }
+.tribe-events-list-widget .tribe-events-widget-link {
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  margin-left: 65px; }
+
+>>>>>>> develop
 #tribe-events .tribe-events-button {
   border: 3px solid #f37021;
   color: #f37021;

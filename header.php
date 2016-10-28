@@ -17,7 +17,14 @@
   	$disable_global_elements = get_theme_mod('disable_global_elements', 0);
 	if ( !$disable_global_elements ): 
   ?>
+<<<<<<< HEAD
       <a href="http://ufl.edu/" class="logo"><img src="<?php echo get_stylesheet_directory_uri(); ?>/img/logo-uf.svg" alt="University of Florida">
+=======
+      <a href="http://ufl.edu/" class="logo">
+      	<img src="<?php echo get_stylesheet_directory_uri(); ?>/img/logo-uf.svg" alt="University of Florida">
+      </a>
+      <a href="<?php echo site_url('/'); ?>" class="logo mobile">
+>>>>>>> develop
         <span class="icon-svg logo-herbert"><svg><use xlink:href="<?php echo ufclas_ufl_2015_get_custom_logo(); ?>#Layer_1"></use></svg></span>
       </a>
   <?php endif; ?>

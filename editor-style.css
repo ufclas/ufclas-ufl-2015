@@ -3778,6 +3778,15 @@ form.search-wrap, .btn-show-aux, .btn-menu, .btn-search-mobile {
 .page-template-landing-page .breaker, .page-template-landing-page-title .breaker, .page-template-landing-page-full-width .breaker {
   margin-bottom: 0; }
 
+<<<<<<< HEAD
+=======
+.page-template-landing-page-full-width {
+  padding-top: 0; }
+  @media (min-width: 768px) {
+    .page-template-landing-page-full-width {
+      padding-top: 150px; } }
+
+>>>>>>> develop
 .landing-page-hero-full {
   /* Adds positioning for half hero image size */ }
   @media (min-width: 1220px) {
@@ -4006,6 +4015,19 @@ ul li, ol li {
       height: 100px; } }
   .disable-global .header .menu-wrap .main-menu-wrap {
     top: 0; }
+<<<<<<< HEAD
+=======
+.header.unit .logo {
+  display: none; }
+  @media (min-width: 992px) {
+    .header.unit .logo {
+      display: block; } }
+.header.unit .logo.mobile {
+  display: block; }
+  @media (min-width: 992px) {
+    .header.unit .logo.mobile {
+      display: none; } }
+>>>>>>> develop
 
 .main-menu-wrap li:nth-child(odd) {
   background: #fff; }
@@ -4246,6 +4268,7 @@ ul li, ol li {
   .widget_listcategorypostswidget .widget-title + strong a:focus, .widget_listcategorypostswidget .widget-title + strong a:hover {
     background-color: #fff; }
 
+<<<<<<< HEAD
 .tribe-events-list-widget .tribe-list-widget {
   margin-left: 0; }
   .tribe-events-list-widget .tribe-list-widget li {
@@ -4282,6 +4305,12 @@ ul li, ol li {
   text-transform: uppercase;
   letter-spacing: 1px;
   margin-left: 65px; }
+=======
+.page-sections .widgettitle, .page-sections .widget-title {
+  display: none; }
+.page-sections .widget {
+  margin-bottom: 0; }
+>>>>>>> develop
 
 .gform_wrapper .gform_body select, .gform_wrapper .gform_body textarea, .gform_wrapper .gform_body input[type="text"], .gform_wrapper .gform_body input[type="email"] {
   padding: 15px 7.5px;
@@ -4543,5 +4572,14 @@ figcaption {
   .single-article #secondary .widget ul a:hover {
     background-color: transparent !important;
     color: #f79f6a !important; }
+
+.shortcode-ui-preview-fallback {
+  text-align: center;
+  font-size: 18px;
+  font-weight: bold;
+  text-transform: uppercase; }
+
+body {
+  padding-top: 0px; }
 
 /*# sourceMappingURL=editor-style.css.map */
