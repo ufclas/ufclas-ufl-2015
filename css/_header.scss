@@ -20,6 +20,20 @@
 			top: 0;	
 		}
 	}
+	&.unit .logo {
+		display: none;
+		
+		@include breakFirst(large){
+			display: block;
+		}	
+	}
+	&.unit .logo.mobile {
+		display: block;
+		
+		@include breakFirst(large){
+			display: none;
+		}	
+	}
 }
 .main-menu-wrap li:nth-child(odd) {
     background: $white;
