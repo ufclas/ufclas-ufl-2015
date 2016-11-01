@@ -40,6 +40,7 @@
 .landing-page-hero-full { 
 	
 	@include breakFirst(wide){
+		margin-top: -30px;
 		margin-bottom: $grid-gutter-width*2;
 	}
 	

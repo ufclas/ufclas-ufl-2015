@@ -2,6 +2,8 @@
 
 // Include theme widgets
 require get_stylesheet_directory() . '/inc/widgets/widget-landing-page-hero.php';
+require get_stylesheet_directory() . '/inc/widgets/widget-breaker.php';
+require get_stylesheet_directory() . '/inc/widgets/widget-content-image-right.php';
 
 /**
  * Get the number of widget in a specific sidebar
@@ -151,7 +153,9 @@ function ufclas_ufl_2015_widgets_init() {
 	) );
 	
 	// Register theme widgets
-	register_widget( 'UFCLAS_Landing_Page_Hero' );
+	register_widget( 'UFL_2015_Landing_Page_Hero' );
+	register_widget( 'UFL_2015_Breaker' );
+	register_widget( 'UFL_2015_Content_Image_Right' );
 }
 add_action( 'widgets_init', 'ufclas_ufl_2015_widgets_init' );
 

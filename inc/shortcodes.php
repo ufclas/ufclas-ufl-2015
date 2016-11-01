@@ -3,7 +3,7 @@
  * Theme shortcodes
  *
  *	[ufclas-landing-page-hero][/ufclas-landing-page-hero]
- *	[ufclas-landing-page-hero-full][/ufclas-landing-page-hero]
+ *	[ufclas-landing-page-hero-full][/ufclas-landing-page-hero-full]
  *	[ufclas-content-image-caption][/ufclas-content-image-caption]
  *	[ufclas-content-image-right][/ufclas-content-image-right]
  *	[ufclas-breaker-cards][/ufclas-breaker-cards]
@@ -131,7 +131,7 @@ function ufclas_ufl_2015_breaker($atts, $content = NULL ) {
 		array(
 			'headline' => __('Enter Headline Here', 'ufclas-ufl-2015'),
 			'image' => get_stylesheet_directory_uri() . '/img/bg-breaker.jpg',
-			'hide_button' => false,
+			'hide_button' => true,
 			'button_text' => __('Enter Button Text Here', 'ufclas-ufl-2015'),
 			'button_link' => '#',
 		), $atts )
@@ -228,7 +228,12 @@ function ufclas_ufl_2015_content_image_right($atts, $content = NULL ) {
 	);
 	
 	// Support either image ID or image url
-	$image = ( is_numeric( $image ) )? wp_get_attachment_image_src( $image, 'large' ) : array($image);
+    if ( is_numeric( $image ) ){
+        $image = wp_get_attachment_image_src( $image, 'large' );
+    }
+    else {
+        $image = array($image);
+    }
 	
 	// Shortcode callbacks must return content, so use output buffering
 	ob_start();
