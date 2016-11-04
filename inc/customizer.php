@@ -90,6 +90,7 @@ function ufclas_ufl_2015_customize_register( $wp_customize ) {
 	
 	$wp_customize->add_setting( 'parent_colleges_institutes', array( 'default' => 'None', 'sanitize_callback' => 'ufclas_ufl_2015_sanitize_choices' ));
 	$wp_customize->add_setting( 'analytics_acct', array( 'default' => '', 'sanitize_callback' => 'sanitize_text_field' ));
+	$wp_customize->add_setting( 'max_main_menu_items', array( 'default' => 7, 'sanitize_callback' => 'absint' ));
 	$wp_customize->add_setting( 'mega_menu', array( 'default' => 1, 'sanitize_callback' => 'absint' ));
 	$wp_customize->add_setting( 'collapse_sidebar_nav', array( 'default' => 1, 'sanitize_callback' => 'absint' ));
 	$wp_customize->add_setting( 'shibboleth_protocol', array( 'default' => (is_ssl())? 'https':'http', 'sanitize_callback' => 'ufclas_ufl_2015_sanitize_choices' ));
@@ -110,6 +111,12 @@ function ufclas_ufl_2015_customize_register( $wp_customize ) {
 		'description' => __("(e.g., 'UA-xxxxxxx-x' or 'UA-xxxxxxx-xx' )", 'ufclas-ufl-2015'),
 		'section' => 'theme_options_general',
 		'type' => 'text',
+	));
+	$wp_customize->add_control( 'max_main_menu_items', array(
+		'label' => __('Maximum Main Menu items', 'ufclas-ufl-2015'),
+		'description' => __('Items to display in main menu before showing the "More" item', 'ufclas-ufl-2015'),
+		'section' => 'theme_options_general',
+		'type' => 'number',
 	));
 	$wp_customize->add_control( 'mega_menu', array(
 		'label' => __('Enable Mega Drop Down Menu', 'ufclas-ufl-2015'),

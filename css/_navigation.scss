@@ -6,15 +6,22 @@
 		height: 100px;
 	}
 }
-.main-menu-wrap .main-menu-link {
-	@include breakTo(wide){
-		font-size: 14px;
+.main-menu-wrap {
+	.main-menu-link {
+		@include breakTo(wide){
+			font-size: 14px;
+		}
+	}
+	#menu-item-more .icon-caret.icon-svg {
+		display: none;
 	}
 }
 .aux-menu-wrap .aux-nav a {
 	font-size: 12px;
 	font-weight: 400;
 }
+
+
 
 /* Bring first link in global nav closer to the UF logo */
 .aux-menu-wrap .aux-nav li.global-menu-title a {
