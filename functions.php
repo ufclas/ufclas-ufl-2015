@@ -95,8 +95,8 @@ function ufclas_ufl_2015_scripts() {
 	wp_enqueue_style( 'style', get_stylesheet_uri(), array('dashicons'), $theme_version );
 	wp_enqueue_script('velocity', 'https://cdnjs.cloudflare.com/ajax/libs/velocity/1.2.2/velocity.min.js', array('jquery'), null, true);
 	wp_enqueue_script('velocity-ui', 'https://cdnjs.cloudflare.com/ajax/libs/velocity/1.2.2/velocity.ui.min.js', array('velocity'), null, true);
-	wp_enqueue_script('ufclas-ufl-2015-plugins', get_stylesheet_directory_uri() . '/js/plugins.js', array(), $theme_version, true);
-	wp_enqueue_script('ufclas-ufl-2015-scripts', get_stylesheet_directory_uri() . '/js/scripts.js', array(), $theme_version, true);
+	wp_enqueue_script('ufclas-ufl-2015-plugins', get_stylesheet_directory_uri() . '/js/plugins.min.js', array(), $theme_version, true);
+	wp_enqueue_script('ufclas-ufl-2015-scripts', get_stylesheet_directory_uri() . '/js/scripts.min.js', array(), $theme_version, true);
 	
 	// Pass site data to Javascript
 	$site_data = array(
