@@ -4,7 +4,8 @@ jQuery(function($){
   	function dropdownColumns(){
 		
 		if ( $(window).width() > 992 ){
-			var maxItems = 7;
+			var showMegaMenu = ufclas_ufl_2015_sitedata.mega_menu;
+			var maxItems = ufclas_ufl_2015_sitedata.max_main_menu_items;
 			var numItems = $('.main-menu-wrap .menu > li').length;
 			
             if ( numItems > maxItems ){
@@ -19,24 +20,28 @@ jQuery(function($){
                 $moreItem.append('<div class="dropdown"><ul></ul></div>');
                 $('.main-menu-wrap .menu').append( $moreItem );
                 $('#menu-item-more .dropdown ul').append($moreMenuItems);
-              }
+            }
             
+			
+			
             // Display dropdown menu in two columns
-            $('.main-menu-wrap .menu .dropdown').each(function(index) {
-                var $parentItem = $(this).parent();
-
-                // Create columns, if they don't already exist
-				if ( $parentItem.find('.menu-item-wrap-2 li').length == 0 ){
-					var $menuItems = $(this).find('.menu-item');
-                	var menuOffset = Math.ceil($menuItems.length/2);
-					
-					$(this).find('ul').addClass('col-md-6');
-					$(this).append('<ul class="col-md-6 menu-item-wrap-2"></ul>');
-
-                	// Move items to second column
-                	$parentItem.find('.menu-item-wrap-2').append( $menuItems.slice(menuOffset) );
-				}
-            });
+            if ( showMegaMenu ){
+				$('.main-menu-wrap .menu .dropdown').each(function(index) {
+					var $parentItem = $(this).parent();
+	
+					// Create columns, if they don't already exist
+					if ( $parentItem.find('.menu-item-wrap-2 li').length == 0 ){
+						var $menuItems = $(this).find('.menu-item');
+						var menuOffset = Math.ceil($menuItems.length/2);
+						
+						$(this).find('ul').addClass('col-md-6');
+						$(this).append('<ul class="col-md-6 menu-item-wrap-2"></ul>');
+	
+						// Move items to second column
+						$parentItem.find('.menu-item-wrap-2').append( $menuItems.slice(menuOffset) );
+					}
+				});
+			}
 		}
 	}
 	
@@ -45,6 +50,7 @@ jQuery(function($){
 	$(window).resize(dropdownColumns);
 	
 	// Performs a smooth page scroll to an anchor on the same page.
+	// Excludes the carousel control links
 	// https://css-tricks.com/snippets/jquery/smooth-scrolling/
 	$('a[href*="#"]:not([href="#"]):not(.carousel-control)').click(function() {
 		if (location.pathname.replace(/^\//,'') == this.pathname.replace(/^\//,'') && location.hostname == this.hostname) {
