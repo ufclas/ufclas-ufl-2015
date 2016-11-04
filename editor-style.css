@@ -1565,8 +1565,7 @@ form.search-wrap, .btn-show-aux, .btn-menu, .btn-search-mobile {
         border: none; } }
     @media (min-width: 1220px) {
       .main-menu-wrap li {
-        width: 14.285714286%;
-        width: calc(100% / 7); } }
+        min-width: calc(99.9% / 7); } }
     .main-menu-wrap li:first-child {
       border: none; }
     .main-menu-wrap li:nth-child(even) {
@@ -3778,12 +3777,6 @@ form.search-wrap, .btn-show-aux, .btn-menu, .btn-search-mobile {
 .page-template-landing-page .breaker, .page-template-landing-page-title .breaker, .page-template-landing-page-full-width .breaker {
   margin-bottom: 0; }
 
-.page-template-landing-page-full-width {
-  padding-top: 0; }
-  @media (min-width: 768px) {
-    .page-template-landing-page-full-width {
-      padding-top: 150px; } }
-
 .landing-page-hero-full {
   /* Adds positioning for half hero image size */ }
   @media (min-width: 1220px) {
@@ -4033,6 +4026,8 @@ ul li, ol li {
 @media (max-width: 1220px) {
   .main-menu-wrap .main-menu-link {
     font-size: 14px; } }
+.main-menu-wrap #menu-item-more .icon-caret.icon-svg {
+  display: none; }
 
 .aux-menu-wrap .aux-nav a {
   font-size: 12px;
@@ -4262,10 +4257,42 @@ ul li, ol li {
   .widget_listcategorypostswidget .widget-title + strong a:focus, .widget_listcategorypostswidget .widget-title + strong a:hover {
     background-color: #fff; }
 
-.page-sections .widgettitle, .page-sections .widget-title {
-  display: none; }
-.page-sections .widget {
+.tribe-events-list-widget .tribe-list-widget {
+  margin-left: 0; }
+  .tribe-events-list-widget .tribe-list-widget li {
+    position: relative;
+    margin-left: 55px;
+    padding-left: 10px;
+    border-left: 1px solid #ccc; }
+.tribe-events-list-widget .tribe-event-title {
+  font-size: 16px;
+  line-height: 22px;
+  letter-spacing: 1px;
   margin-bottom: 0; }
+  .tribe-events-list-widget .tribe-event-title em {
+    text-transform: none;
+    font-size: 16px; }
+.tribe-events-list-widget .tribe-event-duration {
+  font-size: 16px;
+  line-height: 26px; }
+.tribe-events-list-widget .event-date {
+  position: absolute;
+  top: 0;
+  left: -50px;
+  width: 45px;
+  font-family: "gentona", "Georgia", serif;
+  text-align: center;
+  color: #4c87b5; }
+.tribe-events-list-widget .event-month {
+  font-size: 20px;
+  font-weight: 400; }
+.tribe-events-list-widget .event-day {
+  font-size: 32px;
+  letter-spacing: -1px; }
+.tribe-events-list-widget .tribe-events-widget-link {
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  margin-left: 65px; }
 
 .gform_wrapper .gform_body select, .gform_wrapper .gform_body textarea, .gform_wrapper .gform_body input[type="text"], .gform_wrapper .gform_body input[type="email"] {
   padding: 15px 7.5px;
@@ -4527,14 +4554,5 @@ figcaption {
   .single-article #secondary .widget ul a:hover {
     background-color: transparent !important;
     color: #f79f6a !important; }
-
-.shortcode-ui-preview-fallback {
-  text-align: center;
-  font-size: 18px;
-  font-weight: bold;
-  text-transform: uppercase; }
-
-body {
-  padding-top: 0px; }
 
 /*# sourceMappingURL=editor-style.css.map */
