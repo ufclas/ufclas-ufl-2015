@@ -3770,7 +3770,7 @@ form.search-wrap, .btn-show-aux, .btn-menu, .btn-search-mobile {
   background-color: transparent; }
   @media (min-width: 768px) {
     .page-template #main {
-      padding: 0; } }
+      margin-bottom: 60px; } }
 
 .page-template-landing-page .footer-wrap, .page-template-landing-page-title .footer-wrap, .page-template-landing-page-full-width .footer-wrap {
   margin-top: 0; }
@@ -3787,7 +3787,6 @@ form.search-wrap, .btn-show-aux, .btn-menu, .btn-search-mobile {
   /* Adds positioning for half hero image size */ }
   @media (min-width: 1220px) {
     .landing-page-hero-full {
-      margin-top: -30px;
       margin-bottom: 60px; } }
   .landing-page-hero-full .hero-img h1 {
     text-shadow: 2px 3px 2px #333132;
