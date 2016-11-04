@@ -158,7 +158,6 @@ jQuery(function($){
 	}
 	
 	function autoMainMenuHelper() {
-		console.log('called');
 		var showMenuItemColumns = ufclas_ufl_2015_sitedata.mega_menu; // Get mega menu theme option
 		$('.main-menu-wrap>ul>li>a').addClass('main-menu-link').wrapInner('<span></span>').append('<span class="icon-svg icon-caret"><svg><use xlink:href="'+ufclas_ufl_2015_sitedata.theme_url+'/img/spritemap.svg#caret"></use></svg></span>');
 		
