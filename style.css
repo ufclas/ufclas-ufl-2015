@@ -4192,6 +4192,11 @@ ul li, ol li {
         height: 375px;
         background-position: center center; } }
 
+@media (min-width: 1220px) {
+  .content-box-module {
+    padding-top: 30px;
+    margin-top: 60px; } }
+
 .shortcode-ui-preview-fallback {
   text-align: center;
   font-size: 18px;
@@ -4287,6 +4292,14 @@ ul li, ol li {
   display: none; }
 .page-sections .widget {
   margin-bottom: 0; }
+  .page-sections .widget ul {
+    margin-left: 30px; }
+    .page-sections .widget ul li:before {
+      content: normal; }
+    .page-sections .widget ul li {
+      margin-bottom: 15px;
+      font-size: 100%;
+      list-style-type: circle; }
 
 .gform_wrapper .gform_body select, .gform_wrapper .gform_body textarea, .gform_wrapper .gform_body input[type="text"], .gform_wrapper .gform_body input[type="email"] {
   padding: 15px 7.5px;

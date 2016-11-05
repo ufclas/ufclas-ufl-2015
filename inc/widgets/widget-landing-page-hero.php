@@ -29,17 +29,19 @@ class UFL_2015_Landing_Page_Hero extends WP_Widget {
 	 */
 	public function widget( $args, $instance ) {
 		$title = ( !empty( $instance['title'] ) )? $instance['title'] : ''; 
-		$title = apply_filters( 'widget_title', $title, $instance, $this->id_base );
 		$text = ( !empty( $instance['text'] ) )? $instance['text'] : '';
-		$text = apply_filters( 'widget_text', $text, $instance, $this );
 		$image = ( !empty( $instance['image'] ) )? $instance['image'] : '';
 		$image_height = ( !empty( $instance['image_height'] ) )? $instance['image_height'] : '';
 		$button_text = ( !empty( $instance['button_text'] ) )? $instance['button_text'] : '';
 		$button_link = ( !empty( $instance['button_link'] ) )? $instance['button_link'] : '';
-
+        
+        // Apply filters
+        $title = apply_filters( 'widget_title', $title, $instance, $this->id_base );
+        $text = apply_filters( 'widget_text', $text, $instance, $this );
+        
 		echo $args['before_widget'];
 		
-		echo do_shortcode( sprintf(
+        echo do_shortcode( sprintf(
 			'[ufclas-landing-page-hero-full headline="%s" image="%s" image_height="%s" button_text="%s" button_link="%s"]%s[/ufclas-landing-page-hero-full]',
 			$title,
 			$image,
@@ -63,9 +65,10 @@ class UFL_2015_Landing_Page_Hero extends WP_Widget {
 		$title = sanitize_text_field( $instance['title'] );
 		$image = ( isset( $instance['image'] ) )? $instance['image'] : '';
 		$image_heights = array(
-			'' => esc_html__( 'Default', 'ufclas-ufl-2015' ),
-			'half' => esc_html__( 'Half', 'ufclas-ufl-2015' ),
+			'large' => esc_html__( 'Large', 'ufclas-ufl-2015' ),
+			'half' => esc_html__( 'Small', 'ufclas-ufl-2015' ),
 		);
+		$image_height = sanitize_text_field( $instance['image_height'] );
 		$button_text = sanitize_text_field( $instance['button_text'] );
 		$button_link = esc_url_raw( $instance['button_link'] );
 		
@@ -92,6 +95,18 @@ class UFL_2015_Landing_Page_Hero extends WP_Widget {
         <br class="clear">
         </div>
         </p>
+
+        <p>
+        <label for="<?php echo $this->get_field_id( 'image_height' ); ?>"><?php _e( 'Background Image Height:' ); ?></label>
+        <select id="<?php echo $this->get_field_id( 'image_height' ); ?>" name="<?php echo $this->get_field_name( 'image_height' ); ?>">
+        <?php foreach ( $image_heights as $value => $label ) : ?>
+            <option value="<?php echo esc_attr( $value ); ?>" <?php selected( $image_height, $value ); ?>>
+                <?php echo esc_html( $label ); ?>
+            </option>
+        <?php endforeach; ?>
+        </select>
+        </p>
+
         
         <p><label for="<?php echo $this->get_field_id('button_text'); ?>"><?php _e('Button Text:'); ?></label>
 		<input class="widefat" id="<?php echo $this->get_field_id('button_text'); ?>" name="<?php echo $this->get_field_name('button_text'); ?>" type="text" value="<?php echo esc_attr($button_text); ?>" /></p>

@@ -123,5 +123,18 @@
 	}
 	.widget {
 		margin-bottom: 0;
+        
+        ul {
+            margin-left: $grid-gutter-width;
+
+            li:before {
+                content: normal;
+            }
+            li {
+                margin-bottom: $grid-gutter-width/2;
+                font-size: 100%;
+                list-style-type: circle;
+            }
+        }
 	}
 }
