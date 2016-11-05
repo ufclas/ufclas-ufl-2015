@@ -1,0 +1,35 @@
+/**
+ * Widgets - Media Upload
+ */
+
+.wpshed-media-container {
+	width: 98%;
+}
+
+.wpshed-media-inner {
+	border: 1px solid #ddd;
+	padding: 10px;
+	text-align: center;
+	border-radius: 2px;
+	margin-bottom: 10px;
+}
+
+.widget-description img,
+.wpshed-media-inner img {
+	max-width: 100%;
+	height: auto;
+}
+
+.wpshed-media-url {
+	display: none;
+}
+
+.wpshed-media-remove {
+	float: left;
+	width: 48%;
+}
+
+.wpshed-media-upload {
+	float: right;
+	width: 48%;
+}

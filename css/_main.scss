@@ -35,32 +35,13 @@
 		
 	@include breakFirst(medium){
 		padding-top: 150px;
-	}		
-}
-.landing-page-hero-full { 
-	
-	@include breakFirst(wide){
-		//margin-top: -30px;
-		margin-bottom: $grid-gutter-width*2;
 	}
 	
-	.hero-img {
-		h1 {
-			text-shadow: 2px 3px 2px $grayDark;
-			letter-spacing: 2px;
-		}
-	}
-	
-	/* Adds positioning for half hero image size */
-	.hero-img-half {
-		height: 225px;
-		
-		@include breakFirst(wide){
-			height: 375px;
-			background-position: center center;
-		}
+	#main {
+		padding: 0;
 	}
 }
+
 
 
 a:focus, a:hover {

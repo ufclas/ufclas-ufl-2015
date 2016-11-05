@@ -28,21 +28,22 @@ class UFL_2015_Landing_Page_Hero extends WP_Widget {
 	 * @param array $instance
 	 */
 	public function widget( $args, $instance ) {
-		$title = apply_filters( 'widget_title', empty( $instance['title'] ) ? '' : $instance['title'], $instance, $this->id_base );
-		$widget_text = ! empty( $instance['text'] ) ? $instance['text'] : '';
-		$text = apply_filters( 'widget_text', $widget_text, $instance, $this );
-		$image_height = ! empty( $instance['image_height'] ) ? $instance['image_height'] : '';
-		$hide_button = ! empty( $instance['hide_button'] ) ? $instance['hide_button'] : 0;
-		$button_text = ! empty( $instance['button_text'] ) ? $instance['button_text'] : '';
-		$button_link = ! empty( $instance['button_link'] ) ? $instance['button_link'] : '';
+		$title = ( !empty( $instance['title'] ) )? $instance['title'] : ''; 
+		$title = apply_filters( 'widget_title', $title, $instance, $this->id_base );
+		$text = ( !empty( $instance['text'] ) )? $instance['text'] : '';
+		$text = apply_filters( 'widget_text', $text, $instance, $this );
+		$image = ( !empty( $instance['image'] ) )? $instance['image'] : '';
+		$image_height = ( !empty( $instance['image_height'] ) )? $instance['image_height'] : '';
+		$button_text = ( !empty( $instance['button_text'] ) )? $instance['button_text'] : '';
+		$button_link = ( !empty( $instance['button_link'] ) )? $instance['button_link'] : '';
 
 		echo $args['before_widget'];
 		
 		echo do_shortcode( sprintf(
-			'[ufclas-landing-page-hero-full headline="%s" image_height="%s" hide_button="%d" button_text="%s" button_link="%s"]%s[/ufclas-landing-page-hero-full]',
+			'[ufclas-landing-page-hero-full headline="%s" image="%s" image_height="%s" button_text="%s" button_link="%s"]%s[/ufclas-landing-page-hero-full]',
 			$title,
+			$image,
 			$image_height,
-			$hide_button,
 			$button_text,
 			$button_link,
 			$text
@@ -57,15 +58,14 @@ class UFL_2015_Landing_Page_Hero extends WP_Widget {
 	 * @param array $instance The widget options
 	 */
 	public function form( $instance ) {
-		$instance = wp_parse_args( (array) $instance, array( 'title' => '', 'text' => '', 'image_height' => '', 'button_text' => '', 'button_link' => '' ) );
+		$instance = wp_parse_args( (array) $instance, array( 'title' => '', 'text' => '', 'image_height' => '', 'button_text' => '', 'button_link' => '', 'image' => '' ) );
 		
 		$title = sanitize_text_field( $instance['title'] );
-		$image_height = sanitize_text_field( $instance['image_height'] );
+		$image = ( isset( $instance['image'] ) )? $instance['image'] : '';
 		$image_heights = array(
 			'' => esc_html__( 'Default', 'ufclas-ufl-2015' ),
 			'half' => esc_html__( 'Half', 'ufclas-ufl-2015' ),
 		);
-		$hide_button = isset( $instance['hide_button'] ) ? $instance['hide_button'] : 0;
 		$button_text = sanitize_text_field( $instance['button_text'] );
 		$button_link = esc_url_raw( $instance['button_link'] );
 		
@@ -77,26 +77,30 @@ class UFL_2015_Landing_Page_Hero extends WP_Widget {
 		<textarea class="widefat" rows="16" cols="20" id="<?php echo $this->get_field_id('text'); ?>" name="<?php echo $this->get_field_name('text'); ?>"><?php echo esc_textarea( $instance['text'] ); ?></textarea></p>
 		
         <p>
-        <label for="<?php echo $this->get_field_id( 'image_height' ); ?>"><?php _e( 'Background Image Height:' ); ?></label>
-        <select id="<?php echo $this->get_field_id( 'image_height' ); ?>" name="<?php echo $this->get_field_name( 'image_height' ); ?>">
-            <?php foreach ( $image_heights as $value => $label ) : ?>
-                <option value="<?php echo esc_attr( $value ); ?>" <?php selected( $image_height, $value ); ?>>
-                    <?php echo esc_html( $label ); ?>
-                </option>
-            <?php endforeach; ?>
-        </select>
+        <label for="<?php echo $this->get_field_id( 'image' ); ?>"><?php _e( 'Image', 'wpshed' ); ?>:</label>
+        <div class="wpshed-media-container">
+            <div class="wpshed-media-inner">
+                <?php $img_style = ( $instance[ 'image' ] != '' ) ? '' : 'style="display:none;"'; ?>
+                <img id="<?php echo $this->get_field_id( 'image' ); ?>-preview" src="<?php echo esc_attr( $instance['image'] ); ?>" <?php echo $img_style; ?> />
+                <?php $no_img_style = ( $instance[ 'image' ] != '' ) ? 'style="display:none;"' : ''; ?>
+                <span class="wpshed-no-image" id="<?php echo $this->get_field_id( 'image' ); ?>-noimg" <?php echo $no_img_style; ?>><?php _e( 'No image selected', 'wpshed' ); ?></span>
+            </div>
+        <input type="text" id="<?php echo $this->get_field_id( 'image' ); ?>" name="<?php echo $this->get_field_name( 'image' ); ?>" value="<?php echo esc_attr( $instance['image'] ); ?>" class="wpshed-media-url" />
+		<input type="button" value="<?php echo _e( 'Remove', 'wpshed' ); ?>" class="button wpshed-media-remove" id="<?php echo $this->get_field_id( 'image' ); ?>-remove" <?php echo $img_style; ?> />
+		<?php $image_button_text = ( $instance[ 'image' ] != '' ) ? __( 'Change Image', 'wpshed' ) : __( 'Select Image', 'wpshed' ); ?>
+        <input type="button" value="<?php echo $image_button_text; ?>" class="button wpshed-media-upload" id="<?php echo $this->get_field_id( 'image' ); ?>-button" />
+        <br class="clear">
+        </div>
         </p>
         
-		<p><input id="<?php echo $this->get_field_id('hide_button'); ?>" name="<?php echo $this->get_field_name('hide_button'); ?>" type="checkbox"<?php checked( $hide_button ); ?> />&nbsp;<label for="<?php echo $this->get_field_id('hide_button'); ?>"><?php _e('Hide Button'); ?></label></p>
-        
-        <?php if ( !$hide_button ): ?>
         <p><label for="<?php echo $this->get_field_id('button_text'); ?>"><?php _e('Button Text:'); ?></label>
 		<input class="widefat" id="<?php echo $this->get_field_id('button_text'); ?>" name="<?php echo $this->get_field_name('button_text'); ?>" type="text" value="<?php echo esc_attr($button_text); ?>" /></p>
 
 		<p><label for="<?php echo $this->get_field_id('button_link'); ?>"><?php _e('Button Link:'); ?></label>
 		<input class="widefat" id="<?php echo $this->get_field_id('button_link'); ?>" name="<?php echo $this->get_field_name('button_link'); ?>" type="text" value="<?php echo esc_attr($button_link); ?>" /></p>
-		<?php endif;
-	}
+		
+	<?php
+    }
 
 	/**
 	 * Processing widget options on save
@@ -112,9 +116,8 @@ class UFL_2015_Landing_Page_Hero extends WP_Widget {
 		} else {
 			$instance['text'] = wp_kses_post( $new_instance['text'] );
 		}
-
+		$instance['image'] = esc_url_raw( $new_instance['image'] );
 		$instance['image_height'] = sanitize_text_field( $new_instance['image_height'] );
-		$instance['hide_button'] = ! empty( $new_instance['hide_button'] );
 		$instance['button_text'] = sanitize_text_field( $new_instance['button_text'] );
 		$instance['button_link'] = esc_url_raw( $new_instance['button_link'] );
 		

@@ -79,7 +79,7 @@ function ufclas_ufl_2015_landing_hero_full($atts, $content = NULL ) {
 		array(
 			'headline' => '',
 			'image' => get_stylesheet_directory_uri() . '/img/_temp1.jpg',
-			'image_height' => '',
+			'image_height' => 'half',
 			'hide_button' => true,
 			'button_text' => __('Enter Button Text Here', 'ufclas-ufl-2015'),
 			'button_link' => '#',
@@ -150,7 +150,7 @@ function ufclas_ufl_2015_breaker($atts, $content = NULL ) {
                     <h2><?php echo esc_html( $headline ); ?></h2>
                     <?php echo wpautop( wp_kses_post( $content ) ); ?>
                     
-                    <?php if ( !$hide_button ){ ?>
+                    <?php if ( !$hide_button || !empty( $button_text ) ){ ?>
                     <a href="<?php echo esc_url( $button_link ); ?>" class="btn"><?php echo esc_html( $button_text ); ?> <span class="arw-right icon-svg"><svg><use xlink:href="<?php echo get_stylesheet_directory_uri(); ?>/img/spritemap.svg#arw-right"></use></svg></span></a>
                     <?php } ?>
                 </div>

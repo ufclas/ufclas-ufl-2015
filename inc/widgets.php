@@ -238,3 +238,22 @@ function ufandshands_secondary_widget_area() {
 	break;
 	}
 }
+
+/**
+ * Add Image upload scripts for widgets 
+ *
+ * @link https://wpshed.com/wordpress/image-upload-widget/
+ * @since 0.4.0
+ */
+function ufclas_ufl_2015_image_upload_scripts() {
+	global $pagenow, $wp_customize;
+
+	if ( 'widgets.php' === $pagenow || isset( $wp_customize ) ) {
+
+		wp_enqueue_media();
+		wp_enqueue_script( 'wpshed-image-upload', get_stylesheet_directory_uri() . '/inc/image-upload/upload.js', array( 'jquery' ) );
+		wp_enqueue_style( 'wpshed-image-upload',  get_stylesheet_directory_uri() . '/inc/image-upload/upload.css' );
+
+	}
+}
+add_action( 'admin_enqueue_scripts', 'ufclas_ufl_2015_image_upload_scripts' );
