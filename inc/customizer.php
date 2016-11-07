@@ -52,8 +52,10 @@ function ufclas_ufl_2015_customize_css() {
 	$homepage_layout_color = get_theme_mod( 'homepage_layout_color' );
 	$background_color = get_theme_mod( 'background_color' );
 	
-    $custom_css = "body {background-color: {$background_color};}\n";
-	$custom_css .= ".home #main {background-color: {$homepage_layout_color};}\n";
+	$custom_css = '';
+	$custom_css .= 'body {background-color: {$background_color};} ';
+	$custom_css .= '.home #main {background-color: {$homepage_layout_color};} ';
+	
     wp_add_inline_style( 'style', $custom_css );
 }
 add_action('wp_enqueue_scripts', 'ufclas_ufl_2015_customize_css');

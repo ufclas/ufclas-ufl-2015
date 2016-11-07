@@ -1,23 +1,23 @@
 <?php 
 /**
- * Breaker Widget
+ * Image Right Quote Widget
  *
  * @package UFCLAS_UFL_2015
  * @since 0.4.0
  */
-class UFL_2015_Breaker extends WP_Widget {
+class UFL_2015_Image_Right_Quote extends WP_Widget {
 
 	/**
 	 * Sets up the widgets name etc
 	 */
 	public function __construct() {
 		$widget_ops = array( 
-			'classname' => 'widget-ufl-breaker',
-			'description' => __('Creates a full width background image with a headline, text, and button to break the flow of a landing page', 'ufclas-ufl-2015'),
+			'classname' => 'widget-ufl-image-right-quote',
+			'description' => __('Large image with a quote', 'ufclas-ufl-2015'),
 			'customize_selective_refresh' => true,
 		);
 		$control_ops = array();
-		parent::__construct( 'ufl-breaker', __('UFL Breaker', 'ufclas-ufl-2015'), $widget_ops, $control_ops );
+		parent::__construct( 'ufl-image-right-quote', __('UFL Image Right Quote', 'ufclas-ufl-2015'), $widget_ops, $control_ops );
 	}
 
 	/**
@@ -32,17 +32,16 @@ class UFL_2015_Breaker extends WP_Widget {
 		$text = ( !empty( $instance['text'] ) )? $instance['text'] : '';
 		$text = apply_filters( 'widget_text', $text, $instance, $this );
 		$image = ( !empty( $instance['image'] ) )? $instance['image'] : '';
-		$button_text = ( !empty( $instance['button_text'] ) )? $instance['button_text'] : '';
-		$button_link = ( !empty( $instance['button_link'] ) )? $instance['button_link'] : '';
+		$caption = ( !empty( $instance['caption'] ) )? $instance['caption'] : '';
+		$credit = ( !empty( $instance['credit'] ) )? $instance['credit'] : '';
 
 		echo $args['before_widget'];
 		
 		echo do_shortcode( sprintf(
-			'[ufl-breaker headline="%s" image="%s" button_text="%s" button_link="%s"]%s[/ufl-breaker]',
-			$title,
+			'[ufclas-image-right-quote image="%s" caption="%s" credit="%s"]%s[/ufclas-image-right-quote]',
 			$image,
-			$button_text,
-			$button_link,
+			$caption,
+			$credit,
 			$text
 		));
 		
@@ -55,18 +54,24 @@ class UFL_2015_Breaker extends WP_Widget {
 	 * @param array $instance The widget options
 	 */
 	public function form( $instance ) {
-		$instance = wp_parse_args( (array) $instance, array( 'title' => '', 'text' => '', 'button_text' => '', 'button_link' => '', 'image' => '' ) );
+		$instance = wp_parse_args( (array) $instance, array( 
+			'title' => '', 
+			'text' => '', 
+			'image' => '', 
+			'caption' => '', 
+			'credit' => '',
+		) );
 		
 		$title = sanitize_text_field( $instance['title'] );
 		$image = ( isset( $instance['image'] ) )? $instance['image'] : '';
-		$button_text = sanitize_text_field( $instance['button_text'] );
-		$button_link = esc_url_raw( $instance['button_link'] );
+		$caption = sanitize_text_field( $instance['caption'] );
+		$credit = sanitize_text_field( $instance['credit'] );
 		
 		?>
-		<p><label for="<?php echo $this->get_field_id('title'); ?>"><?php _e('Headline:', 'ufclas-ufl-2015'); ?></label>
+		<p><label for="<?php echo $this->get_field_id('title'); ?>"><?php _e('Title:', 'ufclas-ufl-2015'); ?></label>
 		<input class="widefat" id="<?php echo $this->get_field_id('title'); ?>" name="<?php echo $this->get_field_name('title'); ?>" type="text" value="<?php echo esc_attr($title); ?>" /></p>
 
-		<p><label for="<?php echo $this->get_field_id( 'text' ); ?>"><?php _e( 'Content:', 'ufclas-ufl-2015' ); ?></label>
+		<p><label for="<?php echo $this->get_field_id( 'text' ); ?>"><?php _e( 'Quote:', 'ufclas-ufl-2015' ); ?></label>
 		<textarea class="widefat" rows="16" cols="20" id="<?php echo $this->get_field_id('text'); ?>" name="<?php echo $this->get_field_name('text'); ?>"><?php echo esc_textarea( $instance['text'] ); ?></textarea></p>
 		
         <p>
@@ -86,11 +91,11 @@ class UFL_2015_Breaker extends WP_Widget {
         </div>
         </p>
         
-        <p><label for="<?php echo $this->get_field_id('button_text'); ?>"><?php _e('Button Text:', 'ufclas-ufl-2015'); ?></label>
-		<input class="widefat" id="<?php echo $this->get_field_id('button_text'); ?>" name="<?php echo $this->get_field_name('button_text'); ?>" type="text" value="<?php echo esc_attr($button_text); ?>" /></p>
+        <p><label for="<?php echo $this->get_field_id('caption'); ?>"><?php _e('Image Caption:', 'ufclas-ufl-2015'); ?></label>
+		<input class="widefat" id="<?php echo $this->get_field_id('caption'); ?>" name="<?php echo $this->get_field_name('caption'); ?>" type="text" value="<?php echo esc_attr($caption); ?>" /></p>
 
-		<p><label for="<?php echo $this->get_field_id('button_link'); ?>"><?php _e('Button Link:', 'ufclas-ufl-2015'); ?></label>
-		<input class="widefat" id="<?php echo $this->get_field_id('button_link'); ?>" name="<?php echo $this->get_field_name('button_link'); ?>" type="text" value="<?php echo esc_attr($button_link); ?>" /></p>
+		<p><label for="<?php echo $this->get_field_id('credit'); ?>"><?php _e('Image Credit:', 'ufclas-ufl-2015'); ?></label>
+		<input class="widefat" id="<?php echo $this->get_field_id('credit'); ?>" name="<?php echo $this->get_field_name('credit'); ?>" type="text" value="<?php echo esc_attr($credit); ?>" /></p>
 		
 		<?php
 	}
@@ -111,9 +116,8 @@ class UFL_2015_Breaker extends WP_Widget {
 		}
 		
 		$instance['image'] = esc_url_raw( $new_instance['image'] );
-		$instance['image_height'] = sanitize_text_field( $new_instance['image_height'] );
-		$instance['button_text'] = sanitize_text_field( $new_instance['button_text'] );
-		$instance['button_link'] = esc_url_raw( $new_instance['button_link'] );
+		$instance['caption'] = sanitize_text_field( $new_instance['caption'] );
+		$instance['credit'] = sanitize_text_field( $new_instance['credit'] );
 		
 		return $instance;
 	}

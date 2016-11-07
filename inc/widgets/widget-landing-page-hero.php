@@ -12,13 +12,12 @@ class UFL_2015_Landing_Page_Hero extends WP_Widget {
 	 */
 	public function __construct() {
 		$widget_ops = array( 
-			'classname' => 'widget-landing-page-hero',
+			'classname' => 'widget-ufl-landing-page-hero',
 			'description' => __('Creates a full width image with headline and text.', 'ufclas-ufl-2015'),
 			'customize_selective_refresh' => true,
 		);
-		//$control_ops = array( 'width' => 400, 'height' => 350 );
 		$control_ops = array();
-		parent::__construct( 'landing-page-hero', __('UFL Landing Page Hero', 'ufclas-ufl-2015'), $widget_ops, $control_ops );
+		parent::__construct( 'ufl-landing-page-hero', __('UFL Landing Page Hero Image', 'ufclas-ufl-2015'), $widget_ops, $control_ops );
 	}
 
 	/**
@@ -42,7 +41,7 @@ class UFL_2015_Landing_Page_Hero extends WP_Widget {
 		echo $args['before_widget'];
 		
         echo do_shortcode( sprintf(
-			'[ufclas-landing-page-hero-full headline="%s" image="%s" image_height="%s" button_text="%s" button_link="%s"]%s[/ufclas-landing-page-hero-full]',
+			'[ufl-landing-page-hero headline="%s" image="%s" image_height="%s" button_text="%s" button_link="%s"]%s[/ufl-landing-page-hero]',
 			$title,
 			$image,
 			$image_height,

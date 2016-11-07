@@ -12,13 +12,13 @@ class UFL_2015_Content_Image_Right extends WP_Widget {
 	 */
 	public function __construct() {
 		$widget_ops = array( 
-			'classname' => 'widget-content-image-right',
-			'description' => __('Creates a full width background image with a headline, text, and button to break the flow of a landing page', 'ufclas-ufl-2015'),
+			'classname' => 'widget-ufl-content-image-right',
+			'description' => __('Full width background image with a headline, text, and button', 'ufclas-ufl-2015'),
 			'customize_selective_refresh' => true,
 		);
 		//$control_ops = array( 'width' => 400, 'height' => 350 );
 		$control_ops = array();
-		parent::__construct( 'content-image-right', __('UFL Content Image Right', 'ufclas-ufl-2015'), $widget_ops, $control_ops );
+		parent::__construct( 'ufl-content-image-right', __('UFL Content Image Right', 'ufclas-ufl-2015'), $widget_ops, $control_ops );
 	}
 
 	/**

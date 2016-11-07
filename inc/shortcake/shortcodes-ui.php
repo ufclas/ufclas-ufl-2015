@@ -3,7 +3,7 @@
  * Register Shortcode UI for Landing Page Hero Image
  * 
  */
-function ufclas_ufl_2015_register_landing_hero() {
+function ufclas_ufl_2015_register_landing_double() {
 	
 	// Define the UI for attributes of the shortcode. 
 	$shortcode_ui_fields = array(
@@ -33,19 +33,19 @@ function ufclas_ufl_2015_register_landing_hero() {
 	
 	// Define the Shortcode UI arguments
 	$shortcode_ui_args = array(
-		'label' 			=> esc_html__('Landing Page Hero', 'ufclas-ufl-2015'),
+		'label' 			=> esc_html__('Landing Page Double Image', 'ufclas-ufl-2015'),
 		'listItemImage' 	=> 'dashicons-layout',
 		'post_type' 		=> array('page'),
 		'inner_content' 	=> array(
 			'label' 		=> esc_html__('Content', 'ufclas-ufl-2015'),
-			'description' 	=> esc_html__('Include text to display within the Landing Page Hero', 'ufclas-ufl-2015'),
+			'description' 	=> esc_html__('Include text to display within the Landing Page Double Image', 'ufclas-ufl-2015'),
 		),
 		'attrs' 			=> $shortcode_ui_fields,
 	);
 	
-	shortcode_ui_register_for_shortcode( 'ufclas-landing-page-hero', $shortcode_ui_args );
+	shortcode_ui_register_for_shortcode( 'ufl-landing-page-double-image', $shortcode_ui_args );
 }
-add_action( 'register_shortcode_ui', 'ufclas_ufl_2015_register_landing_hero' );
+add_action( 'register_shortcode_ui', 'ufclas_ufl_2015_register_landing_double' );
 
  /**
  * Register Shortcode UI for Landing Page Hero Full
@@ -112,7 +112,7 @@ function ufclas_ufl_2015_register_landing_hero_full() {
 		'attrs' 			=> $shortcode_ui_fields,
 	);
 	
-	shortcode_ui_register_for_shortcode( 'ufclas-landing-page-hero-full', $shortcode_ui_args );
+	shortcode_ui_register_for_shortcode( 'ufl-landing-page-hero', $shortcode_ui_args );
 }
 add_action( 'register_shortcode_ui', 'ufclas_ufl_2015_register_landing_hero_full' );
 
@@ -172,7 +172,7 @@ function ufclas_ufl_2015_register_breaker() {
 		'attrs' 			=> $shortcode_ui_fields,
 	);
 	
-	shortcode_ui_register_for_shortcode( 'ufclas-breaker', $shortcode_ui_args );
+	shortcode_ui_register_for_shortcode( 'ufl-breaker', $shortcode_ui_args );
 }
 add_action( 'register_shortcode_ui', 'ufclas_ufl_2015_register_breaker' );
 
@@ -321,7 +321,7 @@ function ufclas_ufl_2015_register_breaker_cards() {
 		'attrs' 			=> $shortcode_ui_fields,
 	);
 	
-	shortcode_ui_register_for_shortcode( 'ufclas-breaker-cards', $shortcode_ui_args );
+	shortcode_ui_register_for_shortcode( 'ufl-breaker-cards', $shortcode_ui_args );
 }
 add_action( 'register_shortcode_ui', 'ufclas_ufl_2015_register_breaker_cards' );
 

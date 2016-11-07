@@ -4241,9 +4241,9 @@ strong {
     font: 500 24px/32px "quadon", "Helvetica Neue", Helvetica, Arial, sans-serif;
     color: #00529b; }
 
-.widget-content-image-right ul, .widget-content-image-right .entry-content ol, .entry-content .widget-content-image-right ol, .widget-content-image-right .wp-editor ol, .wp-editor .widget-content-image-right ol {
+.widget-ufl-content-image-right ul, .widget-ufl-content-image-right .entry-content ol, .entry-content .widget-ufl-content-image-right ol, .widget-ufl-content-image-right .wp-editor ol, .wp-editor .widget-ufl-content-image-right ol {
   margin-left: 30px; }
-  .widget-content-image-right ul li, .widget-content-image-right .entry-content ol li, .entry-content .widget-content-image-right ol li, .widget-content-image-right .wp-editor ol li, .wp-editor .widget-content-image-right ol li {
+  .widget-ufl-content-image-right ul li, .widget-ufl-content-image-right .entry-content ol li, .entry-content .widget-ufl-content-image-right ol li, .widget-ufl-content-image-right .wp-editor ol li, .wp-editor .widget-ufl-content-image-right ol li {
     font-size: 100%;
     list-style-type: circle;
     text-transform: none;

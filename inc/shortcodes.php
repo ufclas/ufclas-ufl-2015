@@ -2,11 +2,11 @@
 /**
  * Theme shortcodes
  *
- *	[ufclas-landing-page-hero][/ufclas-landing-page-hero]
- *	[ufclas-landing-page-hero-full][/ufclas-landing-page-hero-full]
+ *	[ufl-landing-page-double-image][/ufl-landing-page-double-image]
+ *	[ufl-landing-page-hero][/ufl-landing-page-hero]
  *	[ufclas-content-image-caption][/ufclas-content-image-caption]
  *	[ufclas-content-image-right][/ufclas-content-image-right]
- *	[ufclas-breaker-cards][/ufclas-breaker-cards]
+ *	[ufl-breaker-cards][/ufl-breaker-cards]
  *	[ufclas-icon]
  *	[ufclas-image-right-quote][/ufclas-image-right-quote]
  *	[ufclas-image-full-width]
@@ -17,14 +17,14 @@
  */
  
  /**
- * Add Landing Page Hero Image Shortcode
+ * Add Double Image with Content
  * 
- * Example [ufclas-landing-page-hero][/ufclas-landing-page-hero]
+ * Example [ufl-landing-page-double-image][/ufl-landing-page-double-image]
  * @param  array $atts Shortcode attributes
  * @param  string [$content = ''] Content between shortcode tags
  * @return string Shortcode output
  */
-function ufclas_ufl_2015_landing_hero($atts, $content = NULL ) {
+function ufclas_ufl_2015_landing_double_image($atts, $content = NULL ) {
 	
 	extract( shortcode_atts( 
 		array(
@@ -63,12 +63,12 @@ function ufclas_ufl_2015_landing_hero($atts, $content = NULL ) {
     <?php 
 	return ob_get_clean();
 }
-add_shortcode('ufclas-landing-page-hero', 'ufclas_ufl_2015_landing_hero');
+add_shortcode('ufl-landing-page-double-image', 'ufclas_ufl_2015_landing_double_image');
 
  /**
  * Add Landing Page Hero Full Shortcode
  * 
- * Example [ufclas-landing-page-hero-full][/ufclas-landing-page-hero-full]
+ * Example [ufl-landing-page-hero][/ufl-landing-page-hero]
  * @param  array $atts Shortcode attributes
  * @param  string [$content = ''] Content between shortcode tags
  * @return string Shortcode output
@@ -115,12 +115,12 @@ function ufclas_ufl_2015_landing_hero_full($atts, $content = NULL ) {
     <?php 
 	return ob_get_clean();
 }
-add_shortcode('ufclas-landing-page-hero-full', 'ufclas_ufl_2015_landing_hero_full');
+add_shortcode('ufl-landing-page-hero', 'ufclas_ufl_2015_landing_hero_full');
 
 /**
  * Add Breaker Shortcode
  * 
- * Example [ufclas-breaker][/ufclas-breaker]
+ * Example [ufl-breaker][/ufl-breaker]
  * @param  array $atts Shortcode attributes
  * @param  string [$content = ''] Content between shortcode tags
  * @return string Shortcode output
@@ -160,7 +160,7 @@ function ufclas_ufl_2015_breaker($atts, $content = NULL ) {
     <?php 
 	return ob_get_clean();
 }
-add_shortcode('ufclas-breaker', 'ufclas_ufl_2015_breaker');
+add_shortcode('ufl-breaker', 'ufclas_ufl_2015_breaker');
 
 /**
  * Add Content with Left Image and Caption
@@ -260,7 +260,7 @@ add_shortcode('ufclas-content-image-right', 'ufclas_ufl_2015_content_image_right
 /**
  * Add Breaker with Cards
  * 
- * Example [ufclas-breaker-cards][/ufclas-breaker-cards]
+ * Example [ufl-breaker-cards][/ufl-breaker-cards]
  * @param  array $atts Shortcode attributes
  * @param  string [$content = ''] Content between shortcode tags
  * @return string Shortcode output
@@ -322,7 +322,7 @@ function ufclas_ufl_2015_breaker_cards($atts, $content = NULL ) {
     <?php 
 	return ob_get_clean();
 }
-add_shortcode('ufclas-breaker-cards', 'ufclas_ufl_2015_breaker_cards');
+add_shortcode('ufl-breaker-cards', 'ufclas_ufl_2015_breaker_cards');
 
  /**
  * Add Icon Shortcode
@@ -364,7 +364,6 @@ function ufclas_ufl_2015_image_right_quote($atts, $content = NULL ) {
 	extract( shortcode_atts( 
 		array(
 			'image' => get_stylesheet_directory_uri() . '/img/ImgResponsive_Placeholder.png',
-			'quote' => 'Image quote',
 			'caption' => '',
 			'credit' => '',
 		), $atts )
@@ -377,7 +376,7 @@ function ufclas_ufl_2015_image_right_quote($atts, $content = NULL ) {
 	// Shortcode callbacks must return content, so use output buffering
 	ob_start();
 	?>
-    <div class="container-fluid image-right-quote">
+    <div class="container image-right-quote">
     <div class="row">
     <div class="col-md-6">
     	<img class="center-block img-responsive pic" src="<?php echo esc_url( $image[0] ); ?>" alt="<?php echo esc_attr( $image_alt ); ?>">
@@ -391,7 +390,7 @@ function ufclas_ufl_2015_image_right_quote($atts, $content = NULL ) {
     </div>
  	<div class="col-md-6">
     	<div class="quote">
-        	<h3><?php echo esc_html( $quote ); ?></h3>
+        	<h3><?php echo esc_html( $content ); ?></h3>
         </div>
 	</div>
     </div>

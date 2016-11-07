@@ -8,7 +8,7 @@
 get_header(); ?>
 <?php 
 	if ( has_post_thumbnail() ):
-		$shortcode = sprintf( '[ufclas-landing-page-hero-full headline="%s" image="%d" image_height="%s"]%s[/ufclas-landing-page-hero-full]', 
+		$shortcode = sprintf( '[ufl-landing-page-hero headline="%s" image="%d" image_height="%s"]%s[/ufl-landing-page-hero]', 
 			get_the_title(),
 			get_post_thumbnail_id(),
             'half',
