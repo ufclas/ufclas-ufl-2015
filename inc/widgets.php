@@ -54,8 +54,6 @@ function ufclas_ufl_2015_widgets_init() {
 		'before_title'  => '<h2 class="widget-title">',
 		'after_title'   => '</h2>',
 	) );
-	
-	if ( $homepage_layout=='3c-default' || $homepage_layout=='3c-thirds'  || $homepage_layout=='1c-100-2c-half' ) {
 	register_sidebar( array(
 		'name'          => esc_html__( 'Home Middle', 'ufclas-ufl-2015' ),
 		'id'            => 'home_middle',
@@ -65,8 +63,6 @@ function ufclas_ufl_2015_widgets_init() {
 		'before_title'  => '<h2 class="widget-title">',
 		'after_title'   => '</h2>',
 	) );
-	}
-	
 	register_sidebar( array(
 		'name'          => esc_html__( 'Home Right', 'ufclas-ufl-2015' ),
 		'id'            => 'home_right',
