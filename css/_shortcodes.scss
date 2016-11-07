@@ -23,11 +23,7 @@
 	}
 }
 .content-box-module {
-
-    @include breakFirst(wide){
-        padding-top: $grid-gutter-width;
-        margin-top: $grid-gutter-width*2;
-    }
+    margin-top: $grid-gutter-width*2;
 }
 
 // Shortcode UI

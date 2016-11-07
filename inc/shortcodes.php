@@ -120,7 +120,7 @@ add_shortcode('ufclas-landing-page-hero-full', 'ufclas_ufl_2015_landing_hero_ful
 /**
  * Add Breaker Shortcode
  * 
- * Example [ufclas-landing-page-hero-full][/ufclas-landing-page-hero-full]
+ * Example [ufclas-breaker][/ufclas-breaker]
  * @param  array $atts Shortcode attributes
  * @param  string [$content = ''] Content between shortcode tags
  * @return string Shortcode output
@@ -129,10 +129,10 @@ function ufclas_ufl_2015_breaker($atts, $content = NULL ) {
 	
 	extract( shortcode_atts( 
 		array(
-			'headline' => __('Enter Headline Here', 'ufclas-ufl-2015'),
+			'headline' => '',
 			'image' => get_stylesheet_directory_uri() . '/img/bg-breaker.jpg',
-			'hide_button' => true,
-			'button_text' => __('Enter Button Text Here', 'ufclas-ufl-2015'),
+			'hide_button' => 1,
+			'button_text' => '',
 			'button_link' => '#',
 		), $atts )
 	);
@@ -151,7 +151,7 @@ function ufclas_ufl_2015_breaker($atts, $content = NULL ) {
                     <?php echo wpautop( wp_kses_post( $content ) ); ?>
                     
                     <?php if ( !$hide_button || !empty( $button_text ) ){ ?>
-                    <a href="<?php echo esc_url( $button_link ); ?>" class="btn"><?php echo esc_html( $button_text ); ?> <span class="arw-right icon-svg"><svg><use xlink:href="<?php echo get_stylesheet_directory_uri(); ?>/img/spritemap.svg#arw-right"></use></svg></span></a>
+                    <a href="<?php echo esc_url( $button_link ); ?>" class="btn btn-white"><?php echo esc_html( $button_text ); ?> <span class="arw-right icon-svg"><svg><use xlink:href="<?php echo get_stylesheet_directory_uri(); ?>/img/spritemap.svg#arw-right"></use></svg></span></a>
                     <?php } ?>
                 </div>
             </div>

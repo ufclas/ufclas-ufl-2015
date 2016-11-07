@@ -3966,6 +3966,12 @@ figure.wp-caption img {
 
 .btn {
   border-radius: 0; }
+  .btn.btn-white {
+    border-color: #fff;
+    color: #fff; }
+    .btn.btn-white:hover {
+      background-color: #fff;
+      color: #f37021; }
 
 strong {
   font-weight: 500; }
