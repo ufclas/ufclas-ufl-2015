@@ -11,8 +11,8 @@ if ( !is_active_sidebar( 'page_sections' ) ){
 	return;
 } 
 ?>
-<div class="row">
-<div class="col-md-12">
+<div>
+<div>
     <div id="secondary" class="widget-area page-sections" role="complementary">
 		<?php dynamic_sidebar( 'page_sections' ); ?>
     </div><!-- page_sidebar -->    

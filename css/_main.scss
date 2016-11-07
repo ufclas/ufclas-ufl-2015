@@ -33,7 +33,7 @@
 .page-template-landing-page-full-width {
 	padding-top: 0;
 		
-	@include breakFirst(medium){
+	@include breakFirst(large){
 		padding-top: 150px;
 	}
 	

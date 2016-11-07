@@ -3779,7 +3779,7 @@ form.search-wrap, .btn-show-aux, .btn-menu, .btn-search-mobile {
 
 .page-template-landing-page-full-width {
   padding-top: 0; }
-  @media (min-width: 768px) {
+  @media (min-width: 992px) {
     .page-template-landing-page-full-width {
       padding-top: 150px; } }
   .page-template-landing-page-full-width #main {
