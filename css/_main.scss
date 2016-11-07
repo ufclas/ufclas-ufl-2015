@@ -7,23 +7,20 @@
 	#main {
 		background-color: $white;
 		padding-top: 30px; 
-		
+        
 		@include breakFirst(medium){
 			padding: 45px 60px;
+            margin-bottom: $grid-gutter-width*2;
 		}	
 	}
 }
-.page-template {
-	#main {
-		background-color: transparent;
-		
-		@include breakFirst(medium){
-			margin-bottom: $grid-gutter-width*2;
-		}	
+
+.page-template-landing-page, 
+.page-template-landing-page-full-width {
+	@include breakFirst(large){
+		padding-top: 150px;
 	}
-}
-.page-template-landing-page, .page-template-landing-page-title, .page-template-landing-page-full-width {
-	.footer-wrap {
+    .footer-wrap {
 		margin-top: 0;	
 	}
 	.breaker {
@@ -31,18 +28,15 @@
 	}
 }
 .page-template-landing-page-full-width {
-	padding-top: 0;
-		
-	@include breakFirst(large){
-		padding-top: 150px;
-	}
-	
 	#main {
-		padding: 0;
+		background-color: transparent;
+        padding: 0;
+		
+		@include breakFirst(medium){
+			
+		}	
 	}
 }
-
-
 
 a:focus, a:hover {
 	text-decoration: none;	

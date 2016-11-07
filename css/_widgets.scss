@@ -2,6 +2,9 @@
 	.home & {
 		padding-top: $grid-gutter-width;
 	}
+    .home &.page-sections{
+        padding-top: 0;
+    }
 	.home .footer-bottom & {
 		padding-top: 0;
 	}

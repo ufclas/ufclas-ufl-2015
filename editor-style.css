@@ -3764,26 +3764,23 @@ form.search-wrap, .btn-show-aux, .btn-menu, .btn-search-mobile {
     .page.page-template-right-two-columns #main,
     .page.page-template-full-width #main,
     .page.page-template-membersonly #main {
-      padding: 45px 60px; } }
-
-.page-template #main {
-  background-color: transparent; }
-  @media (min-width: 768px) {
-    .page-template #main {
+      padding: 45px 60px;
       margin-bottom: 60px; } }
 
-.page-template-landing-page .footer-wrap, .page-template-landing-page-title .footer-wrap, .page-template-landing-page-full-width .footer-wrap {
+@media (min-width: 992px) {
+  .page-template-landing-page,
+  .page-template-landing-page-full-width {
+    padding-top: 150px; } }
+.page-template-landing-page .footer-wrap,
+.page-template-landing-page-full-width .footer-wrap {
   margin-top: 0; }
-.page-template-landing-page .breaker, .page-template-landing-page-title .breaker, .page-template-landing-page-full-width .breaker {
+.page-template-landing-page .breaker,
+.page-template-landing-page-full-width .breaker {
   margin-bottom: 0; }
 
-.page-template-landing-page-full-width {
-  padding-top: 0; }
-  @media (min-width: 992px) {
-    .page-template-landing-page-full-width {
-      padding-top: 150px; } }
-  .page-template-landing-page-full-width #main {
-    padding: 0; }
+.page-template-landing-page-full-width #main {
+  background-color: transparent;
+  padding: 0; }
 
 a:focus, a:hover {
   text-decoration: none; }
@@ -4192,7 +4189,7 @@ strong {
     letter-spacing: 2px; }
   .landing-page-hero-full .hero-img-half {
     height: 225px; }
-    @media (min-width: 1220px) {
+    @media (min-width: 992px) {
       .landing-page-hero-full .hero-img-half {
         height: 375px;
         background-position: center center; } }
@@ -4208,6 +4205,8 @@ strong {
 
 .home .widget-area {
   padding-top: 30px; }
+.home .widget-area.page-sections {
+  padding-top: 0; }
 .home .footer-bottom .widget-area {
   padding-top: 0; }
 

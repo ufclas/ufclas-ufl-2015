@@ -16,7 +16,7 @@
 	.hero-img-half {
 		height: 225px;
 		
-		@include breakFirst(wide){
+		@include breakFirst(large){
 			height: 375px;
 			background-position: center center;
 		}
