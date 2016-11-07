@@ -11,7 +11,7 @@ get_header(); ?>
 		$shortcode = sprintf( '[ufclas-landing-page-hero-full headline="%s" image="%d" image_height="%s"]%s[/ufclas-landing-page-hero-full]', 
 			get_the_title(),
 			get_post_thumbnail_id(),
-            'half',
+            'full',
 			''
 		);
 		echo do_shortcode( $shortcode );

@@ -31,11 +31,11 @@ get_header(); ?>
 		endwhile; // End of the loop.
 		
 		the_post_navigation( array(
-			'next_text' => '<span class="meta-nav" aria-hidden="true">' . __( 'Next', 'twentysixteen' ) . '</span> ' .
-				'<span class="screen-reader-text">' . __( 'Next post:', 'twentysixteen' ) . '</span> ' .
+			'next_text' => '<span class="meta-nav" aria-hidden="true">' . __( 'Next', 'ufclas-ufl-2015' ) . '</span> ' .
+				'<span class="screen-reader-text">' . __( 'Next post:', 'ufclas-ufl-2015' ) . '</span> ' .
 				'<span class="post-title">%title</span>',
-			'prev_text' => '<span class="meta-nav" aria-hidden="true">' . __( 'Previous', 'twentysixteen' ) . '</span> ' .
-				'<span class="screen-reader-text">' . __( 'Previous post:', 'twentysixteen' ) . '</span> ' .
+			'prev_text' => '<span class="meta-nav" aria-hidden="true">' . __( 'Previous', 'ufclas-ufl-2015' ) . '</span> ' .
+				'<span class="screen-reader-text">' . __( 'Previous post:', 'ufclas-ufl-2015' ) . '</span> ' .
 				'<span class="post-title">%title</span>',
 		) );
 	?>
