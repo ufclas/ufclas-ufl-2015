@@ -3,7 +3,7 @@
  * Theme shortcodes
  *
  *	[ufclas-landing-page-hero][/ufclas-landing-page-hero]
- *	[ufclas-landing-page-hero-full][/ufclas-landing-page-hero]
+ *	[ufclas-landing-page-hero-full][/ufclas-landing-page-hero-full]
  *	[ufclas-content-image-caption][/ufclas-content-image-caption]
  *	[ufclas-content-image-right][/ufclas-content-image-right]
  *	[ufclas-breaker-cards][/ufclas-breaker-cards]
@@ -79,9 +79,9 @@ function ufclas_ufl_2015_landing_hero_full($atts, $content = NULL ) {
 		array(
 			'headline' => '',
 			'image' => get_stylesheet_directory_uri() . '/img/_temp1.jpg',
-			'image_height' => '',
-			'hide_button' => true,
-			'button_text' => __('Enter Button Text Here', 'ufclas-ufl-2015'),
+			'image_height' => 'large',
+			'hide_button' => 1,
+			'button_text' => '',
 			'button_link' => '#',
 		), $atts )
 	);
@@ -98,13 +98,13 @@ function ufclas_ufl_2015_landing_hero_full($atts, $content = NULL ) {
             <?php printf( '<h1>%s</h1>', esc_html( $headline ) ); ?>
         </div>
         
-        <?php if ( !empty( $content ) || !$hide_button ): ?>
+        <?php if ( !empty( $content ) ): ?>
         <div class="hero-text">
             <div class="container">
                 <div class="col-sm-10 col-sm-offset-1">
                     <?php echo wpautop( wp_kses_post( $content ) ); ?>
                     
-                    <?php if ( !$hide_button ){ ?>
+                    <?php if ( !empty($button_text) ){ ?>
                     <a href="<?php echo esc_url( $button_link ); ?>" class="btn"><?php echo esc_html( $button_text ); ?> <span class="arw-right icon-svg"><svg><use xlink:href="<?php echo get_stylesheet_directory_uri(); ?>/img/spritemap.svg#arw-right"></use></svg></span></a>
                     <?php } ?>
                 </div>
@@ -120,7 +120,7 @@ add_shortcode('ufclas-landing-page-hero-full', 'ufclas_ufl_2015_landing_hero_ful
 /**
  * Add Breaker Shortcode
  * 
- * Example [ufclas-landing-page-hero-full][/ufclas-landing-page-hero-full]
+ * Example [ufclas-breaker][/ufclas-breaker]
  * @param  array $atts Shortcode attributes
  * @param  string [$content = ''] Content between shortcode tags
  * @return string Shortcode output
@@ -129,10 +129,10 @@ function ufclas_ufl_2015_breaker($atts, $content = NULL ) {
 	
 	extract( shortcode_atts( 
 		array(
-			'headline' => __('Enter Headline Here', 'ufclas-ufl-2015'),
+			'headline' => '',
 			'image' => get_stylesheet_directory_uri() . '/img/bg-breaker.jpg',
-			'hide_button' => false,
-			'button_text' => __('Enter Button Text Here', 'ufclas-ufl-2015'),
+			'hide_button' => 1,
+			'button_text' => '',
 			'button_link' => '#',
 		), $atts )
 	);
@@ -150,8 +150,8 @@ function ufclas_ufl_2015_breaker($atts, $content = NULL ) {
                     <h2><?php echo esc_html( $headline ); ?></h2>
                     <?php echo wpautop( wp_kses_post( $content ) ); ?>
                     
-                    <?php if ( !$hide_button ){ ?>
-                    <a href="<?php echo esc_url( $button_link ); ?>" class="btn"><?php echo esc_html( $button_text ); ?> <span class="arw-right icon-svg"><svg><use xlink:href="<?php echo get_stylesheet_directory_uri(); ?>/img/spritemap.svg#arw-right"></use></svg></span></a>
+                    <?php if ( !$hide_button || !empty( $button_text ) ){ ?>
+                    <a href="<?php echo esc_url( $button_link ); ?>" class="btn btn-white"><?php echo esc_html( $button_text ); ?> <span class="arw-right icon-svg"><svg><use xlink:href="<?php echo get_stylesheet_directory_uri(); ?>/img/spritemap.svg#arw-right"></use></svg></span></a>
                     <?php } ?>
                 </div>
             </div>
@@ -223,12 +223,12 @@ function ufclas_ufl_2015_content_image_right($atts, $content = NULL ) {
 		array(
 			'headline' => '',
 			'image' => get_stylesheet_directory_uri() . '/img/_temp-landing-a-1.jpg',
-			'category' => '',
+			'label' => '',
 		), $atts )
 	);
-	
+    
 	// Support either image ID or image url
-	$image = ( is_numeric( $image ) )? wp_get_attachment_image_src( $image, 'large' ) : array($image);
+    $image = ( is_numeric( $image ) )? wp_get_attachment_image_src( $image, 'large' ) : array($image);
 	
 	// Shortcode callbacks must return content, so use output buffering
 	ob_start();
@@ -241,8 +241,8 @@ function ufclas_ufl_2015_content_image_right($atts, $content = NULL ) {
                     	<h2><?php echo esc_html( $headline ); ?></h2>
 					<?php } ?>
 					<?php echo wpautop( wp_kses_post( $content ) ); ?>
-					<?php if (!empty( $category )){ ?>
-                    	<span class="category-tag orange"><?php echo esc_html( $category ); ?></span>
+					<?php if (!empty( $label )){ ?>
+                    	<span class="category-tag orange"><?php echo esc_html( $label ); ?></span>
 					<?php } ?>
 				</div>
 				<div class="col-sm-5 content-box-img" style="background-image:url('<?php echo esc_url( $image[0] ); ?>')">

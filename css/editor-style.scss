@@ -23,8 +23,12 @@
 @import 'main';
 @import 'header';
 @import 'navigation';
+@import 'shortcodes';
 @import 'widgets';
 @import 'gravityforms';
 @import 'post';
 @import 'issuem';
- 
+
+body {
+	padding-top: 0px;	
+}

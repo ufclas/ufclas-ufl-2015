@@ -8,7 +8,7 @@ Version: 0.4.0-develop
 License: GNU General Public License v2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 Text Domain: ufclas-ufl-2015
-Build Date: 20161104
+Build Date: 20161106
 */
 @import 'template/reset';
 @import 'template/variables';
@@ -35,6 +35,7 @@ Build Date: 20161104
 @import 'main';
 @import 'header';
 @import 'navigation';
+@import 'shortcodes';
 @import 'widgets';
 @import 'gravityforms';
 @import 'post';
