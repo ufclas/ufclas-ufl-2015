@@ -5,11 +5,11 @@ Theme URI: https://it.clas.ufl.edu/services/web-services/
 Author: Priscilla Chapman (CLAS IT)
 Author URI: https://it.clas.ufl.edu/
 Description: Official UF template for Liberal Arts and Sciences. Based on 160 over 90 template.
-Version: 0.4.0-develop
+Version: 0.4.0-develop-20161107
 License: GNU General Public License v2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 Text Domain: ufclas-ufl-2015
-Build Date: 20161106
+Build Date: 20161107
 */
 html, body, div, span, applet, object, iframe,
 h1, h2, h3, .kicker, .gform_wrapper .gform_heading .gform_description, .single-article .entry-content p.lead, .featured-story h2, .single-article #secondary h2, h4, h5, dt, h6, p, blockquote, pre,
@@ -4286,29 +4286,6 @@ strong {
       line-height: 36px; } }
   .widget_listcategorypostswidget h3 a, .widget_listcategorypostswidget .kicker a, .widget_listcategorypostswidget .gform_wrapper .gform_heading .gform_description a, .gform_wrapper .gform_heading .widget_listcategorypostswidget .gform_description a, .widget_listcategorypostswidget .single-article .entry-content p.lead a, .single-article .entry-content .widget_listcategorypostswidget p.lead a, .widget_listcategorypostswidget .featured-story h2 a, .featured-story .widget_listcategorypostswidget h2 a, .widget_listcategorypostswidget .single-article #secondary h2 a, .single-article #secondary .widget_listcategorypostswidget h2 a {
     font-weight: 700; }
-.widget_listcategorypostswidget .widget-title + strong {
-  margin-bottom: 15px;
-  display: block; }
-  @media (min-width: 768px) {
-    .widget_listcategorypostswidget .widget-title + strong {
-      display: inline;
-      margin-bottom: 0; } }
-.widget_listcategorypostswidget .widget-title + strong a {
-  text-transform: uppercase;
-  border: 5px solid transparent;
-  font-weight: 700;
-  font-size: 13px;
-  letter-spacing: 2px; }
-  @media (min-width: 768px) {
-    .widget_listcategorypostswidget .widget-title + strong a {
-      padding: 1px 14px;
-      position: absolute;
-      top: 0;
-      right: 30px; } }
-  .widget_listcategorypostswidget .widget-title + strong a:before {
-    content: 'More '; }
-  .widget_listcategorypostswidget .widget-title + strong a:focus, .widget_listcategorypostswidget .widget-title + strong a:hover {
-    background-color: #fff; }
 
 .gform_wrapper .gform_body select, .gform_wrapper .gform_body textarea, .gform_wrapper .gform_body input[type="text"], .gform_wrapper .gform_body input[type="email"] {
   padding: 15px 7.5px;

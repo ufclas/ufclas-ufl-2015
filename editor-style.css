@@ -4274,29 +4274,6 @@ strong {
       line-height: 36px; } }
   .widget_listcategorypostswidget h3 a, .widget_listcategorypostswidget .kicker a, .widget_listcategorypostswidget .gform_wrapper .gform_heading .gform_description a, .gform_wrapper .gform_heading .widget_listcategorypostswidget .gform_description a, .widget_listcategorypostswidget .single-article .entry-content p.lead a, .single-article .entry-content .widget_listcategorypostswidget p.lead a, .widget_listcategorypostswidget .featured-story h2 a, .featured-story .widget_listcategorypostswidget h2 a, .widget_listcategorypostswidget .single-article #secondary h2 a, .single-article #secondary .widget_listcategorypostswidget h2 a {
     font-weight: 700; }
-.widget_listcategorypostswidget .widget-title + strong {
-  margin-bottom: 15px;
-  display: block; }
-  @media (min-width: 768px) {
-    .widget_listcategorypostswidget .widget-title + strong {
-      display: inline;
-      margin-bottom: 0; } }
-.widget_listcategorypostswidget .widget-title + strong a {
-  text-transform: uppercase;
-  border: 5px solid transparent;
-  font-weight: 700;
-  font-size: 13px;
-  letter-spacing: 2px; }
-  @media (min-width: 768px) {
-    .widget_listcategorypostswidget .widget-title + strong a {
-      padding: 1px 14px;
-      position: absolute;
-      top: 0;
-      right: 30px; } }
-  .widget_listcategorypostswidget .widget-title + strong a:before {
-    content: 'More '; }
-  .widget_listcategorypostswidget .widget-title + strong a:focus, .widget_listcategorypostswidget .widget-title + strong a:hover {
-    background-color: #fff; }
 
 .gform_wrapper .gform_body select, .gform_wrapper .gform_body textarea, .gform_wrapper .gform_body input[type="text"], .gform_wrapper .gform_body input[type="email"] {
   padding: 15px 7.5px;
