@@ -7,14 +7,17 @@
  * @package UFCLAS_UFL_2015
  */
 
-if ( !is_active_sidebar( 'page_sections' ) ){
+// Determine whether to display home page sections widget area
+$widget_area = ( !is_front_page() )? 'page_sections' : 'home_page_sections';
+
+if ( !is_active_sidebar( $widget_area ) ){
 	return;
 } 
 ?>
 <div>
 <div>
     <div id="secondary" class="widget-area page-sections" role="complementary">
-		<?php dynamic_sidebar( 'page_sections' ); ?>
+		<?php dynamic_sidebar( $widget_area ); ?>
     </div><!-- page_sidebar -->    
 </div>
 </div>
