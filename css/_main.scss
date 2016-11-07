@@ -62,19 +62,27 @@ a:focus, a:hover {
 	h5 {
 		line-height: 24px;
 	}
-	ul, ol {
+	ul {
 		li:before {
 			content: none;
 			margin-right: 0;	
 		}
 		li {
 			text-transform: none;
+            list-style-type: circle;
 		}
 		&.big-list a {
 			letter-spacing: 2px;
 			text-transform: uppercase; 
 		}
 	}
+    ol {
+        @extend ul;
+        
+        li {
+            list-style-type: decimal;
+        }
+    }
 	.img-circle {
 		border-radius: 50%;
 	}
@@ -123,6 +131,20 @@ a:focus, a:hover {
 	h2 + div {
 		margin-top: 30px;	
 	}
+    table {
+        width: 100%;
+        max-width: 100%;
+        margin-bottom: $grid-gutter-width;
+        
+        td, th {
+            padding: $grid-gutter-width/4 $grid-gutter-width/2;
+            vertical-align: top;
+        }
+        
+        th {
+            border-bottom: 2px solid #ddd;
+        }
+    }
 }
 .screen-reader-text {
 	/*text-indent: -999em;
@@ -289,15 +311,6 @@ strong {
 }
 .entry-footer {
 	clear: both;	
-}
-ul, ol {
-	li:before {
-		content: none;
-		margin-right: 0;	
-	}
-	li {
-		text-transform: none;
-	}
 }
 
 // Required WordPress styles

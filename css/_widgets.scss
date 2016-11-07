@@ -34,6 +34,20 @@
 		color: $blue;
 	}
 }
+
+.widget-content-image-right {
+    ul {
+        margin-left: $grid-gutter-width;
+        
+        li {
+            font-size: 100%;
+            list-style-type: circle;
+            text-transform: none;
+            margin-bottom: $grid-gutter-width/2;
+        }
+    }
+}
+
 .widget_archive, .widget_categories {
 	select {
 		width: 99%;
@@ -117,24 +131,4 @@
 		}
 	}
 }
-.page-sections {
-	.widgettitle, .widget-title {
-		display: none;
-	}
-	.widget {
-		margin-bottom: 0;
-        
-        ul {
-            margin-left: $grid-gutter-width;
 
-            li:before {
-                content: normal;
-            }
-            li {
-                margin-bottom: $grid-gutter-width/2;
-                font-size: 100%;
-                list-style-type: circle;
-            }
-        }
-	}
-}
