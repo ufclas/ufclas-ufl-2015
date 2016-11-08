@@ -181,7 +181,7 @@ add_action( 'register_shortcode_ui', 'ufclas_ufl_2015_register_breaker' );
  * 
  * @link http://webservices.it.ufl.edu/terminalfour/uf-2015-template/content-types/content-with-list-and-left-image-with-caption/
  */
-function ufclas_ufl_2015_register_content_image_caption() {
+function ufclas_ufl_2015_register_content_image_left() {
 	
 	// Define the UI for attributes of the shortcode. 
 	$shortcode_ui_fields = array(
@@ -219,9 +219,9 @@ function ufclas_ufl_2015_register_content_image_caption() {
 		'attrs' 			=> $shortcode_ui_fields,
 	);
 	
-	shortcode_ui_register_for_shortcode( 'ufclas-content-image-caption', $shortcode_ui_args );
+	shortcode_ui_register_for_shortcode( 'ufl-content-image-left', $shortcode_ui_args );
 }
-add_action( 'register_shortcode_ui', 'ufclas_ufl_2015_register_content_image_caption' );
+add_action( 'register_shortcode_ui', 'ufclas_ufl_2015_register_content_image_left' );
 
 /**
  * Register Shortcode UI for Content with Left Image and Caption
@@ -266,7 +266,7 @@ function ufclas_ufl_2015_register_content_image_right() {
 		'attrs' 			=> $shortcode_ui_fields,
 	);
 	
-	shortcode_ui_register_for_shortcode( 'ufclas-content-image-right', $shortcode_ui_args );
+	shortcode_ui_register_for_shortcode( 'ufl-content-image-right', $shortcode_ui_args );
 }
 add_action( 'register_shortcode_ui', 'ufclas_ufl_2015_register_content_image_right' );
 
@@ -365,7 +365,7 @@ function ufclas_ufl_2015_register_image_right_quote() {
 		'attrs' 			=> $shortcode_ui_fields,
 	);
 	
-	shortcode_ui_register_for_shortcode( 'ufclas-image-right-quote', $shortcode_ui_args );
+	shortcode_ui_register_for_shortcode( 'ufl-image-right-quote', $shortcode_ui_args );
 }
 add_action( 'register_shortcode_ui', 'ufclas_ufl_2015_register_image_right_quote' );
 

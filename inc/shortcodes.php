@@ -4,11 +4,11 @@
  *
  *	[ufl-landing-page-double-image][/ufl-landing-page-double-image]
  *	[ufl-landing-page-hero][/ufl-landing-page-hero]
- *	[ufclas-content-image-caption][/ufclas-content-image-caption]
- *	[ufclas-content-image-right][/ufclas-content-image-right]
+ *	[ufl-content-image-left][/ufl-content-image-left]
+ *	[ufl-content-image-right][/ufl-content-image-right]
  *	[ufl-breaker-cards][/ufl-breaker-cards]
  *	[ufclas-icon]
- *	[ufclas-image-right-quote][/ufclas-image-right-quote]
+ *	[ufl-image-right-quote][/ufl-image-right-quote]
  *	[ufclas-image-full-width]
  *	[ufclas-video-full-width]
  *	[ufclas-image]
@@ -73,7 +73,7 @@ add_shortcode('ufl-landing-page-double-image', 'ufclas_ufl_2015_landing_double_i
  * @param  string [$content = ''] Content between shortcode tags
  * @return string Shortcode output
  */
-function ufclas_ufl_2015_landing_hero_full($atts, $content = NULL ) {
+function ufclas_ufl_2015_landing_hero($atts, $content = NULL ) {
 	
 	extract( shortcode_atts( 
 		array(
@@ -115,7 +115,7 @@ function ufclas_ufl_2015_landing_hero_full($atts, $content = NULL ) {
     <?php 
 	return ob_get_clean();
 }
-add_shortcode('ufl-landing-page-hero', 'ufclas_ufl_2015_landing_hero_full');
+add_shortcode('ufl-landing-page-hero', 'ufclas_ufl_2015_landing_hero');
 
 /**
  * Add Breaker Shortcode
@@ -165,12 +165,12 @@ add_shortcode('ufl-breaker', 'ufclas_ufl_2015_breaker');
 /**
  * Add Content with Left Image and Caption
  * 
- * Example [ufclas-content-image-caption][/ufclas-content-image-caption]
+ * Example [ufl-content-image-left][/ufl-content-image-left]
  * @param  array $atts Shortcode attributes
  * @param  string [$content = ''] Content between shortcode tags
  * @return string Shortcode output
  */
-function ufclas_ufl_2015_content_image_caption($atts, $content = NULL ) {
+function ufclas_ufl_2015_content_image_left($atts, $content = NULL ) {
 	
 	extract( shortcode_atts( 
 		array(
@@ -207,12 +207,12 @@ function ufclas_ufl_2015_content_image_caption($atts, $content = NULL ) {
     <?php 
 	return ob_get_clean();
 }
-add_shortcode('ufclas-content-image-caption', 'ufclas_ufl_2015_content_image_caption');
+add_shortcode('ufl-content-image-left', 'ufclas_ufl_2015_content_image_left');
 
 /**
  * Add Content with Right Image
  * 
- * Example [ufclas-content-image-right][/ufclas-content-image-right]
+ * Example [ufl-content-image-right][/ufl-content-image-right]
  * @param  array $atts Shortcode attributes
  * @param  string [$content = ''] Content between shortcode tags
  * @return string Shortcode output
@@ -254,7 +254,7 @@ function ufclas_ufl_2015_content_image_right($atts, $content = NULL ) {
     <?php 
 	return ob_get_clean();
 }
-add_shortcode('ufclas-content-image-right', 'ufclas_ufl_2015_content_image_right');
+add_shortcode('ufl-content-image-right', 'ufclas_ufl_2015_content_image_right');
 
 
 /**
@@ -270,25 +270,16 @@ function ufclas_ufl_2015_breaker_cards($atts, $content = NULL ) {
 	extract( shortcode_atts( 
 		array(
 			'image' => get_stylesheet_directory_uri() . '/img/bg-breaker.jpg',
-			'card_headline1' => __('Enter Card Headline', 'ufclas-ufl-2015'),
-			'card_image1' => '',
-			'card_text1' => __('Enter Card Text', 'ufclas-ufl-2015'),
-			'card_headline2' => __('Enter Card Headline', 'ufclas-ufl-2015'),
-			'card_image2' => '',
-			'card_text2' => __('Enter Card Text', 'ufclas-ufl-2015'),
-			'card_headline3' => __('Enter Card Headline', 'ufclas-ufl-2015'),
-			'card_image3' => '',
-			'card_text3' => __('Enter Card Text', 'ufclas-ufl-2015'),
-			
+			'category' => 1,
 		), $atts )
 	);
-	
+		
 	// Support either image ID or image url
 	$image = ( is_numeric( $image ) )? wp_get_attachment_image_src( $image, 'large' ) : array($image);
-	$card_image1 = ( is_numeric( $card_image1 ) )? wp_get_attachment_image_src( $card_image1, 'medium' ) : array($card_image1);
-	$card_image2 = ( is_numeric( $card_image2 ) )? wp_get_attachment_image_src( $card_image2, 'medium' ) : array($card_image2);
-	$card_image3 = ( is_numeric( $card_image3 ) )? wp_get_attachment_image_src( $card_image3, 'medium' ) : array($card_image3);
-	
+	$card_posts = get_posts( array(
+		'posts_per_page' => 3,
+		'category' => $category,
+	) );
 	
 	// Shortcode callbacks must return content, so use output buffering
 	ob_start();
@@ -297,24 +288,28 @@ function ufclas_ufl_2015_breaker_cards($atts, $content = NULL ) {
 		<div class="container">
 			<div class="row">
             
-            <?php for($i=1; $i<=3; $i++){
-            	$card = array(
-					'headline' => ${'card_headline' . $i},
-					'image' => ${'card_image' . $i},
-					'text' => ${'card_text' . $i},
-				);
-				
-            	?>
-				<div class="col-sm-12 col-md-4 img-callout-wrap hor-scroll-el">
-					<div class="img-callout">
-						<?php if (!empty( $card['image'] )){ ?> 
-                        <img src="<?php echo esc_url( $card['image'][0] ); ?>" alt="" class="img-full">
-                        <?php } ?>
-						<h2><?php echo esc_html( $card['headline'] ); ?></h2>
-						<?php echo wpautop( wp_kses_post( $card['text'] ) ); ?>
+            <?php 
+				global $post;
+				foreach($card_posts as $post):
+					setup_postdata( $post ); // Access all post data
+					?>
+					<div class="col-sm-12 col-md-4 img-callout-wrap hor-scroll-el">
+						<div class="img-callout">
+							<?php 
+								if (  has_post_thumbnail() ){ 
+									echo '<a href="' . get_permalink() . '">';
+									the_post_thumbnail( 'thumbnail', array( 'class' => 'img-full' ) );
+									echo '</a>';
+								}
+							?> 
+							<?php the_title( sprintf( '<h2><a href="%s" rel="bookmark">', esc_url( get_permalink() ) ), '</a></h2>' ); ?>
+							<?php the_excerpt(); ?>
+						</div>
 					</div>
-				</div>
-            <?php } ?>
+            <?php
+				endforeach; 
+				wp_reset_postdata();
+			?>
                 
 			</div>
 		</div>
@@ -354,7 +349,7 @@ add_shortcode('ufclas-icon', 'ufclas_ufl_2015_icon');
 /**
  * Add Left Image with Right Quote and Caption
  * 
- * Example [ufclas-image-right-quote][/ufclas-image-right-quote]
+ * Example [ufl-image-right-quote][/ufl-image-right-quote]
  * @param  array $atts Shortcode attributes
  * @param  string [$content = ''] Content between shortcode tags
  * @return string Shortcode output
@@ -398,7 +393,7 @@ function ufclas_ufl_2015_image_right_quote($atts, $content = NULL ) {
     <?php 
 	return ob_get_clean();
 }
-add_shortcode('ufclas-image-right-quote', 'ufclas_ufl_2015_image_right_quote');
+add_shortcode('ufl-image-right-quote', 'ufclas_ufl_2015_image_right_quote');
 
 /**
  * Add Full Width Image with Caption

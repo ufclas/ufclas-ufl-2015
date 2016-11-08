@@ -5,20 +5,20 @@
  * @package UFCLAS_UFL_2015
  * @since 0.4.0
  */
-class UFL_2015_Content_Image_Right extends WP_Widget {
+class UFL_2015_Content_Image_Left extends WP_Widget {
 
 	/**
 	 * Sets up the widgets name etc
 	 */
 	public function __construct() {
 		$widget_ops = array( 
-			'classname' => 'widget-ufl-content-image-right',
-			'description' => __('Full width background image with a headline, text, and button', 'ufclas-ufl-2015'),
+			'classname' => 'widget-ufl-content-image-left',
+			'description' => __('Content with left image and caption.', 'ufclas-ufl-2015'),
 			'customize_selective_refresh' => true,
 		);
 		//$control_ops = array( 'width' => 400, 'height' => 350 );
 		$control_ops = array();
-		parent::__construct( 'ufl-content-image-right', __('UFL Content Image Right', 'ufclas-ufl-2015'), $widget_ops, $control_ops );
+		parent::__construct( 'ufl-content-image-left', __('UFL Content Image Left', 'ufclas-ufl-2015'), $widget_ops, $control_ops );
 	}
 
 	/**
@@ -31,7 +31,7 @@ class UFL_2015_Content_Image_Right extends WP_Widget {
 		$title = ( !empty( $instance['title'] ) )? $instance['title'] : ''; 
 		$text = ( !empty( $instance['text'] ) )? $instance['text'] : '';
 		$image = ( !empty( $instance['image'] ) )? $instance['image'] : '';
-		$label = ( !empty( $instance['label'] ) )? $instance['label'] : '';
+		$caption = ( !empty( $instance['caption'] ) )? $instance['caption'] : '';
 		
         // Apply filters
         $title = apply_filters( 'widget_title', $title, $instance, $this->id_base );
@@ -40,10 +40,10 @@ class UFL_2015_Content_Image_Right extends WP_Widget {
 		echo $args['before_widget'];
 		
         echo do_shortcode( sprintf(
-			'[ufl-content-image-right headline="%s" image="%s" label="%s"]%s[/ufl-content-image-right]',
+			'[ufl-content-image-left headline="%s" image="%s" caption="%s"]%s[/ufl-content-image-left]',
 			$title,
 			$image,
-			$label,
+			$caption,
 			$text
 		));
 		
@@ -56,11 +56,16 @@ class UFL_2015_Content_Image_Right extends WP_Widget {
 	 * @param array $instance The widget options
 	 */
 	public function form( $instance ) {
-		$instance = wp_parse_args( (array) $instance, array( 'title' => '', 'text' => '', 'image' => '', 'label' => '' ) );
+		$instance = wp_parse_args( (array) $instance, array( 
+			'title' => '', 
+			'text' => '', 
+			'image' => '', 
+			'caption' => '' 
+		) );
 		
 		$title = sanitize_text_field( $instance['title'] );
 		$image = ( isset( $instance['image'] ) )? $instance['image'] : '';
-		$label = sanitize_text_field( $instance['label'] );
+		$caption = sanitize_text_field( $instance['caption'] );
 		
 		?>
 		<p><label for="<?php echo $this->get_field_id('title'); ?>"><?php _e('Headline:', 'ufclas-ufl-2015'); ?></label>
@@ -86,8 +91,8 @@ class UFL_2015_Content_Image_Right extends WP_Widget {
         </div>
         </p>
 
-        <p><label for="<?php echo $this->get_field_id('label'); ?>"><?php _e('Label Text:', 'ufclas-ufl-2015'); ?></label>
-		<input class="widefat" id="<?php echo $this->get_field_id('label'); ?>" name="<?php echo $this->get_field_name('label'); ?>" type="text" value="<?php echo esc_attr($label); ?>" /></p>
+        <p><label for="<?php echo $this->get_field_id('caption'); ?>"><?php _e('Label Text:', 'ufclas-ufl-2015'); ?></label>
+		<input class="widefat" id="<?php echo $this->get_field_id('caption'); ?>" name="<?php echo $this->get_field_name('caption'); ?>" type="text" value="<?php echo esc_attr($caption); ?>" /></p>
 
 	<?php
     }
@@ -107,7 +112,7 @@ class UFL_2015_Content_Image_Right extends WP_Widget {
 			$instance['text'] = wp_kses_post( $new_instance['text'] );
 		}
 		$instance['image'] = esc_url_raw( $new_instance['image'] );
-		$instance['label'] = sanitize_text_field( $new_instance['label'] );
+		$instance['caption'] = sanitize_text_field( $new_instance['caption'] );
 		
 		return $instance;
 	}

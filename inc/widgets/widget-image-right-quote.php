@@ -38,7 +38,7 @@ class UFL_2015_Image_Right_Quote extends WP_Widget {
 		echo $args['before_widget'];
 		
 		echo do_shortcode( sprintf(
-			'[ufclas-image-right-quote image="%s" caption="%s" credit="%s"]%s[/ufclas-image-right-quote]',
+			'[ufl-image-right-quote image="%s" caption="%s" credit="%s"]%s[/ufl-image-right-quote]',
 			$image,
 			$caption,
 			$credit,

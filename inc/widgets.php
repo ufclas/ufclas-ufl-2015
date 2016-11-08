@@ -4,6 +4,8 @@
 require get_stylesheet_directory() . '/inc/widgets/widget-landing-page-hero.php';
 require get_stylesheet_directory() . '/inc/widgets/widget-landing-page-double.php';
 require get_stylesheet_directory() . '/inc/widgets/widget-breaker.php';
+require get_stylesheet_directory() . '/inc/widgets/widget-breaker-cards.php';
+require get_stylesheet_directory() . '/inc/widgets/widget-content-image-left.php';
 require get_stylesheet_directory() . '/inc/widgets/widget-content-image-right.php';
 require get_stylesheet_directory() . '/inc/widgets/widget-image-right-quote.php';
 
@@ -164,6 +166,8 @@ function ufclas_ufl_2015_widgets_init() {
 	register_widget( 'UFL_2015_Landing_Page_Hero' );
 	register_widget( 'UFL_2015_Landing_Page_Double' );
 	register_widget( 'UFL_2015_Breaker' );
+	register_widget( 'UFL_2015_Breaker_Cards' );
+	register_widget( 'UFL_2015_Content_Image_Left' );
 	register_widget( 'UFL_2015_Content_Image_Right' );
 	register_widget( 'UFL_2015_Image_Right_Quote' );
 }
