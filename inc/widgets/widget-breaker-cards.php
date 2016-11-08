@@ -26,19 +26,23 @@ class UFL_2015_Breaker_Cards extends WP_Widget {
 	 * @param array $args
 	 * @param array $instance
 	 */
-	public function widget( $args, $instance ) {
+	public function widget( $args, $instance ) {	
 		$title = ( !empty( $instance['title'] ) )? $instance['title'] : ''; 
 		$title = apply_filters( 'widget_title', $title, $instance, $this->id_base );
 		$image = ( !empty( $instance['image'] ) )? $instance['image'] : '';
 		$category = ( !empty( $instance['category'] ) )? $instance['category'] : 1;
+		$hide_excerpt = ( isset( $instance['hide_excerpt'] ) )? $instance['hide_excerpt'] : 0;
+		$show_links = ( isset( $instance['show_links'] ) )? $instance['show_links'] : 0;
 
 		echo $args['before_widget'];
 		
 		echo do_shortcode( sprintf(
-			'[ufl-breaker-cards headline="%s" image="%s" category="%s"]',
+			'[ufl-breaker-cards headline="%s" image="%s" category="%d" hide_excerpt="%d" show_links="%d"]',
 			$title,
 			$image,
-			$category
+			$category,
+			$hide_excerpt,
+			$show_links
 		) );
 		
 		echo $args['after_widget'];
@@ -52,14 +56,15 @@ class UFL_2015_Breaker_Cards extends WP_Widget {
 	public function form( $instance ) {
 		$instance = wp_parse_args( (array) $instance, array( 
 			'title' => '', 
-			'text' => '', 
-			'category' => '', 
-			'image' => ''
+			'image' => '',
 		) );
-		
+			
 		$title = sanitize_text_field( $instance['title'] );
-		$image = ( isset( $instance['image'] ) )? $instance['image'] : '';
-		$category = absint( $instance['category'] );
+		$image = ( !empty( $instance['image'] ) )? $instance['image'] : '';
+		$category = ( isset( $instance['category'] ) )? $instance['category'] : 1;
+		$hide_excerpt = ( isset( $instance['hide_excerpt'] ) )? $instance['hide_excerpt'] : 0;
+		$show_links = ( isset( $instance['show_links'] ) )? $instance['show_links'] : 0;
+				
 		$categories = get_categories();
 		
 		?>
@@ -84,7 +89,7 @@ class UFL_2015_Breaker_Cards extends WP_Widget {
         </p>
         
         <p>
-		<label for="<?php echo $this->get_field_id('category'); ?>"><?php _e('Category', 'ufclas-ufl-2015'); ?></label>
+		<label for="<?php echo $this->get_field_id('category'); ?>"><?php _e('Post Category', 'ufclas-ufl-2015'); ?></label>
 		<select class="widefat" id="<?php echo $this->get_field_id('category'); ?>" name="<?php echo $this->get_field_name('category'); ?>" value="<?php echo $category; ?>" style="width:100%">
 			<option value="" <?php selected($category); ?>><?php _e('Select Category', 'ufclas-ufl-2015'); ?></option>
             <?php if( !empty( $categories ) ): ?>
@@ -94,6 +99,10 @@ class UFL_2015_Breaker_Cards extends WP_Widget {
 			<?php endif; ?>
 		</select>
 		</p>
+        
+        <p><input id="<?php echo $this->get_field_id('hide_excerpt'); ?>" name="<?php echo $this->get_field_name('hide_excerpt'); ?>" type="checkbox"<?php checked( $hide_excerpt ); ?> />&nbsp;<label for="<?php echo $this->get_field_id('hide_excerpt'); ?>"><?php _e('Hide Post Excerpt'); ?></label></p>
+        
+        <p><input id="<?php echo $this->get_field_id('show_links'); ?>" name="<?php echo $this->get_field_name('show_links'); ?>" type="checkbox"<?php checked( $show_links ); ?> />&nbsp;<label for="<?php echo $this->get_field_id('show_links'); ?>"><?php _e('Show Image and Title Links'); ?></label></p>
 		<?php
 	}
 
@@ -108,6 +117,8 @@ class UFL_2015_Breaker_Cards extends WP_Widget {
 		$instance['title'] = sanitize_text_field( $new_instance['title'] );
 		$instance['image'] = esc_url_raw( $new_instance['image'] );
 		$instance['category'] = absint( $new_instance['category'] );
+		$instance['hide_excerpt'] = isset( $new_instance['hide_excerpt'] );
+		$instance['show_links'] = isset( $new_instance['show_links'] );
 		
 		return $instance;
 	}

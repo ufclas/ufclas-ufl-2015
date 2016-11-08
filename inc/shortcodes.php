@@ -271,6 +271,8 @@ function ufclas_ufl_2015_breaker_cards($atts, $content = NULL ) {
 		array(
 			'image' => get_stylesheet_directory_uri() . '/img/bg-breaker.jpg',
 			'category' => 1,
+			'hide_excerpt' => 0,
+			'show_links' => 0,
 		), $atts )
 	);
 		
@@ -287,7 +289,6 @@ function ufclas_ufl_2015_breaker_cards($atts, $content = NULL ) {
     <div class="img-callout-wrapper hor-scroll-wrap" style="background-image:url('<?php echo esc_url( $image[0] ); ?>');">
 		<div class="container">
 			<div class="row">
-            
             <?php 
 				global $post;
 				foreach($card_posts as $post):
@@ -296,21 +297,30 @@ function ufclas_ufl_2015_breaker_cards($atts, $content = NULL ) {
 					<div class="col-sm-12 col-md-4 img-callout-wrap hor-scroll-el">
 						<div class="img-callout">
 							<?php 
-								if (  has_post_thumbnail() ){ 
-									echo '<a href="' . get_permalink() . '">';
-									the_post_thumbnail( 'thumbnail', array( 'class' => 'img-full' ) );
-									echo '</a>';
+								$link = ( $show_links )? esc_url( get_permalink() ) : false;
+								$link_before = ( $link )? '<a href="' . $link . '">' : '';
+								$link_after = ( $link )? '</a>' : '';
+								
+								// Display thumbnail and link, if selected
+								if ( has_post_thumbnail() ){
+									$thumbnail = get_the_post_thumbnail($post->ID, 'medium-cropped', array( 'class' => 'img-full' ));
+									echo $link_before . $thumbnail . $link_after;
 								}
-							?> 
-							<?php the_title( sprintf( '<h2><a href="%s" rel="bookmark">', esc_url( get_permalink() ) ), '</a></h2>' ); ?>
-							<?php the_excerpt(); ?>
+								
+								// Display title and link, if selected
+								the_title( '<h2>' . $link_before, $link_after . '</h2>' );
+								
+								// Display excerpt, if selected
+								if ( !$hide_excerpt ){ 
+									the_excerpt(); 
+								}
+							?>
 						</div>
 					</div>
             <?php
 				endforeach; 
 				wp_reset_postdata();
-			?>
-                
+			?> 
 			</div>
 		</div>
 	</div>

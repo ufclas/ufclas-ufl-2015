@@ -278,6 +278,16 @@ add_action( 'register_shortcode_ui', 'ufclas_ufl_2015_register_content_image_rig
  */
 function ufclas_ufl_2015_register_breaker_cards() {
 	
+	// Get category select options
+	$category_options = array();
+	$categories = get_categories();
+	
+	if( !empty( $categories ) ){ 
+		foreach($categories as $category){
+			$category_options[ $category->term_id ] = $category->name;		
+		}
+	}
+	
 	// Define the UI for attributes of the shortcode.
 	$shortcode_ui_fields = array(
 		array(
@@ -288,34 +298,27 @@ function ufclas_ufl_2015_register_breaker_cards() {
 			'addButton'		=> esc_html__( 'Select Image', 'ufclas-ufl-2015' ),
 			'frameTitle'	=> esc_html__( 'Select Background Image', 'ufclas-ufl-2015' ),
 		),
+		array(
+			'label'		=> esc_html__( 'Post Category', 'ufclas-ufl-2015' ),
+			'attr' 		=> 'category',
+			'type' 		=> 'select',
+			'options'	=> $category_options,
+		),
+		array(
+			'label'		=> esc_html__( 'Hide Excerpt', 'ufclas-ufl-2015' ),
+			'attr' 		=> 'hide_excerpt',
+			'type' 		=> 'checkbox',
+		),
+		array(
+			'label'		=> esc_html__( 'Show Image and Title Links', 'ufclas-ufl-2015' ),
+			'attr' 		=> 'show_links',
+			'type' 		=> 'checkbox',
+		),
 	);
-	
-	for($i=1; $i<=3; $i++){
-		$shortcode_ui_fields[] = array(
-			'label'		=> sprintf( '%s %d', esc_html__('Card Headline', 'ufclas-ufl-2015'), $i),
-			'description' 	=> esc_html__('', 'ufclas-ufl-2015'),
-			'attr' 		=> 'card_headline' . $i,
-			'type' 		=> 'text',
-		);
-		$shortcode_ui_fields[] = array(
-			'label'		=> sprintf( '%s %d', esc_html__('Card Image', 'ufclas-ufl-2015'), $i),
-			'attr' 		=> 'card_image' . $i,
-			'type' 		=> 'attachment',
-			'libraryType' 	=> array( 'Image' ),
-			'addButton'		=> sprintf( '%s %d', esc_html__( 'Select Image', 'ufclas-ufl-2015' ), $i),
-			'frameTitle'	=> sprintf( '%s %d', esc_html__( 'Select Image', 'ufclas-ufl-2015' ), $i),
-		);
-		$shortcode_ui_fields[] = array(
-			'label'		=> sprintf( '%s %d', esc_html__( 'Card Text', 'ufclas-ufl-2015' ), $i),
-			'description' 	=> esc_html__('Text displayed in card, optional', 'ufclas-ufl-2015'),
-			'attr' 		=> 'card_text' . $i,
-			'type' 		=> 'textarea',
-		);
-	}
 	
 	// Define the Shortcode UI arguments
 	$shortcode_ui_args = array(
-		'label' 			=> esc_html__('Background Image with Content Cards', 'ufclas-ufl-2015'),
+		'label' 			=> esc_html__('UFL Breaker with Cards', 'ufclas-ufl-2015'),
 		'listItemImage' 	=> 'dashicons-layout',
 		'post_type' 		=> array('page'),
 		'attrs' 			=> $shortcode_ui_fields,
