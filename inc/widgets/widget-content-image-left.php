@@ -16,7 +16,6 @@ class UFL_2015_Content_Image_Left extends WP_Widget {
 			'description' => __('Content with left image and caption.', 'ufclas-ufl-2015'),
 			'customize_selective_refresh' => true,
 		);
-		//$control_ops = array( 'width' => 400, 'height' => 350 );
 		$control_ops = array();
 		parent::__construct( 'ufl-content-image-left', __('UFL Content Image Left', 'ufclas-ufl-2015'), $widget_ops, $control_ops );
 	}
@@ -90,10 +89,9 @@ class UFL_2015_Content_Image_Left extends WP_Widget {
         <br class="clear">
         </div>
         </p>
-
-        <p><label for="<?php echo $this->get_field_id('caption'); ?>"><?php _e('Label Text:', 'ufclas-ufl-2015'); ?></label>
-		<input class="widefat" id="<?php echo $this->get_field_id('caption'); ?>" name="<?php echo $this->get_field_name('caption'); ?>" type="text" value="<?php echo esc_attr($caption); ?>" /></p>
-
+        
+        <p><label for="<?php echo $this->get_field_id( 'caption' ); ?>"><?php _e( 'Caption:', 'ufclas-ufl-2015' ); ?></label>
+		<textarea class="widefat" rows="8" cols="20" id="<?php echo $this->get_field_id('caption'); ?>" name="<?php echo $this->get_field_name('caption'); ?>"><?php echo esc_textarea( $instance['caption'] ); ?></textarea></p>
 	<?php
     }
 

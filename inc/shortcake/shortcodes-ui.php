@@ -1,6 +1,6 @@
 <?php
  /**
- * Register Shortcode UI for Landing Page Hero Image
+ * Register Shortcode UI for UFL Landing Page Double Image
  * 
  */
 function ufclas_ufl_2015_register_landing_double() {
@@ -33,8 +33,8 @@ function ufclas_ufl_2015_register_landing_double() {
 	
 	// Define the Shortcode UI arguments
 	$shortcode_ui_args = array(
-		'label' 			=> esc_html__('Landing Page Double Image', 'ufclas-ufl-2015'),
-		'listItemImage' 	=> 'dashicons-layout',
+		'label' 			=> esc_html__('UFL Landing Page Double Image', 'ufclas-ufl-2015'),
+		'listItemImage' 	=> 'dashicons-format-image',
 		'post_type' 		=> array('page'),
 		'inner_content' 	=> array(
 			'label' 		=> esc_html__('Content', 'ufclas-ufl-2015'),
@@ -48,10 +48,10 @@ function ufclas_ufl_2015_register_landing_double() {
 add_action( 'register_shortcode_ui', 'ufclas_ufl_2015_register_landing_double' );
 
  /**
- * Register Shortcode UI for Landing Page Hero Full
+ * Register Shortcode UI for Landing Page Hero
  * 
  */
-function ufclas_ufl_2015_register_landing_hero_full() {
+function ufclas_ufl_2015_register_landing_hero() {
 	
 	// Define the UI for attributes of the shortcode. 
 	$shortcode_ui_fields = array(
@@ -79,11 +79,6 @@ function ufclas_ufl_2015_register_landing_hero_full() {
 			),
 		),
 		array(
-			'label'		=> esc_html__( 'Hide Button', 'ufclas-ufl-2015' ),
-			'attr' 		=> 'hide_button',
-			'type' 		=> 'checkbox',
-		),
-		array(
 			'label'		=> esc_html__( 'Button Text', 'ufclas-ufl-2015' ),
 			'description' 	=> esc_html__('Displayed within the button', 'ufclas-ufl-2015'),
 			'attr' 		=> 'button_text',
@@ -102,8 +97,8 @@ function ufclas_ufl_2015_register_landing_hero_full() {
 	
 	// Define the Shortcode UI arguments
 	$shortcode_ui_args = array(
-		'label' 			=> esc_html__('Landing Page Hero Full', 'ufclas-ufl-2015'),
-		'listItemImage' 	=> 'dashicons-layout',
+		'label' 			=> esc_html__('UFL Landing Page Hero Image', 'ufclas-ufl-2015'),
+		'listItemImage' 	=> 'dashicons-format-image',
 		'post_type' 		=> array('page'),
 		'inner_content' 	=> array(
 			'label' 		=> esc_html__('Content', 'ufclas-ufl-2015'),
@@ -114,7 +109,7 @@ function ufclas_ufl_2015_register_landing_hero_full() {
 	
 	shortcode_ui_register_for_shortcode( 'ufl-landing-page-hero', $shortcode_ui_args );
 }
-add_action( 'register_shortcode_ui', 'ufclas_ufl_2015_register_landing_hero_full' );
+add_action( 'register_shortcode_ui', 'ufclas_ufl_2015_register_landing_hero' );
 
  /**
  * Register Shortcode UI for Breaker
@@ -162,8 +157,8 @@ function ufclas_ufl_2015_register_breaker() {
 	
 	// Define the Shortcode UI arguments
 	$shortcode_ui_args = array(
-		'label' 			=> esc_html__('Background Image with Text (Breaker)', 'ufclas-ufl-2015'),
-		'listItemImage' 	=> 'dashicons-layout',
+		'label' 			=> esc_html__('UFL Breaker', 'ufclas-ufl-2015'),
+		'listItemImage' 	=> 'dashicons-format-image',
 		'post_type' 		=> array('page'),
 		'inner_content' 	=> array(
 			'label' 		=> esc_html__('Content', 'ufclas-ufl-2015'),
@@ -209,8 +204,8 @@ function ufclas_ufl_2015_register_content_image_left() {
 	
 	// Define the Shortcode UI arguments
 	$shortcode_ui_args = array(
-		'label' 			=> esc_html__('Content with Left Image and Caption', 'ufclas-ufl-2015'),
-		'listItemImage' 	=> 'dashicons-layout',
+		'label' 			=> esc_html__('UFL Content Image Left', 'ufclas-ufl-2015'),
+		'listItemImage' 	=> 'dashicons-format-image',
 		'post_type' 		=> array('page'),
 		'inner_content' 	=> array(
 			'label' 		=> esc_html__('Content', 'ufclas-ufl-2015'),
@@ -247,17 +242,17 @@ function ufclas_ufl_2015_register_content_image_right() {
 			'frameTitle'	=> esc_html__( 'Select Image', 'ufclas-ufl-2015' ),
 		),
 		array(
-			'label'		=> esc_html__( 'Category', 'ufclas-ufl-2015' ),
+			'label'		=> esc_html__( 'Label', 'ufclas-ufl-2015' ),
 			'description' 	=> esc_html__('Category title for the content section, optional', 'ufclas-ufl-2015'),
-			'attr' 		=> 'category',
+			'attr' 		=> 'label',
 			'type' 		=> 'text',
 		),
 	);
 	
 	// Define the Shortcode UI arguments
 	$shortcode_ui_args = array(
-		'label' 			=> esc_html__('Content with Right Image and Category', 'ufclas-ufl-2015'),
-		'listItemImage' 	=> 'dashicons-layout',
+		'label' 			=> esc_html__('UFL Content Image Right', 'ufclas-ufl-2015'),
+		'listItemImage' 	=> 'dashicons-format-image',
 		'post_type' 		=> array('page'),
 		'inner_content' 	=> array(
 			'label' 		=> esc_html__('Content', 'ufclas-ufl-2015'),
@@ -319,7 +314,7 @@ function ufclas_ufl_2015_register_breaker_cards() {
 	// Define the Shortcode UI arguments
 	$shortcode_ui_args = array(
 		'label' 			=> esc_html__('UFL Breaker with Cards', 'ufclas-ufl-2015'),
-		'listItemImage' 	=> 'dashicons-layout',
+		'listItemImage' 	=> 'dashicons-format-image',
 		'post_type' 		=> array('page'),
 		'attrs' 			=> $shortcode_ui_fields,
 	);
@@ -340,31 +335,17 @@ function ufclas_ufl_2015_register_image_right_quote() {
 			'addButton'		=> esc_html__( 'Select Image', 'ufclas-ufl-2015' ),
 			'frameTitle'	=> esc_html__( 'Select Image', 'ufclas-ufl-2015' ),
 		),
-		array(
-			'label'		=> esc_html__( 'Quote', 'ufclas-ufl-2015' ),
-			'description' 	=> esc_html__('Quote that appears to the right of the image', 'ufclas-ufl-2015'),
-			'attr' 		=> 'quote',
-			'type' 		=> 'textarea',
-		),
-		array(
-			'label'		=> esc_html__( 'Image Caption', 'ufclas-ufl-2015' ),
-			'description' 	=> esc_html__('A caption that appears below the image, optional', 'ufclas-ufl-2015'),
-			'attr' 		=> 'caption',
-			'type' 		=> 'textarea',
-		),
-		array(
-			'label'		=> esc_html__( 'Image Credit', 'ufclas-ufl-2015' ),
-			'description' 	=> esc_html__('Photographer and license information. Displayed below the image after the caption.', 'ufclas-ufl-2015'),
-			'attr' 		=> 'credit',
-			'type' 		=> 'text',
-		),
 	);
 	
 	// Define the Shortcode UI arguments
 	$shortcode_ui_args = array(
-		'label' 			=> esc_html__('Image with Right Quote', 'ufclas-ufl-2015'),
+		'label' 			=> esc_html__('UFL Image Right Quote', 'ufclas-ufl-2015'),
 		'listItemImage' 	=> 'dashicons-format-image',
 		'post_type' 		=> array('post','page'),
+		'inner_content' 	=> array(
+			'label' 		=> esc_html__('Quote', 'ufclas-ufl-2015'),
+			'description' 	=> esc_html__('Quote that appears to the right of the image', 'ufclas-ufl-2015'),
+		),
 		'attrs' 			=> $shortcode_ui_fields,
 	);
 	
@@ -372,64 +353,3 @@ function ufclas_ufl_2015_register_image_right_quote() {
 }
 add_action( 'register_shortcode_ui', 'ufclas_ufl_2015_register_image_right_quote' );
 
-function ufclas_ufl_2015_register_image_full_width() {
-	
-	// Define the UI for attributes of the shortcode. 
-	$shortcode_ui_fields = array(
-		array(
-			'label'		=> esc_html__( 'Image', 'ufclas-ufl-2015' ),
-			'attr' 		=> 'image',
-			'type' 		=> 'attachment',
-			'libraryType' 	=> array( 'Image' ),
-			'addButton'		=> esc_html__( 'Select Image', 'ufclas-ufl-2015' ),
-			'frameTitle'	=> esc_html__( 'Select Image', 'ufclas-ufl-2015' ),
-		),
-		array(
-			'label'		=> esc_html__( 'Image Caption', 'ufclas-ufl-2015' ),
-			'description' 	=> esc_html__('A caption that appears below the image, optional', 'ufclas-ufl-2015'),
-			'attr' 		=> 'caption',
-			'type' 		=> 'textarea',
-		),
-		array(
-			'label'		=> esc_html__( 'Image Credit', 'ufclas-ufl-2015' ),
-			'description' 	=> esc_html__('Photographer and license information. Displayed below the image after the caption.', 'ufclas-ufl-2015'),
-			'attr' 		=> 'credit',
-			'type' 		=> 'text',
-		),
-	);
-	
-	// Define the Shortcode UI arguments
-	$shortcode_ui_args = array(
-		'label' 			=> esc_html__('Full Width Image with Caption', 'ufclas-ufl-2015'),
-		'listItemImage' 	=> 'dashicons-format-image',
-		'post_type' 		=> array('post','page'),
-		'attrs' 			=> $shortcode_ui_fields,
-	);
-	
-	shortcode_ui_register_for_shortcode( 'ufclas-image-full-width', $shortcode_ui_args );
-}
-add_action( 'register_shortcode_ui', 'ufclas_ufl_2015_register_image_full_width' );
-
-function ufclas_ufl_2015_register_video_full_width() {
-	
-	// Define the UI for attributes of the shortcode. 
-	$shortcode_ui_fields = array(
-		array(
-			'label'		=> esc_html__( 'Video URL', 'ufclas-ufl-2015' ),
-			'description' 	=> esc_html__('', 'ufclas-ufl-2015'),
-			'attr' 		=> 'url',
-			'type' 		=> 'url',
-		),
-	);
-	
-	// Define the Shortcode UI arguments
-	$shortcode_ui_args = array(
-		'label' 			=> esc_html__('Full Width Video', 'ufclas-ufl-2015'),
-		'listItemImage' 	=> 'dashicons-video-alt3',
-		'post_type' 		=> array('post','page'),
-		'attrs' 			=> $shortcode_ui_fields,
-	);
-	
-	shortcode_ui_register_for_shortcode( 'ufclas-video-full-width', $shortcode_ui_args );
-}
-add_action( 'register_shortcode_ui', 'ufclas_ufl_2015_register_video_full_width' );

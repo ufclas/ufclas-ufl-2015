@@ -3781,18 +3781,24 @@ form.search-wrap, .btn-show-aux, .btn-menu, .btn-search-mobile {
 
 @media (min-width: 992px) {
   .page-template-landing-page,
-  .page-template-landing-page-full-width {
+  .page-template-landing-page-full-width,
+  .page-template-landing-page-content {
     padding-top: 150px; } }
 .page-template-landing-page .footer-wrap,
-.page-template-landing-page-full-width .footer-wrap {
+.page-template-landing-page-full-width .footer-wrap,
+.page-template-landing-page-content .footer-wrap {
   margin-top: 0; }
 .page-template-landing-page .breaker,
-.page-template-landing-page-full-width .breaker {
+.page-template-landing-page-full-width .breaker,
+.page-template-landing-page-content .breaker {
   margin-bottom: 0; }
 
-.page-template-landing-page-full-width #main {
+.page-template-landing-page-full-width #main, .page-template-landing-page-content #main {
   background-color: transparent;
   padding: 0; }
+  @media (min-width: 768px) {
+    .page-template-landing-page-full-width #main .edit-link, .page-template-landing-page-content #main .edit-link {
+      position: absolute; } }
 
 a:focus, a:hover {
   text-decoration: none; }
@@ -4209,6 +4215,21 @@ strong {
 .content-box-module {
   margin-top: 60px; }
 
+@media (min-width: 992px) {
+  .landing-page-hero {
+    margin-top: 60px;
+    margin-bottom: 60px; } }
+
+@media (min-width: 992px) {
+  .image-right-quote {
+    margin-top: 60px;
+    margin-bottom: 60px; } }
+
+@media (min-width: 992px) {
+  .content-image-left {
+    margin-top: 60px;
+    margin-bottom: 60px !important; } }
+
 .shortcode-ui-preview-fallback {
   text-align: center;
   font-size: 18px;
@@ -4499,7 +4520,7 @@ figcaption {
 */
 .home #main {
   background-color: #fff; }
-.page-template-landing-page-full-width #main {
+.page-template-landing-page-full-width #main, .page-template-landing-page-content #main {
   background-color: transparent; }
 
 .carousel-row {

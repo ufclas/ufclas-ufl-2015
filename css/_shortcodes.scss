@@ -25,6 +25,24 @@
 .content-box-module {
     margin-top: $grid-gutter-width*2;
 }
+.landing-page-hero { 
+	@include breakFirst(large){
+		margin-top: $grid-gutter-width*2;
+		margin-bottom: $grid-gutter-width*2;
+	}
+}
+.image-right-quote {
+	@include breakFirst(large){
+		margin-top: $grid-gutter-width*2;
+		margin-bottom: $grid-gutter-width*2;
+	}
+}
+.content-image-left {
+	@include breakFirst(large){
+		margin-top: $grid-gutter-width*2;
+		margin-bottom: $grid-gutter-width*2 !important;
+	}
+}
 
 // Shortcode UI
 .shortcode-ui-preview-fallback {

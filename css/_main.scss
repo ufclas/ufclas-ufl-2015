@@ -33,11 +33,15 @@
         padding: 0;
 		
 		@include breakFirst(medium){
-			
-		}	
+			.edit-link {
+				position: absolute;	
+			}	
+		}
 	}
 }
-
+.page-template-landing-page-content {
+	@extend .page-template-landing-page-full-width;
+}
 a:focus, a:hover {
 	text-decoration: none;	
 }

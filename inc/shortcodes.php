@@ -37,6 +37,7 @@ function ufclas_ufl_2015_landing_double_image($atts, $content = NULL ) {
 	// Support either image ID or image url
 	$image1 = ( is_numeric( $image1 ) )? wp_get_attachment_image_src( $image1, 'large' ) : array($image1);
 	$image2 = ( is_numeric( $image2 ) )? wp_get_attachment_image_src( $image2, 'large' ) : array($image2);
+	$headline = (!empty( $headline ))? $headline : '';
 	
 	// Shortcode callbacks must return content, so use output buffering
 	ob_start();
@@ -48,9 +49,7 @@ function ufclas_ufl_2015_landing_double_image($atts, $content = NULL ) {
           <div class="img-hero" style="background-image:url('<?php echo esc_url( $image1[0] ); ?>');"></div>
         </div>
         <div class="col-sm-5 col-sm-offset-5 hero-content">
-			<?php if (!empty( $headline )){ ?>
-                <h2><?php echo esc_html( $headline ); ?></h2>
-            <?php } ?>
+            <h2><?php echo esc_html( $headline ); ?></h2>
 			<?php echo wpautop( wp_kses_post( $content ) ); ?>
         </div>
         <div class="col-sm-7 secondary">
@@ -186,7 +185,7 @@ function ufclas_ufl_2015_content_image_left($atts, $content = NULL ) {
 	// Shortcode callbacks must return content, so use output buffering
 	ob_start();
 	?>
-    <div class="gal-list-wrap">
+    <div class="gal-list-wrap content-image-left">
 	  <div class="container">
 	  	<div class="row">
 	  		<div class="col-md-6">
@@ -369,14 +368,11 @@ function ufclas_ufl_2015_image_right_quote($atts, $content = NULL ) {
 	extract( shortcode_atts( 
 		array(
 			'image' => get_stylesheet_directory_uri() . '/img/ImgResponsive_Placeholder.png',
-			'caption' => '',
-			'credit' => '',
 		), $atts )
 	);
 	
 	// Support either image ID or image url
 	$image = ( is_numeric( $image ) )? wp_get_attachment_image_src( $image, 'large' ) : array($image);
-	$image_alt = ( is_numeric( $image ) )? get_post($image)->post_excerpt : '';
 	
 	// Shortcode callbacks must return content, so use output buffering
 	ob_start();
@@ -385,13 +381,6 @@ function ufclas_ufl_2015_image_right_quote($atts, $content = NULL ) {
     <div class="row">
     <div class="col-md-6">
     	<img class="center-block img-responsive pic" src="<?php echo esc_url( $image[0] ); ?>" alt="<?php echo esc_attr( $image_alt ); ?>">
-        <p class="text">
-			<?php echo esc_html( $caption ); ?> 
-            <?php if ( !empty( $credit ) ): ?>
-            <img class="img-valign" src="<?php echo get_stylesheet_directory_uri(); ?>/svg/camera.svg" alt="Photo credit" width="13px"> 
-            <span style="color:#999999;"><?php echo esc_html( $credit ); ?></span>
-            <?php endif; ?>
-        </p>
     </div>
  	<div class="col-md-6">
     	<div class="quote">
@@ -404,79 +393,3 @@ function ufclas_ufl_2015_image_right_quote($atts, $content = NULL ) {
 	return ob_get_clean();
 }
 add_shortcode('ufl-image-right-quote', 'ufclas_ufl_2015_image_right_quote');
-
-/**
- * Add Full Width Image with Caption
- * 
- * Example [ufclas-image-full-width]
- * @param  array $atts Shortcode attributes
- * @param  string [$content = ''] Content between shortcode tags
- * @return string Shortcode output
- */
-function ufclas_ufl_2015_image_full_width($atts, $content = NULL ) {
-	
-	extract( shortcode_atts( 
-		array(
-			'image' => get_stylesheet_directory_uri() . '/img/ImgResponsive_Placeholder.png',
-			'caption' => '',
-			'credit' => '',
-		), $atts )
-	);
-	
-	// Support either image ID or image url
-	$image = ( is_numeric( $image ) )? wp_get_attachment_image_src( $image, 'large' ) : array($image);
-	$image_alt = ( is_numeric( $image ) )? get_post($image)->post_excerpt : '';
-	
-	// Shortcode callbacks must return content, so use output buffering
-	ob_start();
-	?>
-    <div class="container-fluid image-full-width">
-    <figure class="image">
-    	<img class="img-responsive" src="<?php echo esc_url( $image[0] ); ?>" alt="<?php echo esc_attr( $image_alt ); ?>">
-        <figcaption class="container">
-        <?php echo esc_html( $caption ); ?> 
-		<?php if ( !empty( $credit ) ): ?>
-        <img class="img-valign" src="<?php echo get_stylesheet_directory_uri(); ?>/svg/camera.svg" alt="Photo credit" width="13px"> 
-        <span style="color:#999999;"><?php echo esc_html( $credit ); ?></span>
-        <?php endif; ?>
-        </figcaption>
-    </figure>
-    </div>
-   <?php 
-	return ob_get_clean();
-}
-add_shortcode('ufclas-image-full-width', 'ufclas_ufl_2015_image_full_width');
-
-/**
- * Add Full Width Image with Caption
- * 
- * Example [ufclas-video-full-width]
- * @param  array $atts Shortcode attributes
- * @param  string [$content = ''] Content between shortcode tags
- * @return string Shortcode output
- */
-function ufclas_ufl_2015_video_full_width($atts, $content = NULL ) {
-	
-	extract( shortcode_atts( 
-		array(
-			'url' => '',
-		), $atts )
-	);
-	
-	// Shortcode callbacks must return content, so use output buffering
-	ob_start();
-	?>
-    <div class="container-fluid">
-    <div class="embed-responsive embed-responsive-16by9">
-    	<?php 
-			$shortcode = sprintf('[embed]%s[/embed]', esc_url( $url ));
-			echo do_shortcode( $shortcode ); 
-		?>
-    </div>
-    </div>
-   <?php 
-	return ob_get_clean();
-}
-add_shortcode('ufclas-video-full-width', 'ufclas_ufl_2015_video_full_width');
-
-

@@ -32,16 +32,12 @@ class UFL_2015_Image_Right_Quote extends WP_Widget {
 		$text = ( !empty( $instance['text'] ) )? $instance['text'] : '';
 		$text = apply_filters( 'widget_text', $text, $instance, $this );
 		$image = ( !empty( $instance['image'] ) )? $instance['image'] : '';
-		$caption = ( !empty( $instance['caption'] ) )? $instance['caption'] : '';
-		$credit = ( !empty( $instance['credit'] ) )? $instance['credit'] : '';
 
 		echo $args['before_widget'];
 		
 		echo do_shortcode( sprintf(
-			'[ufl-image-right-quote image="%s" caption="%s" credit="%s"]%s[/ufl-image-right-quote]',
+			'[ufl-image-right-quote image="%s"]%s[/ufl-image-right-quote]',
 			$image,
-			$caption,
-			$credit,
 			$text
 		));
 		
@@ -57,16 +53,11 @@ class UFL_2015_Image_Right_Quote extends WP_Widget {
 		$instance = wp_parse_args( (array) $instance, array( 
 			'title' => '', 
 			'text' => '', 
-			'image' => '', 
-			'caption' => '', 
-			'credit' => '',
+			'image' => '',
 		) );
 		
 		$title = sanitize_text_field( $instance['title'] );
 		$image = ( isset( $instance['image'] ) )? $instance['image'] : '';
-		$caption = sanitize_text_field( $instance['caption'] );
-		$credit = sanitize_text_field( $instance['credit'] );
-		
 		?>
 		<p><label for="<?php echo $this->get_field_id('title'); ?>"><?php _e('Title:', 'ufclas-ufl-2015'); ?></label>
 		<input class="widefat" id="<?php echo $this->get_field_id('title'); ?>" name="<?php echo $this->get_field_name('title'); ?>" type="text" value="<?php echo esc_attr($title); ?>" /></p>
@@ -91,13 +82,7 @@ class UFL_2015_Image_Right_Quote extends WP_Widget {
         </div>
         </p>
         
-        <p><label for="<?php echo $this->get_field_id('caption'); ?>"><?php _e('Image Caption:', 'ufclas-ufl-2015'); ?></label>
-		<input class="widefat" id="<?php echo $this->get_field_id('caption'); ?>" name="<?php echo $this->get_field_name('caption'); ?>" type="text" value="<?php echo esc_attr($caption); ?>" /></p>
-
-		<p><label for="<?php echo $this->get_field_id('credit'); ?>"><?php _e('Image Credit:', 'ufclas-ufl-2015'); ?></label>
-		<input class="widefat" id="<?php echo $this->get_field_id('credit'); ?>" name="<?php echo $this->get_field_name('credit'); ?>" type="text" value="<?php echo esc_attr($credit); ?>" /></p>
-		
-		<?php
+        <?php
 	}
 
 	/**
@@ -116,8 +101,6 @@ class UFL_2015_Image_Right_Quote extends WP_Widget {
 		}
 		
 		$instance['image'] = esc_url_raw( $new_instance['image'] );
-		$instance['caption'] = sanitize_text_field( $new_instance['caption'] );
-		$instance['credit'] = sanitize_text_field( $new_instance['credit'] );
 		
 		return $instance;
 	}
