@@ -49,16 +49,13 @@ function ufclas_ufl_2015_sanitize_choices( $input, $setting ) {
  * @since 0.2.5
  */
 function ufclas_ufl_2015_customize_css() {
-	$theme_mods = wp_parse_args ( get_theme_mods(), array(
-		'background_color' => '',
-		'content_color' => '',
-		'homepage_layout_color' => '',
-		'collapse_sidebar_nav' => 1,
-	) );
+	$theme_mods = get_theme_mods();
+	
 	$custom_css = '';
-	$background_color = ( strpos($theme_mods['background_color'], 'faf8f1') === false )? $theme_mods['background_color'] : '';
-	$content_color = ( strpos($theme_mods['content_color'], 'faf8f1') === false )? $theme_mods['content_color'] : '';
-	$hompage_layout_color = ( strpos($theme_mods['homepage_layout_color'], 'faf8f1') === false )? $theme_mods['homepage_layout_color'] : '';
+	$background_color = ( strpos($theme_mods['background_color'], 'faf8f1') === false )? $theme_mods['background_color'] : false;
+	$content_color = ( strpos($theme_mods['content_color'], 'faf8f1') === false )? $theme_mods['content_color'] : false;
+	$homepage_layout_color = ( strpos($theme_mods['homepage_layout_color'], 'faf8f1') === false )? $theme_mods['homepage_layout_color'] : false;
+	$collapse_sidebar_nav = ( isset($theme_mods['collapse_sidebar_nav']) )? $theme_mods['collapse_sidebar_nav'] : 1;
 	
 	// Custom background color
 	if ( !empty($background_color) ) {
@@ -76,7 +73,7 @@ function ufclas_ufl_2015_customize_css() {
   	}
 	
 	// Custom css for sidenav
-	if ( $theme_mods['collapse_sidebar_nav'] ) {
+	if ( $collapse_sidebar_nav ) {
 		$custom_css  .= '.sidenav .page_item_has_children .children {display: none;} ';	
   	}
 	
@@ -213,7 +210,7 @@ function ufclas_ufl_2015_customize_register( $wp_customize ) {
 	));
 	$wp_customize->add_control( 
 		new WP_Customize_Color_Control( $wp_customize, 'homepage_layout_color', array(
-			'label' => __('Homepage Widgets Background', 'ufclas-ufl-2015'),
+			'label' => __('Homepage Widgets Background Color', 'ufclas-ufl-2015'),
 			'section' => 'theme_options_homepage',
 			'settings' => 'homepage_layout_color',
 		)
