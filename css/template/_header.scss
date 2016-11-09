@@ -349,8 +349,8 @@ form.search-wrap,.btn-show-aux, .btn-menu,.btn-search-mobile {
 			border: none;
 		}
 		@include breakFirst(wide){
-			width: 14.285714286%;
-			width: calc(100% / 7);
+			//width: 14.285714286%;
+			min-width: calc(99.9% / 7);
 		}
 		&:first-child {
 			border: none;

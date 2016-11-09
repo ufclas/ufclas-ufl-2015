@@ -8,15 +8,23 @@
 get_header(); ?>
 <?php 
 	if ( has_post_thumbnail() ):
-		$shortcode = sprintf( '[ufclas-landing-page-hero-full image="%d" image_height="half"][/ufclas-landing-page-hero-full]', 
-			get_post_thumbnail_id()
+		$shortcode = sprintf( '[ufl-landing-page-hero headline="%s" image="%d" image_height="%s"]%s[/ufl-landing-page-hero]', 
+			get_the_title(),
+			get_post_thumbnail_id(),
+            'half',
+			''
 		);
 		echo do_shortcode( $shortcode );
 	endif;
 ?>
-<div id="main" class="container">
+<div id="main" class="container full-width-content">
     <div class="row">
         <div class="col-sm-12">
+            <?php 
+				if ( ! has_post_thumbnail() ): 
+					the_title( '<h1 class="entry-title">', '</h1>' );
+				endif;
+			?>
 			
 			<?php while ( have_posts() ) : the_post(); ?>
 	
@@ -26,6 +34,7 @@ get_header(); ?>
 
         </div>
     </div>
+    <?php get_sidebar('page_sections'); ?>
 </div>
 
 <?php get_footer(); ?>

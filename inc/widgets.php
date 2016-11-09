@@ -1,4 +1,15 @@
 <?php 
+
+// Include theme widgets
+require get_stylesheet_directory() . '/inc/widgets/widget-landing-page-hero.php';
+require get_stylesheet_directory() . '/inc/widgets/widget-landing-page-double.php';
+require get_stylesheet_directory() . '/inc/widgets/widget-breaker.php';
+require get_stylesheet_directory() . '/inc/widgets/widget-breaker-cards.php';
+require get_stylesheet_directory() . '/inc/widgets/widget-content-image-left.php';
+require get_stylesheet_directory() . '/inc/widgets/widget-content-image-right.php';
+require get_stylesheet_directory() . '/inc/widgets/widget-image-right-quote.php';
+
+
 /**
  * Get the number of widget in a specific sidebar
  * 
@@ -48,8 +59,6 @@ function ufclas_ufl_2015_widgets_init() {
 		'before_title'  => '<h2 class="widget-title">',
 		'after_title'   => '</h2>',
 	) );
-	
-	if ( $homepage_layout=='3c-default' || $homepage_layout=='3c-thirds'  || $homepage_layout=='1c-100-2c-half' ) {
 	register_sidebar( array(
 		'name'          => esc_html__( 'Home Middle', 'ufclas-ufl-2015' ),
 		'id'            => 'home_middle',
@@ -59,8 +68,6 @@ function ufclas_ufl_2015_widgets_init() {
 		'before_title'  => '<h2 class="widget-title">',
 		'after_title'   => '</h2>',
 	) );
-	}
-	
 	register_sidebar( array(
 		'name'          => esc_html__( 'Home Right', 'ufclas-ufl-2015' ),
 		'id'            => 'home_right',
@@ -136,6 +143,33 @@ function ufclas_ufl_2015_widgets_init() {
 		'before_title'  => '<h2 class="widget-title">',
 		'after_title'   => '</h2>',
 	) );
+	register_sidebar( array(
+		'name'          => esc_html__( 'Home Page Sections', 'ufclas-ufl-2015' ),
+		'id'            => 'home_page_sections',
+		'description'   => '',
+		'before_widget' => '<aside id="%1$s" class="widget %2$s">',
+		'after_widget'  => '</aside>',
+		'before_title'  => '<h2 class="widget-title">',
+		'after_title'   => '</h2>',
+	) );
+	register_sidebar( array(
+		'name'          => esc_html__( 'Page Sections', 'ufclas-ufl-2015' ),
+		'id'            => 'page_sections',
+		'description'   => '',
+		'before_widget' => '<aside id="%1$s" class="widget %2$s">',
+		'after_widget'  => '</aside>',
+		'before_title'  => '<h2 class="widget-title">',
+		'after_title'   => '</h2>',
+	) );
+	
+	// Register theme widgets
+	register_widget( 'UFL_2015_Landing_Page_Hero' );
+	register_widget( 'UFL_2015_Landing_Page_Double' );
+	register_widget( 'UFL_2015_Breaker' );
+	register_widget( 'UFL_2015_Breaker_Cards' );
+	register_widget( 'UFL_2015_Content_Image_Left' );
+	register_widget( 'UFL_2015_Content_Image_Right' );
+	register_widget( 'UFL_2015_Image_Right_Quote' );
 }
 add_action( 'widgets_init', 'ufclas_ufl_2015_widgets_init' );
 
@@ -218,3 +252,22 @@ function ufandshands_secondary_widget_area() {
 	break;
 	}
 }
+
+/**
+ * Add Image upload scripts for widgets 
+ *
+ * @link https://wpshed.com/wordpress/image-upload-widget/
+ * @since 0.4.0
+ */
+function ufclas_ufl_2015_image_upload_scripts() {
+	global $pagenow, $wp_customize;
+
+	if ( 'widgets.php' === $pagenow || isset( $wp_customize ) ) {
+
+		wp_enqueue_media();
+		wp_enqueue_script( 'wpshed-image-upload', get_stylesheet_directory_uri() . '/inc/image-upload/upload.js', array( 'jquery' ) );
+		wp_enqueue_style( 'wpshed-image-upload',  get_stylesheet_directory_uri() . '/inc/image-upload/upload.css' );
+
+	}
+}
+add_action( 'admin_enqueue_scripts', 'ufclas_ufl_2015_image_upload_scripts' );

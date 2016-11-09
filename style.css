@@ -5,11 +5,11 @@ Theme URI: https://it.clas.ufl.edu/services/web-services/
 Author: Priscilla Chapman (CLAS IT)
 Author URI: https://it.clas.ufl.edu/
 Description: Official UF template for Liberal Arts and Sciences. Based on 160 over 90 template.
-Version: 0.3.7
+Version: 0.4.0
 License: GNU General Public License v2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 Text Domain: ufclas-ufl-2015
-Build Date: 20161028
+Build Date: 20161109
 */
 html, body, div, span, applet, object, iframe,
 h1, h2, h3, .kicker, .gform_wrapper .gform_heading .gform_description, .single-article .entry-content p.lead, .featured-story h2, .single-article #secondary h2, h4, h5, dt, h6, p, blockquote, pre,
@@ -17,7 +17,7 @@ a, abbr, acronym, address, big, cite, code,
 del, dfn, em, img, ins, kbd, q, s, samp,
 small, strike, strong, sub, sup, tt, var,
 b, u, i, center,
-dl, dt, dd, ol, ul, li,
+dl, dt, dd, ol, ul, .entry-content ol, .wp-editor ol, li,
 fieldset, form, label, legend,
 table, caption, tbody, tfoot, thead, tr, th, td,
 article, aside, canvas, details, embed,
@@ -34,7 +34,7 @@ time, mark, audio, video {
 body {
   line-height: 1; }
 
-ol, ul {
+ol, ul, .entry-content ol, .wp-editor ol {
   list-style: none; }
 
 blockquote, q {
@@ -704,50 +704,50 @@ UF Branding Fonts
 ----------------------------*/
 @font-face {
   font-family: 'quadon';
-  src: url("fonts/rene_bieder_-_quadon_medium-webfont.eot");
-  src: url("fonts/rene_bieder_-_quadon_medium-webfont.eot?#iefix") format("embedded-opentype"), url("fonts/rene_bieder_-_quadon_medium-webfont.woff") format("woff"), url("fonts/rene_bieder_-_quadon_medium-webfont.ttf") format("truetype"), url("fonts/rene_bieder_-_quadon_medium-webfont.svg#quadon") format("svg");
+  src: url("//assets.webadmin.ufl.edu/fonts/files/quadon_medium-webfont.eot");
+  src: url("//assets.webadmin.ufl.edu/fonts/files/quadon_medium-webfont.eot?#iefix") format("embedded-opentype"), url("//assets.webadmin.ufl.edu/fonts/files/quadon_medium-webfont.woff") format("woff"), url("//assets.webadmin.ufl.edu/fonts/files/quadon_medium-webfont.ttf") format("truetype"), url("//assets.webadmin.ufl.edu/fonts/files/quadon_medium-webfont.svg#quadon") format("svg");
   font-weight: 500;
   font-style: normal; }
 @font-face {
   font-family: 'quadon';
-  src: url("fonts/rene_bieder_-_quadon_extrabolditalic-webfont.eot");
-  src: url("fonts/rene_bieder_-_quadon_extrabolditalic-webfont.eot?#iefix") format("embedded-opentype"), url("fonts/rene_bieder_-_quadon_extrabolditalic-webfont.woff") format("woff"), url("fonts/rene_bieder_-_quadon_extrabolditalic-webfont.ttf") format("truetype"), url("fonts/rene_bieder_-_quadon_extrabolditalic-webfont.svg#quadon") format("svg");
+  src: url("//assets.webadmin.ufl.edu/fonts/files/gentona_heavy_italic-webfont.eot");
+  src: url("//assets.webadmin.ufl.edu/fonts/files/gentona_heavy_italic-webfont.eot?#iefix") format("embedded-opentype"), url("//assets.webadmin.ufl.edu/fonts/files/gentona_heavy_italic-webfont.woff") format("woff"), url("//assets.webadmin.ufl.edu/fonts/files/gentona_heavy_italic-webfont.ttf") format("truetype"), url("//assets.webadmin.ufl.edu/fonts/files/gentona_heavy_italic-webfont.svg#quadon") format("svg");
   font-weight: 800;
   font-style: italic; }
 @font-face {
   font-family: 'gentona';
-  src: url("fonts/rene_bieder_-_gentona_bold-webfont.eot");
-  src: url("fonts/rene_bieder_-_gentona_bold-webfont.eot?#iefix") format("embedded-opentype"), url("fonts/rene_bieder_-_gentona_bold-webfont.woff") format("woff"), url("fonts/rene_bieder_-_gentona_bold-webfont.ttf") format("truetype"), url("fonts/rene_bieder_-_gentona_bold-webfont.svg#gentona") format("svg");
+  src: url("//assets.webadmin.ufl.edu/fonts/files/gentona_extrabold-webfont.eot");
+  src: url("//assets.webadmin.ufl.edu/fonts/files/gentona_extrabold-webfont.eot?#iefix") format("embedded-opentype"), url("//assets.webadmin.ufl.edu/fonts/files/gentona_extrabold-webfont.woff") format("woff"), url("//assets.webadmin.ufl.edu/fonts/files/gentona_extrabold-webfont.ttf") format("truetype"), url("//assets.webadmin.ufl.edu/fonts/files/gentona_extrabold-webfont.svg#gentona") format("svg");
   font-weight: 700;
   font-style: normal; }
 @font-face {
   font-family: 'gentona';
-  src: url("fonts/rene_bieder_-_gentona_medium-webfont.eot");
-  src: url("fonts/rene_bieder_-_gentona_medium-webfont.eot?#iefix") format("embedded-opentype"), url("fonts/rene_bieder_-_gentona_medium-webfont.woff") format("woff"), url("fonts/rene_bieder_-_gentona_medium-webfont.ttf") format("truetype"), url("fonts/rene_bieder_-_gentona_medium-webfont.svg#gentona") format("svg");
+  src: url("//assets.webadmin.ufl.edu/fonts/files/gentona_medium-webfont.eot");
+  src: url("//assets.webadmin.ufl.edu/fonts/files/gentona_medium-webfont.eot?#iefix") format("embedded-opentype"), url("//assets.webadmin.ufl.edu/fonts/files/gentona_medium-webfont.woff") format("woff"), url("//assets.webadmin.ufl.edu/fonts/files/gentona_medium-webfont.ttf") format("truetype"), url("//assets.webadmin.ufl.edu/fonts/files/gentona_medium-webfont.svg#gentona") format("svg");
   font-weight: 500;
   font-style: normal; }
 @font-face {
   font-family: 'gentona';
-  src: url("fonts/rene_bieder_-_gentona_light-webfont.eot");
-  src: url("fonts/rene_bieder_-_gentona_light-webfont.eot?#iefix") format("embedded-opentype"), url("fonts/rene_bieder_-_gentona_light-webfont.woff") format("woff"), url("fonts/rene_bieder_-_gentona_light-webfont.ttf") format("truetype"), url("fonts/rene_bieder_-_gentona_light-webfont.svg#gentona") format("svg");
+  src: url("//assets.webadmin.ufl.edu/fonts/files/gentona_light-webfont.eot");
+  src: url("//assets.webadmin.ufl.edu/fonts/files/gentona_light-webfont.eot?#iefix") format("embedded-opentype"), url("//assets.webadmin.ufl.edu/fonts/files/gentona_light-webfont.woff") format("woff"), url("//assets.webadmin.ufl.edu/fonts/files/gentona_light-webfont.ttf") format("truetype"), url("//assets.webadmin.ufl.edu/fonts/files/gentona_light-webfont.svg#gentona") format("svg");
   font-weight: 100;
   font-style: normal; }
 @font-face {
   font-family: 'gentona';
-  src: url("fonts/rene_bieder_-_gentona_light_italic-webfont.eot");
-  src: url("fonts/rene_bieder_-_gentona_light_italic-webfont.eot?#iefix") format("embedded-opentype"), url("fonts/rene_bieder_-_gentona_light_italic-webfont.woff") format("woff"), url("fonts/rene_bieder_-_gentona_light_italic-webfont.ttf") format("truetype"), url("fonts/rene_bieder_-_gentona_light_italic-webfont.svg#gentona") format("svg");
+  src: url("//assets.webadmin.ufl.edu/fonts/files/gentona_light_italic-webfont.eot");
+  src: url("//assets.webadmin.ufl.edu/fonts/files/gentona_light_italic-webfont.eot?#iefix") format("embedded-opentype"), url("//assets.webadmin.ufl.edu/fonts/files/gentona_light_italic-webfont.woff") format("woff"), url("//assets.webadmin.ufl.edu/fonts/files/gentona_light_italic-webfont.ttf") format("truetype"), url("//assets.webadmin.ufl.edu/fonts/files/gentona_light_italic-webfont.svg#gentona") format("svg");
   font-weight: 100;
   font-style: italic; }
 @font-face {
   font-family: 'gentona';
-  src: url("fonts/rene_bieder_-_gentona_heavy-webfont.eot");
-  src: url("fonts/rene_bieder_-_gentona_heavy-webfont.eot?#iefix") format("embedded-opentype"), url("fonts/rene_bieder_-_gentona_heavy-webfont.woff") format("woff"), url("fonts/rene_bieder_-_gentona_heavy-webfont.ttf") format("truetype"), url("fonts/rene_bieder_-_gentona_heavy-webfont.svg#gentona") format("svg");
+  src: url("//assets.webadmin.ufl.edu/fonts/files/gentona_heavy-webfont.eot");
+  src: url("//assets.webadmin.ufl.edu/fonts/files/gentona_heavy-webfont.eot?#iefix") format("embedded-opentype"), url("//assets.webadmin.ufl.edu/fonts/files/gentona_heavy-webfont.woff") format("woff"), url("//assets.webadmin.ufl.edu/fonts/files/gentona_heavy-webfont.ttf") format("truetype"), url("//assets.webadmin.ufl.edu/fonts/files/gentona_heavy-webfont.svg#gentona") format("svg");
   font-weight: 800;
   font-style: normal; }
 @font-face {
   font-family: 'gentona';
-  src: url("fonts/rene_bieder_-_gentona_heavy_italic-webfont.eot");
-  src: url("fonts/rene_bieder_-_gentona_heavy_italic-webfont.eot?#iefix") format("embedded-opentype"), url("fonts/rene_bieder_-_gentona_heavy_italic-webfont.woff") format("woff"), url("fonts/rene_bieder_-_gentona_heavy_italic-webfont.ttf") format("truetype"), url("fonts/rene_bieder_-_gentona_heavy_italic-webfont.svg#gentona") format("svg");
+  src: url("//assets.webadmin.ufl.edu/fonts/files/gentona_heavy_italic-webfont.eot");
+  src: url("//assets.webadmin.ufl.edu/fonts/files/gentona_heavy_italic-webfont.eot?#iefix") format("embedded-opentype"), url("//assets.webadmin.ufl.edu/fonts/files/gentona_heavy_italic-webfont.woff") format("woff"), url("//assets.webadmin.ufl.edu/fonts/files/gentona_heavy_italic-webfont.ttf") format("truetype"), url("//assets.webadmin.ufl.edu/fonts/files/gentona_heavy_italic-webfont.svg#gentona") format("svg");
   font-weight: 800;
   font-style: italic; }
 body {
@@ -873,15 +873,15 @@ blockquote {
   font: 500 20px/32px "quadon", "Helvetica Neue", Helvetica, Arial, sans-serif;
   margin: 0 0 20px 30px; }
 
-p, ul, ol, dl {
+p, ul, .entry-content ol, .wp-editor ol, ol, dl {
   margin: 0 0 20px; }
 
-ul, ol {
+ul, .entry-content ol, .wp-editor ol, ol {
   margin-left: 30px; }
-  ul li, ol li {
+  ul li, .entry-content ol li, .wp-editor ol li, ol li {
     margin-bottom: 10px;
     text-transform: uppercase; }
-    ul li:before, ol li:before {
+    ul li:before, .entry-content ol li:before, .wp-editor ol li:before, ol li:before {
       content: "• ";
       color: #f37021;
       margin-right: 5px; }
@@ -1001,45 +1001,45 @@ img {
 
 .big-list-wrap {
   margin-bottom: 30px; }
-  .big-list-wrap .big-list, .big-list-wrap .sidenav, .big-list-wrap .single-article #secondary .widget ul, .single-article #secondary .widget .big-list-wrap ul {
+  .big-list-wrap .big-list, .big-list-wrap .sidenav, .big-list-wrap .single-article #secondary .widget ul, .single-article #secondary .widget .big-list-wrap ul, .big-list-wrap .single-article #secondary .widget .entry-content ol, .single-article #secondary .widget .entry-content .big-list-wrap ol, .big-list-wrap .entry-content .single-article #secondary .widget ol, .entry-content .single-article #secondary .widget .big-list-wrap ol, .big-list-wrap .single-article #secondary .widget .wp-editor ol, .single-article #secondary .widget .wp-editor .big-list-wrap ol, .big-list-wrap .wp-editor .single-article #secondary .widget ol, .wp-editor .single-article #secondary .widget .big-list-wrap ol {
     margin: 0; }
 
-.big-list, .sidenav, .single-article #secondary .widget ul {
+.big-list, .sidenav, .single-article #secondary .widget ul, .single-article #secondary .widget .entry-content ol, .entry-content .single-article #secondary .widget ol, .single-article #secondary .widget .wp-editor ol, .wp-editor .single-article #secondary .widget ol {
   margin-left: 0; }
-  .open-list .big-list li, .open-list .sidenav li, .open-list .single-article #secondary .widget ul li, .single-article #secondary .widget .open-list ul li, .big-list.open-list li, .open-list.sidenav li, .single-article #secondary .widget ul.open-list li, .big-list.show-mobile li, .show-mobile.sidenav li, .single-article #secondary .widget ul.show-mobile li {
+  .open-list .big-list li, .open-list .sidenav li, .open-list .single-article #secondary .widget ul li, .single-article #secondary .widget .open-list ul li, .open-list .single-article #secondary .widget .entry-content ol li, .single-article #secondary .widget .entry-content .open-list ol li, .open-list .entry-content .single-article #secondary .widget ol li, .entry-content .single-article #secondary .widget .open-list ol li, .open-list .single-article #secondary .widget .wp-editor ol li, .single-article #secondary .widget .wp-editor .open-list ol li, .open-list .wp-editor .single-article #secondary .widget ol li, .wp-editor .single-article #secondary .widget .open-list ol li, .big-list.open-list li, .open-list.sidenav li, .single-article #secondary .widget ul.open-list li, .single-article #secondary .widget .entry-content ol.open-list li, .entry-content .single-article #secondary .widget ol.open-list li, .single-article #secondary .widget .wp-editor ol.open-list li, .wp-editor .single-article #secondary .widget ol.open-list li, .big-list.show-mobile li, .show-mobile.sidenav li, .single-article #secondary .widget ul.show-mobile li, .single-article #secondary .widget .entry-content ol.show-mobile li, .entry-content .single-article #secondary .widget ol.show-mobile li, .single-article #secondary .widget .wp-editor ol.show-mobile li, .wp-editor .single-article #secondary .widget ol.show-mobile li {
     display: block; }
   @media (max-width: 992px) {
-    .big-list.show-mobile, .show-mobile.sidenav, .single-article #secondary .widget ul.show-mobile {
+    .big-list.show-mobile, .show-mobile.sidenav, .single-article #secondary .widget ul.show-mobile, .single-article #secondary .widget .entry-content ol.show-mobile, .entry-content .single-article #secondary .widget ol.show-mobile, .single-article #secondary .widget .wp-editor ol.show-mobile, .wp-editor .single-article #secondary .widget ol.show-mobile {
       margin: 0; } }
-  .big-list li, .sidenav li, .single-article #secondary .widget ul li {
+  .big-list li, .sidenav li, .single-article #secondary .widget ul li, .single-article #secondary .widget .entry-content ol li, .entry-content .single-article #secondary .widget ol li, .single-article #secondary .widget .wp-editor ol li, .wp-editor .single-article #secondary .widget ol li {
     display: none;
     margin: 0;
     text-transform: uppercase; }
     @media (min-width: 768px) {
-      .big-list li, .sidenav li, .single-article #secondary .widget ul li {
+      .big-list li, .sidenav li, .single-article #secondary .widget ul li, .single-article #secondary .widget .entry-content ol li, .entry-content .single-article #secondary .widget ol li, .single-article #secondary .widget .wp-editor ol li, .wp-editor .single-article #secondary .widget ol li {
         display: block; } }
-    .big-list li:before, .sidenav li:before, .single-article #secondary .widget ul li:before {
+    .big-list li:before, .sidenav li:before, .single-article #secondary .widget ul li:before, .single-article #secondary .widget .entry-content ol li:before, .entry-content .single-article #secondary .widget ol li:before, .single-article #secondary .widget .wp-editor ol li:before, .wp-editor .single-article #secondary .widget ol li:before {
       display: none; }
-    .big-list li.btn-mobile-toggle, .sidenav li.btn-mobile-toggle, .single-article #secondary .widget ul li.btn-mobile-toggle {
+    .big-list li.btn-mobile-toggle, .sidenav li.btn-mobile-toggle, .single-article #secondary .widget ul li.btn-mobile-toggle, .single-article #secondary .widget .entry-content ol li.btn-mobile-toggle, .entry-content .single-article #secondary .widget ol li.btn-mobile-toggle, .single-article #secondary .widget .wp-editor ol li.btn-mobile-toggle, .wp-editor .single-article #secondary .widget ol li.btn-mobile-toggle {
       display: block; }
       @media (min-width: 768px) {
-        .big-list li.btn-mobile-toggle, .sidenav li.btn-mobile-toggle, .single-article #secondary .widget ul li.btn-mobile-toggle {
+        .big-list li.btn-mobile-toggle, .sidenav li.btn-mobile-toggle, .single-article #secondary .widget ul li.btn-mobile-toggle, .single-article #secondary .widget .entry-content ol li.btn-mobile-toggle, .entry-content .single-article #secondary .widget ol li.btn-mobile-toggle, .single-article #secondary .widget .wp-editor ol li.btn-mobile-toggle, .wp-editor .single-article #secondary .widget ol li.btn-mobile-toggle {
           display: none; } }
-  .big-list a, .sidenav a, .single-article #secondary .widget ul a {
+  .big-list a, .sidenav a, .single-article #secondary .widget ul a, .single-article #secondary .widget .entry-content ol a, .entry-content .single-article #secondary .widget ol a, .single-article #secondary .widget .wp-editor ol a, .wp-editor .single-article #secondary .widget ol a {
     display: block;
     font: 500 18px/26px "gentona", "Georgia", serif;
     letter-spacing: 2px;
     padding: 18px 62px 18px 20px;
     position: relative; }
     @media (min-width: 768px) {
-      .big-list a, .sidenav a, .single-article #secondary .widget ul a {
+      .big-list a, .sidenav a, .single-article #secondary .widget ul a, .single-article #secondary .widget .entry-content ol a, .entry-content .single-article #secondary .widget ol a, .single-article #secondary .widget .wp-editor ol a, .wp-editor .single-article #secondary .widget ol a {
         padding-left: 34px; } }
-  .no-touch .big-list a:hover, .no-touch .sidenav a:hover, .no-touch .single-article #secondary .widget ul a:hover, .single-article #secondary .widget .no-touch ul a:hover {
+  .no-touch .big-list a:hover, .no-touch .sidenav a:hover, .no-touch .single-article #secondary .widget ul a:hover, .single-article #secondary .widget .no-touch ul a:hover, .no-touch .single-article #secondary .widget .entry-content ol a:hover, .single-article #secondary .widget .entry-content .no-touch ol a:hover, .no-touch .entry-content .single-article #secondary .widget ol a:hover, .entry-content .single-article #secondary .widget .no-touch ol a:hover, .no-touch .single-article #secondary .widget .wp-editor ol a:hover, .single-article #secondary .widget .wp-editor .no-touch ol a:hover, .no-touch .wp-editor .single-article #secondary .widget ol a:hover, .wp-editor .single-article #secondary .widget .no-touch ol a:hover {
     background: #f37021;
     color: #fff; }
-    .no-touch .big-list a:hover .arw-right, .no-touch .sidenav a:hover .arw-right, .no-touch .single-article #secondary .widget ul a:hover .arw-right, .single-article #secondary .widget .no-touch ul a:hover .arw-right {
+    .no-touch .big-list a:hover .arw-right, .no-touch .sidenav a:hover .arw-right, .no-touch .single-article #secondary .widget ul a:hover .arw-right, .single-article #secondary .widget .no-touch ul a:hover .arw-right, .no-touch .single-article #secondary .widget .entry-content ol a:hover .arw-right, .single-article #secondary .widget .entry-content .no-touch ol a:hover .arw-right, .no-touch .entry-content .single-article #secondary .widget ol a:hover .arw-right, .entry-content .single-article #secondary .widget .no-touch ol a:hover .arw-right, .no-touch .single-article #secondary .widget .wp-editor ol a:hover .arw-right, .single-article #secondary .widget .wp-editor .no-touch ol a:hover .arw-right, .no-touch .wp-editor .single-article #secondary .widget ol a:hover .arw-right, .wp-editor .single-article #secondary .widget .no-touch ol a:hover .arw-right {
       display: block; }
-  .big-list .arw-right, .sidenav .arw-right, .single-article #secondary .widget ul .arw-right {
+  .big-list .arw-right, .sidenav .arw-right, .single-article #secondary .widget ul .arw-right, .single-article #secondary .widget .entry-content ol .arw-right, .entry-content .single-article #secondary .widget ol .arw-right, .single-article #secondary .widget .wp-editor ol .arw-right, .wp-editor .single-article #secondary .widget ol .arw-right {
     background: #dd661e;
     color: #fff;
     display: none;
@@ -1048,10 +1048,10 @@ img {
     right: 0;
     top: 0;
     width: 62px; }
-    .big-list .arw-right svg, .sidenav .arw-right svg, .single-article #secondary .widget ul .arw-right svg {
+    .big-list .arw-right svg, .sidenav .arw-right svg, .single-article #secondary .widget ul .arw-right svg, .single-article #secondary .widget .entry-content ol .arw-right svg, .entry-content .single-article #secondary .widget ol .arw-right svg, .single-article #secondary .widget .wp-editor ol .arw-right svg, .wp-editor .single-article #secondary .widget ol .arw-right svg {
       height: 14px;
       width: 18px; }
-  .big-list .btn-mobile-toggle a svg, .sidenav .btn-mobile-toggle a svg, .single-article #secondary .widget ul .btn-mobile-toggle a svg {
+  .big-list .btn-mobile-toggle a svg, .sidenav .btn-mobile-toggle a svg, .single-article #secondary .widget ul .btn-mobile-toggle a svg, .single-article #secondary .widget .entry-content ol .btn-mobile-toggle a svg, .entry-content .single-article #secondary .widget ol .btn-mobile-toggle a svg, .single-article #secondary .widget .wp-editor ol .btn-mobile-toggle a svg, .wp-editor .single-article #secondary .widget ol .btn-mobile-toggle a svg {
     transform: translate(-50%, -50%) rotate(90deg); }
 
 .read-more {
@@ -1085,13 +1085,13 @@ img {
   top: 0;
   left: 0; }
 
-.btn-circle svg, .btn-mobile-toggle a svg, .big-list .arw-right svg, .sidenav .arw-right svg, .single-article #secondary .widget ul .arw-right svg, .styled-select .arw-right svg, :root .uf-check input[type="checkbox"] + div .icon-svg, :root .uf-check input[type="radio"] + div:after, .header .logo img, .btn-search .icon-svg, .btn-menu .icon-svg, .btn-show-aux .icon-svg, .emergency-modal .icon-alert svg, .alert-small .icon-alert svg, .emergency-modal-close .icon-svg, .stat-wrap .stat h2, .stat-wrap .info-copy, .stat-block, .center-vert-all {
+.btn-circle svg, .btn-mobile-toggle a svg, .big-list .arw-right svg, .sidenav .arw-right svg, .single-article #secondary .widget ul .arw-right svg, .single-article #secondary .widget .entry-content ol .arw-right svg, .entry-content .single-article #secondary .widget ol .arw-right svg, .single-article #secondary .widget .wp-editor ol .arw-right svg, .wp-editor .single-article #secondary .widget ol .arw-right svg, .styled-select .arw-right svg, :root .uf-check input[type="checkbox"] + div .icon-svg, :root .uf-check input[type="radio"] + div:after, .header .logo img, .btn-search .icon-svg, .btn-menu .icon-svg, .btn-show-aux .icon-svg, .emergency-modal .icon-alert svg, .alert-small .icon-alert svg, .emergency-modal-close .icon-svg, .stat-wrap .stat h2, .stat-wrap .info-copy, .stat-block, .center-vert-all {
   backface-visibility: hidden;
   position: absolute;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%); }
-  .no-csstransforms .btn-circle svg, .btn-circle .no-csstransforms svg, .no-csstransforms .btn-mobile-toggle a svg, .btn-mobile-toggle a .no-csstransforms svg, .no-csstransforms .big-list .arw-right svg, .big-list .arw-right .no-csstransforms svg, .no-csstransforms .sidenav .arw-right svg, .sidenav .arw-right .no-csstransforms svg, .no-csstransforms .single-article #secondary .widget ul .arw-right svg, .single-article #secondary .widget ul .arw-right .no-csstransforms svg, .no-csstransforms .styled-select .arw-right svg, .styled-select .arw-right .no-csstransforms svg, .no-csstransforms :root .uf-check input[type="checkbox"] + div .icon-svg, :root .uf-check input[type="checkbox"] + div .no-csstransforms .icon-svg, .no-csstransforms :root .uf-check input[type="radio"] + div:after, :root .uf-check .no-csstransforms input[type="radio"] + div:after, .no-csstransforms .header .logo img, .header .logo .no-csstransforms img, .no-csstransforms .btn-search .icon-svg, .btn-search .no-csstransforms .icon-svg, .no-csstransforms .btn-menu .icon-svg, .btn-menu .no-csstransforms .icon-svg, .no-csstransforms .btn-show-aux .icon-svg, .btn-show-aux .no-csstransforms .icon-svg, .no-csstransforms .emergency-modal .icon-alert svg, .emergency-modal .icon-alert .no-csstransforms svg, .no-csstransforms .alert-small .icon-alert svg, .alert-small .icon-alert .no-csstransforms svg, .no-csstransforms .emergency-modal-close .icon-svg, .emergency-modal-close .no-csstransforms .icon-svg, .no-csstransforms .stat-wrap .stat h2, .stat-wrap .stat .no-csstransforms h2, .no-csstransforms .stat-wrap .info-copy, .stat-wrap .no-csstransforms .info-copy, .no-csstransforms .stat-block, .no-csstransforms .center-vert-all {
+  .no-csstransforms .btn-circle svg, .btn-circle .no-csstransforms svg, .no-csstransforms .btn-mobile-toggle a svg, .btn-mobile-toggle a .no-csstransforms svg, .no-csstransforms .big-list .arw-right svg, .big-list .arw-right .no-csstransforms svg, .no-csstransforms .sidenav .arw-right svg, .sidenav .arw-right .no-csstransforms svg, .no-csstransforms .single-article #secondary .widget ul .arw-right svg, .single-article #secondary .widget ul .arw-right .no-csstransforms svg, .no-csstransforms .single-article #secondary .widget .entry-content ol .arw-right svg, .single-article #secondary .widget .entry-content ol .arw-right .no-csstransforms svg, .no-csstransforms .entry-content .single-article #secondary .widget ol .arw-right svg, .entry-content .single-article #secondary .widget ol .arw-right .no-csstransforms svg, .no-csstransforms .single-article #secondary .widget .wp-editor ol .arw-right svg, .single-article #secondary .widget .wp-editor ol .arw-right .no-csstransforms svg, .no-csstransforms .wp-editor .single-article #secondary .widget ol .arw-right svg, .wp-editor .single-article #secondary .widget ol .arw-right .no-csstransforms svg, .no-csstransforms .styled-select .arw-right svg, .styled-select .arw-right .no-csstransforms svg, .no-csstransforms :root .uf-check input[type="checkbox"] + div .icon-svg, :root .uf-check input[type="checkbox"] + div .no-csstransforms .icon-svg, .no-csstransforms :root .uf-check input[type="radio"] + div:after, :root .uf-check .no-csstransforms input[type="radio"] + div:after, .no-csstransforms .header .logo img, .header .logo .no-csstransforms img, .no-csstransforms .btn-search .icon-svg, .btn-search .no-csstransforms .icon-svg, .no-csstransforms .btn-menu .icon-svg, .btn-menu .no-csstransforms .icon-svg, .no-csstransforms .btn-show-aux .icon-svg, .btn-show-aux .no-csstransforms .icon-svg, .no-csstransforms .emergency-modal .icon-alert svg, .emergency-modal .icon-alert .no-csstransforms svg, .no-csstransforms .alert-small .icon-alert svg, .alert-small .icon-alert .no-csstransforms svg, .no-csstransforms .emergency-modal-close .icon-svg, .emergency-modal-close .no-csstransforms .icon-svg, .no-csstransforms .stat-wrap .stat h2, .stat-wrap .stat .no-csstransforms h2, .no-csstransforms .stat-wrap .info-copy, .stat-wrap .no-csstransforms .info-copy, .no-csstransforms .stat-block, .no-csstransforms .center-vert-all {
     position: relative;
     top: 0;
     left: 0; }
@@ -1195,9 +1195,9 @@ form textarea {
   width: 100%; }
   .styled-select:hover {
     color: #f37021; }
-  .no-js .styled-select ul, .styled-select.hover ul {
+  .no-js .styled-select ul, .no-js .styled-select .entry-content ol, .entry-content .no-js .styled-select ol, .no-js .styled-select .wp-editor ol, .wp-editor .no-js .styled-select ol, .styled-select.hover ul, .styled-select.hover .entry-content ol, .entry-content .styled-select.hover ol, .styled-select.hover .wp-editor ol, .wp-editor .styled-select.hover ol {
     display: block; }
-  .styled-select ul {
+  .styled-select ul, .styled-select .entry-content ol, .entry-content .styled-select ol, .styled-select .wp-editor ol, .wp-editor .styled-select ol {
     display: none;
     margin: 0;
     left: 0;
@@ -1545,7 +1545,7 @@ form.search-wrap, .btn-show-aux, .btn-menu, .btn-search-mobile {
       display: block; }
   .menu-wrap a {
     color: #fff; }
-  .menu-wrap ul {
+  .menu-wrap ul, .menu-wrap .entry-content ol, .entry-content .menu-wrap ol, .menu-wrap .wp-editor ol, .wp-editor .menu-wrap ol {
     margin: 0; }
   .menu-wrap li {
     margin: 0; }
@@ -1577,8 +1577,7 @@ form.search-wrap, .btn-show-aux, .btn-menu, .btn-search-mobile {
         border: none; } }
     @media (min-width: 1220px) {
       .main-menu-wrap li {
-        width: 14.285714286%;
-        width: calc(100% / 7); } }
+        min-width: calc(99.9% / 7); } }
     .main-menu-wrap li:first-child {
       border: none; }
     .main-menu-wrap li:nth-child(even) {
@@ -1667,7 +1666,7 @@ form.search-wrap, .btn-show-aux, .btn-menu, .btn-search-mobile {
       text-align: left;
       top: -100px; } }
   @media (min-width: wode) {
-    .aux-menu-wrap ul {
+    .aux-menu-wrap ul, .aux-menu-wrap .entry-content ol, .entry-content .aux-menu-wrap ol, .aux-menu-wrap .wp-editor ol, .wp-editor .aux-menu-wrap ol {
       display: inline-block;
       vertical-align: top; } }
   .aux-menu-wrap li {
@@ -1741,7 +1740,7 @@ form.search-wrap, .btn-show-aux, .btn-menu, .btn-search-mobile {
         position: absolute; } }
     .aux-menu-wrap .audience-nav-wrap > a, .aux-menu-wrap .audience-nav-wrap .arw-right {
       float: left; }
-    .aux-menu-wrap .audience-nav-wrap:hover ul, .aux-menu-wrap .audience-nav-wrap:focus ul {
+    .aux-menu-wrap .audience-nav-wrap:hover ul, .aux-menu-wrap .audience-nav-wrap:hover .entry-content ol, .entry-content .aux-menu-wrap .audience-nav-wrap:hover ol, .aux-menu-wrap .audience-nav-wrap:hover .wp-editor ol, .wp-editor .aux-menu-wrap .audience-nav-wrap:hover ol, .aux-menu-wrap .audience-nav-wrap:focus ul, .aux-menu-wrap .audience-nav-wrap:focus .entry-content ol, .entry-content .aux-menu-wrap .audience-nav-wrap:focus ol, .aux-menu-wrap .audience-nav-wrap:focus .wp-editor ol, .wp-editor .aux-menu-wrap .audience-nav-wrap:focus ol {
       display: block; }
     .aux-menu-wrap .audience-nav-wrap:hover .arw-right, .aux-menu-wrap .audience-nav-wrap:focus .arw-right {
       background: #faf8f1; }
@@ -1762,7 +1761,7 @@ form.search-wrap, .btn-show-aux, .btn-menu, .btn-search-mobile {
         height: 14px;
         transform: translate(-50%, -50%);
         width: 16px; }
-    .aux-menu-wrap .audience-nav-wrap ul {
+    .aux-menu-wrap .audience-nav-wrap ul, .aux-menu-wrap .audience-nav-wrap .entry-content ol, .entry-content .aux-menu-wrap .audience-nav-wrap ol, .aux-menu-wrap .audience-nav-wrap .wp-editor ol, .wp-editor .aux-menu-wrap .audience-nav-wrap ol {
       background: #faf8f1;
       display: none;
       left: 0;
@@ -1770,16 +1769,16 @@ form.search-wrap, .btn-show-aux, .btn-menu, .btn-search-mobile {
       top: 100%;
       width: 100%;
       z-index: 1000; }
-      .aux-menu-wrap .audience-nav-wrap ul li {
+      .aux-menu-wrap .audience-nav-wrap ul li, .aux-menu-wrap .audience-nav-wrap .entry-content ol li, .entry-content .aux-menu-wrap .audience-nav-wrap ol li, .aux-menu-wrap .audience-nav-wrap .wp-editor ol li, .wp-editor .aux-menu-wrap .audience-nav-wrap ol li {
         border-top: 1px solid #fff;
         float: none;
         width: 100%; }
-        .aux-menu-wrap .audience-nav-wrap ul li:first-child {
+        .aux-menu-wrap .audience-nav-wrap ul li:first-child, .aux-menu-wrap .audience-nav-wrap .entry-content ol li:first-child, .entry-content .aux-menu-wrap .audience-nav-wrap ol li:first-child, .aux-menu-wrap .audience-nav-wrap .wp-editor ol li:first-child, .wp-editor .aux-menu-wrap .audience-nav-wrap ol li:first-child {
           border: none; }
-      .aux-menu-wrap .audience-nav-wrap ul a {
+      .aux-menu-wrap .audience-nav-wrap ul a, .aux-menu-wrap .audience-nav-wrap .entry-content ol a, .entry-content .aux-menu-wrap .audience-nav-wrap ol a, .aux-menu-wrap .audience-nav-wrap .wp-editor ol a, .wp-editor .aux-menu-wrap .audience-nav-wrap ol a {
         text-align: left;
         text-transform: none; }
-        .aux-menu-wrap .audience-nav-wrap ul a:hover {
+        .aux-menu-wrap .audience-nav-wrap ul a:hover, .aux-menu-wrap .audience-nav-wrap .entry-content ol a:hover, .entry-content .aux-menu-wrap .audience-nav-wrap ol a:hover, .aux-menu-wrap .audience-nav-wrap .wp-editor ol a:hover, .wp-editor .aux-menu-wrap .audience-nav-wrap ol a:hover {
           background: #eae5d7; }
     .aux-menu-wrap .audience-nav-wrap a {
       color: #00529b;
@@ -1812,7 +1811,7 @@ form.search-wrap, .btn-show-aux, .btn-menu, .btn-search-mobile {
   .offscreen .dropdown {
     left: auto;
     right: 0; }
-  .dropdown ul {
+  .dropdown ul, .dropdown .entry-content ol, .entry-content .dropdown ol, .dropdown .wp-editor ol, .wp-editor .dropdown ol {
     margin: 0; }
   .dropdown li {
     float: none;
@@ -1872,7 +1871,7 @@ form.search-wrap, .btn-show-aux, .btn-menu, .btn-search-mobile {
       color: #00529b;
       display: block;
       padding: 15px; }
-  .mobile-dropdown-wrap ul {
+  .mobile-dropdown-wrap ul, .mobile-dropdown-wrap .entry-content ol, .entry-content .mobile-dropdown-wrap ol, .mobile-dropdown-wrap .wp-editor ol, .wp-editor .mobile-dropdown-wrap ol {
     border-top: 1px solid #eae5d7;
     margin: 0 15px;
     padding: 0; }
@@ -2020,7 +2019,7 @@ form.search-wrap, .btn-show-aux, .btn-menu, .btn-search-mobile {
       padding-left: 15px;
       padding-right: 15px; } }
   @media (max-width: 767px) {
-    .footer-menu.open ul {
+    .footer-menu.open ul, .footer-menu.open .entry-content ol, .entry-content .footer-menu.open ol, .footer-menu.open .wp-editor ol, .wp-editor .footer-menu.open ol {
       display: block;
       margin-bottom: 20px; } }
   @media (max-width: 767px) {
@@ -2030,15 +2029,15 @@ form.search-wrap, .btn-show-aux, .btn-menu, .btn-search-mobile {
   .footer-menu.open h2 .icon-caret {
     margin-top: 8px;
     transform: rotate(-90deg); }
-  .footer-menu ul {
+  .footer-menu ul, .footer-menu .entry-content ol, .entry-content .footer-menu ol, .footer-menu .wp-editor ol, .wp-editor .footer-menu ol {
     display: none;
     margin: 0; }
     @media (min-width: 768px) {
-      .footer-menu ul {
+      .footer-menu ul, .footer-menu .entry-content ol, .entry-content .footer-menu ol, .footer-menu .wp-editor ol, .wp-editor .footer-menu ol {
         display: block; } }
-    .footer-menu ul li {
+    .footer-menu ul li, .footer-menu .entry-content ol li, .entry-content .footer-menu ol li, .footer-menu .wp-editor ol li, .wp-editor .footer-menu ol li {
       margin: 0; }
-      .footer-menu ul li:before {
+      .footer-menu ul li:before, .footer-menu .entry-content ol li:before, .entry-content .footer-menu ol li:before, .footer-menu .wp-editor ol li:before, .wp-editor .footer-menu ol li:before {
         display: none; }
   .footer-menu h2 {
     border-top: 1px solid #d4edec;
@@ -2268,7 +2267,7 @@ form.search-wrap, .btn-show-aux, .btn-menu, .btn-search-mobile {
     font: 700px 22px/26px "gentona", "Georgia", serif;
     margin: 0 !important;
     padding: 10px 20px; }
-  .resources-wrap ul {
+  .resources-wrap ul, .resources-wrap .entry-content ol, .entry-content .resources-wrap ol, .resources-wrap .wp-editor ol, .wp-editor .resources-wrap ol {
     margin: 0; }
   .resources-wrap li {
     margin: 0; }
@@ -3212,7 +3211,7 @@ form.search-wrap, .btn-show-aux, .btn-menu, .btn-search-mobile {
     .majors-list a:hover {
       color: #f37021; }
 
-.filter-wrap.open ul {
+.filter-wrap.open ul, .filter-wrap.open .entry-content ol, .entry-content .filter-wrap.open ol, .filter-wrap.open .wp-editor ol, .wp-editor .filter-wrap.open ol {
   display: block; }
 .filter-wrap.open h2 {
   margin: 0 0 5px; }
@@ -3230,7 +3229,7 @@ form.search-wrap, .btn-show-aux, .btn-menu, .btn-search-mobile {
       line-height: 16px;
       padding: 22px 0;
       text-align: center; } }
-.filter-wrap ul {
+.filter-wrap ul, .filter-wrap .entry-content ol, .entry-content .filter-wrap ol, .filter-wrap .wp-editor ol, .wp-editor .filter-wrap ol {
   margin: 0; }
 .filter-wrap li {
   margin-bottom: 10px; }
@@ -3248,24 +3247,24 @@ form.search-wrap, .btn-show-aux, .btn-menu, .btn-search-mobile {
   .filter-wrap a:hover, .filter-wrap a.active {
     background: #4c87b5; }
 
-.sidenav, .single-article #secondary .widget ul {
+.sidenav, .single-article #secondary .widget ul, .single-article #secondary .widget .entry-content ol, .entry-content .single-article #secondary .widget ol, .single-article #secondary .widget .wp-editor ol, .wp-editor .single-article #secondary .widget ol {
   list-style: none;
   margin-bottom: 30px; }
   @media (min-width: 992px) {
-    .sidenav, .single-article #secondary .widget ul {
+    .sidenav, .single-article #secondary .widget ul, .single-article #secondary .widget .entry-content ol, .entry-content .single-article #secondary .widget ol, .single-article #secondary .widget .wp-editor ol, .wp-editor .single-article #secondary .widget ol {
       margin: 0; } }
-  .sidenav ul, .single-article #secondary .widget ul ul {
+  .sidenav ul, .single-article #secondary .widget ul ul, .single-article #secondary .widget .entry-content ol ul, .entry-content .single-article #secondary .widget ol ul, .single-article #secondary .widget .wp-editor ol ul, .wp-editor .single-article #secondary .widget ol ul, .sidenav .entry-content ol, .entry-content .sidenav ol, .single-article #secondary .widget ul .entry-content ol, .entry-content .single-article #secondary .widget ul ol, .single-article #secondary .widget .entry-content ol ol, .entry-content .single-article #secondary .widget ol ol, .sidenav .wp-editor ol, .wp-editor .sidenav ol, .single-article #secondary .widget ul .wp-editor ol, .wp-editor .single-article #secondary .widget ul ol, .single-article #secondary .widget .wp-editor ol ol, .wp-editor .single-article #secondary .widget ol ol {
     margin: 0; }
-  .sidenav li, .single-article #secondary .widget ul li {
+  .sidenav li, .single-article #secondary .widget ul li, .single-article #secondary .widget .entry-content ol li, .entry-content .single-article #secondary .widget ol li, .single-article #secondary .widget .wp-editor ol li, .wp-editor .single-article #secondary .widget ol li {
     margin: 0; }
-    .sidenav li:before, .single-article #secondary .widget ul li:before {
+    .sidenav li:before, .single-article #secondary .widget ul li:before, .single-article #secondary .widget .entry-content ol li:before, .entry-content .single-article #secondary .widget ol li:before, .single-article #secondary .widget .wp-editor ol li:before, .wp-editor .single-article #secondary .widget ol li:before {
       display: none; }
-    .sidenav li li a, .single-article #secondary .widget ul li li a {
+    .sidenav li li a, .single-article #secondary .widget ul li li a, .single-article #secondary .widget .entry-content ol li li a, .entry-content .single-article #secondary .widget ol li li a, .single-article #secondary .widget .wp-editor ol li li a, .wp-editor .single-article #secondary .widget ol li li a {
       padding: 13px 20px 13px 35px; }
-  .sidenav a, .single-article #secondary .widget ul a {
+  .sidenav a, .single-article #secondary .widget ul a, .single-article #secondary .widget .entry-content ol a, .entry-content .single-article #secondary .widget ol a, .single-article #secondary .widget .wp-editor ol a, .wp-editor .single-article #secondary .widget ol a {
     font-size: 16px;
     padding: 13px 20px; }
-  .sidenav .active a, .single-article #secondary .widget ul .active a {
+  .sidenav .active a, .single-article #secondary .widget ul .active a, .single-article #secondary .widget .entry-content ol .active a, .entry-content .single-article #secondary .widget ol .active a, .single-article #secondary .widget .wp-editor ol .active a, .wp-editor .single-article #secondary .widget ol .active a {
     background: #f37021;
     color: #fff; }
 
@@ -3766,50 +3765,29 @@ form.search-wrap, .btn-show-aux, .btn-menu, .btn-search-mobile {
 /*--------------------------------------------------------------
 # Structure
 --------------------------------------------------------------*/
-.category #main, .tax-issuem_issue_categories #main, .single #main, .page #main, .archive #main,
-.page.page-template-right-two-columns #main,
-.page.page-template-full-width #main,
-.page.page-template-membersonly #main {
-  background-color: #fff;
+#main.main-content, .category #main, .tax-issuem_issue_categories #main {
   padding-top: 30px; }
   @media (min-width: 768px) {
-    .category #main, .tax-issuem_issue_categories #main, .single #main, .page #main, .archive #main,
-    .page.page-template-right-two-columns #main,
-    .page.page-template-full-width #main,
-    .page.page-template-membersonly #main {
-      padding: 45px 60px; } }
-
-.page-template #main {
-  background-color: transparent; }
-  @media (min-width: 768px) {
-    .page-template #main {
-      padding: 0; } }
-
-.page-template-landing-page .footer-wrap, .page-template-landing-page-title .footer-wrap, .page-template-landing-page-full-width .footer-wrap {
-  margin-top: 0; }
-.page-template-landing-page .breaker, .page-template-landing-page-title .breaker, .page-template-landing-page-full-width .breaker {
-  margin-bottom: 0; }
-
-.page-template-landing-page-full-width {
-  padding-top: 0; }
-  @media (min-width: 768px) {
-    .page-template-landing-page-full-width {
-      padding-top: 150px; } }
-
-.landing-page-hero-full {
-  /* Adds positioning for half hero image size */ }
-  @media (min-width: 1220px) {
-    .landing-page-hero-full {
+    #main.main-content, .category #main, .tax-issuem_issue_categories #main {
+      padding: 45px 60px;
       margin-bottom: 60px; } }
-  .landing-page-hero-full .hero-img h1 {
-    text-shadow: 2px 3px 2px #333132;
-    letter-spacing: 2px; }
-  .landing-page-hero-full .hero-img-half {
-    height: 225px; }
-    @media (min-width: 1220px) {
-      .landing-page-hero-full .hero-img-half {
-        height: 375px;
-        background-position: center center; } }
+@media (min-width: 992px) {
+  #main.full-width-content {
+    padding-top: 150px; } }
+#main.full-width-content .footer-wrap {
+  margin-top: 0; }
+#main.full-width-content .breaker {
+  margin-bottom: 0; }
+.page-template-landing-page-full-width #main {
+  padding: 0; }
+
+.page-template-landing-page .edit-link,
+.page-template-landing-page-full-width .edit-link {
+  position: absolute; }
+@media (min-width: 1220px) {
+  .page-template-landing-page,
+  .page-template-landing-page-full-width {
+    padding-top: 150px; } }
 
 a:focus, a:hover {
   text-decoration: none; }
@@ -3826,9 +3804,11 @@ a:focus, a:hover {
   margin-right: 0; }
 .entry-content ul li, .entry-content ol li, .wp-editor ul li, .wp-editor ol li {
   text-transform: none; }
-.entry-content ul.big-list a, .entry-content ul.sidenav a, .entry-content .single-article #secondary .widget ul a, .single-article #secondary .widget .entry-content ul a, .entry-content ol.big-list a, .entry-content ol.sidenav a, .wp-editor ul.big-list a, .wp-editor ul.sidenav a, .wp-editor .single-article #secondary .widget ul a, .single-article #secondary .widget .wp-editor ul a, .wp-editor ol.big-list a, .wp-editor ol.sidenav a {
+.entry-content ul.big-list a, .entry-content ul.sidenav a, .entry-content ol.sidenav a, .entry-content .single-article #secondary .widget ul a, .single-article #secondary .widget .entry-content ul a, .single-article #secondary .widget .entry-content ol a, .entry-content .single-article #secondary .widget ol a, .entry-content ol.big-list a, .wp-editor ul.big-list a, .wp-editor ul.sidenav a, .wp-editor ol.sidenav a, .wp-editor .single-article #secondary .widget ul a, .single-article #secondary .widget .wp-editor ul a, .single-article #secondary .widget .wp-editor ol a, .wp-editor .single-article #secondary .widget ol a, .wp-editor ol.big-list a {
   letter-spacing: 2px;
   text-transform: uppercase; }
+.entry-content ol li, .wp-editor ol li {
+  list-style-type: decimal; }
 .entry-content .img-circle, .wp-editor .img-circle {
   border-radius: 50%; }
 .entry-content .img-icon, .wp-editor .img-icon {
@@ -3867,6 +3847,15 @@ a:focus, a:hover {
       width: 150px; } }
 .entry-content h2 + div, .wp-editor h2 + div {
   margin-top: 30px; }
+.entry-content table, .wp-editor table {
+  width: 100%;
+  max-width: 100%;
+  margin-bottom: 30px; }
+  .entry-content table td, .entry-content table th, .wp-editor table td, .wp-editor table th {
+    padding: 7.5px 15px;
+    vertical-align: top; }
+  .entry-content table th, .wp-editor table th {
+    border-bottom: 2px solid #ddd; }
 
 .screen-reader-text {
   /*text-indent: -999em;
@@ -3992,18 +3981,18 @@ figure.wp-caption img {
 
 .btn {
   border-radius: 0; }
+  .btn.btn-white {
+    border-color: #fff;
+    color: #fff; }
+    .btn.btn-white:hover {
+      background-color: #fff;
+      color: #f37021; }
 
 strong {
   font-weight: 500; }
 
 .entry-footer {
   clear: both; }
-
-ul li:before, ol li:before {
-  content: none;
-  margin-right: 0; }
-ul li, ol li {
-  text-transform: none; }
 
 .gallery-caption {
   /* required */ }
@@ -4045,6 +4034,8 @@ ul li, ol li {
 @media (max-width: 1220px) {
   .main-menu-wrap .main-menu-link {
     font-size: 14px; } }
+.main-menu-wrap #menu-item-more .icon-caret.icon-svg {
+  display: none; }
 
 .aux-menu-wrap .aux-nav a {
   font-size: 12px;
@@ -4084,14 +4075,14 @@ ul li, ol li {
     background-color: #dd661e; }
 
 /* Fixes SVG icon display in FF */
-.big-list .btn-mobile-toggle a svg, .sidenav .btn-mobile-toggle a svg, .single-article #secondary .widget ul .btn-mobile-toggle a svg, .sidenav .btn-mobile-toggle a svg, .single-article #secondary .widget ul .btn-mobile-toggle a svg, .single-article #secondary .widget ul .btn-mobile-toggle a svg {
+.big-list .btn-mobile-toggle a svg, .sidenav .btn-mobile-toggle a svg, .single-article #secondary .widget ul .btn-mobile-toggle a svg, .single-article #secondary .widget .entry-content ol .btn-mobile-toggle a svg, .entry-content .single-article #secondary .widget ol .btn-mobile-toggle a svg, .single-article #secondary .widget .wp-editor ol .btn-mobile-toggle a svg, .wp-editor .single-article #secondary .widget ol .btn-mobile-toggle a svg, .sidenav .btn-mobile-toggle a svg, .single-article #secondary .widget ul .btn-mobile-toggle a svg, .single-article #secondary .widget .entry-content ol .btn-mobile-toggle a svg, .entry-content .single-article #secondary .widget ol .btn-mobile-toggle a svg, .single-article #secondary .widget .wp-editor ol .btn-mobile-toggle a svg, .wp-editor .single-article #secondary .widget ol .btn-mobile-toggle a svg, .single-article #secondary .widget ul .btn-mobile-toggle a svg, .single-article #secondary .widget .entry-content ol .btn-mobile-toggle a svg, .entry-content .single-article #secondary .widget ol .btn-mobile-toggle a svg, .single-article #secondary .widget .wp-editor ol .btn-mobile-toggle a svg, .wp-editor .single-article #secondary .widget ol .btn-mobile-toggle a svg {
   transform: translate(0, 0) rotate(45deg);
   transform-origin: center;
   margin: 22px 0px;
   top: 0px;
   left: 0px;
   width: 100%; }
-.big-list.open-list .btn-mobile-toggle .arw-right svg, .open-list.sidenav .btn-mobile-toggle .arw-right svg, .single-article #secondary .widget ul.open-list .btn-mobile-toggle .arw-right svg, .sidenav.open-list .btn-mobile-toggle .arw-right svg, .single-article #secondary .widget ul.open-list .btn-mobile-toggle .arw-right svg, .single-article #secondary .widget ul.open-list .btn-mobile-toggle .arw-right svg {
+.big-list.open-list .btn-mobile-toggle .arw-right svg, .open-list.sidenav .btn-mobile-toggle .arw-right svg, .single-article #secondary .widget ul.open-list .btn-mobile-toggle .arw-right svg, .single-article #secondary .widget .entry-content ol.open-list .btn-mobile-toggle .arw-right svg, .entry-content .single-article #secondary .widget ol.open-list .btn-mobile-toggle .arw-right svg, .single-article #secondary .widget .wp-editor ol.open-list .btn-mobile-toggle .arw-right svg, .wp-editor .single-article #secondary .widget ol.open-list .btn-mobile-toggle .arw-right svg, .sidenav.open-list .btn-mobile-toggle .arw-right svg, .single-article #secondary .widget ul.open-list .btn-mobile-toggle .arw-right svg, .single-article #secondary .widget .entry-content ol.open-list .btn-mobile-toggle .arw-right svg, .entry-content .single-article #secondary .widget ol.open-list .btn-mobile-toggle .arw-right svg, .single-article #secondary .widget .wp-editor ol.open-list .btn-mobile-toggle .arw-right svg, .wp-editor .single-article #secondary .widget ol.open-list .btn-mobile-toggle .arw-right svg, .single-article #secondary .widget ul.open-list .btn-mobile-toggle .arw-right svg, .single-article #secondary .widget .entry-content ol.open-list .btn-mobile-toggle .arw-right svg, .entry-content .single-article #secondary .widget ol.open-list .btn-mobile-toggle .arw-right svg, .single-article #secondary .widget .wp-editor ol.open-list .btn-mobile-toggle .arw-right svg, .wp-editor .single-article #secondary .widget ol.open-list .btn-mobile-toggle .arw-right svg {
   transform: translate(0, 0) rotate(-45deg); }
 
 .search-form {
@@ -4105,22 +4096,26 @@ ul li, ol li {
 .search-wrap.mobile input {
   background-color: #fff; }
 
-.sidenav, .single-article #secondary .widget ul {
+.sidenav, .single-article #secondary .widget ul, .single-article #secondary .widget .entry-content ol, .entry-content .single-article #secondary .widget ol, .single-article #secondary .widget .wp-editor ol, .wp-editor .single-article #secondary .widget ol {
   margin-bottom: 30px !important; }
 
-.sidenav a, .single-article #secondary .widget ul a {
+.sidenav a, .single-article #secondary .widget ul a, .single-article #secondary .widget .entry-content ol a, .entry-content .single-article #secondary .widget ol a, .single-article #secondary .widget .wp-editor ol a, .wp-editor .single-article #secondary .widget ol a {
   line-height: 20px;
   letter-spacing: 1px; }
 
-.sidenav li li a, .single-article #secondary .widget ul li li a {
+.sidenav li li a, .single-article #secondary .widget ul li li a, .single-article #secondary .widget .entry-content ol li li a, .entry-content .single-article #secondary .widget ol li li a, .single-article #secondary .widget .wp-editor ol li li a, .wp-editor .single-article #secondary .widget ol li li a {
   font-size: 14px;
   letter-spacing: 0;
   line-height: 18px;
   text-transform: none; }
 
-.sidenav .page_item_has_children.current_page_item .children, .single-article #secondary .widget ul .page_item_has_children.current_page_item .children,
+.sidenav .page_item_has_children.current_page_item .children, .single-article #secondary .widget ul .page_item_has_children.current_page_item .children, .single-article #secondary .widget .entry-content ol .page_item_has_children.current_page_item .children, .entry-content .single-article #secondary .widget ol .page_item_has_children.current_page_item .children, .single-article #secondary .widget .wp-editor ol .page_item_has_children.current_page_item .children, .wp-editor .single-article #secondary .widget ol .page_item_has_children.current_page_item .children,
 .sidenav .page_item_has_children.current_page_ancestor .children,
-.single-article #secondary .widget ul .page_item_has_children.current_page_ancestor .children {
+.single-article #secondary .widget ul .page_item_has_children.current_page_ancestor .children,
+.single-article #secondary .widget .entry-content ol .page_item_has_children.current_page_ancestor .children,
+.entry-content .single-article #secondary .widget ol .page_item_has_children.current_page_ancestor .children,
+.single-article #secondary .widget .wp-editor ol .page_item_has_children.current_page_ancestor .children,
+.wp-editor .single-article #secondary .widget ol .page_item_has_children.current_page_ancestor .children {
   display: block; }
 
 .social-nav {
@@ -4189,29 +4184,96 @@ ul li, ol li {
   font-weight: 700;
   display: block; }
 
+.landing-page-hero-full {
+  /* Adds positioning for half hero image size */ }
+  @media (min-width: 992px) {
+    .landing-page-hero-full {
+      margin-top: 0px;
+      margin-bottom: 60px; } }
+  .landing-page-hero-full .hero-img h1 {
+    text-shadow: 2px 3px 2px #333132;
+    letter-spacing: 2px; }
+  .landing-page-hero-full .hero-img-half {
+    height: 225px; }
+    @media (min-width: 992px) {
+      .landing-page-hero-full .hero-img-half {
+        height: 375px;
+        background-position: center center; } }
+
+.content-box-module {
+  margin-top: 60px; }
+
+@media (min-width: 992px) {
+  .landing-page-hero {
+    margin-top: 60px;
+    margin-bottom: 60px; } }
+@media (max-width: 768px) {
+  .landing-page-hero .hero-content {
+    margin: 20px 0 0;
+    width: 100%; } }
+
+.image-right-quote .quote {
+  padding: 15px; }
+@media (min-width: 992px) {
+  .image-right-quote {
+    margin-top: 60px;
+    margin-bottom: 60px; } }
+
+@media (min-width: 992px) {
+  .content-image-left {
+    margin-top: 60px;
+    margin-bottom: 60px !important; } }
+@media (max-width: 768px) {
+  .content-image-left .gal-img {
+    float: none;
+    width: 100%;
+    height: 200px; } }
+@media (max-width: 768px) {
+  .content-image-left .caption {
+    float: none;
+    width: 100%;
+    margin-top: 0; } }
+@media (min-width: 768px) {
+  .content-image-left .gal-img-content {
+    padding: 30px; } }
+.content-image-left .gal-img-content h2 {
+  margin-top: 0; }
+
+.img-callout-wrapper .img-callout-wrap:nth-child(even) {
+  margin-bottom: 20px; }
+
 .home .widget-area {
   padding-top: 30px; }
+.home .widget-area.page-sections {
+  padding-top: 0; }
 .home .footer-bottom .widget-area {
   padding-top: 0; }
 
 .widget {
   margin-bottom: 30px; }
-  .widget ul {
+  .widget ul, .widget .entry-content ol, .entry-content .widget ol, .widget .wp-editor ol, .wp-editor .widget ol {
     margin-left: 0; }
-    .widget ul li:before {
+    .widget ul li:before, .widget .entry-content ol li:before, .entry-content .widget ol li:before, .widget .wp-editor ol li:before, .wp-editor .widget ol li:before {
       content: normal; }
-    .widget ul li {
+    .widget ul li, .widget .entry-content ol li, .entry-content .widget ol li, .widget .wp-editor ol li, .wp-editor .widget ol li {
       margin-bottom: 30px;
       font-size: 16px; }
-    .widget ul a {
+    .widget ul a, .widget .entry-content ol a, .entry-content .widget ol a, .widget .wp-editor ol a, .wp-editor .widget ol a {
       font-weight: 400;
       letter-spacing: 1px; }
-    .widget ul .post-date {
+    .widget ul .post-date, .widget .entry-content ol .post-date, .entry-content .widget ol .post-date, .widget .wp-editor ol .post-date, .wp-editor .widget ol .post-date {
       display: block; }
   .widget .widgettitle, .widget .widget-title {
     text-transform: none;
     font: 500 24px/32px "quadon", "Helvetica Neue", Helvetica, Arial, sans-serif;
     color: #00529b; }
+
+.widget-ufl-content-image-right ul, .widget-ufl-content-image-right .entry-content ol, .entry-content .widget-ufl-content-image-right ol, .widget-ufl-content-image-right .wp-editor ol, .wp-editor .widget-ufl-content-image-right ol {
+  margin-left: 30px; }
+  .widget-ufl-content-image-right ul li, .widget-ufl-content-image-right .entry-content ol li, .entry-content .widget-ufl-content-image-right ol li, .widget-ufl-content-image-right .wp-editor ol li, .wp-editor .widget-ufl-content-image-right ol li {
+    font-size: 100%;
+    text-transform: none;
+    margin-bottom: 15px; }
 
 .widget_archive select, .widget_categories select {
   width: 99%;
@@ -4250,34 +4312,6 @@ ul li, ol li {
       line-height: 36px; } }
   .widget_listcategorypostswidget h3 a, .widget_listcategorypostswidget .kicker a, .widget_listcategorypostswidget .gform_wrapper .gform_heading .gform_description a, .gform_wrapper .gform_heading .widget_listcategorypostswidget .gform_description a, .widget_listcategorypostswidget .single-article .entry-content p.lead a, .single-article .entry-content .widget_listcategorypostswidget p.lead a, .widget_listcategorypostswidget .featured-story h2 a, .featured-story .widget_listcategorypostswidget h2 a, .widget_listcategorypostswidget .single-article #secondary h2 a, .single-article #secondary .widget_listcategorypostswidget h2 a {
     font-weight: 700; }
-.widget_listcategorypostswidget .widget-title + strong {
-  margin-bottom: 15px;
-  display: block; }
-  @media (min-width: 768px) {
-    .widget_listcategorypostswidget .widget-title + strong {
-      display: inline;
-      margin-bottom: 0; } }
-.widget_listcategorypostswidget .widget-title + strong a {
-  text-transform: uppercase;
-  border: 5px solid transparent;
-  font-weight: 700;
-  font-size: 13px;
-  letter-spacing: 2px; }
-  @media (min-width: 768px) {
-    .widget_listcategorypostswidget .widget-title + strong a {
-      padding: 1px 14px;
-      position: absolute;
-      top: 0;
-      right: 30px; } }
-  .widget_listcategorypostswidget .widget-title + strong a:before {
-    content: 'More '; }
-  .widget_listcategorypostswidget .widget-title + strong a:focus, .widget_listcategorypostswidget .widget-title + strong a:hover {
-    background-color: #fff; }
-
-.page-sections .widgettitle, .page-sections .widget-title {
-  display: none; }
-.page-sections .widget {
-  margin-bottom: 0; }
 
 .gform_wrapper .gform_body select, .gform_wrapper .gform_body textarea, .gform_wrapper .gform_body input[type="text"], .gform_wrapper .gform_body input[type="email"] {
   padding: 15px 7.5px;
@@ -4489,11 +4523,6 @@ figcaption {
 }
 
 */
-.home #main {
-  background-color: #fff; }
-.page-template-landing-page-full-width #main {
-  background-color: transparent; }
-
 .carousel-row {
   color: #fff;
   text-align: center; }
@@ -4871,10 +4900,10 @@ figcaption {
   .single-article #secondary h2 {
     text-transform: none;
     margin-bottom: 15px; }
-  .single-article #secondary .widget ul a {
+  .single-article #secondary .widget ul a, .single-article #secondary .widget .entry-content ol a, .entry-content .single-article #secondary .widget ol a, .single-article #secondary .widget .wp-editor ol a, .wp-editor .single-article #secondary .widget ol a {
     padding-right: 0;
     padding-left: 0; }
-  .single-article #secondary .widget ul a:hover {
+  .single-article #secondary .widget ul a:hover, .single-article #secondary .widget .entry-content ol a:hover, .entry-content .single-article #secondary .widget ol a:hover, .single-article #secondary .widget .wp-editor ol a:hover, .wp-editor .single-article #secondary .widget ol a:hover {
     background-color: transparent !important;
     color: #f79f6a !important; }
 

@@ -2,6 +2,9 @@
 	.home & {
 		padding-top: $grid-gutter-width;
 	}
+    .home &.page-sections{
+        padding-top: 0;
+    }
 	.home .footer-bottom & {
 		padding-top: 0;
 	}
@@ -34,6 +37,19 @@
 		color: $blue;
 	}
 }
+
+.widget-ufl-content-image-right {
+    ul {
+        margin-left: $grid-gutter-width;
+        
+        li {
+            font-size: 100%;
+            text-transform: none;
+            margin-bottom: $grid-gutter-width/2;
+        }
+    }
+}
+
 .widget_archive, .widget_categories {
 	select {
 		width: 99%;
@@ -87,82 +103,5 @@
 			font-weight: 700;	
 		}
 	}
-	.widget-title + strong {
-		margin-bottom: $grid-gutter-width/2;
-		display: block;
-		
-		@include breakFirst(medium){
-			display: inline;
-			margin-bottom: 0;
-		}
-	}
-	.widget-title + strong a {
-		text-transform: uppercase;
-		border: 5px solid transparent;
-		font-weight: 700;
-		font-size: 13px;
-		letter-spacing: 2px;
-		
-		@include breakFirst(medium){
-			padding: 1px 14px;
-			position: absolute;
-			top: 0;
-			right: $grid-gutter-width;
-		}
-		&:before {
-			content: 'More ';	
-		}
-		&:focus, &:hover {
-			background-color: $white;	
-		}
-	}
 }
-.tribe-events-list-widget {
-	.tribe-list-widget { 
-		margin-left: 0;
-		
-		li {
-			position: relative;
-			margin-left: 55px;
-			padding-left: 10px;
-			border-left: 1px solid #ccc;
-		}
-	}
-	.tribe-event-title {
-		font-size: 16px;
-		line-height: 22px;
-		letter-spacing: 1px;
-		margin-bottom: 0;
-		
-		em {
-			text-transform: none;
-			font-size: 16px;	
-		}
-	}
-	.tribe-event-duration {
-		font-size: 16px;
-		line-height: 26px;	
-	}
-	.event-date {
-		position: absolute;
-		top: 0;
-		left: -50px;
-		width: 45px;
-		font-family: $fontFamily;
-		text-align: center;
-		color: $blueLight;
-	}
-	.event-month {
-		font-size: 20px;
-		font-weight: 400;
-	}
-	.event-day {
-		font-size: 32px;
-		letter-spacing: -1px;
-	}
-	.tribe-events-widget-link {
-		text-transform: uppercase;
-		letter-spacing: 1px;
-		margin-left: 65px;	
-	}
-}
+

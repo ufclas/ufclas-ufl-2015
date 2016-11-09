@@ -22,6 +22,9 @@ function ufclas_ufl_2015_setup() {
 
 	// Enable support for Post Thumbnails on posts and pages.
 	add_theme_support( 'post-thumbnails' );
+	
+	// Allow partial refreshes of widgets in sidebars
+	add_theme_support( 'customize-selective-refresh-widgets' );
 
 	/*
 	 * Switch default core markup for search form, comment form, and comments
@@ -89,15 +92,20 @@ function ufclas_ufl_2015_scripts() {
 	wp_script_add_data( 'ie_respond', 'conditional', 'lt IE 9' );
 	
 	// Theme
-	wp_enqueue_style( 'style', get_stylesheet_uri(), array('dashicons'), '0.3.7' );
+	$theme_data = wp_get_theme();
+	$theme_version = $theme_data->get('Version');
+	
+	wp_enqueue_style( 'style', get_stylesheet_uri(), array('dashicons'), $theme_version );
 	wp_enqueue_script('velocity', 'https://cdnjs.cloudflare.com/ajax/libs/velocity/1.2.2/velocity.min.js', array('jquery'), null, true);
 	wp_enqueue_script('velocity-ui', 'https://cdnjs.cloudflare.com/ajax/libs/velocity/1.2.2/velocity.ui.min.js', array('velocity'), null, true);
-	wp_enqueue_script('ufclas-ufl-2015-plugins', get_stylesheet_directory_uri() . '/js/plugins.js', array(), null, true);
-	wp_enqueue_script('ufclas-ufl-2015-scripts', get_stylesheet_directory_uri() . '/js/scripts.js', array(), null, true);
+	wp_enqueue_script('ufclas-ufl-2015-plugins', get_stylesheet_directory_uri() . '/js/plugins.min.js', array(), $theme_version, true);
+	wp_enqueue_script('ufclas-ufl-2015-scripts', get_stylesheet_directory_uri() . '/js/scripts.min.js', array(), $theme_version, true);
 	
 	// Pass site data to Javascript
 	$site_data = array(
 		'theme_url' => get_stylesheet_directory_uri(),
+		'max_main_menu_items' => get_theme_mod('max_main_menu_items', 7),
+		'mega_menu' => get_theme_mod('mega_menu', 1),
 	);
 	wp_localize_script( 'ufclas-ufl-2015-plugins', 'ufclas_ufl_2015_sitedata', $site_data );
 }
@@ -122,15 +130,9 @@ function ufclas_ufl_2015_inline_styles() {
 				$menu_item_count++; 
 			}	
 		}
-		$custom_css .= '@media screen and (min-width:992px) and (max-width: 1249px){ .header.unit .main-menu-wrap .menu > li > .main-menu-link { padding-left: 15px; padding-right: 15px; }';
-		$custom_css .= '@media screen and (min-width:1250px){ .main-menu-wrap .menu > li { width: calc(100%/' . $menu_item_count . '); } ';
+		//$custom_css .= '@media screen and (min-width:992px) and (max-width: 1249px){ .header.unit .main-menu-wrap .menu > li > .main-menu-link { padding-left: 15px; padding-right: 15px; }';
+		//$custom_css .= '@media screen and (min-width:1250px){ .main-menu-wrap .menu > li { width: calc(100%/' . $menu_item_count . '); }} ';
 	}
-	
-	// Custom css for sidenav
-	$collapse_sidebar_nav = get_theme_mod('collapse_sidebar_nav', 1);
-	if ( $collapse_sidebar_nav ) {
-		$custom_css  .= '.sidenav .page_item_has_children .children {display: none;} ';	
-  	}
 	
 	wp_add_inline_style('style', $custom_css);
 }
@@ -145,12 +147,10 @@ add_action('wp_enqueue_scripts', 'ufclas_ufl_2015_inline_styles');
  * @since 0.0.0
  */
 function ufclas_ufl_2015_body_classes( $classes ) {
-	
 	if ( is_page_template('page-templates/homepage.php') ) {
 		$classes[] = 'homepage';
 	}
-	
-	if ( get_theme_mod('disable_global_elements') ){
+	if ( get_theme_mod('disable_global_elements', 0) ){
 		$classes[] = 'disable-global';
 	}
 
@@ -274,7 +274,10 @@ function ufclas_ufl_2015_image_sizes(){
 	add_image_size('full-width-thumb', 1140, 399, array('center', 'top'));
 	add_image_size('half-width-thumb', 570, 399, array('center', 'top'));
 	add_image_size('page_header', 750, 399, array('center', 'top'));
-	add_image_size('ufl_post_thumb', 600, 210, false);	
+	add_image_size('ufl_post_thumb', 600, 210, false);
+	
+	// UFL sizes
+	add_image_size('medium-cropped', 310, 275, array('center', 'top'));
 }
 add_action( 'after_setup_theme', 'ufclas_ufl_2015_image_sizes' );
 
@@ -290,6 +293,7 @@ function ufclas_ufl_2015_show_custom_sizes( $sizes ) {
 		'half-width-thumb' => __( 'Half Width Thumbnail', 'ufclas-ufl-2015' ),
 		'page_header' => __( 'Page Header', 'ufclas-ufl-2015' ),
 		'ufl_post_thumb' => __( 'Post Thumbnail', 'ufclas-ufl-2015' ),
+		'medium-cropped' => __( 'Medium (cropped)', 'ufclas-ufl-2015' ),
     ) );
 }
 add_filter( 'image_size_names_choose', 'ufclas_ufl_2015_show_custom_sizes' );

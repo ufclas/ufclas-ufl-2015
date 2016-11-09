@@ -4,17 +4,17 @@ Theme URI: https://it.clas.ufl.edu/services/web-services/
 Author: Priscilla Chapman (CLAS IT)
 Author URI: https://it.clas.ufl.edu/
 Description: Official UF template for Liberal Arts and Sciences. Based on 160 over 90 template.
-Version: 0.3.7
+Version: 0.4.0
 License: GNU General Public License v2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 Text Domain: ufclas-ufl-2015
-Build Date: 20161028
+Build Date: 20161109
 */
 @import 'template/reset';
 @import 'template/variables';
 @import 'template/mixins';
 @import 'template/grid';
-@import 'template/fonts';
+@import 'fonts';
 @import 'template/format';
 @import 'template/header';
 @import 'template/footer';
@@ -35,6 +35,7 @@ Build Date: 20161028
 @import 'main';
 @import 'header';
 @import 'navigation';
+@import 'shortcodes';
 @import 'widgets';
 @import 'gravityforms';
 @import 'post';

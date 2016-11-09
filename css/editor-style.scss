@@ -2,7 +2,7 @@
 @import 'template/variables';
 @import 'template/mixins';
 @import 'template/grid';
-@import 'template/fonts';
+@import 'fonts';
 @import 'template/format';
 @import 'template/header';
 @import 'template/footer';
@@ -23,8 +23,12 @@
 @import 'main';
 @import 'header';
 @import 'navigation';
+@import 'shortcodes';
 @import 'widgets';
 @import 'gravityforms';
 @import 'post';
 @import 'issuem';
- 
+
+body {
+	padding-top: 0px;	
+}
