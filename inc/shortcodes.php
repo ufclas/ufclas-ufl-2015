@@ -196,7 +196,7 @@ function ufclas_ufl_2015_content_image_left($atts, $content = NULL ) {
 	  				<div class="caption"><?php echo esc_html( $caption ); ?></div>
 	  			</div>
 	  		</div>
-	  		<div class="col-md-6">
+	  		<div class="col-md-6 gal-img-content">
 	  			<h2><?php echo esc_html( $headline ); ?></h2>
                 <?php echo wpautop( wp_kses_post( $content ) ); ?>
 	  		</div>
@@ -285,7 +285,7 @@ function ufclas_ufl_2015_breaker_cards($atts, $content = NULL ) {
 	// Shortcode callbacks must return content, so use output buffering
 	ob_start();
 	?>
-    <div class="img-callout-wrapper hor-scroll-wrap" style="background-image:url('<?php echo esc_url( $image[0] ); ?>');">
+    <div class="img-callout-wrapper" style="background-image:url('<?php echo esc_url( $image[0] ); ?>');">
 		<div class="container">
 			<div class="row">
             <?php 
@@ -293,7 +293,7 @@ function ufclas_ufl_2015_breaker_cards($atts, $content = NULL ) {
 				foreach($card_posts as $post):
 					setup_postdata( $post ); // Access all post data
 					?>
-					<div class="col-sm-12 col-md-4 img-callout-wrap hor-scroll-el">
+					<div class="col-sm-12 col-md-4 img-callout-wrap">
 						<div class="img-callout">
 							<?php 
 								$link = ( $show_links )? esc_url( get_permalink() ) : false;

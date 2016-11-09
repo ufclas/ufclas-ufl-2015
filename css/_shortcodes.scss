@@ -1,5 +1,4 @@
 .landing-page-hero-full { 
-	
 	@include breakFirst(large){
 		margin-top: 0px;
 		margin-bottom: $grid-gutter-width*2;
@@ -26,12 +25,23 @@
     margin-top: $grid-gutter-width*2;
 }
 .landing-page-hero { 
+	
 	@include breakFirst(large){
 		margin-top: $grid-gutter-width*2;
 		margin-bottom: $grid-gutter-width*2;
 	}
+	.hero-content {
+		@include breakTo(medium){
+			margin: 20px 0 0;
+			width: 100%;
+		}
+	}
 }
 .image-right-quote {
+	.quote {
+		padding: $grid-gutter-width/2;
+	}
+	
 	@include breakFirst(large){
 		margin-top: $grid-gutter-width*2;
 		margin-bottom: $grid-gutter-width*2;
@@ -42,12 +52,31 @@
 		margin-top: $grid-gutter-width*2;
 		margin-bottom: $grid-gutter-width*2 !important;
 	}
+	.gal-img {
+		@include breakTo(medium){
+			float: none;
+			width: 100%;
+			height: 200px;
+			
+		}
+	}
+	.caption {
+		@include breakTo(medium){
+			float: none;
+			width: 100%;
+			margin-top: 0;
+		}
+	}
+	.gal-img-content {
+		@include breakFirst(medium){
+			padding: $grid-gutter-width;
+			
+		}
+	}
+}
+.img-callout-wrapper {
+	.img-callout-wrap:nth-child(even) {
+		margin-bottom: 20px;	
+	}	
 }
 
-// Shortcode UI
-.shortcode-ui-preview-fallback {
-	text-align: center;
-	font-size: 18px;
-	font-weight: bold;
-	text-transform: uppercase;	
-}

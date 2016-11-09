@@ -26,12 +26,12 @@
 }
 .page-template-landing-page,
 .page-template-landing-page-full-width {
-	@include breakFirst(medium){
-		padding-top: 150px;	
-		
-		.edit-link {
-			position: absolute;	
-		}
+	.edit-link {
+		position: absolute;	
+	}
+	
+	@include breakFirst( wide){
+		padding-top: 150px;			
 	}
 }
 .category #main {
