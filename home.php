@@ -21,7 +21,7 @@ get_header();
 	}
 ?>
 
-<div id="main" class="container-fluid">
+<div id="main" class="container-fluid main-content">
 <div class="container">
   <div class="row">
   	

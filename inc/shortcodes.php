@@ -373,6 +373,7 @@ function ufclas_ufl_2015_image_right_quote($atts, $content = NULL ) {
 	
 	// Support either image ID or image url
 	$image = ( is_numeric( $image ) )? wp_get_attachment_image_src( $image, 'large' ) : array($image);
+	$image_alt = ( is_numeric( $image ) )? get_post($image)->post_excerpt : '';
 	
 	// Shortcode callbacks must return content, so use output buffering
 	ob_start();

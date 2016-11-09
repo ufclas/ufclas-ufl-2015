@@ -17,7 +17,7 @@ get_header(); ?>
 		echo do_shortcode( $shortcode );
 	endif;
 ?>
-<div id="main">
+<div id="main" class="full-width-content">
     
      <?php while ( have_posts() ) : the_post(); ?>
 

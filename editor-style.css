@@ -3753,39 +3753,28 @@ form.search-wrap, .btn-show-aux, .btn-menu, .btn-search-mobile {
 /*--------------------------------------------------------------
 # Structure
 --------------------------------------------------------------*/
-.category #main, .tax-issuem_issue_categories #main, .single #main, .page #main, .archive #main,
-.page.page-template-right-two-columns #main,
-.page.page-template-full-width #main,
-.page.page-template-membersonly #main {
-  background-color: #fff;
+#main.main-content, .category #main, .tax-issuem_issue_categories #main {
   padding-top: 30px; }
   @media (min-width: 768px) {
-    .category #main, .tax-issuem_issue_categories #main, .single #main, .page #main, .archive #main,
-    .page.page-template-right-two-columns #main,
-    .page.page-template-full-width #main,
-    .page.page-template-membersonly #main {
+    #main.main-content, .category #main, .tax-issuem_issue_categories #main {
       padding: 45px 60px;
       margin-bottom: 60px; } }
-
 @media (min-width: 992px) {
-  .page-template-landing-page,
-  .page-template-landing-page-full-width,
-  .page-template-landing-page-content {
+  #main.full-width-content {
     padding-top: 150px; } }
-.page-template-landing-page .footer-wrap,
-.page-template-landing-page-full-width .footer-wrap,
-.page-template-landing-page-content .footer-wrap {
+#main.full-width-content .footer-wrap {
   margin-top: 0; }
-.page-template-landing-page .breaker,
-.page-template-landing-page-full-width .breaker,
-.page-template-landing-page-content .breaker {
+#main.full-width-content .breaker {
   margin-bottom: 0; }
-
-.page-template-landing-page-full-width #main, .page-template-landing-page-content #main {
-  background-color: transparent;
+.page-template-landing-page-full-width #main {
   padding: 0; }
-  @media (min-width: 768px) {
-    .page-template-landing-page-full-width #main .edit-link, .page-template-landing-page-content #main .edit-link {
+
+@media (min-width: 768px) {
+  .page-template-landing-page,
+  .page-template-landing-page-full-width {
+    padding-top: 150px; }
+    .page-template-landing-page .edit-link,
+    .page-template-landing-page-full-width .edit-link {
       position: absolute; } }
 
 a:focus, a:hover {

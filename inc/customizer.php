@@ -49,16 +49,49 @@ function ufclas_ufl_2015_sanitize_choices( $input, $setting ) {
  * @since 0.2.5
  */
 function ufclas_ufl_2015_customize_css() {
-	$homepage_layout_color = get_theme_mod( 'homepage_layout_color' );
-	$background_color = get_theme_mod( 'background_color' );
-	
+	$theme_mods = wp_parse_args ( get_theme_mods(), array(
+		'background_color' => '',
+		'content_color' => '',
+		'homepage_layout_color' => '',
+		'collapse_sidebar_nav' => 1,
+	) );
 	$custom_css = '';
-	$custom_css .= 'body {background-color: {$background_color};} ';
-	$custom_css .= '.home #main {background-color: {$homepage_layout_color};} ';
+	$background_color = ( strpos($theme_mods['background_color'], 'faf8f1') === false )? $theme_mods['background_color'] : '';
+	$content_color = ( strpos($theme_mods['content_color'], 'faf8f1') === false )? $theme_mods['content_color'] : '';
+	$hompage_layout_color = ( strpos($theme_mods['homepage_layout_color'], 'faf8f1') === false )? $theme_mods['homepage_layout_color'] : '';
+	
+	// Custom background color
+	if ( !empty($background_color) ) {
+		$custom_css .=  "body { background-color: {$background_color}; } ";
+  	}
+	
+	// Custom content color
+	if ( !empty($content_color) ) {
+		$custom_css .=  "#main.main-content { background-color: {$content_color}; } ";
+  	}
+	
+	// Custom homepage widget area color
+	if ( !empty($homepage_layout_color) ) {
+		$custom_css .=  ".home #main.main-content { background-color: {$homepage_layout_color}; } ";
+  	}
+	
+	// Custom css for sidenav
+	if ( $theme_mods['collapse_sidebar_nav'] ) {
+		$custom_css  .= '.sidenav .page_item_has_children .children {display: none;} ';	
+  	}
 	
     wp_add_inline_style( 'style', $custom_css );
 }
 add_action('wp_enqueue_scripts', 'ufclas_ufl_2015_customize_css');
+
+/**
+ * Add Customizer Preview script
+ * @since 0.4.0
+ */
+function ufclas_ufl_2015_customize_script() {
+	wp_enqueue_script( 'ufl-2015-themecustomizer',	get_template_directory_uri() . '/js/theme-customizer.js', array( 'jquery','customize-preview' ), null, true	);
+}
+add_action('customize_preview_init', 'ufclas_ufl_2015_customize_script');
  
 /**
  * Add custom theme mods to the Customizer
@@ -66,15 +99,18 @@ add_action('wp_enqueue_scripts', 'ufclas_ufl_2015_customize_css');
  */
 function ufclas_ufl_2015_customize_register( $wp_customize ) {
 	// Colors section
+	$default_colors = array( 'beige' => 'faf8f1' );
+	$wp_customize->get_setting( 'background_color' )->transport = 'postMessage';
+	$wp_customize->get_setting( 'background_color' )->default = 'faf8f1';
+	$wp_customize->add_setting( 'content_color', array( 'default' => 'faf8f1', 'transport' => 'postMessage', 'sanitize_callback' => 'sanitize_hex_color' ));
+	
 	$wp_customize->add_control( 
-		new WP_Customize_Color_Control( $wp_customize, 'homepage_layout_color', 
-		array(
-			'label' => __('Homepage Widgets Background', 'ufclas-ufl-2015'),
+		new WP_Customize_Color_Control( $wp_customize, 'content_color', array(
+			'label' => __('Content Background Color', 'ufclas-ufl-2015'),
 			'section' => 'colors',
-			'settings' => 'homepage_layout_color',
+			'settings' => 'content_color',
 		)
-		)
-	);
+	));
 	
 	// Add a Theme Option panel for backwards compatibility
 	$wp_customize->add_panel( 'theme_options', array(
@@ -151,7 +187,8 @@ function ufclas_ufl_2015_customize_register( $wp_customize ) {
 		'panel' => 'theme_options',
 	));
 	
-	$wp_customize->add_setting( 'homepage_layout_color', array( 'default' => '', 'sanitize_callback' => 'sanitize_hex_color' ));
+	$wp_customize->add_setting( 'homepage_layout', array( 'default' => '2c-bias', 'sanitize_callback' => 'sanitize_key' ));
+	$wp_customize->add_setting( 'homepage_layout_color', array( 'default' => 'faf8f1', 'transport' => 'postMessage', 'sanitize_callback' => 'sanitize_hex_color' ));
 	$wp_customize->add_setting( 'featured_category', array( 'default' => 0, 'sanitize_callback' => 'absint' ));
 	$wp_customize->add_setting( 'story_stacker', array( 'default' => 0, 'sanitize_callback' => 'absint' ));
 	$wp_customize->add_setting( 'number_of_posts_to_show', array( 'default' => 3, 'sanitize_callback' => 'absint' ));
@@ -159,7 +196,6 @@ function ufclas_ufl_2015_customize_register( $wp_customize ) {
 	$wp_customize->add_setting( 'featured_speed', array( 'default' => 7, 'sanitize_callback' => 'absint' ));
 	$wp_customize->add_setting( 'featured_disable_link', array( 'default' => 0, 'sanitize_callback' => 'absint' ));
 	$wp_customize->add_setting( 'story_stacker_disable_dates', array( 'default' => 0, 'sanitize_callback' => 'absint' ));
-	$wp_customize->add_setting( 'homepage_layout', array( 'default' => '2c-bias', 'sanitize_callback' => 'sanitize_key' ));
 	
 	$wp_customize->add_control( 'homepage_layout', array(
 		'label' => __('Homepage Layout for Widgets', 'ufclas-ufl-2015'),
@@ -174,6 +210,13 @@ function ufclas_ufl_2015_customize_register( $wp_customize ) {
 			'1c-100' => __('One Column', 'ufclas-ufl-2015'),
 			'1c-100-2c-half' => __('One Column w/ Two Columns', 'ufclas-ufl-2015')
 		),
+	));
+	$wp_customize->add_control( 
+		new WP_Customize_Color_Control( $wp_customize, 'homepage_layout_color', array(
+			'label' => __('Homepage Widgets Background', 'ufclas-ufl-2015'),
+			'section' => 'theme_options_homepage',
+			'settings' => 'homepage_layout_color',
+		)
 	));
 	
 	$wp_customize->add_control( 'featured_category', array(

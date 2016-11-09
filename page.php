@@ -13,7 +13,7 @@
  */
 get_header(); ?>
 
-<div id="main" class="container">
+<div id="main" class="container main-content">
 <div class="row">
   <div class="col-sm-8 col-sm-offset-3">
     <?php ufclas_ufl_2015_breadcrumbs(); ?>

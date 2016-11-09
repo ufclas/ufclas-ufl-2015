@@ -13,7 +13,7 @@
  */
 get_header(); ?>
 
-<div id="main" class="container">
+<div id="main" class="container main-content">
 <div class="row">
   <div class="col-sm-12">
     <?php if ( !is_home() && !is_front_page() ): ?>

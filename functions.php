@@ -22,6 +22,9 @@ function ufclas_ufl_2015_setup() {
 
 	// Enable support for Post Thumbnails on posts and pages.
 	add_theme_support( 'post-thumbnails' );
+	
+	// Allow partial refreshes of widgets in sidebars
+	add_theme_support( 'customize-selective-refresh-widgets' );
 
 	/*
 	 * Switch default core markup for search form, comment form, and comments
@@ -127,15 +130,9 @@ function ufclas_ufl_2015_inline_styles() {
 				$menu_item_count++; 
 			}	
 		}
-		$custom_css .= '@media screen and (min-width:992px) and (max-width: 1249px){ .header.unit .main-menu-wrap .menu > li > .main-menu-link { padding-left: 15px; padding-right: 15px; }';
-		$custom_css .= '@media screen and (min-width:1250px){ .main-menu-wrap .menu > li { width: calc(100%/' . $menu_item_count . '); } ';
+		//$custom_css .= '@media screen and (min-width:992px) and (max-width: 1249px){ .header.unit .main-menu-wrap .menu > li > .main-menu-link { padding-left: 15px; padding-right: 15px; }';
+		//$custom_css .= '@media screen and (min-width:1250px){ .main-menu-wrap .menu > li { width: calc(100%/' . $menu_item_count . '); }} ';
 	}
-	
-	// Custom css for sidenav
-	$collapse_sidebar_nav = get_theme_mod('collapse_sidebar_nav', 1);
-	if ( $collapse_sidebar_nav ) {
-		$custom_css  .= '.sidenav .page_item_has_children .children {display: none;} ';	
-  	}
 	
 	wp_add_inline_style('style', $custom_css);
 }
@@ -150,12 +147,12 @@ add_action('wp_enqueue_scripts', 'ufclas_ufl_2015_inline_styles');
  * @since 0.0.0
  */
 function ufclas_ufl_2015_body_classes( $classes ) {
+	$theme_mods = get_theme_mods();
 	
 	if ( is_page_template('page-templates/homepage.php') ) {
 		$classes[] = 'homepage';
 	}
-	
-	if ( get_theme_mod('disable_global_elements') ){
+	if ( isset( $theme_mods['disable_global_elements'] ) ){
 		$classes[] = 'disable-global';
 	}
 

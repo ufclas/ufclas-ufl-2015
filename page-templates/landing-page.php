@@ -17,7 +17,7 @@ get_header(); ?>
 		echo do_shortcode( $shortcode );
 	endif;
 ?>
-<div id="main" class="container">
+<div id="main" class="container full-width-content">
     <div class="row">
         <div class="col-sm-12">
             <?php 
