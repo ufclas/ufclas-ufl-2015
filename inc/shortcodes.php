@@ -7,11 +7,8 @@
  *	[ufl-content-image-left][/ufl-content-image-left]
  *	[ufl-content-image-right][/ufl-content-image-right]
  *	[ufl-breaker-cards][/ufl-breaker-cards]
- *	[ufclas-icon]
+ *	[ufl-icon]
  *	[ufl-image-right-quote][/ufl-image-right-quote]
- *	[ufclas-image-full-width]
- *	[ufclas-video-full-width]
- *	[ufclas-image]
  *
  * @package UFCLAS_UFL_2015
  */
@@ -331,7 +328,7 @@ add_shortcode('ufl-breaker-cards', 'ufclas_ufl_2015_breaker_cards');
  /**
  * Add Icon Shortcode
  * 
- * Example [ufclas-icon]
+ * Example [ufl-icon]
  * @param  array $atts Shortcode attributes
  * @param  string [$content = ''] Content between shortcode tags
  * @return string Shortcode output
@@ -353,7 +350,7 @@ function ufclas_ufl_2015_icon($atts, $content = NULL ) {
 	 
 	return '<span class="' . join(' ', $classes) . '"></span>';
 }
-add_shortcode('ufclas-icon', 'ufclas_ufl_2015_icon');
+add_shortcode('ufl-icon', 'ufclas_ufl_2015_icon');
 
 /**
  * Add Left Image with Right Quote and Caption

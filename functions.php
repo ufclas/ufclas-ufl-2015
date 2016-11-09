@@ -147,12 +147,10 @@ add_action('wp_enqueue_scripts', 'ufclas_ufl_2015_inline_styles');
  * @since 0.0.0
  */
 function ufclas_ufl_2015_body_classes( $classes ) {
-	$theme_mods = get_theme_mods();
-	
 	if ( is_page_template('page-templates/homepage.php') ) {
 		$classes[] = 'homepage';
 	}
-	if ( isset( $theme_mods['disable_global_elements'] ) ){
+	if ( get_theme_mod('disable_global_elements', 0) ){
 		$classes[] = 'disable-global';
 	}
 
