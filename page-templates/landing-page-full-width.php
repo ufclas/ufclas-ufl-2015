@@ -25,8 +25,9 @@ get_header(); ?>
     
     <?php endwhile; // End of the loop. ?>
     
-	<?php get_sidebar('page_sections'); ?>
+	
     
 </div>
+<?php get_sidebar('page_sections'); ?>
 
 <?php get_footer(); ?>
