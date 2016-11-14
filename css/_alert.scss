@@ -1,0 +1,20 @@
+.alert-small {
+	@include breakFirst(large){
+		top: 85px;
+	}
+	&.alert-default {
+		background-color: #ffeeaa;
+		background-color: rgba(255, 238, 170, 0.9);
+		
+		.icon-alert {
+			background-color: #f3b421;
+		}
+		.alert-title strong {
+			font-weight: 700;
+			color: #444;
+		}
+	}
+	.alert-link:hover {
+		color: #000;
+	}
+}

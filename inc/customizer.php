@@ -232,19 +232,6 @@ function ufclas_ufl_2015_customize_register( $wp_customize ) {
 		'choices' => ufclas_ufl_2015_customize_range( 1, 15 ),
 	));
 	
-	/*
-	$wp_customize->add_control( 'featured_style', array(
-		'label' => __('Featured Slider Style', 'ufclas-ufl-2015'),
-		'description' => __('Select a color scheme for the featured slider', 'ufclas-ufl-2015'),
-		'section' => 'theme_options_homepage',
-		'type' => 'select',
-		'choices' => array(
-			'slider-light' => __('Light', 'ufclas-ufl-2015'),
-			'slider-dark' => __('Dark', 'ufclas-ufl-2015'),
-		),
-	));
-	*/
-	
 	$wp_customize->add_control( 'featured_speed', array(
 		'label' => __('Slider Speed', 'ufclas-ufl-2015'),
 		'description' => __('Time in seconds to display each slide', 'ufclas-ufl-2015'),
@@ -318,6 +305,42 @@ function ufclas_ufl_2015_customize_register( $wp_customize ) {
 			'homepage_only' => __('Homepage Only', 'ufclas-ufl-2015'),
 			'subpages_only' => __('Subpages Only', 'ufclas-ufl-2015'),
 		),
+	));
+	
+	// Call to Action
+	$wp_customize->add_section( 'theme_options_action', array(
+		'title' => __('Call to Action', 'ufclas-ufl-2015'),
+		'panel' => 'theme_options',
+	));
+	
+	$wp_customize->add_setting( 'actionitem_text', array( 'default' => '', 'sanitize_callback' => 'sanitize_text_field' ));
+	$wp_customize->add_setting( 'actionitem_heading', array( 'default' => '', 'sanitize_callback' => 'sanitize_text_field' ));
+	$wp_customize->add_setting( 'actionitem_url', array( 'default' => '', 'sanitize_callback' => 'esc_url_raw' ));
+	$wp_customize->add_setting( 'actionitem_altcolor', array( 'default' => 0, 'sanitize_callback' => 'absint' ));
+	
+	$wp_customize->add_control( 'actionitem_text', array(
+		'label' => __('Call to Action Text', 'ufclas-ufl-2015'),
+		'description' => __('The Call to Action text is an alert message below your main menu. Leave it blank to remove it.', 'ufclas-ufl-2015'),
+		'section' => 'theme_options_action',
+		'type' => 'text',
+	));
+	$wp_customize->add_control( 'actionitem_url', array(
+		'label' => __('Call to Action URL', 'ufclas-ufl-2015'),
+		'description' => __("Where visitors are taken when they click on your Header Action Item", 'ufclas-ufl-2015'),
+		'section' => 'theme_options_action',
+		'type' => 'text',
+	));
+	$wp_customize->add_control( 'actionitem_heading', array(
+		'label' => __('Call to Action Heading', 'ufclas-ufl-2015'),
+		'description' => __('The Call to Action heading is above the alert message (optional)', 'ufclas-ufl-2015'),
+		'section' => 'theme_options_action',
+		'type' => 'text',
+	));
+	$wp_customize->add_control( 'actionitem_altcolor', array(
+		'label' => __('Call to Action Alternate Color', 'ufclas-ufl-2015'),
+		'description' => __('This is an alternate color (red) used for warnings and emergency alerts.', 'ufclas-ufl-2015'),
+		'section' => 'theme_options_action',
+		'type' => 'checkbox',
 	));
 	
 	// Social 
