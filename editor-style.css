@@ -4176,8 +4176,10 @@ strong {
   /* Adds positioning for half hero image size */ }
   @media (min-width: 992px) {
     .landing-page-hero-full {
-      margin-top: 0px;
       margin-bottom: 60px; } }
+  @media (min-width: 1220px) {
+    .landing-page-hero-full {
+      margin-top: 0px; } }
   .landing-page-hero-full .hero-img h1 {
     text-shadow: 2px 3px 2px #333132;
     letter-spacing: 2px; }

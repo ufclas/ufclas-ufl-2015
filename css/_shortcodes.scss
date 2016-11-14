@@ -1,9 +1,10 @@
 .landing-page-hero-full { 
 	@include breakFirst(large){
-		margin-top: 0px;
 		margin-bottom: $grid-gutter-width*2;
 	}
-	
+	@include breakFirst(wide){
+		margin-top: 0px;
+	}
 	.hero-img {
 		h1 {
 			text-shadow: 2px 3px 2px $grayDark;

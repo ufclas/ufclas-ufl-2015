@@ -17,7 +17,7 @@ get_header(); ?>
 		echo do_shortcode( $shortcode );
 	endif;
 ?>
-<div id="main" class="container full-width-content">
+<div id="main" class="container main-content">
     <div class="row">
         <div class="col-sm-12">
             <?php 
@@ -34,7 +34,8 @@ get_header(); ?>
 
         </div>
     </div>
-    <?php get_sidebar('page_sections'); ?>
+    
 </div>
+<?php get_sidebar('page_sections'); ?>
 
 <?php get_footer(); ?>
