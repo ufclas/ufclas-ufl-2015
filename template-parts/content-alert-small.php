@@ -8,15 +8,22 @@
  */
 
 /**
- * Emergency modal demo purposes only
+ * Call to Action / Alert Message
  */
+
+$actionitem_text = get_theme_mod('actionitem_text', '');
+
+if ( !empty( $actionitem_text ) ):
+	$actionitem_heading = get_theme_mod('actionitem_heading', '');
+	$actionitem_heading = ( !empty( $actionitem_heading ) )? "<strong>{$actionitem_heading}</strong> " : '';
+	$actionitem_url = get_theme_mod('actionitem_url', '');
+	$actionitem_altcolor = get_theme_mod('actionitem_altcolor', 0);
+	$actionitem_class = ( $actionitem_altcolor )? '' : ' alert-default';
 ?>
-<div class="alert-small">
-    <span class="icon-svg icon-alert">
-    <svg>
-    <use xlink:href="<?php echo get_stylesheet_directory_uri(); ?>/img/spritemap.svg#alert"></use>
-    </svg>
-</span>
-<div class="alert-title"><strong>Emergency Alert</strong> Severe Weather Alert</div>
-<a href="#" class="alert-link">More <span class="hidden-mobile">Information</span> <span class="arw-right icon-svg"><svg><use xlink:href="<?php echo get_stylesheet_directory_uri(); ?>/img/spritemap.svg#arw-right"></use></svg></span></a>
-</div>
+    <div class="alert-small<?php echo $actionitem_class; ?>">
+        <span class="icon-svg icon-alert"><svg><use xlink:href="<?php echo get_stylesheet_directory_uri(); ?>/img/spritemap.svg#alert"></use></svg></span>
+        <div class="alert-title"><?php echo $actionitem_heading . $actionitem_text; ?></div>
+        <a href="<?php echo $actionitem_url; ?>" class="alert-link">More <span class="hidden-mobile">Information</span> <span class="arw-right icon-svg"><svg><use xlink:href="<?php echo get_stylesheet_directory_uri(); ?>/img/spritemap.svg#arw-right"></use></svg></span></a>
+    </div>
+<?php
+endif;

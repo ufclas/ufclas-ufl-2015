@@ -104,6 +104,8 @@
 
   <div class="mobile-dropdown-wrap"></div>
   
+  <?php get_template_part( 'template-parts/content', 'alert-small' );  ?>
+  
   <?php ufclas_get_search_form( 'mobile' ); ?>
   
   <a href="#" class="btn-menu">

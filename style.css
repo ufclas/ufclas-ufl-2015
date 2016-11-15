@@ -5,11 +5,11 @@ Theme URI: https://it.clas.ufl.edu/services/web-services/
 Author: Priscilla Chapman (CLAS IT)
 Author URI: https://it.clas.ufl.edu/
 Description: Official UF template for Liberal Arts and Sciences. Based on 160 over 90 template.
-Version: 0.4.1
+Version: 0.5.0
 License: GNU General Public License v2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 Text Domain: ufclas-ufl-2015
-Build Date: 20161110
+Build Date: 20161115
 */
 html, body, div, span, applet, object, iframe,
 h1, h2, h3, .kicker, .gform_wrapper .gform_heading .gform_description, .single-article .entry-content p.lead, .featured-story h2, .single-article #secondary h2, h4, h5, dt, h6, p, blockquote, pre,
@@ -4026,6 +4026,24 @@ strong {
 
 .main-menu-wrap li:nth-child(odd) {
   background: #fff; }
+
+@media (min-width: 992px) {
+  .alert-small {
+    top: 85px; } }
+.alert-small.alert-default {
+  background-color: #ffeeaa;
+  background-color: rgba(255, 238, 170, 0.9); }
+  .alert-small.alert-default .icon-alert {
+    background-color: #f3b421; }
+  .alert-small.alert-default .alert-title strong {
+    font-weight: 700;
+    color: #444; }
+.alert-small .alert-link:hover {
+  color: #000; }
+.alert-small .icon-alert svg {
+  transform: translate(0px, 0px);
+  margin-left: -12px;
+  margin-top: -12px; }
 
 @media (min-width: 768px) {
   .main-menu-wrap {
