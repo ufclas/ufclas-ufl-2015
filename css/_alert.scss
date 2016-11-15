@@ -17,4 +17,9 @@
 	.alert-link:hover {
 		color: #000;
 	}
+	.icon-alert svg {
+		transform: translate(0px, 0px);
+		margin-left: -12px;
+		margin-top: -12px;
+	}
 }
