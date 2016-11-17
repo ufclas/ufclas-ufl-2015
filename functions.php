@@ -418,7 +418,6 @@ add_filter( 'get_site_icon_url', 'ufclas_ufl_2015_icon_url', 10, 3 );
 require get_stylesheet_directory() . '/inc/shortcodes.php';
 require get_stylesheet_directory() . '/inc/walkers.php';
 require get_stylesheet_directory() . '/inc/widgets.php';
-require get_stylesheet_directory() . '/inc/metaboxes.php';
 require get_stylesheet_directory() . '/inc/shibboleth.php';
 require get_stylesheet_directory() . '/inc/customizer.php';
 require get_stylesheet_directory() . '/inc/template-tags.php';
@@ -438,3 +437,7 @@ if ( class_exists( 'IssueM' ) ) {
 	require get_stylesheet_directory() . '/inc/issuem/issuem.php';
 }
 
+// Advanced custom fields
+if( function_exists( 'register_field_group' )){
+	require get_stylesheet_directory() . '/inc/advanced-custom-fields/metaboxes.php';
+}

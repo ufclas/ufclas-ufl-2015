@@ -65,6 +65,7 @@ class UFL_2015_Landing_Page_Hero extends WP_Widget {
 		$image = ( isset( $instance['image'] ) )? $instance['image'] : '';
 		$image_heights = array(
 			'large' => esc_html__( 'Large', 'ufclas-ufl-2015' ),
+			'medium' => esc_html__( 'Medium', 'ufclas-ufl-2015' ),
 			'half' => esc_html__( 'Small', 'ufclas-ufl-2015' ),
 		);
 		$image_height = sanitize_text_field( $instance['image_height'] );

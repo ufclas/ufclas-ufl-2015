@@ -74,8 +74,9 @@ function ufclas_ufl_2015_register_landing_hero() {
 			'attr' 		=> 'image_height',
 			'type' 		=> 'select',
 			'options' 	=> array(
-							'' => esc_html__( 'Default', 'ufclas-ufl-2015' ),
-							'half' => esc_html__( 'Half', 'ufclas-ufl-2015' ),
+							'large' => esc_html__( 'Large', 'ufclas-ufl-2015' ),
+							'medium' => esc_html__( 'Medium', 'ufclas-ufl-2015' ),
+							'half' => esc_html__( 'Small', 'ufclas-ufl-2015' ),
 			),
 		),
 		array(

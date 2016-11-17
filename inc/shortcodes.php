@@ -84,7 +84,19 @@ function ufclas_ufl_2015_landing_hero($atts, $content = NULL ) {
 	
 	// Support either image ID or image url
 	$image = ( is_numeric( $image ) )? wp_get_attachment_image_src( $image, 'large' ) : array($image);
-	$image_class = ( $image_height == 'half' )? ' hero-img-half':'';
+	
+	switch ( $image_height ){
+		case 'half':
+			$image_class = ' hero-img-half';
+			break;
+		
+		case 'medium':
+			$image_class = ' hero-img-medium';
+			break;
+			
+		default:
+			$image_class = '';	
+	}
 	
 	// Shortcode callbacks must return content, so use output buffering
 	ob_start();
