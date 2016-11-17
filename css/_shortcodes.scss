@@ -17,8 +17,7 @@
 		height: 225px;
 		
 		@include breakFirst(large){
-			height: 375px;
-			background-position: center center;
+			background-position: center center; 
 		}
 	}
 }

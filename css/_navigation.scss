@@ -66,17 +66,17 @@
 }
 
 /* Fixes SVG icon display in FF */ 
-.big-list, .sidenav, .single-article #secondary .widget ul {
+.big-list, .sidenav, .single-article .widget-area .widget ul {
 	.btn-mobile-toggle a svg {
-		transform: translate(0, 0) rotate(45deg);
+		transform: translate(0, 0) rotate(90deg);
 		transform-origin: center;
-		margin: 22px 0px;
+		margin: 15px 0px;
 		top: 0px;
 		left: 0px;
 		width: 100%;
 	}
 	&.open-list .btn-mobile-toggle .arw-right svg {
-		transform: translate(0, 0) rotate(-45deg);
+		transform: translate(0, 0) rotate(-90deg);
 	}
 }
 
@@ -95,6 +95,8 @@
 		background-color: $white;
 	}
 }
+
+/* Sidebar Navigation */
 
 .sidenav {
 	margin-bottom: $grid-gutter-width !important;

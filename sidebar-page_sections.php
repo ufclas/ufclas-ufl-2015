@@ -16,7 +16,7 @@ if ( !is_active_sidebar( $widget_area ) ){
 ?>
 <div>
 <div>
-    <div id="secondary" class="widget-area page-sections" role="complementary">
+    <div id="page-sections" class="widget-area" role="complementary">
 		<?php dynamic_sidebar( $widget_area ); ?>
     </div><!-- page_sidebar -->    
 </div>
