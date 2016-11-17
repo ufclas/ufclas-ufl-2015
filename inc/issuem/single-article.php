@@ -27,13 +27,17 @@ get_header(); ?>
   <div class="col-md-12">
     <?php while ( have_posts() ) : the_post(); ?>
         <article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
-            <?php 
-                if( has_post_thumbnail() ){
-					$img_data = wp_prepare_attachment_for_js( get_post_thumbnail_id() );
-					$img_size = 'medium';
-					$img_align = 'alignleft';
-					$img = get_the_post_thumbnail( get_the_ID(), $img_size, array( 'class' => 'img-responsive ' . $img_align ) );
-					echo do_shortcode( sprintf('[caption align="%s" width="%d"]%s %s[/caption]', $img_align, $img_data['sizes'][$img_size]['width'], $img, $img_data['description'] ) );
+            <?php 			
+				if( has_post_thumbnail() ){
+					$custom_meta = get_post_meta( get_the_ID() );
+					$hide_featured = ( isset( $custom_meta['custom_meta_post_remove_featured'] ) )? $custom_meta['custom_meta_post_remove_featured'] : 0;
+					if( !$hide_featured ){
+						$img_data = wp_prepare_attachment_for_js( get_post_thumbnail_id() );
+						$img_size = 'medium';
+						$img_align = 'alignleft';
+						$img = get_the_post_thumbnail( get_the_ID(), $img_size, array( 'class' => 'img-responsive ' . $img_align ) );
+						echo do_shortcode( sprintf('[caption align="%s" width="%d"]%s %s[/caption]', $img_align, $img_data['sizes'][$img_size]['width'], $img, $img_data['description'] ) );
+					}
             	}
             ?>
             

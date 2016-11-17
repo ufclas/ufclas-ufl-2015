@@ -5,14 +5,14 @@ Theme URI: https://it.clas.ufl.edu/services/web-services/
 Author: Priscilla Chapman (CLAS IT)
 Author URI: https://it.clas.ufl.edu/
 Description: Official UF template for Liberal Arts and Sciences. Based on 160 over 90 template.
-Version: 0.5.0
+Version: 0.5.1
 License: GNU General Public License v2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 Text Domain: ufclas-ufl-2015
-Build Date: 20161115
+Build Date: 20161116
 */
 html, body, div, span, applet, object, iframe,
-h1, h2, h3, .kicker, .gform_wrapper .gform_heading .gform_description, .single-article .entry-content p.lead, .featured-story h2, .single-article #secondary h2, h4, h5, dt, h6, p, blockquote, pre,
+h1, h2, h3, .kicker, .gform_wrapper .gform_heading .gform_description, .single-article .entry-content p.lead, .featured-story h2, .single-article .widget-area h2, h4, h5, dt, h6, p, blockquote, pre,
 a, abbr, acronym, address, big, cite, code,
 del, dfn, em, img, ins, kbd, q, s, samp,
 small, strike, strong, sub, sup, tt, var,
@@ -795,7 +795,7 @@ em {
 cite {
   font-style: normal; }
 
-h1, h2, h3, .kicker, .gform_wrapper .gform_heading .gform_description, .single-article .entry-content p.lead, .featured-story h2, .single-article #secondary h2, h4, h5, dt, h6 {
+h1, h2, h3, .kicker, .gform_wrapper .gform_heading .gform_description, .single-article .entry-content p.lead, .featured-story h2, .single-article .widget-area h2, h4, h5, dt, h6 {
   margin: 0 0 13px;
   font-family: inherit;
   font-weight: bold;
@@ -810,7 +810,7 @@ h3,
 .gform_wrapper .gform_heading .gform_description,
 .single-article .entry-content p.lead,
 .featured-story h2,
-.single-article #secondary h2 {
+.single-article .widget-area h2 {
   line-height: 52px; }
 
 h1 {
@@ -837,7 +837,7 @@ h2 {
       font-size: 32px;
       line-height: 36px; } }
 
-h3, .kicker, .gform_wrapper .gform_heading .gform_description, .single-article .entry-content p.lead, .featured-story h2, .single-article #secondary h2 {
+h3, .kicker, .gform_wrapper .gform_heading .gform_description, .single-article .entry-content p.lead, .featured-story h2, .single-article .widget-area h2 {
   color: #005496;
   font: 500 24px/36px "quadon", "Helvetica Neue", Helvetica, Arial, sans-serif;
   letter-spacing: 1px;
@@ -1001,45 +1001,45 @@ img {
 
 .big-list-wrap {
   margin-bottom: 30px; }
-  .big-list-wrap .big-list, .big-list-wrap .sidenav, .big-list-wrap .single-article #secondary .widget ul, .single-article #secondary .widget .big-list-wrap ul, .big-list-wrap .single-article #secondary .widget .entry-content ol, .single-article #secondary .widget .entry-content .big-list-wrap ol, .big-list-wrap .entry-content .single-article #secondary .widget ol, .entry-content .single-article #secondary .widget .big-list-wrap ol, .big-list-wrap .single-article #secondary .widget .wp-editor ol, .single-article #secondary .widget .wp-editor .big-list-wrap ol, .big-list-wrap .wp-editor .single-article #secondary .widget ol, .wp-editor .single-article #secondary .widget .big-list-wrap ol {
+  .big-list-wrap .big-list, .big-list-wrap .sidenav, .big-list-wrap .single-article .widget-area .widget ul, .single-article .widget-area .widget .big-list-wrap ul, .big-list-wrap .single-article .widget-area .widget .entry-content ol, .single-article .widget-area .widget .entry-content .big-list-wrap ol, .big-list-wrap .entry-content .single-article .widget-area .widget ol, .entry-content .single-article .widget-area .widget .big-list-wrap ol, .big-list-wrap .single-article .widget-area .widget .wp-editor ol, .single-article .widget-area .widget .wp-editor .big-list-wrap ol, .big-list-wrap .wp-editor .single-article .widget-area .widget ol, .wp-editor .single-article .widget-area .widget .big-list-wrap ol {
     margin: 0; }
 
-.big-list, .sidenav, .single-article #secondary .widget ul, .single-article #secondary .widget .entry-content ol, .entry-content .single-article #secondary .widget ol, .single-article #secondary .widget .wp-editor ol, .wp-editor .single-article #secondary .widget ol {
+.big-list, .sidenav, .single-article .widget-area .widget ul, .single-article .widget-area .widget .entry-content ol, .entry-content .single-article .widget-area .widget ol, .single-article .widget-area .widget .wp-editor ol, .wp-editor .single-article .widget-area .widget ol {
   margin-left: 0; }
-  .open-list .big-list li, .open-list .sidenav li, .open-list .single-article #secondary .widget ul li, .single-article #secondary .widget .open-list ul li, .open-list .single-article #secondary .widget .entry-content ol li, .single-article #secondary .widget .entry-content .open-list ol li, .open-list .entry-content .single-article #secondary .widget ol li, .entry-content .single-article #secondary .widget .open-list ol li, .open-list .single-article #secondary .widget .wp-editor ol li, .single-article #secondary .widget .wp-editor .open-list ol li, .open-list .wp-editor .single-article #secondary .widget ol li, .wp-editor .single-article #secondary .widget .open-list ol li, .big-list.open-list li, .open-list.sidenav li, .single-article #secondary .widget ul.open-list li, .single-article #secondary .widget .entry-content ol.open-list li, .entry-content .single-article #secondary .widget ol.open-list li, .single-article #secondary .widget .wp-editor ol.open-list li, .wp-editor .single-article #secondary .widget ol.open-list li, .big-list.show-mobile li, .show-mobile.sidenav li, .single-article #secondary .widget ul.show-mobile li, .single-article #secondary .widget .entry-content ol.show-mobile li, .entry-content .single-article #secondary .widget ol.show-mobile li, .single-article #secondary .widget .wp-editor ol.show-mobile li, .wp-editor .single-article #secondary .widget ol.show-mobile li {
+  .open-list .big-list li, .open-list .sidenav li, .open-list .single-article .widget-area .widget ul li, .single-article .widget-area .widget .open-list ul li, .open-list .single-article .widget-area .widget .entry-content ol li, .single-article .widget-area .widget .entry-content .open-list ol li, .open-list .entry-content .single-article .widget-area .widget ol li, .entry-content .single-article .widget-area .widget .open-list ol li, .open-list .single-article .widget-area .widget .wp-editor ol li, .single-article .widget-area .widget .wp-editor .open-list ol li, .open-list .wp-editor .single-article .widget-area .widget ol li, .wp-editor .single-article .widget-area .widget .open-list ol li, .big-list.open-list li, .open-list.sidenav li, .single-article .widget-area .widget ul.open-list li, .single-article .widget-area .widget .entry-content ol.open-list li, .entry-content .single-article .widget-area .widget ol.open-list li, .single-article .widget-area .widget .wp-editor ol.open-list li, .wp-editor .single-article .widget-area .widget ol.open-list li, .big-list.show-mobile li, .show-mobile.sidenav li, .single-article .widget-area .widget ul.show-mobile li, .single-article .widget-area .widget .entry-content ol.show-mobile li, .entry-content .single-article .widget-area .widget ol.show-mobile li, .single-article .widget-area .widget .wp-editor ol.show-mobile li, .wp-editor .single-article .widget-area .widget ol.show-mobile li {
     display: block; }
   @media (max-width: 992px) {
-    .big-list.show-mobile, .show-mobile.sidenav, .single-article #secondary .widget ul.show-mobile, .single-article #secondary .widget .entry-content ol.show-mobile, .entry-content .single-article #secondary .widget ol.show-mobile, .single-article #secondary .widget .wp-editor ol.show-mobile, .wp-editor .single-article #secondary .widget ol.show-mobile {
+    .big-list.show-mobile, .show-mobile.sidenav, .single-article .widget-area .widget ul.show-mobile, .single-article .widget-area .widget .entry-content ol.show-mobile, .entry-content .single-article .widget-area .widget ol.show-mobile, .single-article .widget-area .widget .wp-editor ol.show-mobile, .wp-editor .single-article .widget-area .widget ol.show-mobile {
       margin: 0; } }
-  .big-list li, .sidenav li, .single-article #secondary .widget ul li, .single-article #secondary .widget .entry-content ol li, .entry-content .single-article #secondary .widget ol li, .single-article #secondary .widget .wp-editor ol li, .wp-editor .single-article #secondary .widget ol li {
+  .big-list li, .sidenav li, .single-article .widget-area .widget ul li, .single-article .widget-area .widget .entry-content ol li, .entry-content .single-article .widget-area .widget ol li, .single-article .widget-area .widget .wp-editor ol li, .wp-editor .single-article .widget-area .widget ol li {
     display: none;
     margin: 0;
     text-transform: uppercase; }
     @media (min-width: 768px) {
-      .big-list li, .sidenav li, .single-article #secondary .widget ul li, .single-article #secondary .widget .entry-content ol li, .entry-content .single-article #secondary .widget ol li, .single-article #secondary .widget .wp-editor ol li, .wp-editor .single-article #secondary .widget ol li {
+      .big-list li, .sidenav li, .single-article .widget-area .widget ul li, .single-article .widget-area .widget .entry-content ol li, .entry-content .single-article .widget-area .widget ol li, .single-article .widget-area .widget .wp-editor ol li, .wp-editor .single-article .widget-area .widget ol li {
         display: block; } }
-    .big-list li:before, .sidenav li:before, .single-article #secondary .widget ul li:before, .single-article #secondary .widget .entry-content ol li:before, .entry-content .single-article #secondary .widget ol li:before, .single-article #secondary .widget .wp-editor ol li:before, .wp-editor .single-article #secondary .widget ol li:before {
+    .big-list li:before, .sidenav li:before, .single-article .widget-area .widget ul li:before, .single-article .widget-area .widget .entry-content ol li:before, .entry-content .single-article .widget-area .widget ol li:before, .single-article .widget-area .widget .wp-editor ol li:before, .wp-editor .single-article .widget-area .widget ol li:before {
       display: none; }
-    .big-list li.btn-mobile-toggle, .sidenav li.btn-mobile-toggle, .single-article #secondary .widget ul li.btn-mobile-toggle, .single-article #secondary .widget .entry-content ol li.btn-mobile-toggle, .entry-content .single-article #secondary .widget ol li.btn-mobile-toggle, .single-article #secondary .widget .wp-editor ol li.btn-mobile-toggle, .wp-editor .single-article #secondary .widget ol li.btn-mobile-toggle {
+    .big-list li.btn-mobile-toggle, .sidenav li.btn-mobile-toggle, .single-article .widget-area .widget ul li.btn-mobile-toggle, .single-article .widget-area .widget .entry-content ol li.btn-mobile-toggle, .entry-content .single-article .widget-area .widget ol li.btn-mobile-toggle, .single-article .widget-area .widget .wp-editor ol li.btn-mobile-toggle, .wp-editor .single-article .widget-area .widget ol li.btn-mobile-toggle {
       display: block; }
       @media (min-width: 768px) {
-        .big-list li.btn-mobile-toggle, .sidenav li.btn-mobile-toggle, .single-article #secondary .widget ul li.btn-mobile-toggle, .single-article #secondary .widget .entry-content ol li.btn-mobile-toggle, .entry-content .single-article #secondary .widget ol li.btn-mobile-toggle, .single-article #secondary .widget .wp-editor ol li.btn-mobile-toggle, .wp-editor .single-article #secondary .widget ol li.btn-mobile-toggle {
+        .big-list li.btn-mobile-toggle, .sidenav li.btn-mobile-toggle, .single-article .widget-area .widget ul li.btn-mobile-toggle, .single-article .widget-area .widget .entry-content ol li.btn-mobile-toggle, .entry-content .single-article .widget-area .widget ol li.btn-mobile-toggle, .single-article .widget-area .widget .wp-editor ol li.btn-mobile-toggle, .wp-editor .single-article .widget-area .widget ol li.btn-mobile-toggle {
           display: none; } }
-  .big-list a, .sidenav a, .single-article #secondary .widget ul a, .single-article #secondary .widget .entry-content ol a, .entry-content .single-article #secondary .widget ol a, .single-article #secondary .widget .wp-editor ol a, .wp-editor .single-article #secondary .widget ol a {
+  .big-list a, .sidenav a, .single-article .widget-area .widget ul a, .single-article .widget-area .widget .entry-content ol a, .entry-content .single-article .widget-area .widget ol a, .single-article .widget-area .widget .wp-editor ol a, .wp-editor .single-article .widget-area .widget ol a {
     display: block;
     font: 500 18px/26px "gentona", "Georgia", serif;
     letter-spacing: 2px;
     padding: 18px 62px 18px 20px;
     position: relative; }
     @media (min-width: 768px) {
-      .big-list a, .sidenav a, .single-article #secondary .widget ul a, .single-article #secondary .widget .entry-content ol a, .entry-content .single-article #secondary .widget ol a, .single-article #secondary .widget .wp-editor ol a, .wp-editor .single-article #secondary .widget ol a {
+      .big-list a, .sidenav a, .single-article .widget-area .widget ul a, .single-article .widget-area .widget .entry-content ol a, .entry-content .single-article .widget-area .widget ol a, .single-article .widget-area .widget .wp-editor ol a, .wp-editor .single-article .widget-area .widget ol a {
         padding-left: 34px; } }
-  .no-touch .big-list a:hover, .no-touch .sidenav a:hover, .no-touch .single-article #secondary .widget ul a:hover, .single-article #secondary .widget .no-touch ul a:hover, .no-touch .single-article #secondary .widget .entry-content ol a:hover, .single-article #secondary .widget .entry-content .no-touch ol a:hover, .no-touch .entry-content .single-article #secondary .widget ol a:hover, .entry-content .single-article #secondary .widget .no-touch ol a:hover, .no-touch .single-article #secondary .widget .wp-editor ol a:hover, .single-article #secondary .widget .wp-editor .no-touch ol a:hover, .no-touch .wp-editor .single-article #secondary .widget ol a:hover, .wp-editor .single-article #secondary .widget .no-touch ol a:hover {
+  .no-touch .big-list a:hover, .no-touch .sidenav a:hover, .no-touch .single-article .widget-area .widget ul a:hover, .single-article .widget-area .widget .no-touch ul a:hover, .no-touch .single-article .widget-area .widget .entry-content ol a:hover, .single-article .widget-area .widget .entry-content .no-touch ol a:hover, .no-touch .entry-content .single-article .widget-area .widget ol a:hover, .entry-content .single-article .widget-area .widget .no-touch ol a:hover, .no-touch .single-article .widget-area .widget .wp-editor ol a:hover, .single-article .widget-area .widget .wp-editor .no-touch ol a:hover, .no-touch .wp-editor .single-article .widget-area .widget ol a:hover, .wp-editor .single-article .widget-area .widget .no-touch ol a:hover {
     background: #f37021;
     color: #fff; }
-    .no-touch .big-list a:hover .arw-right, .no-touch .sidenav a:hover .arw-right, .no-touch .single-article #secondary .widget ul a:hover .arw-right, .single-article #secondary .widget .no-touch ul a:hover .arw-right, .no-touch .single-article #secondary .widget .entry-content ol a:hover .arw-right, .single-article #secondary .widget .entry-content .no-touch ol a:hover .arw-right, .no-touch .entry-content .single-article #secondary .widget ol a:hover .arw-right, .entry-content .single-article #secondary .widget .no-touch ol a:hover .arw-right, .no-touch .single-article #secondary .widget .wp-editor ol a:hover .arw-right, .single-article #secondary .widget .wp-editor .no-touch ol a:hover .arw-right, .no-touch .wp-editor .single-article #secondary .widget ol a:hover .arw-right, .wp-editor .single-article #secondary .widget .no-touch ol a:hover .arw-right {
+    .no-touch .big-list a:hover .arw-right, .no-touch .sidenav a:hover .arw-right, .no-touch .single-article .widget-area .widget ul a:hover .arw-right, .single-article .widget-area .widget .no-touch ul a:hover .arw-right, .no-touch .single-article .widget-area .widget .entry-content ol a:hover .arw-right, .single-article .widget-area .widget .entry-content .no-touch ol a:hover .arw-right, .no-touch .entry-content .single-article .widget-area .widget ol a:hover .arw-right, .entry-content .single-article .widget-area .widget .no-touch ol a:hover .arw-right, .no-touch .single-article .widget-area .widget .wp-editor ol a:hover .arw-right, .single-article .widget-area .widget .wp-editor .no-touch ol a:hover .arw-right, .no-touch .wp-editor .single-article .widget-area .widget ol a:hover .arw-right, .wp-editor .single-article .widget-area .widget .no-touch ol a:hover .arw-right {
       display: block; }
-  .big-list .arw-right, .sidenav .arw-right, .single-article #secondary .widget ul .arw-right, .single-article #secondary .widget .entry-content ol .arw-right, .entry-content .single-article #secondary .widget ol .arw-right, .single-article #secondary .widget .wp-editor ol .arw-right, .wp-editor .single-article #secondary .widget ol .arw-right {
+  .big-list .arw-right, .sidenav .arw-right, .single-article .widget-area .widget ul .arw-right, .single-article .widget-area .widget .entry-content ol .arw-right, .entry-content .single-article .widget-area .widget ol .arw-right, .single-article .widget-area .widget .wp-editor ol .arw-right, .wp-editor .single-article .widget-area .widget ol .arw-right {
     background: #dd661e;
     color: #fff;
     display: none;
@@ -1048,10 +1048,10 @@ img {
     right: 0;
     top: 0;
     width: 62px; }
-    .big-list .arw-right svg, .sidenav .arw-right svg, .single-article #secondary .widget ul .arw-right svg, .single-article #secondary .widget .entry-content ol .arw-right svg, .entry-content .single-article #secondary .widget ol .arw-right svg, .single-article #secondary .widget .wp-editor ol .arw-right svg, .wp-editor .single-article #secondary .widget ol .arw-right svg {
+    .big-list .arw-right svg, .sidenav .arw-right svg, .single-article .widget-area .widget ul .arw-right svg, .single-article .widget-area .widget .entry-content ol .arw-right svg, .entry-content .single-article .widget-area .widget ol .arw-right svg, .single-article .widget-area .widget .wp-editor ol .arw-right svg, .wp-editor .single-article .widget-area .widget ol .arw-right svg {
       height: 14px;
       width: 18px; }
-  .big-list .btn-mobile-toggle a svg, .sidenav .btn-mobile-toggle a svg, .single-article #secondary .widget ul .btn-mobile-toggle a svg, .single-article #secondary .widget .entry-content ol .btn-mobile-toggle a svg, .entry-content .single-article #secondary .widget ol .btn-mobile-toggle a svg, .single-article #secondary .widget .wp-editor ol .btn-mobile-toggle a svg, .wp-editor .single-article #secondary .widget ol .btn-mobile-toggle a svg {
+  .big-list .btn-mobile-toggle a svg, .sidenav .btn-mobile-toggle a svg, .single-article .widget-area .widget ul .btn-mobile-toggle a svg, .single-article .widget-area .widget .entry-content ol .btn-mobile-toggle a svg, .entry-content .single-article .widget-area .widget ol .btn-mobile-toggle a svg, .single-article .widget-area .widget .wp-editor ol .btn-mobile-toggle a svg, .wp-editor .single-article .widget-area .widget ol .btn-mobile-toggle a svg {
     transform: translate(-50%, -50%) rotate(90deg); }
 
 .read-more {
@@ -1085,13 +1085,13 @@ img {
   top: 0;
   left: 0; }
 
-.btn-circle svg, .btn-mobile-toggle a svg, .big-list .arw-right svg, .sidenav .arw-right svg, .single-article #secondary .widget ul .arw-right svg, .single-article #secondary .widget .entry-content ol .arw-right svg, .entry-content .single-article #secondary .widget ol .arw-right svg, .single-article #secondary .widget .wp-editor ol .arw-right svg, .wp-editor .single-article #secondary .widget ol .arw-right svg, .styled-select .arw-right svg, :root .uf-check input[type="checkbox"] + div .icon-svg, :root .uf-check input[type="radio"] + div:after, .header .logo img, .btn-search .icon-svg, .btn-menu .icon-svg, .btn-show-aux .icon-svg, .emergency-modal .icon-alert svg, .alert-small .icon-alert svg, .emergency-modal-close .icon-svg, .stat-wrap .stat h2, .stat-wrap .info-copy, .stat-block, .center-vert-all {
+.btn-circle svg, .btn-mobile-toggle a svg, .big-list .arw-right svg, .sidenav .arw-right svg, .single-article .widget-area .widget ul .arw-right svg, .single-article .widget-area .widget .entry-content ol .arw-right svg, .entry-content .single-article .widget-area .widget ol .arw-right svg, .single-article .widget-area .widget .wp-editor ol .arw-right svg, .wp-editor .single-article .widget-area .widget ol .arw-right svg, .styled-select .arw-right svg, :root .uf-check input[type="checkbox"] + div .icon-svg, :root .uf-check input[type="radio"] + div:after, .header .logo img, .btn-search .icon-svg, .btn-menu .icon-svg, .btn-show-aux .icon-svg, .emergency-modal .icon-alert svg, .alert-small .icon-alert svg, .emergency-modal-close .icon-svg, .stat-wrap .stat h2, .stat-wrap .info-copy, .stat-block, .center-vert-all {
   backface-visibility: hidden;
   position: absolute;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%); }
-  .no-csstransforms .btn-circle svg, .btn-circle .no-csstransforms svg, .no-csstransforms .btn-mobile-toggle a svg, .btn-mobile-toggle a .no-csstransforms svg, .no-csstransforms .big-list .arw-right svg, .big-list .arw-right .no-csstransforms svg, .no-csstransforms .sidenav .arw-right svg, .sidenav .arw-right .no-csstransforms svg, .no-csstransforms .single-article #secondary .widget ul .arw-right svg, .single-article #secondary .widget ul .arw-right .no-csstransforms svg, .no-csstransforms .single-article #secondary .widget .entry-content ol .arw-right svg, .single-article #secondary .widget .entry-content ol .arw-right .no-csstransforms svg, .no-csstransforms .entry-content .single-article #secondary .widget ol .arw-right svg, .entry-content .single-article #secondary .widget ol .arw-right .no-csstransforms svg, .no-csstransforms .single-article #secondary .widget .wp-editor ol .arw-right svg, .single-article #secondary .widget .wp-editor ol .arw-right .no-csstransforms svg, .no-csstransforms .wp-editor .single-article #secondary .widget ol .arw-right svg, .wp-editor .single-article #secondary .widget ol .arw-right .no-csstransforms svg, .no-csstransforms .styled-select .arw-right svg, .styled-select .arw-right .no-csstransforms svg, .no-csstransforms :root .uf-check input[type="checkbox"] + div .icon-svg, :root .uf-check input[type="checkbox"] + div .no-csstransforms .icon-svg, .no-csstransforms :root .uf-check input[type="radio"] + div:after, :root .uf-check .no-csstransforms input[type="radio"] + div:after, .no-csstransforms .header .logo img, .header .logo .no-csstransforms img, .no-csstransforms .btn-search .icon-svg, .btn-search .no-csstransforms .icon-svg, .no-csstransforms .btn-menu .icon-svg, .btn-menu .no-csstransforms .icon-svg, .no-csstransforms .btn-show-aux .icon-svg, .btn-show-aux .no-csstransforms .icon-svg, .no-csstransforms .emergency-modal .icon-alert svg, .emergency-modal .icon-alert .no-csstransforms svg, .no-csstransforms .alert-small .icon-alert svg, .alert-small .icon-alert .no-csstransforms svg, .no-csstransforms .emergency-modal-close .icon-svg, .emergency-modal-close .no-csstransforms .icon-svg, .no-csstransforms .stat-wrap .stat h2, .stat-wrap .stat .no-csstransforms h2, .no-csstransforms .stat-wrap .info-copy, .stat-wrap .no-csstransforms .info-copy, .no-csstransforms .stat-block, .no-csstransforms .center-vert-all {
+  .no-csstransforms .btn-circle svg, .btn-circle .no-csstransforms svg, .no-csstransforms .btn-mobile-toggle a svg, .btn-mobile-toggle a .no-csstransforms svg, .no-csstransforms .big-list .arw-right svg, .big-list .arw-right .no-csstransforms svg, .no-csstransforms .sidenav .arw-right svg, .sidenav .arw-right .no-csstransforms svg, .no-csstransforms .single-article .widget-area .widget ul .arw-right svg, .single-article .widget-area .widget ul .arw-right .no-csstransforms svg, .no-csstransforms .single-article .widget-area .widget .entry-content ol .arw-right svg, .single-article .widget-area .widget .entry-content ol .arw-right .no-csstransforms svg, .no-csstransforms .entry-content .single-article .widget-area .widget ol .arw-right svg, .entry-content .single-article .widget-area .widget ol .arw-right .no-csstransforms svg, .no-csstransforms .single-article .widget-area .widget .wp-editor ol .arw-right svg, .single-article .widget-area .widget .wp-editor ol .arw-right .no-csstransforms svg, .no-csstransforms .wp-editor .single-article .widget-area .widget ol .arw-right svg, .wp-editor .single-article .widget-area .widget ol .arw-right .no-csstransforms svg, .no-csstransforms .styled-select .arw-right svg, .styled-select .arw-right .no-csstransforms svg, .no-csstransforms :root .uf-check input[type="checkbox"] + div .icon-svg, :root .uf-check input[type="checkbox"] + div .no-csstransforms .icon-svg, .no-csstransforms :root .uf-check input[type="radio"] + div:after, :root .uf-check .no-csstransforms input[type="radio"] + div:after, .no-csstransforms .header .logo img, .header .logo .no-csstransforms img, .no-csstransforms .btn-search .icon-svg, .btn-search .no-csstransforms .icon-svg, .no-csstransforms .btn-menu .icon-svg, .btn-menu .no-csstransforms .icon-svg, .no-csstransforms .btn-show-aux .icon-svg, .btn-show-aux .no-csstransforms .icon-svg, .no-csstransforms .emergency-modal .icon-alert svg, .emergency-modal .icon-alert .no-csstransforms svg, .no-csstransforms .alert-small .icon-alert svg, .alert-small .icon-alert .no-csstransforms svg, .no-csstransforms .emergency-modal-close .icon-svg, .emergency-modal-close .no-csstransforms .icon-svg, .no-csstransforms .stat-wrap .stat h2, .stat-wrap .stat .no-csstransforms h2, .no-csstransforms .stat-wrap .info-copy, .stat-wrap .no-csstransforms .info-copy, .no-csstransforms .stat-block, .no-csstransforms .center-vert-all {
     position: relative;
     top: 0;
     left: 0; }
@@ -2253,7 +2253,7 @@ form.search-wrap, .btn-show-aux, .btn-menu, .btn-search-mobile {
     font: 700 32px/36px "gentona", "Georgia", serif;
     letter-spacing: 1px;
     margin-bottom: 10px; }
-  .emergency-modal-content h3, .emergency-modal-content .kicker, .emergency-modal-content .gform_wrapper .gform_heading .gform_description, .gform_wrapper .gform_heading .emergency-modal-content .gform_description, .emergency-modal-content .single-article .entry-content p.lead, .single-article .entry-content .emergency-modal-content p.lead, .emergency-modal-content .featured-story h2, .featured-story .emergency-modal-content h2, .emergency-modal-content .single-article #secondary h2, .single-article #secondary .emergency-modal-content h2 {
+  .emergency-modal-content h3, .emergency-modal-content .kicker, .emergency-modal-content .gform_wrapper .gform_heading .gform_description, .gform_wrapper .gform_heading .emergency-modal-content .gform_description, .emergency-modal-content .single-article .entry-content p.lead, .single-article .entry-content .emergency-modal-content p.lead, .emergency-modal-content .featured-story h2, .featured-story .emergency-modal-content h2, .emergency-modal-content .single-article .widget-area h2, .single-article .widget-area .emergency-modal-content h2 {
     color: #333132;
     font: 500 16px/20px "quadon", "Helvetica Neue", Helvetica, Arial, sans-serif;
     letter-spacing: 3px;
@@ -3247,24 +3247,24 @@ form.search-wrap, .btn-show-aux, .btn-menu, .btn-search-mobile {
   .filter-wrap a:hover, .filter-wrap a.active {
     background: #4c87b5; }
 
-.sidenav, .single-article #secondary .widget ul, .single-article #secondary .widget .entry-content ol, .entry-content .single-article #secondary .widget ol, .single-article #secondary .widget .wp-editor ol, .wp-editor .single-article #secondary .widget ol {
+.sidenav, .single-article .widget-area .widget ul, .single-article .widget-area .widget .entry-content ol, .entry-content .single-article .widget-area .widget ol, .single-article .widget-area .widget .wp-editor ol, .wp-editor .single-article .widget-area .widget ol {
   list-style: none;
   margin-bottom: 30px; }
   @media (min-width: 992px) {
-    .sidenav, .single-article #secondary .widget ul, .single-article #secondary .widget .entry-content ol, .entry-content .single-article #secondary .widget ol, .single-article #secondary .widget .wp-editor ol, .wp-editor .single-article #secondary .widget ol {
+    .sidenav, .single-article .widget-area .widget ul, .single-article .widget-area .widget .entry-content ol, .entry-content .single-article .widget-area .widget ol, .single-article .widget-area .widget .wp-editor ol, .wp-editor .single-article .widget-area .widget ol {
       margin: 0; } }
-  .sidenav ul, .single-article #secondary .widget ul ul, .single-article #secondary .widget .entry-content ol ul, .entry-content .single-article #secondary .widget ol ul, .single-article #secondary .widget .wp-editor ol ul, .wp-editor .single-article #secondary .widget ol ul, .sidenav .entry-content ol, .entry-content .sidenav ol, .single-article #secondary .widget ul .entry-content ol, .entry-content .single-article #secondary .widget ul ol, .single-article #secondary .widget .entry-content ol ol, .entry-content .single-article #secondary .widget ol ol, .sidenav .wp-editor ol, .wp-editor .sidenav ol, .single-article #secondary .widget ul .wp-editor ol, .wp-editor .single-article #secondary .widget ul ol, .single-article #secondary .widget .wp-editor ol ol, .wp-editor .single-article #secondary .widget ol ol {
+  .sidenav ul, .single-article .widget-area .widget ul ul, .single-article .widget-area .widget .entry-content ol ul, .entry-content .single-article .widget-area .widget ol ul, .single-article .widget-area .widget .wp-editor ol ul, .wp-editor .single-article .widget-area .widget ol ul, .sidenav .entry-content ol, .entry-content .sidenav ol, .single-article .widget-area .widget ul .entry-content ol, .entry-content .single-article .widget-area .widget ul ol, .single-article .widget-area .widget .entry-content ol ol, .entry-content .single-article .widget-area .widget ol ol, .sidenav .wp-editor ol, .wp-editor .sidenav ol, .single-article .widget-area .widget ul .wp-editor ol, .wp-editor .single-article .widget-area .widget ul ol, .single-article .widget-area .widget .wp-editor ol ol, .wp-editor .single-article .widget-area .widget ol ol {
     margin: 0; }
-  .sidenav li, .single-article #secondary .widget ul li, .single-article #secondary .widget .entry-content ol li, .entry-content .single-article #secondary .widget ol li, .single-article #secondary .widget .wp-editor ol li, .wp-editor .single-article #secondary .widget ol li {
+  .sidenav li, .single-article .widget-area .widget ul li, .single-article .widget-area .widget .entry-content ol li, .entry-content .single-article .widget-area .widget ol li, .single-article .widget-area .widget .wp-editor ol li, .wp-editor .single-article .widget-area .widget ol li {
     margin: 0; }
-    .sidenav li:before, .single-article #secondary .widget ul li:before, .single-article #secondary .widget .entry-content ol li:before, .entry-content .single-article #secondary .widget ol li:before, .single-article #secondary .widget .wp-editor ol li:before, .wp-editor .single-article #secondary .widget ol li:before {
+    .sidenav li:before, .single-article .widget-area .widget ul li:before, .single-article .widget-area .widget .entry-content ol li:before, .entry-content .single-article .widget-area .widget ol li:before, .single-article .widget-area .widget .wp-editor ol li:before, .wp-editor .single-article .widget-area .widget ol li:before {
       display: none; }
-    .sidenav li li a, .single-article #secondary .widget ul li li a, .single-article #secondary .widget .entry-content ol li li a, .entry-content .single-article #secondary .widget ol li li a, .single-article #secondary .widget .wp-editor ol li li a, .wp-editor .single-article #secondary .widget ol li li a {
+    .sidenav li li a, .single-article .widget-area .widget ul li li a, .single-article .widget-area .widget .entry-content ol li li a, .entry-content .single-article .widget-area .widget ol li li a, .single-article .widget-area .widget .wp-editor ol li li a, .wp-editor .single-article .widget-area .widget ol li li a {
       padding: 13px 20px 13px 35px; }
-  .sidenav a, .single-article #secondary .widget ul a, .single-article #secondary .widget .entry-content ol a, .entry-content .single-article #secondary .widget ol a, .single-article #secondary .widget .wp-editor ol a, .wp-editor .single-article #secondary .widget ol a {
+  .sidenav a, .single-article .widget-area .widget ul a, .single-article .widget-area .widget .entry-content ol a, .entry-content .single-article .widget-area .widget ol a, .single-article .widget-area .widget .wp-editor ol a, .wp-editor .single-article .widget-area .widget ol a {
     font-size: 16px;
     padding: 13px 20px; }
-  .sidenav .active a, .single-article #secondary .widget ul .active a, .single-article #secondary .widget .entry-content ol .active a, .entry-content .single-article #secondary .widget ol .active a, .single-article #secondary .widget .wp-editor ol .active a, .wp-editor .single-article #secondary .widget ol .active a {
+  .sidenav .active a, .single-article .widget-area .widget ul .active a, .single-article .widget-area .widget .entry-content ol .active a, .entry-content .single-article .widget-area .widget ol .active a, .single-article .widget-area .widget .wp-editor ol .active a, .wp-editor .single-article .widget-area .widget ol .active a {
     background: #f37021;
     color: #fff; }
 
@@ -3386,7 +3386,7 @@ form.search-wrap, .btn-show-aux, .btn-menu, .btn-search-mobile {
       height: 638px;
       margin-top: 94px; } }
 
-.bio h3, .bio .kicker, .bio .gform_wrapper .gform_heading .gform_description, .gform_wrapper .gform_heading .bio .gform_description, .bio .single-article .entry-content p.lead, .single-article .entry-content .bio p.lead, .bio .featured-story h2, .featured-story .bio h2, .bio .single-article #secondary h2, .single-article #secondary .bio h2, .feature-bio-copy-wrap h3, .feature-bio-copy-wrap .kicker, .feature-bio-copy-wrap .gform_wrapper .gform_heading .gform_description, .gform_wrapper .gform_heading .feature-bio-copy-wrap .gform_description, .feature-bio-copy-wrap .single-article .entry-content p.lead, .single-article .entry-content .feature-bio-copy-wrap p.lead, .feature-bio-copy-wrap .featured-story h2, .featured-story .feature-bio-copy-wrap h2, .feature-bio-copy-wrap .single-article #secondary h2, .single-article #secondary .feature-bio-copy-wrap h2 {
+.bio h3, .bio .kicker, .bio .gform_wrapper .gform_heading .gform_description, .gform_wrapper .gform_heading .bio .gform_description, .bio .single-article .entry-content p.lead, .single-article .entry-content .bio p.lead, .bio .featured-story h2, .featured-story .bio h2, .bio .single-article .widget-area h2, .single-article .widget-area .bio h2, .feature-bio-copy-wrap h3, .feature-bio-copy-wrap .kicker, .feature-bio-copy-wrap .gform_wrapper .gform_heading .gform_description, .gform_wrapper .gform_heading .feature-bio-copy-wrap .gform_description, .feature-bio-copy-wrap .single-article .entry-content p.lead, .single-article .entry-content .feature-bio-copy-wrap p.lead, .feature-bio-copy-wrap .featured-story h2, .featured-story .feature-bio-copy-wrap h2, .feature-bio-copy-wrap .single-article .widget-area h2, .single-article .widget-area .feature-bio-copy-wrap h2 {
   color: #a9dcda;
   font: 500 16px/24px "quadon", "Helvetica Neue", Helvetica, Arial, sans-serif;
   margin-bottom: 40px; }
@@ -3472,7 +3472,7 @@ form.search-wrap, .btn-show-aux, .btn-menu, .btn-search-mobile {
     font: 700 22px/31px "gentona", "Georgia", serif;
     margin: 0 0 10px;
     text-transform: uppercase; }
-  .bio .copy-wrap h3, .bio .copy-wrap .kicker, .bio .copy-wrap .gform_wrapper .gform_heading .gform_description, .gform_wrapper .gform_heading .bio .copy-wrap .gform_description, .bio .copy-wrap .single-article .entry-content p.lead, .single-article .entry-content .bio .copy-wrap p.lead, .bio .copy-wrap .featured-story h2, .featured-story .bio .copy-wrap h2, .bio .copy-wrap .single-article #secondary h2, .single-article #secondary .bio .copy-wrap h2 {
+  .bio .copy-wrap h3, .bio .copy-wrap .kicker, .bio .copy-wrap .gform_wrapper .gform_heading .gform_description, .gform_wrapper .gform_heading .bio .copy-wrap .gform_description, .bio .copy-wrap .single-article .entry-content p.lead, .single-article .entry-content .bio .copy-wrap p.lead, .bio .copy-wrap .featured-story h2, .featured-story .bio .copy-wrap h2, .bio .copy-wrap .single-article .widget-area h2, .single-article .widget-area .bio .copy-wrap h2 {
     font-size: 14px;
     margin: 0 0 20px;
     text-transform: uppercase; }
@@ -3804,7 +3804,7 @@ a:focus, a:hover {
   margin-right: 0; }
 .entry-content ul li, .entry-content ol li, .wp-editor ul li, .wp-editor ol li {
   text-transform: none; }
-.entry-content ul.big-list a, .entry-content ul.sidenav a, .entry-content ol.sidenav a, .entry-content .single-article #secondary .widget ul a, .single-article #secondary .widget .entry-content ul a, .single-article #secondary .widget .entry-content ol a, .entry-content .single-article #secondary .widget ol a, .entry-content ol.big-list a, .wp-editor ul.big-list a, .wp-editor ul.sidenav a, .wp-editor ol.sidenav a, .wp-editor .single-article #secondary .widget ul a, .single-article #secondary .widget .wp-editor ul a, .single-article #secondary .widget .wp-editor ol a, .wp-editor .single-article #secondary .widget ol a, .wp-editor ol.big-list a {
+.entry-content ul.big-list a, .entry-content ul.sidenav a, .entry-content ol.sidenav a, .entry-content .single-article .widget-area .widget ul a, .single-article .widget-area .widget .entry-content ul a, .single-article .widget-area .widget .entry-content ol a, .entry-content .single-article .widget-area .widget ol a, .entry-content ol.big-list a, .wp-editor ul.big-list a, .wp-editor ul.sidenav a, .wp-editor ol.sidenav a, .wp-editor .single-article .widget-area .widget ul a, .single-article .widget-area .widget .wp-editor ul a, .single-article .widget-area .widget .wp-editor ol a, .wp-editor .single-article .widget-area .widget ol a, .wp-editor ol.big-list a {
   letter-spacing: 2px;
   text-transform: uppercase; }
 .entry-content ol li, .wp-editor ol li {
@@ -4093,15 +4093,15 @@ strong {
     background-color: #dd661e; }
 
 /* Fixes SVG icon display in FF */
-.big-list .btn-mobile-toggle a svg, .sidenav .btn-mobile-toggle a svg, .single-article #secondary .widget ul .btn-mobile-toggle a svg, .single-article #secondary .widget .entry-content ol .btn-mobile-toggle a svg, .entry-content .single-article #secondary .widget ol .btn-mobile-toggle a svg, .single-article #secondary .widget .wp-editor ol .btn-mobile-toggle a svg, .wp-editor .single-article #secondary .widget ol .btn-mobile-toggle a svg, .sidenav .btn-mobile-toggle a svg, .single-article #secondary .widget ul .btn-mobile-toggle a svg, .single-article #secondary .widget .entry-content ol .btn-mobile-toggle a svg, .entry-content .single-article #secondary .widget ol .btn-mobile-toggle a svg, .single-article #secondary .widget .wp-editor ol .btn-mobile-toggle a svg, .wp-editor .single-article #secondary .widget ol .btn-mobile-toggle a svg, .single-article #secondary .widget ul .btn-mobile-toggle a svg, .single-article #secondary .widget .entry-content ol .btn-mobile-toggle a svg, .entry-content .single-article #secondary .widget ol .btn-mobile-toggle a svg, .single-article #secondary .widget .wp-editor ol .btn-mobile-toggle a svg, .wp-editor .single-article #secondary .widget ol .btn-mobile-toggle a svg {
-  transform: translate(0, 0) rotate(45deg);
+.big-list .btn-mobile-toggle a svg, .sidenav .btn-mobile-toggle a svg, .single-article .widget-area .widget ul .btn-mobile-toggle a svg, .single-article .widget-area .widget .entry-content ol .btn-mobile-toggle a svg, .entry-content .single-article .widget-area .widget ol .btn-mobile-toggle a svg, .single-article .widget-area .widget .wp-editor ol .btn-mobile-toggle a svg, .wp-editor .single-article .widget-area .widget ol .btn-mobile-toggle a svg, .sidenav .btn-mobile-toggle a svg, .single-article .widget-area .widget ul .btn-mobile-toggle a svg, .single-article .widget-area .widget .entry-content ol .btn-mobile-toggle a svg, .entry-content .single-article .widget-area .widget ol .btn-mobile-toggle a svg, .single-article .widget-area .widget .wp-editor ol .btn-mobile-toggle a svg, .wp-editor .single-article .widget-area .widget ol .btn-mobile-toggle a svg, .single-article .widget-area .widget ul .btn-mobile-toggle a svg, .single-article .widget-area .widget .entry-content ol .btn-mobile-toggle a svg, .entry-content .single-article .widget-area .widget ol .btn-mobile-toggle a svg, .single-article .widget-area .widget .wp-editor ol .btn-mobile-toggle a svg, .wp-editor .single-article .widget-area .widget ol .btn-mobile-toggle a svg {
+  transform: translate(0, 0) rotate(90deg);
   transform-origin: center;
-  margin: 22px 0px;
+  margin: 15px 0px;
   top: 0px;
   left: 0px;
   width: 100%; }
-.big-list.open-list .btn-mobile-toggle .arw-right svg, .open-list.sidenav .btn-mobile-toggle .arw-right svg, .single-article #secondary .widget ul.open-list .btn-mobile-toggle .arw-right svg, .single-article #secondary .widget .entry-content ol.open-list .btn-mobile-toggle .arw-right svg, .entry-content .single-article #secondary .widget ol.open-list .btn-mobile-toggle .arw-right svg, .single-article #secondary .widget .wp-editor ol.open-list .btn-mobile-toggle .arw-right svg, .wp-editor .single-article #secondary .widget ol.open-list .btn-mobile-toggle .arw-right svg, .sidenav.open-list .btn-mobile-toggle .arw-right svg, .single-article #secondary .widget ul.open-list .btn-mobile-toggle .arw-right svg, .single-article #secondary .widget .entry-content ol.open-list .btn-mobile-toggle .arw-right svg, .entry-content .single-article #secondary .widget ol.open-list .btn-mobile-toggle .arw-right svg, .single-article #secondary .widget .wp-editor ol.open-list .btn-mobile-toggle .arw-right svg, .wp-editor .single-article #secondary .widget ol.open-list .btn-mobile-toggle .arw-right svg, .single-article #secondary .widget ul.open-list .btn-mobile-toggle .arw-right svg, .single-article #secondary .widget .entry-content ol.open-list .btn-mobile-toggle .arw-right svg, .entry-content .single-article #secondary .widget ol.open-list .btn-mobile-toggle .arw-right svg, .single-article #secondary .widget .wp-editor ol.open-list .btn-mobile-toggle .arw-right svg, .wp-editor .single-article #secondary .widget ol.open-list .btn-mobile-toggle .arw-right svg {
-  transform: translate(0, 0) rotate(-45deg); }
+.big-list.open-list .btn-mobile-toggle .arw-right svg, .open-list.sidenav .btn-mobile-toggle .arw-right svg, .single-article .widget-area .widget ul.open-list .btn-mobile-toggle .arw-right svg, .single-article .widget-area .widget .entry-content ol.open-list .btn-mobile-toggle .arw-right svg, .entry-content .single-article .widget-area .widget ol.open-list .btn-mobile-toggle .arw-right svg, .single-article .widget-area .widget .wp-editor ol.open-list .btn-mobile-toggle .arw-right svg, .wp-editor .single-article .widget-area .widget ol.open-list .btn-mobile-toggle .arw-right svg, .sidenav.open-list .btn-mobile-toggle .arw-right svg, .single-article .widget-area .widget ul.open-list .btn-mobile-toggle .arw-right svg, .single-article .widget-area .widget .entry-content ol.open-list .btn-mobile-toggle .arw-right svg, .entry-content .single-article .widget-area .widget ol.open-list .btn-mobile-toggle .arw-right svg, .single-article .widget-area .widget .wp-editor ol.open-list .btn-mobile-toggle .arw-right svg, .wp-editor .single-article .widget-area .widget ol.open-list .btn-mobile-toggle .arw-right svg, .single-article .widget-area .widget ul.open-list .btn-mobile-toggle .arw-right svg, .single-article .widget-area .widget .entry-content ol.open-list .btn-mobile-toggle .arw-right svg, .entry-content .single-article .widget-area .widget ol.open-list .btn-mobile-toggle .arw-right svg, .single-article .widget-area .widget .wp-editor ol.open-list .btn-mobile-toggle .arw-right svg, .wp-editor .single-article .widget-area .widget ol.open-list .btn-mobile-toggle .arw-right svg {
+  transform: translate(0, 0) rotate(-90deg); }
 
 .search-form {
   position: relative; }
@@ -4114,26 +4114,27 @@ strong {
 .search-wrap.mobile input {
   background-color: #fff; }
 
-.sidenav, .single-article #secondary .widget ul, .single-article #secondary .widget .entry-content ol, .entry-content .single-article #secondary .widget ol, .single-article #secondary .widget .wp-editor ol, .wp-editor .single-article #secondary .widget ol {
+/* Sidebar Navigation */
+.sidenav, .single-article .widget-area .widget ul, .single-article .widget-area .widget .entry-content ol, .entry-content .single-article .widget-area .widget ol, .single-article .widget-area .widget .wp-editor ol, .wp-editor .single-article .widget-area .widget ol {
   margin-bottom: 30px !important; }
 
-.sidenav a, .single-article #secondary .widget ul a, .single-article #secondary .widget .entry-content ol a, .entry-content .single-article #secondary .widget ol a, .single-article #secondary .widget .wp-editor ol a, .wp-editor .single-article #secondary .widget ol a {
+.sidenav a, .single-article .widget-area .widget ul a, .single-article .widget-area .widget .entry-content ol a, .entry-content .single-article .widget-area .widget ol a, .single-article .widget-area .widget .wp-editor ol a, .wp-editor .single-article .widget-area .widget ol a {
   line-height: 20px;
   letter-spacing: 1px; }
 
-.sidenav li li a, .single-article #secondary .widget ul li li a, .single-article #secondary .widget .entry-content ol li li a, .entry-content .single-article #secondary .widget ol li li a, .single-article #secondary .widget .wp-editor ol li li a, .wp-editor .single-article #secondary .widget ol li li a {
+.sidenav li li a, .single-article .widget-area .widget ul li li a, .single-article .widget-area .widget .entry-content ol li li a, .entry-content .single-article .widget-area .widget ol li li a, .single-article .widget-area .widget .wp-editor ol li li a, .wp-editor .single-article .widget-area .widget ol li li a {
   font-size: 14px;
   letter-spacing: 0;
   line-height: 18px;
   text-transform: none; }
 
-.sidenav .page_item_has_children.current_page_item .children, .single-article #secondary .widget ul .page_item_has_children.current_page_item .children, .single-article #secondary .widget .entry-content ol .page_item_has_children.current_page_item .children, .entry-content .single-article #secondary .widget ol .page_item_has_children.current_page_item .children, .single-article #secondary .widget .wp-editor ol .page_item_has_children.current_page_item .children, .wp-editor .single-article #secondary .widget ol .page_item_has_children.current_page_item .children,
+.sidenav .page_item_has_children.current_page_item .children, .single-article .widget-area .widget ul .page_item_has_children.current_page_item .children, .single-article .widget-area .widget .entry-content ol .page_item_has_children.current_page_item .children, .entry-content .single-article .widget-area .widget ol .page_item_has_children.current_page_item .children, .single-article .widget-area .widget .wp-editor ol .page_item_has_children.current_page_item .children, .wp-editor .single-article .widget-area .widget ol .page_item_has_children.current_page_item .children,
 .sidenav .page_item_has_children.current_page_ancestor .children,
-.single-article #secondary .widget ul .page_item_has_children.current_page_ancestor .children,
-.single-article #secondary .widget .entry-content ol .page_item_has_children.current_page_ancestor .children,
-.entry-content .single-article #secondary .widget ol .page_item_has_children.current_page_ancestor .children,
-.single-article #secondary .widget .wp-editor ol .page_item_has_children.current_page_ancestor .children,
-.wp-editor .single-article #secondary .widget ol .page_item_has_children.current_page_ancestor .children {
+.single-article .widget-area .widget ul .page_item_has_children.current_page_ancestor .children,
+.single-article .widget-area .widget .entry-content ol .page_item_has_children.current_page_ancestor .children,
+.entry-content .single-article .widget-area .widget ol .page_item_has_children.current_page_ancestor .children,
+.single-article .widget-area .widget .wp-editor ol .page_item_has_children.current_page_ancestor .children,
+.wp-editor .single-article .widget-area .widget ol .page_item_has_children.current_page_ancestor .children {
   display: block; }
 
 .social-nav {
@@ -4217,8 +4218,11 @@ strong {
     height: 225px; }
     @media (min-width: 992px) {
       .landing-page-hero-full .hero-img-half {
-        height: 375px;
-        background-position: center center; } }
+        background-position: center center; }
+        .landing-page-hero-full .hero-img-half h1 {
+          bottom: 50px; } }
+  .landing-page-hero-full .hero-img-medium {
+    height: 375px; }
 
 .content-box-module {
   margin-top: 60px; }
@@ -4239,32 +4243,36 @@ strong {
     margin-top: 60px;
     margin-bottom: 60px; } }
 
-@media (min-width: 992px) {
-  .content-image-left {
-    margin-top: 60px;
-    margin-bottom: 60px !important; } }
-@media (max-width: 768px) {
-  .content-image-left .gal-img {
-    float: none;
-    width: 100%;
-    height: 200px; } }
-@media (max-width: 768px) {
-  .content-image-left .caption {
-    float: none;
-    width: 100%;
-    margin-top: 0; } }
-@media (min-width: 768px) {
-  .content-image-left .gal-img-content {
-    padding: 30px; } }
-.content-image-left .gal-img-content h2 {
-  margin-top: 0; }
+.content-image-left.gal-list-wrap {
+  margin-top: 60px;
+  margin-bottom: 60px; }
+  @media (max-width: 768px) {
+    .content-image-left.gal-list-wrap .gal-img {
+      float: none;
+      width: 100%;
+      height: 200px; } }
+  @media (max-width: 768px) {
+    .content-image-left.gal-list-wrap .caption {
+      float: none;
+      width: 100%;
+      margin-top: 0; } }
+  @media (min-width: 768px) {
+    .content-image-left.gal-list-wrap .gal-img-content {
+      padding: 30px; } }
+  .content-image-left.gal-list-wrap .gal-img-content h2 {
+    margin-top: 0; }
 
 .img-callout-wrapper .img-callout-wrap:nth-child(even) {
   margin-bottom: 20px; }
 
+.widget-area#page-sidebar {
+  display: none; }
+  @media (min-width: 768px) {
+    .widget-area#page-sidebar {
+      display: block; } }
 .home .widget-area {
   padding-top: 30px; }
-.home .widget-area.page-sections {
+.home .widget-area#page-sections {
   padding-top: 0; }
 .home .footer-bottom .widget-area {
   padding-top: 0; }
@@ -4320,17 +4328,17 @@ strong {
 .widget_listcategorypostswidget img {
   margin-right: 30px;
   margin-bottom: 15px; }
-.widget_listcategorypostswidget h3, .widget_listcategorypostswidget .kicker, .widget_listcategorypostswidget .gform_wrapper .gform_heading .gform_description, .gform_wrapper .gform_heading .widget_listcategorypostswidget .gform_description, .widget_listcategorypostswidget .single-article .entry-content p.lead, .single-article .entry-content .widget_listcategorypostswidget p.lead, .widget_listcategorypostswidget .featured-story h2, .featured-story .widget_listcategorypostswidget h2, .widget_listcategorypostswidget .single-article #secondary h2, .single-article #secondary .widget_listcategorypostswidget h2 {
+.widget_listcategorypostswidget h3, .widget_listcategorypostswidget .kicker, .widget_listcategorypostswidget .gform_wrapper .gform_heading .gform_description, .gform_wrapper .gform_heading .widget_listcategorypostswidget .gform_description, .widget_listcategorypostswidget .single-article .entry-content p.lead, .single-article .entry-content .widget_listcategorypostswidget p.lead, .widget_listcategorypostswidget .featured-story h2, .featured-story .widget_listcategorypostswidget h2, .widget_listcategorypostswidget .single-article .widget-area h2, .single-article .widget-area .widget_listcategorypostswidget h2 {
   font-family: "gentona", "Georgia", serif;
   font-size: 20px;
   line-height: 24px;
   margin-bottom: 15px;
   text-transform: uppercase; }
   @media (min-width: 768px) {
-    .widget_listcategorypostswidget h3, .widget_listcategorypostswidget .kicker, .widget_listcategorypostswidget .gform_wrapper .gform_heading .gform_description, .gform_wrapper .gform_heading .widget_listcategorypostswidget .gform_description, .widget_listcategorypostswidget .single-article .entry-content p.lead, .single-article .entry-content .widget_listcategorypostswidget p.lead, .widget_listcategorypostswidget .featured-story h2, .featured-story .widget_listcategorypostswidget h2, .widget_listcategorypostswidget .single-article #secondary h2, .single-article #secondary .widget_listcategorypostswidget h2 {
+    .widget_listcategorypostswidget h3, .widget_listcategorypostswidget .kicker, .widget_listcategorypostswidget .gform_wrapper .gform_heading .gform_description, .gform_wrapper .gform_heading .widget_listcategorypostswidget .gform_description, .widget_listcategorypostswidget .single-article .entry-content p.lead, .single-article .entry-content .widget_listcategorypostswidget p.lead, .widget_listcategorypostswidget .featured-story h2, .featured-story .widget_listcategorypostswidget h2, .widget_listcategorypostswidget .single-article .widget-area h2, .single-article .widget-area .widget_listcategorypostswidget h2 {
       font-size: 32px;
       line-height: 36px; } }
-  .widget_listcategorypostswidget h3 a, .widget_listcategorypostswidget .kicker a, .widget_listcategorypostswidget .gform_wrapper .gform_heading .gform_description a, .gform_wrapper .gform_heading .widget_listcategorypostswidget .gform_description a, .widget_listcategorypostswidget .single-article .entry-content p.lead a, .single-article .entry-content .widget_listcategorypostswidget p.lead a, .widget_listcategorypostswidget .featured-story h2 a, .featured-story .widget_listcategorypostswidget h2 a, .widget_listcategorypostswidget .single-article #secondary h2 a, .single-article #secondary .widget_listcategorypostswidget h2 a {
+  .widget_listcategorypostswidget h3 a, .widget_listcategorypostswidget .kicker a, .widget_listcategorypostswidget .gform_wrapper .gform_heading .gform_description a, .gform_wrapper .gform_heading .widget_listcategorypostswidget .gform_description a, .widget_listcategorypostswidget .single-article .entry-content p.lead a, .single-article .entry-content .widget_listcategorypostswidget p.lead a, .widget_listcategorypostswidget .featured-story h2 a, .featured-story .widget_listcategorypostswidget h2 a, .widget_listcategorypostswidget .single-article .widget-area h2 a, .single-article .widget-area .widget_listcategorypostswidget h2 a {
     font-weight: 700; }
 
 .gform_wrapper .gform_body select, .gform_wrapper .gform_body textarea, .gform_wrapper .gform_body input[type="text"], .gform_wrapper .gform_body input[type="email"] {
@@ -4636,14 +4644,14 @@ figcaption {
       background-position: center center; } }
   #featured-carousel .slider-dark .carousel-caption {
     background-color: rgba(0, 0, 0, 0.6); }
-  #featured-carousel .slider-dark h3, #featured-carousel .slider-dark .kicker, #featured-carousel .slider-dark .gform_wrapper .gform_heading .gform_description, .gform_wrapper .gform_heading #featured-carousel .slider-dark .gform_description, #featured-carousel .slider-dark .single-article .entry-content p.lead, .single-article .entry-content #featured-carousel .slider-dark p.lead, #featured-carousel .slider-dark .featured-story h2, .featured-story #featured-carousel .slider-dark h2, #featured-carousel .slider-dark .single-article #secondary h2, .single-article #secondary #featured-carousel .slider-dark h2, #featured-carousel .slider-dark a, #featured-carousel .slider-dark p, #featured-carousel .slider-dark li {
+  #featured-carousel .slider-dark h3, #featured-carousel .slider-dark .kicker, #featured-carousel .slider-dark .gform_wrapper .gform_heading .gform_description, .gform_wrapper .gform_heading #featured-carousel .slider-dark .gform_description, #featured-carousel .slider-dark .single-article .entry-content p.lead, .single-article .entry-content #featured-carousel .slider-dark p.lead, #featured-carousel .slider-dark .featured-story h2, .featured-story #featured-carousel .slider-dark h2, #featured-carousel .slider-dark .single-article .widget-area h2, .single-article .widget-area #featured-carousel .slider-dark h2, #featured-carousel .slider-dark a, #featured-carousel .slider-dark p, #featured-carousel .slider-dark li {
     color: #fff !important; }
 #featured-carousel .slider-light {
   background-color: #fff; }
   #featured-carousel .slider-light .carousel-caption {
     background-color: #fff;
     text-shadow: none; }
-  #featured-carousel .slider-light h3, #featured-carousel .slider-light .kicker, #featured-carousel .slider-light .gform_wrapper .gform_heading .gform_description, .gform_wrapper .gform_heading #featured-carousel .slider-light .gform_description, #featured-carousel .slider-light .single-article .entry-content p.lead, .single-article .entry-content #featured-carousel .slider-light p.lead, #featured-carousel .slider-light .featured-story h2, .featured-story #featured-carousel .slider-light h2, #featured-carousel .slider-light .single-article #secondary h2, .single-article #secondary #featured-carousel .slider-light h2 {
+  #featured-carousel .slider-light h3, #featured-carousel .slider-light .kicker, #featured-carousel .slider-light .gform_wrapper .gform_heading .gform_description, .gform_wrapper .gform_heading #featured-carousel .slider-light .gform_description, #featured-carousel .slider-light .single-article .entry-content p.lead, .single-article .entry-content #featured-carousel .slider-light p.lead, #featured-carousel .slider-light .featured-story h2, .featured-story #featured-carousel .slider-light h2, #featured-carousel .slider-light .single-article .widget-area h2, .single-article .widget-area #featured-carousel .slider-light h2 {
     margin-top: 0 !important; }
   #featured-carousel .slider-light p, #featured-carousel .slider-light li {
     color: #084b81 !important;
@@ -4657,7 +4665,7 @@ figcaption {
   height: 325px;
   overflow: hidden;
   text-shadow: none; }
-  #featured-carousel .half-image-feature .carousel-caption h3, #featured-carousel .half-image-feature .carousel-caption .kicker, #featured-carousel .half-image-feature .carousel-caption .gform_wrapper .gform_heading .gform_description, .gform_wrapper .gform_heading #featured-carousel .half-image-feature .carousel-caption .gform_description, #featured-carousel .half-image-feature .carousel-caption .single-article .entry-content p.lead, .single-article .entry-content #featured-carousel .half-image-feature .carousel-caption p.lead, #featured-carousel .half-image-feature .carousel-caption .featured-story h2, .featured-story #featured-carousel .half-image-feature .carousel-caption h2, #featured-carousel .half-image-feature .carousel-caption .single-article #secondary h2, .single-article #secondary #featured-carousel .half-image-feature .carousel-caption h2 {
+  #featured-carousel .half-image-feature .carousel-caption h3, #featured-carousel .half-image-feature .carousel-caption .kicker, #featured-carousel .half-image-feature .carousel-caption .gform_wrapper .gform_heading .gform_description, .gform_wrapper .gform_heading #featured-carousel .half-image-feature .carousel-caption .gform_description, #featured-carousel .half-image-feature .carousel-caption .single-article .entry-content p.lead, .single-article .entry-content #featured-carousel .half-image-feature .carousel-caption p.lead, #featured-carousel .half-image-feature .carousel-caption .featured-story h2, .featured-story #featured-carousel .half-image-feature .carousel-caption h2, #featured-carousel .half-image-feature .carousel-caption .single-article .widget-area h2, .single-article .widget-area #featured-carousel .half-image-feature .carousel-caption h2 {
     font-family: "gentona", "Georgia", serif;
     font-weight: 700;
     font-size: 20px;
@@ -4666,7 +4674,7 @@ figcaption {
     margin-bottom: 0;
     letter-spacing: 2px; }
     @media (min-width: 768px) {
-      #featured-carousel .half-image-feature .carousel-caption h3, #featured-carousel .half-image-feature .carousel-caption .kicker, #featured-carousel .half-image-feature .carousel-caption .gform_wrapper .gform_heading .gform_description, .gform_wrapper .gform_heading #featured-carousel .half-image-feature .carousel-caption .gform_description, #featured-carousel .half-image-feature .carousel-caption .single-article .entry-content p.lead, .single-article .entry-content #featured-carousel .half-image-feature .carousel-caption p.lead, #featured-carousel .half-image-feature .carousel-caption .featured-story h2, .featured-story #featured-carousel .half-image-feature .carousel-caption h2, #featured-carousel .half-image-feature .carousel-caption .single-article #secondary h2, .single-article #secondary #featured-carousel .half-image-feature .carousel-caption h2 {
+      #featured-carousel .half-image-feature .carousel-caption h3, #featured-carousel .half-image-feature .carousel-caption .kicker, #featured-carousel .half-image-feature .carousel-caption .gform_wrapper .gform_heading .gform_description, .gform_wrapper .gform_heading #featured-carousel .half-image-feature .carousel-caption .gform_description, #featured-carousel .half-image-feature .carousel-caption .single-article .entry-content p.lead, .single-article .entry-content #featured-carousel .half-image-feature .carousel-caption p.lead, #featured-carousel .half-image-feature .carousel-caption .featured-story h2, .featured-story #featured-carousel .half-image-feature .carousel-caption h2, #featured-carousel .half-image-feature .carousel-caption .single-article .widget-area h2, .single-article .widget-area #featured-carousel .half-image-feature .carousel-caption h2 {
         font-size: 28px;
         line-height: 32px; } }
   #featured-carousel .half-image-feature .carousel-caption p {
@@ -4692,7 +4700,7 @@ figcaption {
     #featured-carousel .half-image-feature .carousel-caption {
       padding: 30px 35.01px 0 54.9px;
       width: 50%; }
-      #featured-carousel .half-image-feature .carousel-caption h3, #featured-carousel .half-image-feature .carousel-caption .kicker, #featured-carousel .half-image-feature .carousel-caption .gform_wrapper .gform_heading .gform_description, .gform_wrapper .gform_heading #featured-carousel .half-image-feature .carousel-caption .gform_description, #featured-carousel .half-image-feature .carousel-caption .single-article .entry-content p.lead, .single-article .entry-content #featured-carousel .half-image-feature .carousel-caption p.lead, #featured-carousel .half-image-feature .carousel-caption .featured-story h2, .featured-story #featured-carousel .half-image-feature .carousel-caption h2, #featured-carousel .half-image-feature .carousel-caption .single-article #secondary h2, .single-article #secondary #featured-carousel .half-image-feature .carousel-caption h2 {
+      #featured-carousel .half-image-feature .carousel-caption h3, #featured-carousel .half-image-feature .carousel-caption .kicker, #featured-carousel .half-image-feature .carousel-caption .gform_wrapper .gform_heading .gform_description, .gform_wrapper .gform_heading #featured-carousel .half-image-feature .carousel-caption .gform_description, #featured-carousel .half-image-feature .carousel-caption .single-article .entry-content p.lead, .single-article .entry-content #featured-carousel .half-image-feature .carousel-caption p.lead, #featured-carousel .half-image-feature .carousel-caption .featured-story h2, .featured-story #featured-carousel .half-image-feature .carousel-caption h2, #featured-carousel .half-image-feature .carousel-caption .single-article .widget-area h2, .single-article .widget-area #featured-carousel .half-image-feature .carousel-caption h2 {
         margin-top: 45px; } }
 #featured-carousel .full-image-feature .carousel-caption {
   position: absolute;
@@ -4703,7 +4711,7 @@ figcaption {
   height: 325px;
   overflow: hidden;
   background-color: rgba(0, 0, 0, 0.6); }
-  #featured-carousel .full-image-feature .carousel-caption h3, #featured-carousel .full-image-feature .carousel-caption .kicker, #featured-carousel .full-image-feature .carousel-caption .gform_wrapper .gform_heading .gform_description, .gform_wrapper .gform_heading #featured-carousel .full-image-feature .carousel-caption .gform_description, #featured-carousel .full-image-feature .carousel-caption .single-article .entry-content p.lead, .single-article .entry-content #featured-carousel .full-image-feature .carousel-caption p.lead, #featured-carousel .full-image-feature .carousel-caption .featured-story h2, .featured-story #featured-carousel .full-image-feature .carousel-caption h2, #featured-carousel .full-image-feature .carousel-caption .single-article #secondary h2, .single-article #secondary #featured-carousel .full-image-feature .carousel-caption h2 {
+  #featured-carousel .full-image-feature .carousel-caption h3, #featured-carousel .full-image-feature .carousel-caption .kicker, #featured-carousel .full-image-feature .carousel-caption .gform_wrapper .gform_heading .gform_description, .gform_wrapper .gform_heading #featured-carousel .full-image-feature .carousel-caption .gform_description, #featured-carousel .full-image-feature .carousel-caption .single-article .entry-content p.lead, .single-article .entry-content #featured-carousel .full-image-feature .carousel-caption p.lead, #featured-carousel .full-image-feature .carousel-caption .featured-story h2, .featured-story #featured-carousel .full-image-feature .carousel-caption h2, #featured-carousel .full-image-feature .carousel-caption .single-article .widget-area h2, .single-article .widget-area #featured-carousel .full-image-feature .carousel-caption h2 {
     color: #fff;
     text-transform: uppercase;
     font-family: "gentona", "Georgia", serif;
@@ -4714,7 +4722,7 @@ figcaption {
     margin-bottom: 0;
     letter-spacing: 2px; }
     @media (min-width: 768px) {
-      #featured-carousel .full-image-feature .carousel-caption h3, #featured-carousel .full-image-feature .carousel-caption .kicker, #featured-carousel .full-image-feature .carousel-caption .gform_wrapper .gform_heading .gform_description, .gform_wrapper .gform_heading #featured-carousel .full-image-feature .carousel-caption .gform_description, #featured-carousel .full-image-feature .carousel-caption .single-article .entry-content p.lead, .single-article .entry-content #featured-carousel .full-image-feature .carousel-caption p.lead, #featured-carousel .full-image-feature .carousel-caption .featured-story h2, .featured-story #featured-carousel .full-image-feature .carousel-caption h2, #featured-carousel .full-image-feature .carousel-caption .single-article #secondary h2, .single-article #secondary #featured-carousel .full-image-feature .carousel-caption h2 {
+      #featured-carousel .full-image-feature .carousel-caption h3, #featured-carousel .full-image-feature .carousel-caption .kicker, #featured-carousel .full-image-feature .carousel-caption .gform_wrapper .gform_heading .gform_description, .gform_wrapper .gform_heading #featured-carousel .full-image-feature .carousel-caption .gform_description, #featured-carousel .full-image-feature .carousel-caption .single-article .entry-content p.lead, .single-article .entry-content #featured-carousel .full-image-feature .carousel-caption p.lead, #featured-carousel .full-image-feature .carousel-caption .featured-story h2, .featured-story #featured-carousel .full-image-feature .carousel-caption h2, #featured-carousel .full-image-feature .carousel-caption .single-article .widget-area h2, .single-article .widget-area #featured-carousel .full-image-feature .carousel-caption h2 {
         font-size: 28px;
         line-height: 32px; } }
   #featured-carousel .full-image-feature .carousel-caption p {
@@ -4774,7 +4782,7 @@ figcaption {
         height: 108.33333px; } }
   #featured-stacker .carousel-indicators .excerpt {
     margin: 15px; }
-  #featured-stacker .carousel-indicators h3, #featured-stacker .carousel-indicators .kicker, #featured-stacker .carousel-indicators .gform_wrapper .gform_heading .gform_description, .gform_wrapper .gform_heading #featured-stacker .carousel-indicators .gform_description, #featured-stacker .carousel-indicators .single-article .entry-content p.lead, .single-article .entry-content #featured-stacker .carousel-indicators p.lead, #featured-stacker .carousel-indicators .featured-story h2, .featured-story #featured-stacker .carousel-indicators h2, #featured-stacker .carousel-indicators .single-article #secondary h2, .single-article #secondary #featured-stacker .carousel-indicators h2 {
+  #featured-stacker .carousel-indicators h3, #featured-stacker .carousel-indicators .kicker, #featured-stacker .carousel-indicators .gform_wrapper .gform_heading .gform_description, .gform_wrapper .gform_heading #featured-stacker .carousel-indicators .gform_description, #featured-stacker .carousel-indicators .single-article .entry-content p.lead, .single-article .entry-content #featured-stacker .carousel-indicators p.lead, #featured-stacker .carousel-indicators .featured-story h2, .featured-story #featured-stacker .carousel-indicators h2, #featured-stacker .carousel-indicators .single-article .widget-area h2, .single-article .widget-area #featured-stacker .carousel-indicators h2 {
     letter-spacing: normal;
     text-transform: uppercase;
     font-family: "gentona_bookbold", Arial, sans-serif;
@@ -4833,7 +4841,7 @@ figcaption {
         bottom: 15px;
         width: 80%;
         height: auto; } }
-    #featured-stacker .full-image-feature .carousel-caption h3, #featured-stacker .full-image-feature .carousel-caption .kicker, #featured-stacker .full-image-feature .carousel-caption .gform_wrapper .gform_heading .gform_description, .gform_wrapper .gform_heading #featured-stacker .full-image-feature .carousel-caption .gform_description, #featured-stacker .full-image-feature .carousel-caption .single-article .entry-content p.lead, .single-article .entry-content #featured-stacker .full-image-feature .carousel-caption p.lead, #featured-stacker .full-image-feature .carousel-caption .featured-story h2, .featured-story #featured-stacker .full-image-feature .carousel-caption h2, #featured-stacker .full-image-feature .carousel-caption .single-article #secondary h2, .single-article #secondary #featured-stacker .full-image-feature .carousel-caption h2, #featured-stacker .half-image-feature .carousel-caption h3, #featured-stacker .half-image-feature .carousel-caption .kicker, #featured-stacker .half-image-feature .carousel-caption .gform_wrapper .gform_heading .gform_description, .gform_wrapper .gform_heading #featured-stacker .half-image-feature .carousel-caption .gform_description, #featured-stacker .half-image-feature .carousel-caption .single-article .entry-content p.lead, .single-article .entry-content #featured-stacker .half-image-feature .carousel-caption p.lead, #featured-stacker .half-image-feature .carousel-caption .featured-story h2, .featured-story #featured-stacker .half-image-feature .carousel-caption h2, #featured-stacker .half-image-feature .carousel-caption .single-article #secondary h2, .single-article #secondary #featured-stacker .half-image-feature .carousel-caption h2 {
+    #featured-stacker .full-image-feature .carousel-caption h3, #featured-stacker .full-image-feature .carousel-caption .kicker, #featured-stacker .full-image-feature .carousel-caption .gform_wrapper .gform_heading .gform_description, .gform_wrapper .gform_heading #featured-stacker .full-image-feature .carousel-caption .gform_description, #featured-stacker .full-image-feature .carousel-caption .single-article .entry-content p.lead, .single-article .entry-content #featured-stacker .full-image-feature .carousel-caption p.lead, #featured-stacker .full-image-feature .carousel-caption .featured-story h2, .featured-story #featured-stacker .full-image-feature .carousel-caption h2, #featured-stacker .full-image-feature .carousel-caption .single-article .widget-area h2, .single-article .widget-area #featured-stacker .full-image-feature .carousel-caption h2, #featured-stacker .half-image-feature .carousel-caption h3, #featured-stacker .half-image-feature .carousel-caption .kicker, #featured-stacker .half-image-feature .carousel-caption .gform_wrapper .gform_heading .gform_description, .gform_wrapper .gform_heading #featured-stacker .half-image-feature .carousel-caption .gform_description, #featured-stacker .half-image-feature .carousel-caption .single-article .entry-content p.lead, .single-article .entry-content #featured-stacker .half-image-feature .carousel-caption p.lead, #featured-stacker .half-image-feature .carousel-caption .featured-story h2, .featured-story #featured-stacker .half-image-feature .carousel-caption h2, #featured-stacker .half-image-feature .carousel-caption .single-article .widget-area h2, .single-article .widget-area #featured-stacker .half-image-feature .carousel-caption h2 {
       color: #fff;
       margin-bottom: 15px;
       font-family: "gentona_bookbold", Arial, sans-serif;
@@ -4915,15 +4923,15 @@ figcaption {
   @media (min-width: 768px) {
     .single-article #main {
       padding: 45px 60px; } }
-.single-article #secondary {
+.single-article .widget-area {
   margin-left: 30px; }
-  .single-article #secondary h2 {
+  .single-article .widget-area h2 {
     text-transform: none;
     margin-bottom: 15px; }
-  .single-article #secondary .widget ul a, .single-article #secondary .widget .entry-content ol a, .entry-content .single-article #secondary .widget ol a, .single-article #secondary .widget .wp-editor ol a, .wp-editor .single-article #secondary .widget ol a {
+  .single-article .widget-area .widget ul a, .single-article .widget-area .widget .entry-content ol a, .entry-content .single-article .widget-area .widget ol a, .single-article .widget-area .widget .wp-editor ol a, .wp-editor .single-article .widget-area .widget ol a {
     padding-right: 0;
     padding-left: 0; }
-  .single-article #secondary .widget ul a:hover, .single-article #secondary .widget .entry-content ol a:hover, .entry-content .single-article #secondary .widget ol a:hover, .single-article #secondary .widget .wp-editor ol a:hover, .wp-editor .single-article #secondary .widget ol a:hover {
+  .single-article .widget-area .widget ul a:hover, .single-article .widget-area .widget .entry-content ol a:hover, .entry-content .single-article .widget-area .widget ol a:hover, .single-article .widget-area .widget .wp-editor ol a:hover, .wp-editor .single-article .widget-area .widget ol a:hover {
     background-color: transparent !important;
     color: #f79f6a !important; }
 

@@ -1,8 +1,16 @@
 .widget-area {
+	&#page-sidebar {
+		display: none;
+		
+		@include breakFirst(medium){
+			display: block; 
+		}
+	}
+	
 	.home & {
 		padding-top: $grid-gutter-width;
 	}
-    .home &.page-sections{
+    .home &#page-sections{
         padding-top: 0;
     }
 	.home .footer-bottom & {

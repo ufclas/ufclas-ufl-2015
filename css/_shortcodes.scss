@@ -17,9 +17,15 @@
 		height: 225px;
 		
 		@include breakFirst(large){
-			height: 375px;
-			background-position: center center;
+			background-position: center center; 
+			
+			h1 {
+				bottom: 50px;	
+			}
 		}
+	}
+	.hero-img-medium {
+		height: 375px;
 	}
 }
 .content-box-module {
@@ -48,11 +54,10 @@
 		margin-bottom: $grid-gutter-width*2;
 	}
 }
-.content-image-left {
-	@include breakFirst(large){
-		margin-top: $grid-gutter-width*2;
-		margin-bottom: $grid-gutter-width*2 !important;
-	}
+.content-image-left.gal-list-wrap {
+	margin-top: $grid-gutter-width*2;
+	margin-bottom: $grid-gutter-width*2;
+	
 	.gal-img {
 		@include breakTo(medium){
 			float: none;

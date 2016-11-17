@@ -29,7 +29,7 @@ if ( empty( $ufclas_ufl_2015_sidebar_nav ) && !is_active_sidebar( 'page_sidebar'
     
     <?php if ( is_active_sidebar( 'page_sidebar' ) ): ?>
     
-        <div id="secondary" class="widget-area" role="complementary">
+        <div id="page-sidebar" class="widget-area" role="complementary">
             <?php dynamic_sidebar( 'page_sidebar' ); ?>
         </div><!-- page_sidebar -->    
     

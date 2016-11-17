@@ -49,12 +49,11 @@ function ufclas_ufl_2015_sanitize_choices( $input, $setting ) {
  * @since 0.2.5
  */
 function ufclas_ufl_2015_customize_css() {
-	$theme_mods = get_theme_mods();
-	
 	$custom_css = '';
-	$background_color = ( strpos($theme_mods['background_color'], 'faf8f1') === false )? $theme_mods['background_color'] : false;
-	$content_color = ( strpos($theme_mods['content_color'], 'faf8f1') === false )? $theme_mods['content_color'] : false;
-	$homepage_layout_color = ( strpos($theme_mods['homepage_layout_color'], 'faf8f1') === false )? $theme_mods['homepage_layout_color'] : false;
+	$theme_mods = get_theme_mods();
+	$background_color = ( isset($theme_mods['background_color']) )? $theme_mods['background_color'] : false;
+	$content_color = ( isset($theme_mods['content_color']) )? $theme_mods['content_color'] : false;
+	$homepage_layout_color = ( isset($theme_mods['homepage_layout_color']) )? $theme_mods['homepage_layout_color'] : false;
 	$collapse_sidebar_nav = ( isset($theme_mods['collapse_sidebar_nav']) )? $theme_mods['collapse_sidebar_nav'] : 1;
 	
 	// Custom background color

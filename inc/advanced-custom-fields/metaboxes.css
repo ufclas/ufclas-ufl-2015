@@ -1,0 +1,27 @@
+@media screen and (min-width: 1220px){
+	.acf_postbox p.label {
+		width: 25%;
+		display: inline-block;
+		padding-right: 30px;
+	}
+	.acf_postbox .acf-input-wrap,
+	.acf_postbox .field select,
+	.acf_postbox .acf-radio-list,
+	.acf_postbox .acf-checkbox-list {
+		width: 70%;
+		display: inline-block;
+		vertical-align: top;
+	}
+}
+.acf_postbox .field input[type="text"], 
+.acf_postbox .field input[type="number"], 
+.acf_postbox .field input[type="password"], 
+.acf_postbox .field input[type="email"],
+.acf_postbox .field input[type="checkbox"],
+.acf_postbox .field input[type="radio"], 
+.acf_postbox .field select,
+.acf_postbox .field textarea {
+		box-shadow: inset 0 1px 2px rgba(0,0,0,0.1);
+		border-color: #b4b9be;
+}
+

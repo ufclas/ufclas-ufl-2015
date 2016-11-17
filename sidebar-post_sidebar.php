@@ -17,7 +17,7 @@ if ( ! is_active_sidebar( 'post_sidebar' ) ): ?>
 
 <?php else: ?>
 
-<div id="secondary" class="widget-area" role="complementary">
+<div id="post-sidebar" class="widget-area" role="complementary">
     <?php dynamic_sidebar( 'post_sidebar' ); ?>
 </div><!-- post_sidebar -->
 
