@@ -9,7 +9,6 @@
 
 <body <?php body_class( 'loading' ); ?>>
 <?php include get_stylesheet_directory() . '/inc/google-analytics.php'; ?>
-<?php get_template_part( 'template-parts/content', 'svg' );	?>
 
 <a href="#main" id="skip-link" class="visuallyhidden focusable">Skip to main content</a>
 <div class="header unit">
@@ -20,16 +19,22 @@
       <a href="http://ufl.edu/" class="logo">
       	<img src="<?php echo get_stylesheet_directory_uri(); ?>/img/logo-uf.svg" alt="University of Florida">
       </a>
+      <h1 class="screen-reader-title">
       <a href="<?php echo site_url('/'); ?>" class="logo mobile">
+      	<span class="screen-reader-text"><?php echo bloginfo('name'); ?></span>
         <span class="icon-svg logo-herbert"><svg><use xlink:href="<?php echo ufclas_ufl_2015_get_custom_logo(); ?>#Layer_1"></use></svg></span>
       </a>
+      </h1>
   <?php endif; ?>
   
   <div class="menu-wrap">
   	<div class="main-menu-wrap">
-  		<a href="<?php echo site_url('/'); ?>">
+  		<h1 class="screen-reader-title">
+        <a href="<?php echo site_url('/'); ?>">
+            <span class="screen-reader-text"><?php echo bloginfo('name'); ?></span>
             <span class="icon-svg logo-herbert"><svg><use xlink:href="<?php echo ufclas_ufl_2015_get_custom_logo(); ?>#Layer_1"></use></svg></span>
         </a>
+        </h1>
   		<?php 
 				wp_nav_menu( array( 
 					'theme_location' => 'main_menu',

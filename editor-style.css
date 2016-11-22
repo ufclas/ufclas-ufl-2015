@@ -3982,6 +3982,11 @@ strong {
 .entry-footer {
   clear: both; }
 
+.screen-reader-title {
+  padding: 0;
+  margin: 0;
+  display: inline; }
+
 .gallery-caption {
   /* required */ }
 
