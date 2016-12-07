@@ -308,9 +308,14 @@ strong {
 	display: inline;
 }
 
-// Required WordPress styles
-.gallery-caption {
-    /* required */
+.gallery {
+	overflow: auto;
+	margin-top: $grid-gutter-width;
+	margin-bottom: $grid-gutter-width;
+	
+	.gallery-caption {
+		/* required */
+	}
 }
 .bypostauthor {
     /* required */

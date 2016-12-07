@@ -6,7 +6,6 @@
  *
  * @package UFCLAS_UFL_2015
  */
-
 ?>
 <!-- content -->
 <article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
@@ -17,9 +16,9 @@
         </header><!-- .entry-header -->
 		
 		<?php if ( has_post_thumbnail() ): ?>
-        <div class="entry-thumbnail">
-            <?php the_post_thumbnail( 'thumbnail', array( 'class' => 'alignleft' ) ); ?>
-        </div>
+            <div class="entry-thumbnail">
+                <?php the_post_thumbnail( 'thumbnail', array( 'class' => 'alignleft' ) ); ?>
+            </div>
     	<?php endif; ?>
         
 	<?php else: ?>

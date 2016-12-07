@@ -725,4 +725,15 @@ jQuery(function($){
 	
 	// Add arrows to big lists
 	$('.big-list li a').append('<span class="arw-right icon-svg"><svg><use xlink:href="'+ufclas_ufl_2015_sitedata.theme_url+'/img/spritemap.svg#arw-right"></use></svg></span>');
+	
+	// Add PrettyPhoto for image links
+	$('.entry-content a').has('img').prop('rel', 'prettyPhoto');
+	
+	$('a[rel^="prettyPhoto"]').prettyPhoto();
+	
+	$('.entry-content a img').click(function (){
+		var desc = $(this).parents('.wp-caption').find('.wp-caption-text').html();
+		console.log( desc );
+		$('.entry-content a').attr('title', desc);
+	});
 });
