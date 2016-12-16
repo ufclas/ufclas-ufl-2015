@@ -302,9 +302,20 @@ strong {
 	clear: both;	
 }
 
-// Required WordPress styles
-.gallery-caption {
-    /* required */
+.screen-reader-title {
+	padding: 0;
+	margin: 0;
+	display: inline;
+}
+
+.gallery {
+	overflow: auto;
+	margin-top: $grid-gutter-width;
+	margin-bottom: $grid-gutter-width;
+	
+	.gallery-caption {
+		/* required */
+	}
 }
 .bypostauthor {
     /* required */

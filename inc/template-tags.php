@@ -24,6 +24,44 @@ function ufclas_ufl_2015_get_custom_logo() {
    }
    return $custom_logo;
 }
+
+/**
+ * Get featured image html
+ *
+ * @return string Figure tag or empty string.
+ * @since 0.2.8
+ */
+function ufclas_ufl_2015_post_featured_image(){
+	global $post;
+	$html = '';
+	$details = array(
+		'id' => '',
+		'caption' => '',
+		'description' => '',
+	);
+	
+	// Get the image id, caption, and description
+	$id = get_post_thumbnail_id();
+	$image = get_post( $id );
+	$details['id'] = $id;
+	$details['caption'] = $image->post_excerpt;
+	$details['description'] = $image->post_content;
+	
+	// Get custom field values
+	$custom_meta = get_post_custom( $post->ID );
+	$img_full_width = ( isset($custom_meta['custom_meta_image_type']) )? $custom_meta['custom_meta_image_type'][0]:NULL;
+	$post_remove_featured = ( isset($custom_meta['custom_meta_post_remove_featured']) )? $custom_meta['custom_meta_post_remove_featured'][0]:false;
+	$details['size'] = ( $img_full_width )? 'full_width_thumb':'half-width-thumb';
+	$details['classes'] = ( $img_full_width )? array('full-width','img-responsive'):array('alignleft');
+	
+	if ( !$post_remove_featured ) {
+		$html .= get_the_post_thumbnail( $post->ID, $details['size'] );
+		$html .= sprintf( '<figcaption>%s</figcaption>', $details['caption'] );
+		$html = sprintf( '<figure class="%s">%s</figure>', implode(' ', $details['classes']), $html );
+	}
+
+	return $html;
+}
  
 /**
  * Determine page content class based on presence of sidebars
@@ -120,3 +158,4 @@ function ufclas_global_parent_organization(){
 		printf( '<li id="global-menu-title" class="menu-item"><a href="%s">%s</a></li>', $org_link, $org_title );
 	}
 }
+
