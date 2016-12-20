@@ -48,10 +48,15 @@ Changelog
 
 - Updates Readme file
 - Reorganizes functions.php, moves menu functions to a separate file
-
-### 0.6
-
 - Removes inline svg from header, adds prettyPhoto library, creates a media functions file
+
+### 0.5.x
+
+- Adds metaboxes on landing pages and articles, adds admin styles for ACF fields
+- Fixes undefined index warnings
+- Changes sidebar div IDs to be more specific
+- Hides Page Left Sidebar content on mobile (workaround until better solution found)
+- Adds Call to Action section in Theme Options, supports site-wide alert message
 
 To-Do
 ------
