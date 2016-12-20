@@ -18,7 +18,7 @@ Requirements and Suggested Plugins
 
 ### Required
 
-- WordPress 4.4.0+
+- WordPress 4.4+
 - Support for svg files
 
 ### Recommended Plugins
@@ -37,9 +37,17 @@ Requirements and Suggested Plugins
 Documentation
 --------------
 
-Theme documentation is in progress, see the wiki for more information.
+- [Documentation Wiki](https://github.com/ufclas/ufclas-ufl-2015/wiki)
 
 - [Web Services UF 2015 Template](http://webservices.it.ufl.edu/terminalfour/uf-2015-template/)
+
+Changelog
+---------
+
+### 0.6.2
+
+- Updates Readme file
+- Reorganizes functions.php, moves menu functions to a separate file
 
 To-Do
 ------
