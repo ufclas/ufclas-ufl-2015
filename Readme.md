@@ -44,10 +44,14 @@ Documentation
 Changelog
 ---------
 
-### 0.6.2
+### 0.6.x
 
 - Updates Readme file
 - Reorganizes functions.php, moves menu functions to a separate file
+
+### 0.6
+
+- Removes inline svg from header, adds prettyPhoto library, creates a media functions file
 
 To-Do
 ------
