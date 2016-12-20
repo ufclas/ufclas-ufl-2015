@@ -18,8 +18,8 @@ Requirements and Suggested Plugins
 
 ### Required
 
-- WordPress 4.4+
-- Support for svg files
+- WordPress 4.4
+- Support for .svg files
 
 ### Recommended Plugins
 
@@ -57,6 +57,11 @@ Changelog
 - Changes sidebar div IDs to be more specific
 - Hides Page Left Sidebar content on mobile (workaround until better solution found)
 - Adds Call to Action section in Theme Options, supports site-wide alert message
+
+### 0.4.x
+
+- Fixes landing page template margins, adds page sections sidebar to the default home page
+- Adds widgets and better customizer support, renames shortcodes
 
 To-Do
 ------
