@@ -18,8 +18,8 @@ Requirements and Suggested Plugins
 
 ### Required
 
-- WordPress 4.4.0+
-- Support for svg files
+- WordPress 4.4
+- Support for .svg files
 
 ### Recommended Plugins
 
@@ -37,9 +37,31 @@ Requirements and Suggested Plugins
 Documentation
 --------------
 
-Theme documentation is in progress, see the wiki for more information.
+- [Documentation Wiki](https://github.com/ufclas/ufclas-ufl-2015/wiki)
 
 - [Web Services UF 2015 Template](http://webservices.it.ufl.edu/terminalfour/uf-2015-template/)
+
+Changelog
+---------
+
+### 0.6.x
+
+- Updates Readme file
+- Reorganizes functions.php, moves menu functions to a separate file
+- Removes inline svg from header, adds prettyPhoto library, creates a media functions file
+
+### 0.5.x
+
+- Adds metaboxes on landing pages and articles, adds admin styles for ACF fields
+- Fixes undefined index warnings
+- Changes sidebar div IDs to be more specific
+- Hides Page Left Sidebar content on mobile (workaround until better solution found)
+- Adds Call to Action section in Theme Options, supports site-wide alert message
+
+### 0.4.x
+
+- Fixes landing page template margins, adds page sections sidebar to the default home page
+- Adds widgets and better customizer support, renames shortcodes
 
 To-Do
 ------
