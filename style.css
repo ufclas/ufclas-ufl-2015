@@ -3999,8 +3999,12 @@ strong {
   margin: 0;
   display: inline; }
 
-.gallery-caption {
-  /* required */ }
+.gallery {
+  overflow: auto;
+  margin-top: 30px;
+  margin-bottom: 30px; }
+  .gallery .gallery-caption {
+    /* required */ }
 
 .bypostauthor {
   /* required */ }
@@ -4096,6 +4100,9 @@ strong {
     transform: translate(0, 0); }
   .aux-menu-wrap .audience-nav-wrap .cur-audience {
     background-color: #dd661e; }
+
+.sub-menu-wrap {
+  background-color: rgba(0, 0, 0, 0.4); }
 
 /* Fixes SVG icon display in FF */
 .big-list .btn-mobile-toggle a svg, .sidenav .btn-mobile-toggle a svg, .single-article .widget-area .widget ul .btn-mobile-toggle a svg, .single-article .widget-area .widget .entry-content ol .btn-mobile-toggle a svg, .entry-content .single-article .widget-area .widget ol .btn-mobile-toggle a svg, .single-article .widget-area .widget .wp-editor ol .btn-mobile-toggle a svg, .wp-editor .single-article .widget-area .widget ol .btn-mobile-toggle a svg, .sidenav .btn-mobile-toggle a svg, .single-article .widget-area .widget ul .btn-mobile-toggle a svg, .single-article .widget-area .widget .entry-content ol .btn-mobile-toggle a svg, .entry-content .single-article .widget-area .widget ol .btn-mobile-toggle a svg, .single-article .widget-area .widget .wp-editor ol .btn-mobile-toggle a svg, .wp-editor .single-article .widget-area .widget ol .btn-mobile-toggle a svg, .single-article .widget-area .widget ul .btn-mobile-toggle a svg, .single-article .widget-area .widget .entry-content ol .btn-mobile-toggle a svg, .entry-content .single-article .widget-area .widget ol .btn-mobile-toggle a svg, .single-article .widget-area .widget .wp-editor ol .btn-mobile-toggle a svg, .wp-editor .single-article .widget-area .widget ol .btn-mobile-toggle a svg {
@@ -4219,6 +4226,14 @@ strong {
   .landing-page-hero-full .hero-img h1 {
     text-shadow: 2px 3px 2px #333132;
     letter-spacing: 2px; }
+  .landing-page-hero-full .hero-img h2 {
+    position: absolute;
+    bottom: 50px;
+    text-align: center;
+    width: 100%;
+    color: #fff;
+    letter-spacing: 2px;
+    font-weight: normal; }
   .landing-page-hero-full .hero-img-half {
     height: 225px; }
     @media (min-width: 992px) {

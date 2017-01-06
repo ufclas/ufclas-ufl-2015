@@ -1,4 +1,7 @@
 <?php
+
+//require get_stylesheet_directory() . '/inc/wp-bootstrap-navwalker.php';
+
 /**
  * Main Menu Walker and filters
  */
@@ -31,5 +34,3 @@ function ufclas_ufl_2015_main_menu_link_attrs( $atts, $item, $args, $depth ){
 	return $atts;
 }
 add_filter( 'nav_menu_link_attributes', 'ufclas_ufl_2015_main_menu_link_attrs', 10, 4);
-
-

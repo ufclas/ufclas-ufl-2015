@@ -65,6 +65,30 @@
     }
 }
 
+.sub-menu-wrap {
+	background-color: rgba(0, 0, 0, 0.4);	
+	padding: $grid-gutter-width/2 $grid-gutter-width;
+	
+	@include breakFirst(medium){
+		.landing-page-hero-full + & {
+			margin-top: -$grid-gutter-width*2;	
+		}
+    }
+	.menu-item {
+		list-style-type: none;
+		margin-left: 0;		
+	}
+	.sub-nav a {
+		font-size: 12px;
+		display: block;
+		letter-spacing: 2px;
+		line-height: 14px;
+		padding: 18px 15px;
+		text-transform: uppercase;
+		color: #fff;
+	}
+}
+
 /* Fixes SVG icon display in FF */ 
 .big-list, .sidenav, .single-article .widget-area .widget ul {
 	.btn-mobile-toggle a svg {

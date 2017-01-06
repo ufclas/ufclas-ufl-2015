@@ -26,7 +26,7 @@ function ufclas_ufl_2015_issuem_templates( $template_path ){
 	} elseif ( is_page($issuem_settings['page_for_articles']) && !empty($issuem_settings['page_for_articles']) ){
 		
 		// Change template for the newsletter page
-		$template_path = get_stylesheet_directory() . '/inc/issuem/taxonomy-issuem_issue.php';
+		$template_path = get_stylesheet_directory() . '/inc/issuem/taxonomy-current_issue.php';
 	
 	} elseif ( is_tax('issuem_issue_categories') ){
 	
@@ -83,14 +83,13 @@ function ufclas_ufl_2015_issuem_get_categories(){
 }
 
 /**
- * Allow the 'aside' post format
+ * Add Newsletter Menu, Allow the 'aside' post format
  * @since 1.1.0
  */
 function ufclas_ufl_2015_issuem_setup(){
-	/*register_nav_menus( array(
-		'newsletter-global' => esc_html__( 'Newsletter Global Menu', 'ufclas-ufl-2015' ),
-		'newsletter-primary' => esc_html__( 'Newsletter Primary Menu', 'ufclas-ufl-2015' ),
-	) );*/
+	register_nav_menus( array(
+		'newsletter-menu' => esc_html__( 'Newsletter Menu', 'ufclas-ufl-2015' ),
+	) );
 	
 	//add_theme_support( 'post-formats', array( 'aside' ) );	
 }

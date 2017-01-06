@@ -10,6 +10,15 @@
 			text-shadow: 2px 3px 2px $grayDark;
 			letter-spacing: 2px;
 		}
+		h2 {
+			position: absolute;
+			bottom: 50px;
+			text-align: center;
+			width: 100%;
+			color: #fff;
+			letter-spacing: 2px;
+			font-weight: normal;
+		}
 	}
 	
 	/* Adds positioning for half hero image size */

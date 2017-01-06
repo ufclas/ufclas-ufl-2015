@@ -74,6 +74,7 @@ function ufclas_ufl_2015_landing_hero($atts, $content = NULL ) {
 	extract( shortcode_atts( 
 		array(
 			'headline' => '',
+			'subtitle' => '',
 			'image' => get_stylesheet_directory_uri() . '/img/_temp1.jpg',
 			'image_height' => 'large',
 			'hide_button' => 1,
@@ -84,6 +85,7 @@ function ufclas_ufl_2015_landing_hero($atts, $content = NULL ) {
 	
 	// Support either image ID or image url
 	$image = ( is_numeric( $image ) )? wp_get_attachment_image_src( $image, 'large' ) : array($image);
+	$subtitle = (!empty( $subtitle ))? $subtitle : '';
 	
 	switch ( $image_height ){
 		case 'half':
@@ -103,7 +105,13 @@ function ufclas_ufl_2015_landing_hero($atts, $content = NULL ) {
 	?>
     <div class="landing-page-hero-full">
         <div class="hero-img gradient-bg<?php echo $image_class; ?>" style="background-image:url('<?php echo esc_url( $image[0] ); ?>');">
-            <?php printf( '<h1>%s</h1>', esc_html( $headline ) ); ?>
+            <?php 
+				echo '<h1>' . esc_html( $headline ) . '</h1>';
+				
+				if ( !empty($subtitle) ){
+					echo '<h2>' . esc_html( $subtitle ) . '</h2>';
+				}
+			?>
         </div>
         
         <?php if ( !empty( $content ) ): ?>
