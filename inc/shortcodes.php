@@ -105,13 +105,15 @@ function ufclas_ufl_2015_landing_hero($atts, $content = NULL ) {
 	?>
     <div class="landing-page-hero-full">
         <div class="hero-img gradient-bg<?php echo $image_class; ?>" style="background-image:url('<?php echo esc_url( $image[0] ); ?>');">
-            <?php 
+            <div class="hero-heading">
+			<?php 
 				echo '<h1>' . esc_html( $headline ) . '</h1>';
 				
 				if ( !empty($subtitle) ){
 					echo '<h2>' . esc_html( $subtitle ) . '</h2>';
 				}
 			?>
+            </div>
         </div>
         
         <?php if ( !empty( $content ) ): ?>

@@ -27,25 +27,28 @@ get_header(); ?>
 	// Newsletter menu
 	if ( has_nav_menu( 'newsletter-menu' ) ): ?>
    
-        <div class="sub-menu-wrap">
-        <div class="sub-menu container">
-        <div class="row"
-        <ul class="sub-nav">
+        <nav id="newsletter-menu" class="navbar navbar-inverse subnav" role="navigation">
+        <div class="container">
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#newsletter-menu-navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="glyphicon glyphicon-menu-hamburger" aria-hidden="true"></span> Menu   
+              </button>
+            </div>
         <?php
-            wp_nav_menu( array( 
-                'theme_location' => 'newsletter-menu',
-                'items_wrap' => '%3$s',
-                'container' => '',
-                'depth' => 1,
-                'fallback_cb' => false,
-            ));  
-                
+		wp_nav_menu( array( 
+			'theme_location' => 'newsletter-menu',
+			'depth' => 2,
+			'container' => 'div',
+			'container_class' => 'collapse navbar-collapse',
+			'container_id' => 'newsletter-menu-navbar',
+			'menu_class' => 'nav navbar-nav',
+			'fallback_cb' => 'wp_bootstrap_navwalker::fallback',
+			'walker' => new wp_bootstrap_navwalker()
+		));
         ?>
-        </ul>
         </div>
-        </div>
-        </div>
-    
+        </nav>   
 	<?php endif; ?>
 
 <div id="main" class="container main-content">

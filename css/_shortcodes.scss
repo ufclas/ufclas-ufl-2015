@@ -9,16 +9,20 @@
 		h1 {
 			text-shadow: 2px 3px 2px $grayDark;
 			letter-spacing: 2px;
+			position: relative;
+			bottom: auto;
 		}
 		h2 {
-			position: absolute;
-			bottom: 50px;
 			text-align: center;
-			width: 100%;
 			color: #fff;
 			letter-spacing: 2px;
 			font-weight: normal;
 		}
+	}
+	.hero-heading {
+		position: absolute;
+		bottom: 30px;
+		width: 100%;
 	}
 	
 	/* Adds positioning for half hero image size */
@@ -27,10 +31,6 @@
 		
 		@include breakFirst(large){
 			background-position: center center; 
-			
-			h1 {
-				bottom: 50px;	
-			}
 		}
 	}
 	.hero-img-medium {
