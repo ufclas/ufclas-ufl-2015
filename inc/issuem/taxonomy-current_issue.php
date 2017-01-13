@@ -27,7 +27,7 @@ get_header(); ?>
 	// Newsletter menu
 	if ( has_nav_menu( 'newsletter-menu' ) ): ?>
    
-        <nav id="newsletter-menu" class="navbar navbar-inverse subnav" role="navigation">
+        <nav id="newsletter-menu" class="navbar navbar-inverse subnav subnav-dark" role="navigation">
         <div class="container">
             <div class="navbar-header">
               <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#newsletter-menu-navbar">

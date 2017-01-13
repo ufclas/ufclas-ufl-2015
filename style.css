@@ -6420,76 +6420,85 @@ strong {
   background-color: #dd661e;
 }
 
-/* line 68, css/_navigation.scss */
+/* line 70, css/_navigation.scss */
 .subnav {
   border: none;
-  border-radius: 0;
   min-height: auto;
-  /* Center the nav menu */
-  /* Reset the dropdown styles */
+  /* Remove space between landing page hero and subnav */
 }
-@media (min-width: 768px) {
-  /* line 74, css/_navigation.scss */
+@media (min-width: 992px) {
+  /* line 70, css/_navigation.scss */
+  .subnav {
+    margin-bottom: 45px;
+  }
+  /* line 78, css/_navigation.scss */
   .landing-page-hero-full + .subnav {
     margin-top: -60px;
   }
 }
-/* line 79, css/_navigation.scss */
+/* line 82, css/_navigation.scss */
+.subnav .navbar-nav {
+  margin-top: 0;
+  margin-bottom: 0;
+}
+@media (min-width: 768px) {
+  /* line 82, css/_navigation.scss */
+  .subnav .navbar-nav {
+    display: inline-block;
+    float: none;
+    vertical-align: top;
+  }
+}
+/* line 92, css/_navigation.scss */
+.subnav .navbar-collapse {
+  text-align: center;
+}
+/* line 95, css/_navigation.scss */
 .subnav .navbar-header {
   text-align: center;
 }
-/* line 82, css/_navigation.scss */
+/* line 99, css/_navigation.scss */
 .subnav .navbar-toggle {
   margin: 0;
   float: none;
   border: none;
-  color: #9d9d9d;
-  background-color: transparent !important;
   text-transform: uppercase;
   font-weight: 500;
 }
-/* line 91, css/_navigation.scss */
-.subnav .navbar-toggle .glyphicon {
-  top: 3px;
-}
-/* line 97, css/_navigation.scss */
-.subnav .navbar-nav {
-  display: inline-block;
-  float: none;
-  vertical-align: top;
-}
-/* line 102, css/_navigation.scss */
-.subnav .navbar-collapse {
-  text-align: center;
-}
 /* line 106, css/_navigation.scss */
-.subnav .active > a, .subnav .open > a {
-  color: #9d9d9d !important;
-  background-color: transparent !important;
+.subnav .navbar-toggle .glyphicon {
+  top: 1px;
+  font-size: 0.75rem;
 }
-/* line 110, css/_navigation.scss */
-.subnav .active > a:hover, .subnav .open > a {
-  color: #fff !important;
-}
-/* line 115, css/_navigation.scss */
-.subnav .dropdown, .subnav li {
+/* line 112, css/_navigation.scss */
+.subnav .menu-item {
   background-color: transparent;
   padding: 0;
   top: 0;
   margin-bottom: 0;
   font-weight: 500;
+  width: 100%;
 }
-/* line 122, css/_navigation.scss */
-.subnav .dropdown:before, .subnav li:before {
+/* line 120, css/_navigation.scss */
+.subnav .menu-item:before {
   content: none;
   margin: 0;
 }
-/* line 127, css/_navigation.scss */
-.subnav .dropdown a, .subnav li a {
-  color: #fff;
+/* line 125, css/_navigation.scss */
+.subnav .menu-item.dropdown {
+  overflow: visible;
+}
+/* line 128, css/_navigation.scss */
+.subnav .menu-item .dropdown-menu {
+  border: none;
+  box-shadow: none;
+  padding: 0;
+}
+/* line 133, css/_navigation.scss */
+.subnav .menu-item a {
   border-top: none;
-  font-family: gentona, Georgia, serif;
-  font-size: 12px;
+  font-family: "gentona", "Georgia", serif;
+  font-size: 0.75rem;
   text-transform: uppercase;
   letter-spacing: 2px;
   line-height: 14px;
@@ -6497,15 +6506,41 @@ strong {
   height: 50px;
 }
 @media (min-width: 768px) {
-  /* line 115, css/_navigation.scss */
-  .subnav .dropdown, .subnav li {
-    min-width: auto;
-    float: left;
+  /* line 112, css/_navigation.scss */
+  .subnav .menu-item {
+    width: auto;
   }
+  /* line 147, css/_navigation.scss */
+  .subnav .menu-item.dropdown {
+    min-width: auto;
+  }
+  /* line 150, css/_navigation.scss */
+  .subnav .menu-item .dropdown-menu > li > a {
+    text-align: left;
+    line-height: 42.5px;
+  }
+}
+/* line 159, css/_navigation.scss */
+.subnav.subnav-dark, .subnav.subnav-dark .dropdown-menu {
+  background-color: #084b81;
+}
+/* line 162, css/_navigation.scss */
+.subnav.subnav-dark .navbar-toggle {
+  color: rgba(255, 255, 255, 0.5);
+  background-color: transparent !important;
+}
+/* line 166, css/_navigation.scss */
+.subnav.subnav-dark .menu-item a {
+  color: rgba(255, 255, 255, 0.5);
+  background-color: transparent;
+}
+/* line 170, css/_navigation.scss */
+.subnav.subnav-dark .menu-item a:hover, .subnav.subnav-dark .menu-item.open > a {
+  background-color: rgba(0, 0, 0, 0.5);
 }
 
 /* Fixes SVG icon display in FF */
-/* line 149, css/_navigation.scss */
+/* line 178, css/_navigation.scss */
 .big-list .btn-mobile-toggle a svg, .sidenav .btn-mobile-toggle a svg, .single-article .widget-area .widget ul .btn-mobile-toggle a svg, .single-article .widget-area .widget .entry-content ol .btn-mobile-toggle a svg, .entry-content .single-article .widget-area .widget ol .btn-mobile-toggle a svg, .single-article .widget-area .widget .wp-editor ol .btn-mobile-toggle a svg, .wp-editor .single-article .widget-area .widget ol .btn-mobile-toggle a svg, .sidenav .btn-mobile-toggle a svg, .single-article .widget-area .widget ul .btn-mobile-toggle a svg, .single-article .widget-area .widget .entry-content ol .btn-mobile-toggle a svg, .entry-content .single-article .widget-area .widget ol .btn-mobile-toggle a svg, .single-article .widget-area .widget .wp-editor ol .btn-mobile-toggle a svg, .wp-editor .single-article .widget-area .widget ol .btn-mobile-toggle a svg, .single-article .widget-area .widget ul .btn-mobile-toggle a svg, .single-article .widget-area .widget .entry-content ol .btn-mobile-toggle a svg, .entry-content .single-article .widget-area .widget ol .btn-mobile-toggle a svg, .single-article .widget-area .widget .wp-editor ol .btn-mobile-toggle a svg, .wp-editor .single-article .widget-area .widget ol .btn-mobile-toggle a svg {
   transform: translate(0, 0) rotate(90deg);
   transform-origin: center;
@@ -6514,16 +6549,16 @@ strong {
   left: 0px;
   width: 100%;
 }
-/* line 157, css/_navigation.scss */
+/* line 186, css/_navigation.scss */
 .big-list.open-list .btn-mobile-toggle .arw-right svg, .open-list.sidenav .btn-mobile-toggle .arw-right svg, .single-article .widget-area .widget ul.open-list .btn-mobile-toggle .arw-right svg, .single-article .widget-area .widget .entry-content ol.open-list .btn-mobile-toggle .arw-right svg, .entry-content .single-article .widget-area .widget ol.open-list .btn-mobile-toggle .arw-right svg, .single-article .widget-area .widget .wp-editor ol.open-list .btn-mobile-toggle .arw-right svg, .wp-editor .single-article .widget-area .widget ol.open-list .btn-mobile-toggle .arw-right svg, .sidenav.open-list .btn-mobile-toggle .arw-right svg, .single-article .widget-area .widget ul.open-list .btn-mobile-toggle .arw-right svg, .single-article .widget-area .widget .entry-content ol.open-list .btn-mobile-toggle .arw-right svg, .entry-content .single-article .widget-area .widget ol.open-list .btn-mobile-toggle .arw-right svg, .single-article .widget-area .widget .wp-editor ol.open-list .btn-mobile-toggle .arw-right svg, .wp-editor .single-article .widget-area .widget ol.open-list .btn-mobile-toggle .arw-right svg, .single-article .widget-area .widget ul.open-list .btn-mobile-toggle .arw-right svg, .single-article .widget-area .widget .entry-content ol.open-list .btn-mobile-toggle .arw-right svg, .entry-content .single-article .widget-area .widget ol.open-list .btn-mobile-toggle .arw-right svg, .single-article .widget-area .widget .wp-editor ol.open-list .btn-mobile-toggle .arw-right svg, .wp-editor .single-article .widget-area .widget ol.open-list .btn-mobile-toggle .arw-right svg {
   transform: translate(0, 0) rotate(-90deg);
 }
 
-/* line 162, css/_navigation.scss */
+/* line 191, css/_navigation.scss */
 .search-form {
   position: relative;
 }
-/* line 165, css/_navigation.scss */
+/* line 194, css/_navigation.scss */
 .search-form button.btn-search {
   height: 58px;
   top: 0;
@@ -6531,24 +6566,24 @@ strong {
   position: absolute;
 }
 
-/* line 173, css/_navigation.scss */
+/* line 202, css/_navigation.scss */
 .search-wrap.mobile input {
   background-color: #fff;
 }
 
 /* Sidebar Navigation */
-/* line 180, css/_navigation.scss */
+/* line 209, css/_navigation.scss */
 .sidenav, .single-article .widget-area .widget ul, .single-article .widget-area .widget .entry-content ol, .entry-content .single-article .widget-area .widget ol, .single-article .widget-area .widget .wp-editor ol, .wp-editor .single-article .widget-area .widget ol {
   margin-bottom: 30px !important;
 }
 
-/* line 183, css/_navigation.scss */
+/* line 212, css/_navigation.scss */
 .sidenav a, .single-article .widget-area .widget ul a, .single-article .widget-area .widget .entry-content ol a, .entry-content .single-article .widget-area .widget ol a, .single-article .widget-area .widget .wp-editor ol a, .wp-editor .single-article .widget-area .widget ol a {
   line-height: 20px;
   letter-spacing: 1px;
 }
 
-/* line 187, css/_navigation.scss */
+/* line 216, css/_navigation.scss */
 .sidenav li li a, .single-article .widget-area .widget ul li li a, .single-article .widget-area .widget .entry-content ol li li a, .entry-content .single-article .widget-area .widget ol li li a, .single-article .widget-area .widget .wp-editor ol li li a, .wp-editor .single-article .widget-area .widget ol li li a {
   font-size: 14px;
   letter-spacing: 0;
@@ -6556,7 +6591,7 @@ strong {
   text-transform: none;
 }
 
-/* line 193, css/_navigation.scss */
+/* line 222, css/_navigation.scss */
 .sidenav .page_item_has_children.current_page_item .children, .single-article .widget-area .widget ul .page_item_has_children.current_page_item .children, .single-article .widget-area .widget .entry-content ol .page_item_has_children.current_page_item .children, .entry-content .single-article .widget-area .widget ol .page_item_has_children.current_page_item .children, .single-article .widget-area .widget .wp-editor ol .page_item_has_children.current_page_item .children, .wp-editor .single-article .widget-area .widget ol .page_item_has_children.current_page_item .children,
 .sidenav .page_item_has_children.current_page_ancestor .children,
 .single-article .widget-area .widget ul .page_item_has_children.current_page_ancestor .children,
@@ -6567,15 +6602,15 @@ strong {
   display: block;
 }
 
-/* line 197, css/_navigation.scss */
+/* line 226, css/_navigation.scss */
 .social-nav {
   margin-bottom: 0;
 }
-/* line 200, css/_navigation.scss */
+/* line 229, css/_navigation.scss */
 .social-nav li:last-of-type {
   padding-bottom: 15px;
 }
-/* line 204, css/_navigation.scss */
+/* line 233, css/_navigation.scss */
 .social-nav .icon-svg svg {
   top: 14px;
   left: 11px;
@@ -6585,7 +6620,7 @@ strong {
 }
 
 /* Page/Post Navigation */
-/* line 215, css/_navigation.scss */
+/* line 244, css/_navigation.scss */
 .pagination, .post-navigation {
   border-top: 5px solid #f37021;
   border-image: url(img/main-menu-hover.png) 25 30 10 20 repeat;
@@ -6599,23 +6634,23 @@ strong {
   line-height: 22px;
 }
 
-/* line 227, css/_navigation.scss */
+/* line 256, css/_navigation.scss */
 .pagination {
   text-align: center;
   font-weight: 500;
 }
-/* line 231, css/_navigation.scss */
+/* line 260, css/_navigation.scss */
 .pagination .page-numbers {
   padding: 7.5px 15px;
   display: none;
 }
 @media (min-width: 768px) {
-  /* line 231, css/_navigation.scss */
+  /* line 260, css/_navigation.scss */
   .pagination .page-numbers {
     display: inline;
   }
 }
-/* line 239, css/_navigation.scss */
+/* line 268, css/_navigation.scss */
 .pagination .page-numbers.prev, .pagination .page-numbers.next {
   text-transform: uppercase;
   font-family: "gentona", "Georgia", serif;
@@ -6624,44 +6659,44 @@ strong {
   display: block;
   padding-top: 0;
 }
-/* line 248, css/_navigation.scss */
+/* line 277, css/_navigation.scss */
 .pagination .page-numbers.prev {
   float: left;
 }
-/* line 251, css/_navigation.scss */
+/* line 280, css/_navigation.scss */
 .pagination .page-numbers.next {
   float: right;
 }
 
-/* line 258, css/_navigation.scss */
+/* line 287, css/_navigation.scss */
 .post-navigation .nav-previous, .post-navigation .nav-next {
   padding: 0 7.5px;
 }
 @media (min-width: 768px) {
-  /* line 258, css/_navigation.scss */
+  /* line 287, css/_navigation.scss */
   .post-navigation .nav-previous, .post-navigation .nav-next {
     width: 45%;
   }
 }
 @media (min-width: 768px) {
-  /* line 265, css/_navigation.scss */
+  /* line 294, css/_navigation.scss */
   .post-navigation .nav-previous {
     float: left;
   }
 }
-/* line 270, css/_navigation.scss */
+/* line 299, css/_navigation.scss */
 .post-navigation .nav-next {
   padding-top: 15px;
 }
 @media (min-width: 768px) {
-  /* line 270, css/_navigation.scss */
+  /* line 299, css/_navigation.scss */
   .post-navigation .nav-next {
     float: right;
     text-align: right;
     padding-top: 0;
   }
 }
-/* line 279, css/_navigation.scss */
+/* line 308, css/_navigation.scss */
 .post-navigation .meta-nav {
   text-transform: uppercase;
   font-family: "gentona", "Georgia", serif;
