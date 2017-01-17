@@ -413,3 +413,84 @@ function ufclas_ufl_2015_image_right_quote($atts, $content = NULL ) {
 	return ob_get_clean();
 }
 add_shortcode('ufl-image-right-quote', 'ufclas_ufl_2015_image_right_quote');
+
+ /**
+ * Add Submenu Shortcode
+ * 
+ * Example [ufl-submenu]
+ * @param  array $atts Shortcode attributes
+ * @return string Shortcode output
+ */
+function ufclas_ufl_2015_submenu( $atts ) {
+	
+	extract( shortcode_atts( 
+		array(
+			'headline' => '',
+			'subtitle' => '',
+			'image' => get_stylesheet_directory_uri() . '/img/_temp1.jpg',
+			'image_height' => 'medium',
+            'menu' => '',
+            'background' => ''
+		), $atts )
+	);
+	
+	// Support either image ID or image url
+	$image = ( is_numeric( $image ) )? wp_get_attachment_image_src( $image, 'large' ) : array($image);
+	$subtitle = (!empty( $subtitle ))? $subtitle : '';
+	
+	switch ( $image_height ){
+		case 'half':
+			$image_class = ' hero-img-half';
+			break;
+		
+		case 'medium':
+			$image_class = ' hero-img-medium';
+			break;
+			
+		default:
+			$image_class = '';	
+	}
+	
+	// Shortcode callbacks must return content, so use output buffering
+	ob_start();
+	?>
+    <div class="landing-page-hero-full">
+        <div class="hero-img gradient-bg<?php echo $image_class; ?>" style="background-image:url('<?php echo esc_url( $image[0] ); ?>');">
+            <div class="hero-heading">
+			<?php 
+				echo '<h1>' . esc_html( $headline ) . '</h1>';
+				
+				if ( !empty($subtitle) ){
+					echo '<h2>' . esc_html( $subtitle ) . '</h2>';
+				}
+			?>
+            </div>
+        </div>
+        
+        <nav class="navbar navbar-inverse subnav subnav-dark" role="navigation">
+        <div class="container">
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#newsletter-menu-navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="glyphicon glyphicon-menu-hamburger" aria-hidden="true"></span> Menu   
+              </button>
+            </div>
+        <?php
+		wp_nav_menu( array( 
+			'menu' => $menu,
+			'depth' => 2,
+			'container' => 'div',
+			'container_class' => 'collapse navbar-collapse',
+			'menu_class' => 'nav navbar-nav',
+			'fallback_cb' => 'wp_bootstrap_navwalker::fallback',
+			'walker' => new wp_bootstrap_navwalker()
+		));
+        ?>
+        </div>
+        </nav>
+        
+    </div>
+    <?php 
+	return ob_get_clean();
+}
+add_shortcode('ufl-submenu', 'ufclas_ufl_2015_submenu');

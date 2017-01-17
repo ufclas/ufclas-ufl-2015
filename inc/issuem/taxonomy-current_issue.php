@@ -48,7 +48,7 @@ get_header(); ?>
 		));
         ?>
         </div>
-        </nav>   
+</nav>   
 	<?php endif; ?>
 
 <div id="main" class="container main-content">

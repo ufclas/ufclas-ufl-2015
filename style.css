@@ -5,11 +5,11 @@ Theme URI: https://it.clas.ufl.edu/services/web-services/
 Author: Priscilla Chapman (CLAS IT)
 Author URI: https://it.clas.ufl.edu/
 Description: Official UF template for Liberal Arts and Sciences. Based on 160 over 90 template.
-Version: 0.6.6
+Version: 0.7.0
 License: GNU General Public License v2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 Text Domain: ufclas-ufl-2015
-Build Date: 20170109
+Build Date: 20170116
 */
 /* line 1, css/template/_reset.scss */
 html, body, div, span, applet, object, iframe,
@@ -5921,59 +5921,59 @@ form.search-wrap input, .btn-show-aux input, .btn-menu input, .btn-search-mobile
 }
 
 /* line 29, css/_main.scss */
-.page-template-landing-page .edit-link,
+.page-template-landing-page .edit-link, .page-template-submenu .edit-link,
 .page-template-landing-page-full-width .edit-link {
   position: absolute;
 }
 @media (min-width: 1220px) {
   /* line 27, css/_main.scss */
-  .page-template-landing-page,
+  .page-template-landing-page, .page-template-submenu,
   .page-template-landing-page-full-width {
     padding-top: 150px;
   }
 }
 
-/* line 41, css/_main.scss */
+/* line 44, css/_main.scss */
 a:focus, a:hover {
   text-decoration: none;
 }
 
-/* line 45, css/_main.scss */
+/* line 48, css/_main.scss */
 .entry-content a, .wp-editor a {
   letter-spacing: 1px;
   font-weight: 500;
 }
-/* line 49, css/_main.scss */
+/* line 52, css/_main.scss */
 .entry-content h2, .wp-editor h2 {
   margin-top: 60px;
 }
-/* line 52, css/_main.scss */
+/* line 55, css/_main.scss */
 .entry-content h5, .entry-content dt, .wp-editor h5, .wp-editor dt {
   line-height: 24px;
 }
-/* line 56, css/_main.scss */
+/* line 59, css/_main.scss */
 .entry-content ul li:before, .entry-content ol li:before, .wp-editor ul li:before, .wp-editor ol li:before {
   content: none;
   margin-right: 0;
 }
-/* line 60, css/_main.scss */
+/* line 63, css/_main.scss */
 .entry-content ul li, .entry-content ol li, .wp-editor ul li, .wp-editor ol li {
   text-transform: none;
 }
-/* line 63, css/_main.scss */
+/* line 66, css/_main.scss */
 .entry-content ul.big-list a, .entry-content ul.sidenav a, .entry-content ol.sidenav a, .entry-content .single-article .widget-area .widget ul a, .single-article .widget-area .widget .entry-content ul a, .single-article .widget-area .widget .entry-content ol a, .entry-content .single-article .widget-area .widget ol a, .entry-content ol.big-list a, .wp-editor ul.big-list a, .wp-editor ul.sidenav a, .wp-editor ol.sidenav a, .wp-editor .single-article .widget-area .widget ul a, .single-article .widget-area .widget .wp-editor ul a, .single-article .widget-area .widget .wp-editor ol a, .wp-editor .single-article .widget-area .widget ol a, .wp-editor ol.big-list a {
   letter-spacing: 2px;
   text-transform: uppercase;
 }
-/* line 71, css/_main.scss */
+/* line 74, css/_main.scss */
 .entry-content ol li, .wp-editor ol li {
   list-style-type: decimal;
 }
-/* line 75, css/_main.scss */
+/* line 78, css/_main.scss */
 .entry-content .img-circle, .wp-editor .img-circle {
   border-radius: 50%;
 }
-/* line 78, css/_main.scss */
+/* line 81, css/_main.scss */
 .entry-content .img-icon, .wp-editor .img-icon {
   width: 150px;
   height: 150px;
@@ -5987,72 +5987,72 @@ a:focus, a:hover {
   display: none;
 }
 @media (min-width: 768px) {
-  /* line 78, css/_main.scss */
+  /* line 81, css/_main.scss */
   .entry-content .img-icon, .wp-editor .img-icon {
     display: inline-block;
   }
 }
-/* line 94, css/_main.scss */
+/* line 97, css/_main.scss */
 .entry-content .img-icon-left, .wp-editor .img-icon-left {
   margin: 0 15px 60px 10px;
   float: left;
 }
-/* line 98, css/_main.scss */
+/* line 101, css/_main.scss */
 .entry-content .img-icon-nobg, .wp-editor .img-icon-nobg {
   background-color: transparent;
   height: 100px;
   width: 100px;
   margin-bottom: 15px;
 }
-/* line 104, css/_main.scss */
+/* line 107, css/_main.scss */
 .entry-content .img-icon-alt, .wp-editor .img-icon-alt {
   margin-top: 30px;
 }
-/* line 107, css/_main.scss */
+/* line 110, css/_main.scss */
 .entry-content .img-icon-nobottom, .wp-editor .img-icon-nobottom {
   margin-bottom: 0;
 }
-/* line 110, css/_main.scss */
+/* line 113, css/_main.scss */
 .entry-content .img-icon-spacer, .wp-editor .img-icon-spacer {
   margin: 0;
   width: 0px;
   background-color: transparent;
 }
 @media (min-width: 1220px) {
-  /* line 110, css/_main.scss */
+  /* line 113, css/_main.scss */
   .entry-content .img-icon-spacer, .wp-editor .img-icon-spacer {
     margin: 0 15px 60px 10px;
     width: 150px;
   }
 }
-/* line 120, css/_main.scss */
+/* line 123, css/_main.scss */
 .entry-content h2 + div, .wp-editor h2 + div {
   margin-top: 30px;
 }
-/* line 123, css/_main.scss */
+/* line 126, css/_main.scss */
 .entry-content table, .wp-editor table {
   width: 100%;
   max-width: 100%;
   margin-bottom: 30px;
 }
-/* line 128, css/_main.scss */
+/* line 131, css/_main.scss */
 .entry-content table td, .entry-content table th, .wp-editor table td, .wp-editor table th {
   padding: 7.5px 15px;
   vertical-align: top;
 }
-/* line 133, css/_main.scss */
+/* line 136, css/_main.scss */
 .entry-content table th, .wp-editor table th {
   border-bottom: 2px solid #ddd;
 }
 
-/* line 138, css/_main.scss */
+/* line 141, css/_main.scss */
 .screen-reader-text {
   /*text-indent: -999em;
   display: block;
   margin-bottom: -30px;*/
 }
 
-/* line 144, css/_main.scss */
+/* line 147, css/_main.scss */
 .img-responsive, img.alignnone, img.aligncenter {
   display: block;
   max-width: 100%;
@@ -6063,43 +6063,43 @@ a:focus, a:hover {
  * Required Core WordPress 
  * https://codex.wordpress.org/CSS
 */
-/* line 154, css/_main.scss */
+/* line 157, css/_main.scss */
 .sticky {
   background-color: #fff;
   padding: 30px;
 }
 
-/* line 164, css/_main.scss */
+/* line 167, css/_main.scss */
 figure img {
   max-width: 100%;
   height: auto;
 }
 
-/* line 171, css/_main.scss */
+/* line 174, css/_main.scss */
 .alignnone {
   margin: 5px 20px 20px 0;
 }
 
-/* line 175, css/_main.scss */
+/* line 178, css/_main.scss */
 .aligncenter,
 div.aligncenter {
   display: block;
   margin: 5px auto 5px auto;
 }
 
-/* line 181, css/_main.scss */
+/* line 184, css/_main.scss */
 .alignright {
   float: right;
   margin: 5px 0 20px 20px;
 }
 
-/* line 185, css/_main.scss */
+/* line 188, css/_main.scss */
 .alignleft {
   width: 100%;
   height: auto;
 }
 @media (min-width: 480px) {
-  /* line 185, css/_main.scss */
+  /* line 188, css/_main.scss */
   .alignleft {
     float: left;
     margin: 5px 20px 20px 0;
@@ -6109,25 +6109,25 @@ div.aligncenter {
   }
 }
 
-/* line 197, css/_main.scss */
+/* line 200, css/_main.scss */
 a img.alignright {
   float: right;
   margin: 5px 0 20px 20px;
 }
 
-/* line 202, css/_main.scss */
+/* line 205, css/_main.scss */
 a img.alignnone {
   margin: 5px 20px 20px 0;
 }
 
-/* line 206, css/_main.scss */
+/* line 209, css/_main.scss */
 a img.aligncenter {
   display: block;
   margin-left: auto;
   margin-right: auto;
 }
 
-/* line 211, css/_main.scss */
+/* line 214, css/_main.scss */
 .wp-caption {
   background: #fff;
   max-width: 96%;
@@ -6135,22 +6135,22 @@ a img.aligncenter {
   padding: 5px 3px 10px;
 }
 
-/* line 217, css/_main.scss */
+/* line 220, css/_main.scss */
 .wp-caption.alignnone {
   margin: 5px 20px 20px 0;
 }
 
-/* line 221, css/_main.scss */
+/* line 224, css/_main.scss */
 .wp-caption.alignleft {
   margin: 5px 20px 20px 0;
 }
 
-/* line 225, css/_main.scss */
+/* line 228, css/_main.scss */
 .wp-caption.alignright {
   margin: 5px 0 20px 20px;
 }
 
-/* line 229, css/_main.scss */
+/* line 232, css/_main.scss */
 .wp-caption img {
   border: 0 none;
   height: auto;
@@ -6160,21 +6160,21 @@ a img.aligncenter {
   width: auto;
 }
 
-/* line 238, css/_main.scss */
+/* line 241, css/_main.scss */
 figure.wp-caption img {
   float: none;
 }
 
-/* line 242, css/_main.scss */
+/* line 245, css/_main.scss */
 .wp-caption-text {
   color: #333132;
 }
-/* line 245, css/_main.scss */
+/* line 248, css/_main.scss */
 .wp-caption-text a {
   color: #333132;
 }
 
-/* line 250, css/_main.scss */
+/* line 253, css/_main.scss */
 .wp-caption p.wp-caption-text {
   font-size: 11px;
   line-height: 17px;
@@ -6183,7 +6183,7 @@ figure.wp-caption img {
 }
 
 /* Text meant only for screen readers. */
-/* line 258, css/_main.scss */
+/* line 261, css/_main.scss */
 .screen-reader-text {
   clip: rect(1px, 1px, 1px, 1px);
   position: absolute !important;
@@ -6192,7 +6192,7 @@ figure.wp-caption img {
   overflow: hidden;
 }
 
-/* line 266, css/_main.scss */
+/* line 269, css/_main.scss */
 .screen-reader-text:focus {
   background-color: #f1f1f1;
   border-radius: 3px;
@@ -6214,50 +6214,50 @@ figure.wp-caption img {
   /* Above WP toolbar. */
 }
 
-/* line 285, css/_main.scss */
+/* line 288, css/_main.scss */
 .btn {
   border-radius: 0;
 }
-/* line 288, css/_main.scss */
+/* line 291, css/_main.scss */
 .btn.btn-white {
   border-color: #fff;
   color: #fff;
 }
-/* line 292, css/_main.scss */
+/* line 295, css/_main.scss */
 .btn.btn-white:hover {
   background-color: #fff;
   color: #f37021;
 }
 
-/* line 298, css/_main.scss */
+/* line 301, css/_main.scss */
 strong {
   font-weight: 500;
 }
 
-/* line 301, css/_main.scss */
+/* line 304, css/_main.scss */
 .entry-footer {
   clear: both;
 }
 
-/* line 305, css/_main.scss */
+/* line 308, css/_main.scss */
 .screen-reader-title {
   padding: 0;
   margin: 0;
   display: inline;
 }
 
-/* line 311, css/_main.scss */
+/* line 314, css/_main.scss */
 .gallery {
   overflow: auto;
   margin-top: 30px;
   margin-bottom: 30px;
 }
-/* line 316, css/_main.scss */
+/* line 319, css/_main.scss */
 .gallery .gallery-caption {
   /* required */
 }
 
-/* line 320, css/_main.scss */
+/* line 323, css/_main.scss */
 .bypostauthor {
   /* required */
 }
@@ -6536,11 +6536,12 @@ strong {
 }
 /* line 170, css/_navigation.scss */
 .subnav.subnav-dark .menu-item a:hover, .subnav.subnav-dark .menu-item.open > a {
+  color: #fff;
   background-color: rgba(0, 0, 0, 0.5);
 }
 
 /* Fixes SVG icon display in FF */
-/* line 178, css/_navigation.scss */
+/* line 179, css/_navigation.scss */
 .big-list .btn-mobile-toggle a svg, .sidenav .btn-mobile-toggle a svg, .single-article .widget-area .widget ul .btn-mobile-toggle a svg, .single-article .widget-area .widget .entry-content ol .btn-mobile-toggle a svg, .entry-content .single-article .widget-area .widget ol .btn-mobile-toggle a svg, .single-article .widget-area .widget .wp-editor ol .btn-mobile-toggle a svg, .wp-editor .single-article .widget-area .widget ol .btn-mobile-toggle a svg, .sidenav .btn-mobile-toggle a svg, .single-article .widget-area .widget ul .btn-mobile-toggle a svg, .single-article .widget-area .widget .entry-content ol .btn-mobile-toggle a svg, .entry-content .single-article .widget-area .widget ol .btn-mobile-toggle a svg, .single-article .widget-area .widget .wp-editor ol .btn-mobile-toggle a svg, .wp-editor .single-article .widget-area .widget ol .btn-mobile-toggle a svg, .single-article .widget-area .widget ul .btn-mobile-toggle a svg, .single-article .widget-area .widget .entry-content ol .btn-mobile-toggle a svg, .entry-content .single-article .widget-area .widget ol .btn-mobile-toggle a svg, .single-article .widget-area .widget .wp-editor ol .btn-mobile-toggle a svg, .wp-editor .single-article .widget-area .widget ol .btn-mobile-toggle a svg {
   transform: translate(0, 0) rotate(90deg);
   transform-origin: center;
@@ -6549,16 +6550,16 @@ strong {
   left: 0px;
   width: 100%;
 }
-/* line 186, css/_navigation.scss */
+/* line 187, css/_navigation.scss */
 .big-list.open-list .btn-mobile-toggle .arw-right svg, .open-list.sidenav .btn-mobile-toggle .arw-right svg, .single-article .widget-area .widget ul.open-list .btn-mobile-toggle .arw-right svg, .single-article .widget-area .widget .entry-content ol.open-list .btn-mobile-toggle .arw-right svg, .entry-content .single-article .widget-area .widget ol.open-list .btn-mobile-toggle .arw-right svg, .single-article .widget-area .widget .wp-editor ol.open-list .btn-mobile-toggle .arw-right svg, .wp-editor .single-article .widget-area .widget ol.open-list .btn-mobile-toggle .arw-right svg, .sidenav.open-list .btn-mobile-toggle .arw-right svg, .single-article .widget-area .widget ul.open-list .btn-mobile-toggle .arw-right svg, .single-article .widget-area .widget .entry-content ol.open-list .btn-mobile-toggle .arw-right svg, .entry-content .single-article .widget-area .widget ol.open-list .btn-mobile-toggle .arw-right svg, .single-article .widget-area .widget .wp-editor ol.open-list .btn-mobile-toggle .arw-right svg, .wp-editor .single-article .widget-area .widget ol.open-list .btn-mobile-toggle .arw-right svg, .single-article .widget-area .widget ul.open-list .btn-mobile-toggle .arw-right svg, .single-article .widget-area .widget .entry-content ol.open-list .btn-mobile-toggle .arw-right svg, .entry-content .single-article .widget-area .widget ol.open-list .btn-mobile-toggle .arw-right svg, .single-article .widget-area .widget .wp-editor ol.open-list .btn-mobile-toggle .arw-right svg, .wp-editor .single-article .widget-area .widget ol.open-list .btn-mobile-toggle .arw-right svg {
   transform: translate(0, 0) rotate(-90deg);
 }
 
-/* line 191, css/_navigation.scss */
+/* line 192, css/_navigation.scss */
 .search-form {
   position: relative;
 }
-/* line 194, css/_navigation.scss */
+/* line 195, css/_navigation.scss */
 .search-form button.btn-search {
   height: 58px;
   top: 0;
@@ -6566,24 +6567,24 @@ strong {
   position: absolute;
 }
 
-/* line 202, css/_navigation.scss */
+/* line 203, css/_navigation.scss */
 .search-wrap.mobile input {
   background-color: #fff;
 }
 
 /* Sidebar Navigation */
-/* line 209, css/_navigation.scss */
+/* line 210, css/_navigation.scss */
 .sidenav, .single-article .widget-area .widget ul, .single-article .widget-area .widget .entry-content ol, .entry-content .single-article .widget-area .widget ol, .single-article .widget-area .widget .wp-editor ol, .wp-editor .single-article .widget-area .widget ol {
   margin-bottom: 30px !important;
 }
 
-/* line 212, css/_navigation.scss */
+/* line 213, css/_navigation.scss */
 .sidenav a, .single-article .widget-area .widget ul a, .single-article .widget-area .widget .entry-content ol a, .entry-content .single-article .widget-area .widget ol a, .single-article .widget-area .widget .wp-editor ol a, .wp-editor .single-article .widget-area .widget ol a {
   line-height: 20px;
   letter-spacing: 1px;
 }
 
-/* line 216, css/_navigation.scss */
+/* line 217, css/_navigation.scss */
 .sidenav li li a, .single-article .widget-area .widget ul li li a, .single-article .widget-area .widget .entry-content ol li li a, .entry-content .single-article .widget-area .widget ol li li a, .single-article .widget-area .widget .wp-editor ol li li a, .wp-editor .single-article .widget-area .widget ol li li a {
   font-size: 14px;
   letter-spacing: 0;
@@ -6591,7 +6592,7 @@ strong {
   text-transform: none;
 }
 
-/* line 222, css/_navigation.scss */
+/* line 223, css/_navigation.scss */
 .sidenav .page_item_has_children.current_page_item .children, .single-article .widget-area .widget ul .page_item_has_children.current_page_item .children, .single-article .widget-area .widget .entry-content ol .page_item_has_children.current_page_item .children, .entry-content .single-article .widget-area .widget ol .page_item_has_children.current_page_item .children, .single-article .widget-area .widget .wp-editor ol .page_item_has_children.current_page_item .children, .wp-editor .single-article .widget-area .widget ol .page_item_has_children.current_page_item .children,
 .sidenav .page_item_has_children.current_page_ancestor .children,
 .single-article .widget-area .widget ul .page_item_has_children.current_page_ancestor .children,
@@ -6602,15 +6603,15 @@ strong {
   display: block;
 }
 
-/* line 226, css/_navigation.scss */
+/* line 227, css/_navigation.scss */
 .social-nav {
   margin-bottom: 0;
 }
-/* line 229, css/_navigation.scss */
+/* line 230, css/_navigation.scss */
 .social-nav li:last-of-type {
   padding-bottom: 15px;
 }
-/* line 233, css/_navigation.scss */
+/* line 234, css/_navigation.scss */
 .social-nav .icon-svg svg {
   top: 14px;
   left: 11px;
@@ -6620,7 +6621,7 @@ strong {
 }
 
 /* Page/Post Navigation */
-/* line 244, css/_navigation.scss */
+/* line 245, css/_navigation.scss */
 .pagination, .post-navigation {
   border-top: 5px solid #f37021;
   border-image: url(img/main-menu-hover.png) 25 30 10 20 repeat;
@@ -6634,23 +6635,23 @@ strong {
   line-height: 22px;
 }
 
-/* line 256, css/_navigation.scss */
+/* line 257, css/_navigation.scss */
 .pagination {
   text-align: center;
   font-weight: 500;
 }
-/* line 260, css/_navigation.scss */
+/* line 261, css/_navigation.scss */
 .pagination .page-numbers {
   padding: 7.5px 15px;
   display: none;
 }
 @media (min-width: 768px) {
-  /* line 260, css/_navigation.scss */
+  /* line 261, css/_navigation.scss */
   .pagination .page-numbers {
     display: inline;
   }
 }
-/* line 268, css/_navigation.scss */
+/* line 269, css/_navigation.scss */
 .pagination .page-numbers.prev, .pagination .page-numbers.next {
   text-transform: uppercase;
   font-family: "gentona", "Georgia", serif;
@@ -6659,44 +6660,44 @@ strong {
   display: block;
   padding-top: 0;
 }
-/* line 277, css/_navigation.scss */
+/* line 278, css/_navigation.scss */
 .pagination .page-numbers.prev {
   float: left;
 }
-/* line 280, css/_navigation.scss */
+/* line 281, css/_navigation.scss */
 .pagination .page-numbers.next {
   float: right;
 }
 
-/* line 287, css/_navigation.scss */
+/* line 288, css/_navigation.scss */
 .post-navigation .nav-previous, .post-navigation .nav-next {
   padding: 0 7.5px;
 }
 @media (min-width: 768px) {
-  /* line 287, css/_navigation.scss */
+  /* line 288, css/_navigation.scss */
   .post-navigation .nav-previous, .post-navigation .nav-next {
     width: 45%;
   }
 }
 @media (min-width: 768px) {
-  /* line 294, css/_navigation.scss */
+  /* line 295, css/_navigation.scss */
   .post-navigation .nav-previous {
     float: left;
   }
 }
-/* line 299, css/_navigation.scss */
+/* line 300, css/_navigation.scss */
 .post-navigation .nav-next {
   padding-top: 15px;
 }
 @media (min-width: 768px) {
-  /* line 299, css/_navigation.scss */
+  /* line 300, css/_navigation.scss */
   .post-navigation .nav-next {
     float: right;
     text-align: right;
     padding-top: 0;
   }
 }
-/* line 308, css/_navigation.scss */
+/* line 309, css/_navigation.scss */
 .post-navigation .meta-nav {
   text-transform: uppercase;
   font-family: "gentona", "Georgia", serif;

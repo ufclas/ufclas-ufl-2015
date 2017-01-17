@@ -168,7 +168,8 @@
 			background-color: transparent;	
 		}
 		.menu-item a:hover, .menu-item.open>a {
-			background-color: rgba(0,0,0,0.5);	
+			color: #fff;
+            background-color: rgba(0,0,0,0.5);	
 		}
 	}
 }

@@ -74,3 +74,18 @@ add_filter( 'nav_menu_css_class', 'ufclas_ufl_2015_nav_classes', 10, 3 );
 
 
 
+/**
+ * Ensure that submenus use the correct classes
+ *
+ * @return array Menu item classes
+ * @since 0.7.0
+ */
+function ufclas_ufl_2015_submenu_args( $args ) {
+    $sidebars_widgets = get_option( 'sidebars_widgets' );
+    
+	dbgx_trace_var( $args );
+	dbgx_trace_var( $sidebars_widgets );
+	return $args;
+}
+add_filter( 'wp_nav_menu_args', 'ufclas_ufl_2015_submenu_args' );
+

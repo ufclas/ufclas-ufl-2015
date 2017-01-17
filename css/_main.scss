@@ -34,6 +34,9 @@
 		padding-top: 150px;			
 	}
 }
+.page-template-submenu {
+    @extend .page-template-landing-page;
+}
 .category #main {
 	@extend .main-content;	
 }
