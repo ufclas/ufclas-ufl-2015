@@ -1,7 +1,5 @@
 <?php
 
-require get_stylesheet_directory() . '/inc/wp-bootstrap-navwalker.php';
-
 /**
  * Main Menu Walker and filters
  */

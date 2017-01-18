@@ -257,6 +257,7 @@ function ufclas_ufl_2015_socialnetworks() {
 require get_stylesheet_directory() . '/inc/media.php';
 require get_stylesheet_directory() . '/inc/shortcodes.php';
 require get_stylesheet_directory() . '/inc/walkers.php';
+require get_stylesheet_directory() . '/inc/wp-bootstrap-navwalker.php';
 require get_stylesheet_directory() . '/inc/widgets.php';
 require get_stylesheet_directory() . '/inc/shibboleth.php';
 require get_stylesheet_directory() . '/inc/customizer.php';
