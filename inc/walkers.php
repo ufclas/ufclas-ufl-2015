@@ -27,7 +27,7 @@ function ufclas_ufl_2015_main_menu_item_args( $args, $item, $depth ){
 }
 add_filter( 'nav_menu_item_args', 'ufclas_ufl_2015_main_menu_item_args', 10, 3);
 
-function ufclas_ufl_2015_main_menu_link_attrs( $atts, $item, $args, $depth ){
+function ufclas_ufl_2015_main_menu_link_attrs( $atts, $item, $args, $depth = null ){
 	if ( ('main_menu' == $args->theme_location) && (0 == $depth) ){
 		$atts['class'] = 'main-menu-link';
 	}

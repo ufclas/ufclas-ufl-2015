@@ -3,7 +3,23 @@
  * IssueM newsletter functions
  * 
  */
-//Include issue and article template files
+
+/** 
+ * Customize IssueM defaults for theme
+ *
+ * @see IssueM::get_settings() For all default settings in issuem-class.php
+ * @param array $defaults
+ * @return array Updated defaults
+ */
+function ufclas_ufl_2015_issuem_default_settings( $defaults ){
+	$theme_defaults = array(
+		'cover_image_width'	=> 320,
+		'cover_image_height' => 400,
+		'css_style'	=> 'none',
+	);
+	return array_merge( $defaults, $theme_defaults );
+}
+add_filter( 'issuem_default_settings', 'ufclas_ufl_2015_issuem_default_settings' );
 
 /** 
  * Add custom templates
@@ -12,6 +28,7 @@
 function ufclas_ufl_2015_issuem_templates( $template_path ){
 	
 	$issuem_settings = get_issuem_settings();
+	dbgx_trace_var( $issuem_settings );
 	
 	if ( is_singular('article') ){
 		
@@ -24,6 +41,11 @@ function ufclas_ufl_2015_issuem_templates( $template_path ){
 		$template_path = get_stylesheet_directory() . '/inc/issuem/taxonomy-issuem_issue.php';
 		
 	} elseif ( is_page($issuem_settings['page_for_articles']) && !empty($issuem_settings['page_for_articles']) ){
+		
+		// Change template for the newsletter page
+		$template_path = get_stylesheet_directory() . '/inc/issuem/taxonomy-current_issue.php';
+	
+	} elseif ( is_page($issuem_settings['page_for_archives']) && !empty($issuem_settings['page_for_archives']) ){
 		
 		// Change template for the newsletter page
 		$template_path = get_stylesheet_directory() . '/inc/issuem/taxonomy-current_issue.php';
@@ -45,6 +67,7 @@ add_filter( 'template_include', 'ufclas_ufl_2015_issuem_templates', 1 );
 
 /** 
  * Set the title of the newsletter to be the title of the issue page
+ *
  * @return string
  */
 function ufclas_ufl_2015_issuem_newsletter_title(){
@@ -52,8 +75,8 @@ function ufclas_ufl_2015_issuem_newsletter_title(){
 	$current_issue = ufclas_ufl_2015_issuem_issue_data();
 	
 	if ( is_page() && isset($issuem_settings['page_for_articles']) ) {
-		// $issue_page_title = get_the_title( $issuem_settings['page_for_articles'] );
-		$issue_page_title = $current_issue['title'];
+		$issue_page_title = get_the_title( $issuem_settings['page_for_articles'] );
+		// $issue_page_title = $current_issue['title'];
 	}
 	else {
 		$issue_page_title = $current_issue['title'];	
@@ -61,8 +84,6 @@ function ufclas_ufl_2015_issuem_newsletter_title(){
 	
 	return $issue_page_title;
 }
-
-//remove_filter( 'the_content', 'default_issue_content_filter', 10 );
 
 // Use category order - see issuem-shortcodes.php
 function ufclas_ufl_2015_issuem_get_categories(){
@@ -91,25 +112,8 @@ function ufclas_ufl_2015_issuem_setup(){
 		'newsletter-menu' => esc_html__( 'Newsletter Menu', 'ufclas-ufl-2015' ),
 	) );
 	
-	//add_theme_support( 'post-formats', array( 'aside' ) );	
 }
 add_action( 'after_setup_theme', 'ufclas_ufl_2015_issuem_setup' );
-
-function ufclas_ufl_2015_issuem_global_menu( $items, $args ){
-    /*if( $args->theme_location == 'newsletter-global' ){
-        $items .= '<li id="search">
-            <form role="search" method="get" action="' . home_url('/') . '" class="search-form">
-              <div class="form-group has-feedback">
-                <label for="search-field" class="sr-only">Search Articles</label>
-                <input type="text" class="form-control" name="s" id="search-field" placeholder="Search Articles">
-				<input type="hidden" value="article" name="post_type" id="post_type" />
-                <i class="mdi mdi-magnify form-control-feedback"></i> </div>
-            </form>
-          </li>';
-    }*/
-    return $items;
-}
-add_filter('wp_nav_menu_items', 'ufclas_ufl_2015_issuem_global_menu', 10, 2);
 
 /**
  * Modify the main query for issue pages
@@ -256,3 +260,30 @@ function ufclas_ufl_2015_issuem_title( $title, $sep ) {
 	return $title;
 }
 add_filter( 'wp_title', 'ufclas_ufl_2015_issuem_title', 10, 2 );
+
+/**
+ * Add Newsletter section to the Customizer Theme Options section
+ *
+ * @since 0.7.0
+ */
+function ufclas_ufl_2015_customize_issuem( $wp_customize ) {
+	
+	// Newsletter
+	$wp_customize->add_section( 'theme_options_newsletter', array(
+		'title' => __('Newsletter', 'ufclas-ufl-2015'),
+		'description' => __('', 'ufclas-ufl-2015'),
+		'panel' => 'theme_options',
+	));
+	
+	$wp_customize->add_setting( 'newsletter_title', array( 'default' => '', 'sanitize_callback' => 'sanitize_text_field' ));
+	
+	$wp_customize->add_control( 'newsletter_title', array(
+		'label' => __('Newsletter Title', 'ufclas-ufl-2015'),
+		'description' => __("", 'ufclas-ufl-2015'),
+		'section' => 'theme_options_newsletter',
+		'type' => 'text',
+	));
+	
+}
+add_action('customize_register','ufclas_ufl_2015_customize_issuem');
+

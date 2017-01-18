@@ -3,7 +3,7 @@
  * Submenu Widget
  *
  * @package UFCLAS_UFL_2015
- * @since 0.4.0
+ * @since 0.7.0
  */
 class UFL_2015_Submenu extends WP_Nav_Menu_Widget {
 
@@ -46,7 +46,7 @@ class UFL_2015_Submenu extends WP_Nav_Menu_Widget {
 			$subtitle,
 			$image,
 			$image_height,
-			$background,
+			$background
 		));
 		
 		echo $args['after_widget'];

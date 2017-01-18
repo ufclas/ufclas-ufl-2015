@@ -8,16 +8,33 @@
 get_header(); ?>
 
 <?php 
+	$issuem_settings = get_issuem_settings();
+	
+	$newsletter = array(
+		'title' => get_theme_mod( 'newsletter_title', 'Newsletter' ),
+		'issue' => array(
+			'title' => $issuem_settings[''],
+		), 
+	);
 	$issue_title = ufclas_ufl_2015_issuem_newsletter_title();
 	$issue_description = term_description( get_term_by( 'slug', get_active_issuem_issue(), 'issuem_issue' ) );
+	$issue_cover = get_issuem_issue_cover();
 	
-	if ( has_post_thumbnail() ):
+	$issuem_settings = get_issuem_settings();
+	$issue = get_active_issuem_issue();
+	$term = get_term_by( 'slug', $issue, 'issuem_issue' );
+	$meta_options = get_option( 'issuem_issue_' . $term->term_id . '_meta' );
+	
+	dbgx_trace_var( get_active_issuem_issue() );
+	
+	if ( !empty( $issue_cover ) ):
 		$custom_meta = get_post_meta( get_the_ID() );
 		$custom_meta_image_height = ( isset( $custom_meta['custom_meta_image_height']) )? $custom_meta['custom_meta_image_height'][0] : '';
+		
 		$shortcode = sprintf( '[ufl-landing-page-hero headline="%s" subtitle="%s" image="%d" image_height="%s"]%s[/ufl-landing-page-hero]', 
 			get_the_title(),
 			$issue_title,
-			get_post_thumbnail_id(),
+			$issue_cover,
             $custom_meta_image_height,
 			''
 		);

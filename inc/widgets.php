@@ -8,7 +8,7 @@ require get_stylesheet_directory() . '/inc/widgets/widget-breaker-cards.php';
 require get_stylesheet_directory() . '/inc/widgets/widget-content-image-left.php';
 require get_stylesheet_directory() . '/inc/widgets/widget-content-image-right.php';
 require get_stylesheet_directory() . '/inc/widgets/widget-image-right-quote.php';
-// require get_stylesheet_directory() . '/inc/widgets/widget-submenu.php';
+//require get_stylesheet_directory() . '/inc/widgets/widget-submenu.php';
 
 
 /**
@@ -162,7 +162,8 @@ function ufclas_ufl_2015_widgets_init() {
 		'before_title'  => '<h2 class="widget-title">',
 		'after_title'   => '</h2>',
 	) );
-    register_sidebar( array(
+    /*
+	register_sidebar( array(
 		'name'          => esc_html__( 'Page Submenu', 'ufclas-ufl-2015' ),
 		'id'            => 'page_submenu',
 		'description'   => '',
@@ -171,6 +172,7 @@ function ufclas_ufl_2015_widgets_init() {
 		'before_title'  => '<h2 class="widget-title">',
 		'after_title'   => '</h2>',
 	) );
+	*/
 	
 	// Register theme widgets
 	register_widget( 'UFL_2015_Landing_Page_Hero' );
