@@ -85,6 +85,7 @@ function ufclas_ufl_2015_landing_hero($atts, $content = NULL ) {
 	
 	// Support either image ID or image url
 	$image = ( is_numeric( $image ) )? wp_get_attachment_image_src( $image, 'large' ) : array($image);
+	$image_style = '';
 	$subtitle = (!empty( $subtitle ))? $subtitle : '';
 	
 	switch ( $image_height ){
@@ -100,11 +101,17 @@ function ufclas_ufl_2015_landing_hero($atts, $content = NULL ) {
 			$image_class = '';	
 	}
 	
+	// Add background and gradient class if image exists
+	if ( !empty($image) ){
+		$image_class .= ' gradient-bg';
+		$image_style =  'style="background-image:url(\'' . esc_url( $image[0] ) . '\');"';
+	}
+	
 	// Shortcode callbacks must return content, so use output buffering
 	ob_start();
 	?>
     <div class="landing-page-hero-full">
-        <div class="hero-img gradient-bg<?php echo $image_class; ?>" style="background-image:url('<?php echo esc_url( $image[0] ); ?>');">
+        <div class="hero-img<?php echo $image_class; ?>" <?php echo $image_style; ?>>
             <div class="hero-heading">
 			<?php 
 				echo '<h1>' . esc_html( $headline ) . '</h1>';

@@ -6707,6 +6707,7 @@ strong {
 
 /* line 1, css/_shortcodes.scss */
 .landing-page-hero-full {
+  background-color: #052f51;
   /* Adds positioning for half hero image size */
 }
 @media (min-width: 992px) {
@@ -6721,80 +6722,80 @@ strong {
     margin-top: 0px;
   }
 }
-/* line 9, css/_shortcodes.scss */
+/* line 11, css/_shortcodes.scss */
 .landing-page-hero-full .hero-img h1 {
   text-shadow: 2px 3px 2px #333132;
   letter-spacing: 2px;
   position: relative;
   bottom: auto;
 }
-/* line 15, css/_shortcodes.scss */
+/* line 17, css/_shortcodes.scss */
 .landing-page-hero-full .hero-img h2 {
   text-align: center;
   color: #fff;
   letter-spacing: 2px;
   font-weight: normal;
 }
-/* line 22, css/_shortcodes.scss */
+/* line 24, css/_shortcodes.scss */
 .landing-page-hero-full .hero-heading {
   position: absolute;
   bottom: 30px;
   width: 100%;
 }
-/* line 29, css/_shortcodes.scss */
+/* line 31, css/_shortcodes.scss */
 .landing-page-hero-full .hero-img-half {
   height: 225px;
 }
 @media (min-width: 992px) {
-  /* line 29, css/_shortcodes.scss */
+  /* line 31, css/_shortcodes.scss */
   .landing-page-hero-full .hero-img-half {
     background-position: center center;
   }
 }
-/* line 36, css/_shortcodes.scss */
+/* line 38, css/_shortcodes.scss */
 .landing-page-hero-full .hero-img-medium {
   height: 375px;
 }
 
-/* line 40, css/_shortcodes.scss */
+/* line 42, css/_shortcodes.scss */
 .content-box-module {
   margin-top: 60px;
 }
 
 @media (min-width: 992px) {
-  /* line 43, css/_shortcodes.scss */
+  /* line 45, css/_shortcodes.scss */
   .landing-page-hero {
     margin-top: 60px;
     margin-bottom: 60px;
   }
 }
 @media (max-width: 768px) {
-  /* line 49, css/_shortcodes.scss */
+  /* line 51, css/_shortcodes.scss */
   .landing-page-hero .hero-content {
     margin: 20px 0 0;
     width: 100%;
   }
 }
 
-/* line 57, css/_shortcodes.scss */
+/* line 59, css/_shortcodes.scss */
 .image-right-quote .quote {
   padding: 15px;
 }
 @media (min-width: 992px) {
-  /* line 56, css/_shortcodes.scss */
+  /* line 58, css/_shortcodes.scss */
   .image-right-quote {
     margin-top: 60px;
     margin-bottom: 60px;
   }
 }
 
-/* line 66, css/_shortcodes.scss */
+/* line 68, css/_shortcodes.scss */
 .content-image-left.gal-list-wrap {
   margin-top: 60px;
   margin-bottom: 60px;
 }
 @media (max-width: 768px) {
-  /* line 70, css/_shortcodes.scss */
+  /* line 72, css/_shortcodes.scss */
   .content-image-left.gal-list-wrap .gal-img {
     float: none;
     width: 100%;
@@ -6802,7 +6803,7 @@ strong {
   }
 }
 @media (max-width: 768px) {
-  /* line 78, css/_shortcodes.scss */
+  /* line 80, css/_shortcodes.scss */
   .content-image-left.gal-list-wrap .caption {
     float: none;
     width: 100%;
@@ -6810,17 +6811,17 @@ strong {
   }
 }
 @media (min-width: 768px) {
-  /* line 85, css/_shortcodes.scss */
+  /* line 87, css/_shortcodes.scss */
   .content-image-left.gal-list-wrap .gal-img-content {
     padding: 30px;
   }
 }
-/* line 90, css/_shortcodes.scss */
+/* line 92, css/_shortcodes.scss */
 .content-image-left.gal-list-wrap .gal-img-content h2 {
   margin-top: 0;
 }
 
-/* line 96, css/_shortcodes.scss */
+/* line 98, css/_shortcodes.scss */
 .img-callout-wrapper .img-callout-wrap:nth-child(even) {
   margin-bottom: 20px;
 }

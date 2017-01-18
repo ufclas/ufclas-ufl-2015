@@ -28,7 +28,6 @@ add_filter( 'issuem_default_settings', 'ufclas_ufl_2015_issuem_default_settings'
 function ufclas_ufl_2015_issuem_templates( $template_path ){
 	
 	$issuem_settings = get_issuem_settings();
-	dbgx_trace_var( $issuem_settings );
 	
 	if ( is_singular('article') ){
 		
@@ -38,7 +37,7 @@ function ufclas_ufl_2015_issuem_templates( $template_path ){
 	} elseif ( is_tax('issuem_issue') ){
 		
 		// Change template for issue pages
-		$template_path = get_stylesheet_directory() . '/inc/issuem/taxonomy-issuem_issue.php';
+		$template_path = get_stylesheet_directory() . '/inc/issuem/taxonomy-current_issue.php';
 		
 	} elseif ( is_page($issuem_settings['page_for_articles']) && !empty($issuem_settings['page_for_articles']) ){
 		
@@ -76,7 +75,6 @@ function ufclas_ufl_2015_issuem_newsletter_title(){
 	
 	if ( is_page() && isset($issuem_settings['page_for_articles']) ) {
 		$issue_page_title = get_the_title( $issuem_settings['page_for_articles'] );
-		// $issue_page_title = $current_issue['title'];
 	}
 	else {
 		$issue_page_title = $current_issue['title'];	
@@ -226,7 +224,7 @@ function ufclas_ufl_2015_issuem_issue_data() {
 		$queried_issue = array(
 			'title' => $issue_term->name,
 			'url' => get_term_link( $issue_term ),
-			'description' => term_description( $issue_term ),
+			'description' => term_description( $issue_term )
 		);
 	}
 	else {
@@ -262,10 +260,48 @@ function ufclas_ufl_2015_issuem_title( $title, $sep ) {
 add_filter( 'wp_title', 'ufclas_ufl_2015_issuem_title', 10, 2 );
 
 /**
+ * Get newsletter data
+ *
+ * @return array Newsletter data array based on IssueM settings
+ * @since 0.7.0
+ */
+function ufclas_ufl_2015_newsletter_data() {
+	global $post;
+	
+	$issuem_settings = get_issuem_settings();
+	$issue_data = ufclas_ufl_2015_issuem_issue_data();
+	
+	$newsletter_data = array(
+		'title' => __('Newsletter', 'ufclas-ufl-2015'),
+		'subtitle' => $issue_data['title'],
+		'articles_page' => $issuem_settings['page_for_articles'],
+		'archives_page' => $issuem_settings['page_for_archives'],
+		'cover' => $issuem_settings['default_issue_image'],
+		'image_height' => 'half'
+	);
+	
+	if ( !empty($newsletter_data['articles_page']) ){
+		$newsletter_data['title'] = get_the_title( $newsletter_data['articles_page'] );
+		
+		$custom_meta = get_post_meta( $newsletter_data['articles_page'] );
+		if ( isset($custom_meta['custom_meta_image_height']) ){
+			$newsletter_data['image_height'] = $custom_meta['custom_meta_image_height'][0];
+		}
+	}
+	
+	if ( is_page( $newsletter_data['archives_page'] ) ) {
+		$newsletter_data['subtitle'] = get_the_title( $newsletter_data['archives_page'] );	
+	}
+		
+	return $newsletter_data;
+}
+
+/**
  * Add Newsletter section to the Customizer Theme Options section
  *
  * @since 0.7.0
- */
+ * @todo Implement customizer control instead of articles page
+
 function ufclas_ufl_2015_customize_issuem( $wp_customize ) {
 	
 	// Newsletter
@@ -286,4 +322,5 @@ function ufclas_ufl_2015_customize_issuem( $wp_customize ) {
 	
 }
 add_action('customize_register','ufclas_ufl_2015_customize_issuem');
+*/
 

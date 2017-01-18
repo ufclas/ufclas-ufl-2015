@@ -1,45 +1,27 @@
 <?php
 /**
- * Full Width Page (no sidebars or widgets)
+ * Issue Page
  * 
  * @package UFCLAS_UFL_2015
  *
  */
 get_header(); ?>
 
-<?php 
-	$issuem_settings = get_issuem_settings();
+<?php
+	$newsletter_data = ufclas_ufl_2015_newsletter_data();
+	$issue_data = ufclas_ufl_2015_issuem_issue_data();
 	
-	$newsletter = array(
-		'title' => get_theme_mod( 'newsletter_title', 'Newsletter' ),
-		'issue' => array(
-			'title' => $issuem_settings[''],
-		), 
+	$cover_image = get_issuem_issue_cover();
+	$cover_image = ( !empty($cover_image) )? $cover_image : $newsletter_data['cover'];
+	
+	$shortcode = sprintf( '[ufl-landing-page-hero headline="%s" subtitle="%s" image="%d" image_height="%s"]%s[/ufl-landing-page-hero]', 
+		$newsletter_data['title'],
+		$newsletter_data['subtitle'],
+		$cover_image,
+		$newsletter_data['image_height'],
+		''
 	);
-	$issue_title = ufclas_ufl_2015_issuem_newsletter_title();
-	$issue_description = term_description( get_term_by( 'slug', get_active_issuem_issue(), 'issuem_issue' ) );
-	$issue_cover = get_issuem_issue_cover();
-	
-	$issuem_settings = get_issuem_settings();
-	$issue = get_active_issuem_issue();
-	$term = get_term_by( 'slug', $issue, 'issuem_issue' );
-	$meta_options = get_option( 'issuem_issue_' . $term->term_id . '_meta' );
-	
-	dbgx_trace_var( get_active_issuem_issue() );
-	
-	if ( !empty( $issue_cover ) ):
-		$custom_meta = get_post_meta( get_the_ID() );
-		$custom_meta_image_height = ( isset( $custom_meta['custom_meta_image_height']) )? $custom_meta['custom_meta_image_height'][0] : '';
-		
-		$shortcode = sprintf( '[ufl-landing-page-hero headline="%s" subtitle="%s" image="%d" image_height="%s"]%s[/ufl-landing-page-hero]', 
-			get_the_title(),
-			$issue_title,
-			$issue_cover,
-            $custom_meta_image_height,
-			''
-		);
-		echo do_shortcode( $shortcode );
-	endif;
+	echo do_shortcode( $shortcode );
 	
 	// Newsletter menu
 	if ( has_nav_menu( 'newsletter-menu' ) ): ?>
@@ -66,21 +48,16 @@ get_header(); ?>
         ?>
         </div>
 </nav>   
-	<?php endif; ?>
+<?php endif; ?>
 
 <div id="main" class="container main-content">
 <div class="row">
   <div class="col-sm-12">
     <header class="entry-header">
       <?php 
-	  	// $issue_title = ufclas_ufl_2015_issuem_newsletter_title();
-		// printf( '<h1 class="entry-title">%s</h1>', $issue_title );
-		
-		/* Display Issue Description, if exists */
-		// $issue_description = term_description( get_term_by( 'slug', get_active_issuem_issue(), 'issuem_issue' ) );
-		
-		if ( !empty($issue_description) ){
-			printf( '<div class="taxonomy-description issuem-description">%s</div>', $issue_description );
+		// Display Issue Description, if exists
+		if ( !empty($newsletter_data['description']) ){
+			printf( '<div class="taxonomy-description issuem-description">%s</div>', $newsletter_data['description'] );
 		}
       ?>
     </header>
@@ -91,7 +68,7 @@ get_header(); ?>
   <div class="col-sm-12">
     <?php 
 		// Change the query if this is an issue page
-		if ( is_page() ){
+		if ( issuem_is_articles_page() ){
 			$issue_args = array(
 				'post_type' => 'article',
 				'orderby' => 'menu_order date',
