@@ -427,7 +427,7 @@ add_shortcode('ufl-image-right-quote', 'ufclas_ufl_2015_image_right_quote');
  * Example [ufl-submenu]
  * @param  array $atts Shortcode attributes
  * @return string Shortcode output
- */
+ *
 function ufclas_ufl_2015_submenu( $atts ) {
 	
 	extract( shortcode_atts( 
@@ -501,3 +501,4 @@ function ufclas_ufl_2015_submenu( $atts ) {
 	return ob_get_clean();
 }
 add_shortcode('ufl-submenu', 'ufclas_ufl_2015_submenu');
+*/
