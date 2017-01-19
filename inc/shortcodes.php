@@ -74,7 +74,8 @@ function ufclas_ufl_2015_landing_hero($atts, $content = NULL ) {
 	extract( shortcode_atts( 
 		array(
 			'headline' => '',
-			'image' => get_stylesheet_directory_uri() . '/img/_temp1.jpg',
+			'subtitle' => '',
+			'image' => get_stylesheet_directory_uri() . '/img/_temp2.jpg',
 			'image_height' => 'large',
 			'hide_button' => 1,
 			'button_text' => '',
@@ -84,6 +85,8 @@ function ufclas_ufl_2015_landing_hero($atts, $content = NULL ) {
 	
 	// Support either image ID or image url
 	$image = ( is_numeric( $image ) )? wp_get_attachment_image_src( $image, 'large' ) : array($image);
+	$image_style = '';
+	$subtitle = (!empty( $subtitle ))? $subtitle : '';
 	
 	switch ( $image_height ){
 		case 'half':
@@ -98,12 +101,26 @@ function ufclas_ufl_2015_landing_hero($atts, $content = NULL ) {
 			$image_class = '';	
 	}
 	
+	// Add background and gradient class if image exists
+	if ( !empty($image[0]) ){
+		$image_class .= ' gradient-bg';
+		$image_style =  'style="background-image:url(\'' . esc_url( $image[0] ) . '\');"';
+	}
+	
 	// Shortcode callbacks must return content, so use output buffering
 	ob_start();
 	?>
     <div class="landing-page-hero-full">
-        <div class="hero-img gradient-bg<?php echo $image_class; ?>" style="background-image:url('<?php echo esc_url( $image[0] ); ?>');">
-            <?php printf( '<h1>%s</h1>', esc_html( $headline ) ); ?>
+        <div class="hero-img<?php echo $image_class; ?>" <?php echo $image_style; ?>>
+            <div class="hero-heading">
+			<?php 
+				echo '<h1>' . esc_html( $headline ) . '</h1>';
+				
+				if ( !empty($subtitle) ){
+					echo '<h2>' . esc_html( $subtitle ) . '</h2>';
+				}
+			?>
+            </div>
         </div>
         
         <?php if ( !empty( $content ) ): ?>

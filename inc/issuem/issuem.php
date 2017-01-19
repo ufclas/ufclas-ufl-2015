@@ -3,7 +3,23 @@
  * IssueM newsletter functions
  * 
  */
-//Include issue and article template files
+
+/** 
+ * Customize IssueM defaults for theme
+ *
+ * @see IssueM::get_settings() For all default settings in issuem-class.php
+ * @param array $defaults
+ * @return array Updated defaults
+ */
+function ufclas_ufl_2015_issuem_default_settings( $defaults ){
+	$theme_defaults = array(
+		'cover_image_width'	=> 320,
+		'cover_image_height' => 400,
+		'css_style'	=> 'none',
+	);
+	return array_merge( $defaults, $theme_defaults );
+}
+add_filter( 'issuem_default_settings', 'ufclas_ufl_2015_issuem_default_settings' );
 
 /** 
  * Add custom templates
@@ -28,15 +44,20 @@ function ufclas_ufl_2015_issuem_templates( $template_path ){
 		// Change template for the newsletter page
 		$template_path = get_stylesheet_directory() . '/inc/issuem/taxonomy-issuem_issue.php';
 	
+	} elseif ( is_page($issuem_settings['page_for_archives']) && !empty($issuem_settings['page_for_archives']) ){
+		
+		// Change template for the newsletter page
+		$template_path = get_stylesheet_directory() . '/page-templates/issuem-page.php';
+	
 	} elseif ( is_tax('issuem_issue_categories') ){
 	
 		// Change template for article pages
-		//$template_path = get_stylesheet_directory() . '/inc/issuem/archive-article.php';
+		$template_path = get_stylesheet_directory() . '/inc/issuem/taxonomy-archive.php';
 	
 	} elseif ( is_search() && ( get_query_var('post_type') == 'article' ) ){
 	
 		// Change template for article pages
-		//$template_path = get_stylesheet_directory() . '/inc/issuem/archive-article.php';
+		$template_path = get_stylesheet_directory() . '/inc/issuem/taxonomy-archive.php';
 	}
 	
 	return $template_path;
@@ -45,6 +66,7 @@ add_filter( 'template_include', 'ufclas_ufl_2015_issuem_templates', 1 );
 
 /** 
  * Set the title of the newsletter to be the title of the issue page
+ *
  * @return string
  */
 function ufclas_ufl_2015_issuem_newsletter_title(){
@@ -52,8 +74,7 @@ function ufclas_ufl_2015_issuem_newsletter_title(){
 	$current_issue = ufclas_ufl_2015_issuem_issue_data();
 	
 	if ( is_page() && isset($issuem_settings['page_for_articles']) ) {
-		// $issue_page_title = get_the_title( $issuem_settings['page_for_articles'] );
-		$issue_page_title = $current_issue['title'];
+		$issue_page_title = get_the_title( $issuem_settings['page_for_articles'] );
 	}
 	else {
 		$issue_page_title = $current_issue['title'];	
@@ -61,8 +82,6 @@ function ufclas_ufl_2015_issuem_newsletter_title(){
 	
 	return $issue_page_title;
 }
-
-//remove_filter( 'the_content', 'default_issue_content_filter', 10 );
 
 // Use category order - see issuem-shortcodes.php
 function ufclas_ufl_2015_issuem_get_categories(){
@@ -83,34 +102,16 @@ function ufclas_ufl_2015_issuem_get_categories(){
 }
 
 /**
- * Allow the 'aside' post format
+ * Add Newsletter Menu, Allow the 'aside' post format
  * @since 1.1.0
  */
 function ufclas_ufl_2015_issuem_setup(){
-	/*register_nav_menus( array(
-		'newsletter-global' => esc_html__( 'Newsletter Global Menu', 'ufclas-ufl-2015' ),
-		'newsletter-primary' => esc_html__( 'Newsletter Primary Menu', 'ufclas-ufl-2015' ),
-	) );*/
+	register_nav_menus( array(
+		'newsletter-menu' => esc_html__( 'Newsletter Menu', 'ufclas-ufl-2015' ),
+	) );
 	
-	//add_theme_support( 'post-formats', array( 'aside' ) );	
 }
 add_action( 'after_setup_theme', 'ufclas_ufl_2015_issuem_setup' );
-
-function ufclas_ufl_2015_issuem_global_menu( $items, $args ){
-    /*if( $args->theme_location == 'newsletter-global' ){
-        $items .= '<li id="search">
-            <form role="search" method="get" action="' . home_url('/') . '" class="search-form">
-              <div class="form-group has-feedback">
-                <label for="search-field" class="sr-only">Search Articles</label>
-                <input type="text" class="form-control" name="s" id="search-field" placeholder="Search Articles">
-				<input type="hidden" value="article" name="post_type" id="post_type" />
-                <i class="mdi mdi-magnify form-control-feedback"></i> </div>
-            </form>
-          </li>';
-    }*/
-    return $items;
-}
-add_filter('wp_nav_menu_items', 'ufclas_ufl_2015_issuem_global_menu', 10, 2);
 
 /**
  * Modify the main query for issue pages
@@ -223,7 +224,7 @@ function ufclas_ufl_2015_issuem_issue_data() {
 		$queried_issue = array(
 			'title' => $issue_term->name,
 			'url' => get_term_link( $issue_term ),
-			'description' => term_description( $issue_term ),
+			'description' => term_description( $issue_term )
 		);
 	}
 	else {
@@ -257,3 +258,178 @@ function ufclas_ufl_2015_issuem_title( $title, $sep ) {
 	return $title;
 }
 add_filter( 'wp_title', 'ufclas_ufl_2015_issuem_title', 10, 2 );
+
+/**
+ * Get newsletter data
+ *
+ * @return array Newsletter data array based on IssueM settings
+ * @since 0.7.0
+ */
+function ufclas_ufl_2015_newsletter_data() {
+	global $post;
+	
+	$issuem_settings = get_issuem_settings();
+	$issue_data = ufclas_ufl_2015_issuem_issue_data();
+	
+	$newsletter_data = array(
+		'title' => __('Newsletter', 'ufclas-ufl-2015'),
+		'subtitle' => $issue_data['title'],
+		'articles_page' => $issuem_settings['page_for_articles'],
+		'archives_page' => $issuem_settings['page_for_archives'],
+		'cover' => $issuem_settings['default_issue_image'],
+		'image_height' => 'medium'
+	);
+	
+	if ( !empty($newsletter_data['articles_page']) ){
+		$newsletter_data['title'] = get_the_title( $newsletter_data['articles_page'] );
+		
+		$cover = get_post_thumbnail_id( $newsletter_data['articles_page'] );
+		$newsletter_data['cover'] = ( !empty($cover) )? $cover : get_stylesheet_directory_uri() . '/img/bg-breaker2.jpg'; 
+		
+		$custom_meta = get_post_meta( $newsletter_data['articles_page'] );
+		if ( isset($custom_meta['custom_meta_image_height']) ){
+			$newsletter_data['image_height'] = $custom_meta['custom_meta_image_height'][0];
+		}
+	}
+	
+	if ( is_page( $newsletter_data['archives_page'] ) ) {
+		$newsletter_data['subtitle'] = get_the_title( $newsletter_data['archives_page'] );	
+	}
+	
+	if ( is_page_template( 'page-templates/issuem-page.php' ) ) {
+		$newsletter_data['subtitle'] = get_the_title( $post->ID );	
+	}
+	
+	if ( is_tax('issuem_issue_categories') ){
+		$newsletter_data['subtitle'] = get_the_archive_title();
+	}
+	return $newsletter_data;
+}
+
+/**
+ * Adds custom classes to the array of body classes.
+ *
+ * @param array $classes Classes for the body element.
+ * @return array
+ * @since 0.7.0
+ */
+function ufclas_ufl_2015_newsletter_classes( $classes ) {
+	
+	if ( is_page() ){
+		$issuem_settings = get_issuem_settings();
+		$articles_page = $issuem_settings['page_for_articles'];
+		$archives_page = $issuem_settings['page_for_archives'];
+		
+		if ( !empty( $articles_page ) && is_page( $articles_page ) ) {
+			$classes[] = 'newsletter-page';
+			$classes[] = 'newsletter-page-articles';
+		}
+		if ( !empty( $archives_page ) && is_page( $archives_page ) ) {
+			$classes[] = 'newsletter-page';
+			$classes[] = 'newsletter-page-articles';
+		}
+		if ( is_page_template( 'page-templates/issuem-page.php' ) ) {
+			$classes[] = 'newsletter-page';
+		}
+	}
+	
+	return $classes;
+}
+add_filter( 'body_class', 'ufclas_ufl_2015_newsletter_classes' );
+
+
+if(function_exists("register_field_group")) {
+	
+	$issuem_settings = get_issuem_settings();
+	$articles_page = $issuem_settings['page_for_articles'];
+	
+	/**
+	 * Article Options (IssueM)
+	 *
+	 * @since 0.6.0
+	 */
+	register_field_group(array (
+		'id' => 'acf_article-options',
+		'title' => 'Article Options',
+		'fields' => array (
+			array (
+				'key' => 'field_582cea7b9b215',
+				'label' => 'Hide Featured Image',
+				'name' => 'custom_meta_post_remove_featured',
+				'type' => 'checkbox',
+				'choices' => array (
+					1 => 'Hide the featured image',
+				),
+				'default_value' => 0,
+				'layout' => 'vertical',
+			),
+		),
+		'location' => array (
+			array (
+				array (
+					'param' => 'post_type',
+					'operator' => '==',
+					'value' => 'article',
+					'order_no' => 0,
+					'group_no' => 0,
+				),
+			),
+		),
+		'options' => array (
+			'position' => 'normal',
+			'layout' => 'default',
+			'hide_on_screen' => array (
+				0 => 'custom_fields',
+			),
+		),
+		'menu_order' => 0,
+	));
+
+	/**
+	 * Newsletter Options (IssueM)
+	 *
+	 * @since 0.7.0
+	 */
+	register_field_group(array (
+		'id' => 'acf_newsletter-options',
+		'title' => 'Newsletter Options',
+		'fields' => array (
+			array (
+				'key' => 'field_5880124b29884',
+				'label' => 'Newsletter Cover Image Height',
+				'name' => 'custom_meta_image_height',
+				'type' => 'select',
+				'instructions' => 'If the newsletter has a default cover image, this sets the height of the image.',
+				'choices' => array (
+					'large' => 'Large',
+					'medium' => 'Medium',
+					'half' => 'Small',
+				),
+				'default_value' => 'medium',
+				'allow_null' => 0,
+				'multiple' => 0,
+			),
+		),
+		'location' => array (
+			array (
+				array (
+					'param' => 'page',
+					'operator' => '==',
+					'value' => $articles_page,
+					'order_no' => 1,
+					'group_no' => 0,
+				),
+			),
+		),
+		'options' => array (
+			'position' => 'normal',
+			'layout' => 'default',
+			'hide_on_screen' => array (
+				0 => 'custom_fields',
+			),
+		),
+		'menu_order' => 0,
+	));
+}
+
+

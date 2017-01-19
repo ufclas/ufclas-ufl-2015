@@ -1,5 +1,11 @@
 @charset "utf-8";
 
+.tax-issuem_issue, .tax-issuem_issue_categories, .single-article {
+    @extend .page-template-landing-page;
+}
+.newsletter-page {
+    @extend .page-template-landing-page;
+}
 .article {
     @extend .post;
 }
@@ -84,5 +90,38 @@
 	}
 	.entry-content p.lead {
 		@extend .kicker;
+	}
+}
+
+.issuem_archives_shortcode {
+	.issuem_archive {
+		float: left;
+		width: 100%;
+		text-align: center;
+		text-transform: uppercase;
+		letter-spacing: 2px;
+		
+		@include breakFirst(medium){
+			width: calc( 100% / 2 );
+		}
+		@include breakFirst(large){
+			width: calc( 100% / 3 );
+		}
+		@include breakFirst(wide){
+			width: calc( 100% / 4 );
+		}
+		
+		.size-issuem-cover-image {
+			width: 240px;
+			height: 300px;
+			margin: 12px;
+			display: inline;
+			
+			@include breakFirst(medium){
+				width: 200px;
+				height: 250px;
+				margin: $grid-gutter-width/2 $grid-gutter-width 0;
+			}
+		}
 	}
 }

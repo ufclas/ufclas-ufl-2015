@@ -263,6 +263,9 @@ require get_stylesheet_directory() . '/inc/customizer.php';
 require get_stylesheet_directory() . '/inc/template-tags.php';
 require get_stylesheet_directory() . '/inc/navigation.php';
 
+// Add Bootstrap compatible walker
+require_once get_stylesheet_directory() . '/inc/wp-bootstrap-navwalker.php';
+
 // The Events Calendar
 if ( class_exists('Tribe__Events__Main') ) {
 	require get_stylesheet_directory() . '/inc/the-events-calendar.php';
