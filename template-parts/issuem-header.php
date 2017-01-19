@@ -38,8 +38,8 @@ if ( has_nav_menu( 'newsletter-menu' ) ): ?>
 		'container_class' => 'collapse navbar-collapse',
 		'container_id' => 'newsletter-menu-navbar',
 		'menu_class' => 'nav navbar-nav',
-		'fallback_cb' => 'wp_bootstrap_navwalker::fallback',
-		'walker' => new wp_bootstrap_navwalker()
+		'walker' => new wp_bootstrap_navwalker(),
+		'fallback_cb' => 'wp_bootstrap_navwalker::fallback'
 	));
 	?>
 	</div>

@@ -1,5 +1,4 @@
 <?php
-
 /**
  * Main Menu Walker and filters
  */
