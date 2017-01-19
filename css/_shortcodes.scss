@@ -1,5 +1,5 @@
 .landing-page-hero-full { 
-	background-color: darken($blueDark, 10%);
+	background-color: $beigeDark;
 	
 	@include breakFirst(large){
 		margin-bottom: $grid-gutter-width*2;

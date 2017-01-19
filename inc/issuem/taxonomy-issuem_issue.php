@@ -1,25 +1,22 @@
 <?php
 /**
- * Full Width Page (no sidebars or widgets)
+ * Issue Page
  * 
  * @package UFCLAS_UFL_2015
  *
  */
 get_header(); ?>
 
+<?php get_template_part( 'template-parts/issuem', 'header' ); ?>
+
 <div id="main" class="container main-content">
 <div class="row">
   <div class="col-sm-12">
     <header class="entry-header">
       <?php 
-	  	$issue_title = ufclas_ufl_2015_issuem_newsletter_title();
-		printf( '<h1 class="entry-title">%s</h1>', $issue_title );
-		
-		/* Display Issue Description, if exists */
-		$issue_description = term_description( get_term_by( 'slug', get_active_issuem_issue(), 'issuem_issue' ) );
-		
-		if ( !empty($issue_description) ){
-			printf( '<div class="taxonomy-description issuem-description">%s</div>', $issue_description );
+		// Display Issue Description, if exists
+		if ( !empty($newsletter_data['description']) ){
+			printf( '<div class="taxonomy-description issuem-description">%s</div>', $newsletter_data['description'] );
 		}
       ?>
     </header>
@@ -30,7 +27,7 @@ get_header(); ?>
   <div class="col-sm-12">
     <?php 
 		// Change the query if this is an issue page
-		if ( is_page() ){
+		if ( issuem_is_articles_page() ){
 			$issue_args = array(
 				'post_type' => 'article',
 				'orderby' => 'menu_order date',

@@ -7,6 +7,8 @@
  */
 get_header(); ?>
 
+<?php get_template_part( 'template-parts/issuem', 'header' ); ?>
+
 <div id="main" class="container main-content">
 <div class="row">
   <div class="col-sm-12">

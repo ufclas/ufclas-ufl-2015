@@ -75,7 +75,7 @@ function ufclas_ufl_2015_landing_hero($atts, $content = NULL ) {
 		array(
 			'headline' => '',
 			'subtitle' => '',
-			'image' => get_stylesheet_directory_uri() . '/img/_temp1.jpg',
+			'image' => get_stylesheet_directory_uri() . '/img/_temp2.jpg',
 			'image_height' => 'large',
 			'hide_button' => 1,
 			'button_text' => '',
@@ -102,7 +102,7 @@ function ufclas_ufl_2015_landing_hero($atts, $content = NULL ) {
 	}
 	
 	// Add background and gradient class if image exists
-	if ( !empty($image) ){
+	if ( !empty($image[0]) ){
 		$image_class .= ' gradient-bg';
 		$image_style =  'style="background-image:url(\'' . esc_url( $image[0] ) . '\');"';
 	}

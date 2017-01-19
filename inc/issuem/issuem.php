@@ -37,27 +37,27 @@ function ufclas_ufl_2015_issuem_templates( $template_path ){
 	} elseif ( is_tax('issuem_issue') ){
 		
 		// Change template for issue pages
-		$template_path = get_stylesheet_directory() . '/inc/issuem/taxonomy-current_issue.php';
+		$template_path = get_stylesheet_directory() . '/inc/issuem/taxonomy-issuem_issue.php';
 		
 	} elseif ( is_page($issuem_settings['page_for_articles']) && !empty($issuem_settings['page_for_articles']) ){
 		
 		// Change template for the newsletter page
-		$template_path = get_stylesheet_directory() . '/inc/issuem/taxonomy-current_issue.php';
+		$template_path = get_stylesheet_directory() . '/inc/issuem/taxonomy-issuem_issue.php';
 	
 	} elseif ( is_page($issuem_settings['page_for_archives']) && !empty($issuem_settings['page_for_archives']) ){
 		
 		// Change template for the newsletter page
-		$template_path = get_stylesheet_directory() . '/inc/issuem/taxonomy-current_issue.php';
+		$template_path = get_stylesheet_directory() . '/page-templates/issuem-page.php';
 	
 	} elseif ( is_tax('issuem_issue_categories') ){
 	
 		// Change template for article pages
-		//$template_path = get_stylesheet_directory() . '/inc/issuem/archive-article.php';
+		$template_path = get_stylesheet_directory() . '/inc/issuem/taxonomy-archive.php';
 	
 	} elseif ( is_search() && ( get_query_var('post_type') == 'article' ) ){
 	
 		// Change template for article pages
-		//$template_path = get_stylesheet_directory() . '/inc/issuem/archive-article.php';
+		$template_path = get_stylesheet_directory() . '/inc/issuem/taxonomy-archive.php';
 	}
 	
 	return $template_path;
@@ -277,11 +277,14 @@ function ufclas_ufl_2015_newsletter_data() {
 		'articles_page' => $issuem_settings['page_for_articles'],
 		'archives_page' => $issuem_settings['page_for_archives'],
 		'cover' => $issuem_settings['default_issue_image'],
-		'image_height' => 'half'
+		'image_height' => 'medium'
 	);
 	
 	if ( !empty($newsletter_data['articles_page']) ){
 		$newsletter_data['title'] = get_the_title( $newsletter_data['articles_page'] );
+		
+		$cover = get_post_thumbnail_id( $newsletter_data['articles_page'] );
+		$newsletter_data['cover'] = ( !empty($cover) )? $cover : get_stylesheet_directory_uri() . '/img/bg-breaker2.jpg'; 
 		
 		$custom_meta = get_post_meta( $newsletter_data['articles_page'] );
 		if ( isset($custom_meta['custom_meta_image_height']) ){
@@ -292,35 +295,141 @@ function ufclas_ufl_2015_newsletter_data() {
 	if ( is_page( $newsletter_data['archives_page'] ) ) {
 		$newsletter_data['subtitle'] = get_the_title( $newsletter_data['archives_page'] );	
 	}
-		
+	
+	if ( is_page_template( 'page-templates/issuem-page.php' ) ) {
+		$newsletter_data['subtitle'] = get_the_title( $post->ID );	
+	}
+	
+	if ( is_tax('issuem_issue_categories') ){
+		$newsletter_data['subtitle'] = get_the_archive_title();
+	}
 	return $newsletter_data;
 }
 
 /**
- * Add Newsletter section to the Customizer Theme Options section
+ * Adds custom classes to the array of body classes.
  *
+ * @param array $classes Classes for the body element.
+ * @return array
  * @since 0.7.0
- * @todo Implement customizer control instead of articles page
-
-function ufclas_ufl_2015_customize_issuem( $wp_customize ) {
+ */
+function ufclas_ufl_2015_newsletter_classes( $classes ) {
 	
-	// Newsletter
-	$wp_customize->add_section( 'theme_options_newsletter', array(
-		'title' => __('Newsletter', 'ufclas-ufl-2015'),
-		'description' => __('', 'ufclas-ufl-2015'),
-		'panel' => 'theme_options',
-	));
+	if ( is_page() ){
+		$issuem_settings = get_issuem_settings();
+		$articles_page = $issuem_settings['page_for_articles'];
+		$archives_page = $issuem_settings['page_for_archives'];
+		
+		if ( !empty( $articles_page ) && is_page( $articles_page ) ) {
+			$classes[] = 'newsletter-page';
+			$classes[] = 'newsletter-page-articles';
+		}
+		if ( !empty( $archives_page ) && is_page( $archives_page ) ) {
+			$classes[] = 'newsletter-page';
+			$classes[] = 'newsletter-page-articles';
+		}
+		if ( is_page_template( 'page-templates/issuem-page.php' ) ) {
+			$classes[] = 'newsletter-page';
+		}
+	}
 	
-	$wp_customize->add_setting( 'newsletter_title', array( 'default' => '', 'sanitize_callback' => 'sanitize_text_field' ));
-	
-	$wp_customize->add_control( 'newsletter_title', array(
-		'label' => __('Newsletter Title', 'ufclas-ufl-2015'),
-		'description' => __("", 'ufclas-ufl-2015'),
-		'section' => 'theme_options_newsletter',
-		'type' => 'text',
-	));
-	
+	return $classes;
 }
-add_action('customize_register','ufclas_ufl_2015_customize_issuem');
-*/
+add_filter( 'body_class', 'ufclas_ufl_2015_newsletter_classes' );
+
+
+if(function_exists("register_field_group")) {
+	
+	$issuem_settings = get_issuem_settings();
+	$articles_page = $issuem_settings['page_for_articles'];
+	
+	/**
+	 * Article Options (IssueM)
+	 *
+	 * @since 0.6.0
+	 */
+	register_field_group(array (
+		'id' => 'acf_article-options',
+		'title' => 'Article Options',
+		'fields' => array (
+			array (
+				'key' => 'field_582cea7b9b215',
+				'label' => 'Hide Featured Image',
+				'name' => 'custom_meta_post_remove_featured',
+				'type' => 'checkbox',
+				'choices' => array (
+					1 => 'Hide the featured image',
+				),
+				'default_value' => 0,
+				'layout' => 'vertical',
+			),
+		),
+		'location' => array (
+			array (
+				array (
+					'param' => 'post_type',
+					'operator' => '==',
+					'value' => 'article',
+					'order_no' => 0,
+					'group_no' => 0,
+				),
+			),
+		),
+		'options' => array (
+			'position' => 'normal',
+			'layout' => 'default',
+			'hide_on_screen' => array (
+				0 => 'custom_fields',
+			),
+		),
+		'menu_order' => 0,
+	));
+
+	/**
+	 * Newsletter Options (IssueM)
+	 *
+	 * @since 0.7.0
+	 */
+	register_field_group(array (
+		'id' => 'acf_newsletter-options',
+		'title' => 'Newsletter Options',
+		'fields' => array (
+			array (
+				'key' => 'field_5880124b29884',
+				'label' => 'Newsletter Cover Image Height',
+				'name' => 'custom_meta_image_height',
+				'type' => 'select',
+				'instructions' => 'If the newsletter has a default cover image, this sets the height of the image.',
+				'choices' => array (
+					'large' => 'Large',
+					'medium' => 'Medium',
+					'half' => 'Small',
+				),
+				'default_value' => 'medium',
+				'allow_null' => 0,
+				'multiple' => 0,
+			),
+		),
+		'location' => array (
+			array (
+				array (
+					'param' => 'page',
+					'operator' => '==',
+					'value' => $articles_page,
+					'order_no' => 1,
+					'group_no' => 0,
+				),
+			),
+		),
+		'options' => array (
+			'position' => 'normal',
+			'layout' => 'default',
+			'hide_on_screen' => array (
+				0 => 'custom_fields',
+			),
+		),
+		'menu_order' => 0,
+	));
+}
+
 
