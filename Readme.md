@@ -3,10 +3,6 @@ UFCLAS UFL 2015
 
 (In development) Official UF template for Liberal Arts and Sciences. Based on template by 160over90. Maintained by UF CLAS IT.
 
-- Theme URI: https://it.clas.ufl.edu/
-- Author: Priscilla Chapman (CLAS IT)
-
-
 Installation
 -------------
 
@@ -43,6 +39,10 @@ Documentation
 
 Changelog
 ---------
+
+### 0.7.x
+
+- Adds header and submenu to newsletter pages
 
 ### 0.6.x
 
