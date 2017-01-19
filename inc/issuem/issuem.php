@@ -276,15 +276,18 @@ function ufclas_ufl_2015_newsletter_data() {
 		'subtitle' => $issue_data['title'],
 		'articles_page' => $issuem_settings['page_for_articles'],
 		'archives_page' => $issuem_settings['page_for_archives'],
-		'cover' => $issuem_settings['default_issue_image'],
-		'image_height' => 'medium'
+		/*'cover' => $issuem_settings['default_issue_image'],*/
+		'cover' => '',
+		'image_height' => 'half'
 	);
 	
 	if ( !empty($newsletter_data['articles_page']) ){
 		$newsletter_data['title'] = get_the_title( $newsletter_data['articles_page'] );
 		
 		$cover = get_post_thumbnail_id( $newsletter_data['articles_page'] );
-		$newsletter_data['cover'] = ( !empty($cover) )? $cover : get_stylesheet_directory_uri() . '/img/bg-breaker2.jpg'; 
+        if ( !empty( $cover ) ){
+            $newsletter_data['cover'] = $cover; 
+        }
 		
 		$custom_meta = get_post_meta( $newsletter_data['articles_page'] );
 		if ( isset($custom_meta['custom_meta_image_height']) ){
@@ -405,7 +408,7 @@ if(function_exists("register_field_group")) {
 					'medium' => 'Medium',
 					'half' => 'Small',
 				),
-				'default_value' => 'medium',
+				'default_value' => 'half',
 				'allow_null' => 0,
 				'multiple' => 0,
 			),

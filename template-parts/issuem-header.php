@@ -11,11 +11,11 @@ $newsletter_data = ufclas_ufl_2015_newsletter_data();
 $issue_data = ufclas_ufl_2015_issuem_issue_data();
 
 $shortcode = sprintf( '[ufl-landing-page-hero headline="%s" subtitle="%s" image="%s" image_height="%s"]%s[/ufl-landing-page-hero]', 
-	$newsletter_data['title'],
-	$newsletter_data['subtitle'],
-	$newsletter_data['cover'],
-	$newsletter_data['image_height'],
-	''
+    $newsletter_data['title'],
+    $newsletter_data['subtitle'],
+    $newsletter_data['cover'],
+    $newsletter_data['image_height'],
+    ''
 );
 echo do_shortcode( $shortcode );
 
