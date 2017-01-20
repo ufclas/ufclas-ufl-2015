@@ -13,12 +13,21 @@ get_header(); ?>
 <div class="row">
   <div class="col-sm-12">
     <header class="entry-header">
-      <?php 
-		// Display Issue Description, if exists
-		if ( !empty($newsletter_data['description']) ){
-			printf( '<div class="taxonomy-description issuem-description">%s</div>', $newsletter_data['description'] );
+	<?php 
+		$newsletter_data = ufclas_ufl_2015_newsletter_data();
+		
+		// Display Issue title if header disabled
+		if ( !get_theme_mod('newsletter_header_enable') ){
+            printf( '<h1 class="entry-title">%s</h1>', $newsletter_data['subtitle'] );
 		}
-      ?>
+		
+		// Display Issue Description, if exists
+		$issue_description = term_description( get_term_by( 'slug', get_active_issuem_issue(), 'issuem_issue' ) );
+		
+		if ( !empty($issue_description) ){
+			printf( '<div class="taxonomy-description issuem-description">%s</div>', $issue_description );
+		}
+	?>
     </header>
     <!-- .entry-header --> 
   </div>

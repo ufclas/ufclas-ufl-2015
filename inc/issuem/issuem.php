@@ -3,6 +3,7 @@
  * IssueM newsletter functions
  * 
  */
+ require get_stylesheet_directory() . '/inc/issuem/issuem-customizer.php';
 
 /** 
  * Customize IssueM defaults for theme
@@ -272,27 +273,16 @@ function ufclas_ufl_2015_newsletter_data() {
 	$issue_data = ufclas_ufl_2015_issuem_issue_data();
 	
 	$newsletter_data = array(
-		'title' => __('Newsletter', 'ufclas-ufl-2015'),
-		'subtitle' => $issue_data['title'],
+		'title' 		=> __('Newsletter', 'ufclas-ufl-2015'),
+		'subtitle' 		=> $issue_data['title'],
 		'articles_page' => $issuem_settings['page_for_articles'],
 		'archives_page' => $issuem_settings['page_for_archives'],
-		/*'cover' => $issuem_settings['default_issue_image'],*/
-		'cover' => '',
-		'image_height' => 'half'
+		'cover' 		=> '',
+		'image_height' 	=> get_theme_mod( 'newsletter_cover_height', 'half' )
 	);
 	
 	if ( !empty($newsletter_data['articles_page']) ){
 		$newsletter_data['title'] = get_the_title( $newsletter_data['articles_page'] );
-		
-		$cover = get_post_thumbnail_id( $newsletter_data['articles_page'] );
-        if ( !empty( $cover ) ){
-            $newsletter_data['cover'] = $cover; 
-        }
-		
-		$custom_meta = get_post_meta( $newsletter_data['articles_page'] );
-		if ( isset($custom_meta['custom_meta_image_height']) ){
-			$newsletter_data['image_height'] = $custom_meta['custom_meta_image_height'][0];
-		}
 	}
 	
 	if ( is_page( $newsletter_data['archives_page'] ) ) {
@@ -334,6 +324,9 @@ function ufclas_ufl_2015_newsletter_classes( $classes ) {
 		if ( is_page_template( 'page-templates/issuem-page.php' ) ) {
 			$classes[] = 'newsletter-page';
 		}
+	}
+	if ( get_theme_mod('newsletter_header_enable') ){
+		$classes[] = 'newsletter-header-enabled';
 	}
 	
 	return $classes;
@@ -388,51 +381,6 @@ if(function_exists("register_field_group")) {
 		'menu_order' => 0,
 	));
 
-	/**
-	 * Newsletter Options (IssueM)
-	 *
-	 * @since 0.7.0
-	 */
-	register_field_group(array (
-		'id' => 'acf_newsletter-options',
-		'title' => 'Newsletter Options',
-		'fields' => array (
-			array (
-				'key' => 'field_5880124b29884',
-				'label' => 'Newsletter Cover Image Height',
-				'name' => 'custom_meta_image_height',
-				'type' => 'select',
-				'instructions' => 'If the newsletter has a default cover image, this sets the height of the image.',
-				'choices' => array (
-					'large' => 'Large',
-					'medium' => 'Medium',
-					'half' => 'Small',
-				),
-				'default_value' => 'half',
-				'allow_null' => 0,
-				'multiple' => 0,
-			),
-		),
-		'location' => array (
-			array (
-				array (
-					'param' => 'page',
-					'operator' => '==',
-					'value' => $articles_page,
-					'order_no' => 1,
-					'group_no' => 0,
-				),
-			),
-		),
-		'options' => array (
-			'position' => 'normal',
-			'layout' => 'default',
-			'hide_on_screen' => array (
-				0 => 'custom_fields',
-			),
-		),
-		'menu_order' => 0,
-	));
 }
 
 

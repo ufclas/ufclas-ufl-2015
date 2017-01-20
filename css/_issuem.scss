@@ -1,10 +1,12 @@
 @charset "utf-8";
 
-.tax-issuem_issue, .tax-issuem_issue_categories, .single-article {
-    @extend .page-template-landing-page;
-}
-.newsletter-page {
-    @extend .page-template-landing-page;
+.newsletter-header-enabled {
+	&.tax-issuem_issue, 
+	&.tax-issuem_issue_categories, 
+	&.single-article,
+	&.newsletter-page {
+		@extend .page-template-landing-page;
+	}
 }
 .article {
     @extend .post;

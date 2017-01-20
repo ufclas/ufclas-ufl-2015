@@ -17,6 +17,20 @@ get_header(); ?>
 
 <div id="main" class="container main-content">
 <div class="row">
+  <div class="col-sm-12">
+  
+	<?php if ( !get_theme_mod('newsletter_header_enable') ): ?>
+		<?php ufclas_ufl_2015_breadcrumbs(); ?>
+        
+        <header class="entry-header">
+            <?php the_archive_title( '<h1 class="page-title">', '</h1>' ); ?>
+        </header>     
+    <?php endif; ?>
+    
+  </div>
+</div>
+
+<div class="row">
   <div class="col-md-12">
     <?php 
 		while ( have_posts() ) : the_post();
