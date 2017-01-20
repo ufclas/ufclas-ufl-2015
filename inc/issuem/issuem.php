@@ -320,7 +320,7 @@ function ufclas_ufl_2015_newsletter_classes( $classes ) {
 		}
 		if ( !empty( $archives_page ) && is_page( $archives_page ) ) {
 			$classes[] = 'newsletter-page';
-			$classes[] = 'newsletter-page-articles';
+			$classes[] = 'newsletter-page-archives';
 		}
 		if ( is_page_template( 'page-templates/issuem-page.php' ) ) {
 			$classes[] = 'newsletter-page';
@@ -336,9 +336,6 @@ add_filter( 'body_class', 'ufclas_ufl_2015_newsletter_classes' );
 
 
 if(function_exists("register_field_group")) {
-	
-	$issuem_settings = get_issuem_settings();
-	$articles_page = $issuem_settings['page_for_articles'];
 	
 	/**
 	 * Article Options (IssueM)
