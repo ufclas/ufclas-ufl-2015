@@ -5,7 +5,7 @@ Theme URI: https://it.clas.ufl.edu/services/web-services/
 Author: Priscilla Chapman (CLAS IT)
 Author URI: https://it.clas.ufl.edu/
 Description: Official UF template for Liberal Arts and Sciences. Based on 160 over 90 template.
-Version: 0.7.1
+Version: 0.7.2
 License: GNU General Public License v2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 Text Domain: ufclas-ufl-2015
@@ -5921,13 +5921,13 @@ form.search-wrap input, .btn-show-aux input, .btn-menu input, .btn-search-mobile
 }
 
 /* line 29, css/_main.scss */
-.page-template-landing-page .edit-link, .page-template-submenu .edit-link, .tax-issuem_issue .edit-link, .tax-issuem_issue_categories .edit-link, .single-article .edit-link, .newsletter-page .edit-link,
+.page-template-landing-page .edit-link, .page-template-submenu .edit-link, .newsletter-header-enabled.tax-issuem_issue .edit-link, .newsletter-header-enabled.tax-issuem_issue_categories .edit-link, .newsletter-header-enabled.single-article .edit-link, .newsletter-header-enabled.newsletter-page .edit-link,
 .page-template-landing-page-full-width .edit-link {
   position: absolute;
 }
 @media (min-width: 1220px) {
   /* line 27, css/_main.scss */
-  .page-template-landing-page, .page-template-submenu, .tax-issuem_issue, .tax-issuem_issue_categories, .single-article, .newsletter-page,
+  .page-template-landing-page, .page-template-submenu, .newsletter-header-enabled.tax-issuem_issue, .newsletter-header-enabled.tax-issuem_issue_categories, .newsletter-header-enabled.single-article, .newsletter-header-enabled.newsletter-page,
   .page-template-landing-page-full-width {
     padding-top: 150px;
   }
@@ -7700,7 +7700,7 @@ figcaption {
 }
 
 @media (min-width: 768px) {
-  /* line 15, css/_issuem.scss */
+  /* line 17, css/_issuem.scss */
   .issuem-description {
     margin-left: 15px;
     margin-right: 15px;
@@ -7708,32 +7708,32 @@ figcaption {
   }
 }
 
-/* line 23, css/_issuem.scss */
+/* line 25, css/_issuem.scss */
 .issuem-article .big-stat-wrap, .issuem-article .tweet-block {
   width: 100%;
   background-position: top center;
 }
 @media (min-width: 768px) {
-  /* line 27, css/_issuem.scss */
+  /* line 29, css/_issuem.scss */
   .issuem-article .big-stat-wrap.four, .issuem-article .tweet-block.four {
     float: none;
     margin-bottom: 30px;
   }
 }
 @media (min-width: 992px) {
-  /* line 27, css/_issuem.scss */
+  /* line 29, css/_issuem.scss */
   .issuem-article .big-stat-wrap.four, .issuem-article .tweet-block.four {
     float: none;
     margin-left: 0;
   }
 }
 @media (min-width: 1220px) {
-  /* line 27, css/_issuem.scss */
+  /* line 29, css/_issuem.scss */
   .issuem-article .big-stat-wrap.four, .issuem-article .tweet-block.four {
     margin-left: 0;
   }
 }
-/* line 42, css/_issuem.scss */
+/* line 44, css/_issuem.scss */
 .issuem-article .big-stat-copy {
   padding-bottom: 15px;
   bottom: 0;
@@ -7741,52 +7741,52 @@ figcaption {
   position: absolute;
 }
 @media (min-width: 768px) {
-  /* line 42, css/_issuem.scss */
+  /* line 44, css/_issuem.scss */
   .issuem-article .big-stat-copy {
     float: none;
   }
 }
-/* line 51, css/_issuem.scss */
+/* line 53, css/_issuem.scss */
 .issuem-article .big-stat-copy h2 {
   text-shadow: 0 3px 2px rgba(0, 0, 0, 0.4);
 }
-/* line 56, css/_issuem.scss */
+/* line 58, css/_issuem.scss */
 .issuem-article .gradient-bg:after {
   background: linear-gradient(to top, rgba(0, 0, 0, 0.85), transparent);
   height: 70%;
 }
 
-/* line 63, css/_issuem.scss */
+/* line 65, css/_issuem.scss */
 .single-article #main {
   background-color: #fff;
 }
 @media (min-width: 768px) {
-  /* line 63, css/_issuem.scss */
+  /* line 65, css/_issuem.scss */
   .single-article #main {
     padding: 45px 60px;
   }
 }
-/* line 70, css/_issuem.scss */
+/* line 72, css/_issuem.scss */
 .single-article .widget-area {
   margin-left: 30px;
 }
-/* line 73, css/_issuem.scss */
+/* line 75, css/_issuem.scss */
 .single-article .widget-area h2 {
   text-transform: none;
   margin-bottom: 15px;
 }
-/* line 81, css/_issuem.scss */
+/* line 83, css/_issuem.scss */
 .single-article .widget-area .widget ul a, .single-article .widget-area .widget .entry-content ol a, .entry-content .single-article .widget-area .widget ol a, .single-article .widget-area .widget .wp-editor ol a, .wp-editor .single-article .widget-area .widget ol a {
   padding-right: 0;
   padding-left: 0;
 }
-/* line 85, css/_issuem.scss */
+/* line 87, css/_issuem.scss */
 .single-article .widget-area .widget ul a:hover, .single-article .widget-area .widget .entry-content ol a:hover, .entry-content .single-article .widget-area .widget ol a:hover, .single-article .widget-area .widget .wp-editor ol a:hover, .wp-editor .single-article .widget-area .widget ol a:hover {
   background-color: transparent !important;
   color: #f79f6a !important;
 }
 
-/* line 97, css/_issuem.scss */
+/* line 99, css/_issuem.scss */
 .issuem_archives_shortcode .issuem_archive {
   float: left;
   width: 100%;
@@ -7795,24 +7795,24 @@ figcaption {
   letter-spacing: 2px;
 }
 @media (min-width: 768px) {
-  /* line 97, css/_issuem.scss */
+  /* line 99, css/_issuem.scss */
   .issuem_archives_shortcode .issuem_archive {
     width: calc( 100% / 2 );
   }
 }
 @media (min-width: 992px) {
-  /* line 97, css/_issuem.scss */
+  /* line 99, css/_issuem.scss */
   .issuem_archives_shortcode .issuem_archive {
     width: calc( 100% / 3 );
   }
 }
 @media (min-width: 1220px) {
-  /* line 97, css/_issuem.scss */
+  /* line 99, css/_issuem.scss */
   .issuem_archives_shortcode .issuem_archive {
     width: calc( 100% / 4 );
   }
 }
-/* line 114, css/_issuem.scss */
+/* line 116, css/_issuem.scss */
 .issuem_archives_shortcode .issuem_archive .size-issuem-cover-image {
   width: 240px;
   height: 300px;
@@ -7820,7 +7820,7 @@ figcaption {
   display: inline;
 }
 @media (min-width: 768px) {
-  /* line 114, css/_issuem.scss */
+  /* line 116, css/_issuem.scss */
   .issuem_archives_shortcode .issuem_archive .size-issuem-cover-image {
     width: 200px;
     height: 250px;
