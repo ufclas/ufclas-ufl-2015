@@ -283,6 +283,7 @@ function ufclas_ufl_2015_newsletter_data() {
 	
 	if ( !empty($newsletter_data['articles_page']) ){
 		$newsletter_data['title'] = get_the_title( $newsletter_data['articles_page'] );
+		$newsletter_data['cover'] = get_post_thumbnail_id( $newsletter_data['articles_page'] );
 	}
 	
 	if ( is_page( $newsletter_data['archives_page'] ) ) {
