@@ -229,29 +229,6 @@ function ufclas_ufl_2015_excerpt_length( $length ) {
 add_filter( 'excerpt_length', 'ufclas_ufl_2015_excerpt_length', 999 );
 
 /**
- * Template tag to display list of social network links only if they are set in the Customizer theme options
- * @since 0.3.0
- */
-function ufclas_ufl_2015_socialnetworks() {
-	$social_networks = array(
-		'facebook' => 'Facebook',
-		'twitter' => 'Twitter',
-		'youtube' => 'YouTube',
-		'instagram' => 'Instagram',
-		'siteblog' => 'Blog',
-	);
-	
-	foreach( $social_networks as $name => $title ){
-		$link = esc_url( get_theme_mod("{$name}_url") );
-		$icon = get_stylesheet_directory_uri();
-		$icon .= ( 'siteblog' != $name )? "/img/spritemap.svg#{$name}" : '/svg/menu.svg#Layer_1';
-		if( !empty($link) ){
-			printf('<li><a href="%s" class="btn-circle icon-svg icon-%s"><svg><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="%s"></use></svg><span class="visuallyhidden">%s</span></a></li>', $link, $name, $icon, $title );
-		}
-	}
-}
-
-/**
  * Load custom theme files 
  */
 require get_stylesheet_directory() . '/inc/media.php';
@@ -285,3 +262,8 @@ if ( class_exists( 'IssueM' ) ) {
 if( function_exists( 'register_field_group' )){
 	require get_stylesheet_directory() . '/inc/advanced-custom-fields/metaboxes.php';
 }
+
+// WP Knowlegebase support
+//if( function_exists( 'kbe_styles' )){
+	require get_stylesheet_directory() . '/inc/wp-knowledgebase/kb.php';
+//}
