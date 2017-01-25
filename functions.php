@@ -264,6 +264,6 @@ if( function_exists( 'register_field_group' )){
 }
 
 // WP Knowlegebase support
-//if( function_exists( 'kbe_styles' )){
+if( function_exists( 'kbe_styles' )){
 	require get_stylesheet_directory() . '/inc/wp-knowledgebase/kb.php';
-//}
+}
