@@ -1,0 +1,44 @@
+@charset "utf-8";
+
+.post-type-archive-kbe_knowledgebase {
+    @extend .page-template-landing-page;
+    
+    .landing-page-hero-full {
+        background-color: #ccc;
+        
+        .hero-img h1 {
+            color: $blue;
+            text-shadow: none;
+            letter-spacing: 0px;
+        }
+        .hero-text {
+            padding-top: 0;
+        }
+    }
+    
+    .search-form {
+        margin-bottom: 0;
+    }
+}
+
+#jquery-live-search {
+    background-color: $white;
+    //border-top: 2px solid #ddd;
+    padding: 30px;
+}
+#search-result {
+    &, li {
+        margin: 0;
+        list-style-type:  none;
+        font-weight: 500;
+    }
+    li {
+        text-transform: none;
+        padding-bottom: 10px;
+        
+        &:before {
+            content: none;
+            margin-right: 0;
+        }
+    }
+}

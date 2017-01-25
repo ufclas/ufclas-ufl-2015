@@ -34,6 +34,10 @@ function ufclas_ufl_2015_kb_template( $template_path ) {
 	if ( is_post_type_archive('kbe_knowledgebase') || is_tax('kbe_taxonomy') || is_tax('kbe_tags') ){
 		$template_path = get_stylesheet_directory() . '/inc/wp-knowledgebase/kb-archive.php';
 	}
+    
+    if ( is_search() && ( get_query_var('post_type') == 'kbe_knowledgebase' ) && ( $_GET['ajax'] == 'on' )  ){
+            $template_path = get_stylesheet_directory() . '/inc/wp-knowledgebase/kb-search.php';
+	}
 	
 	return $template_path;
 }
@@ -48,6 +52,7 @@ function ufclas_ufl_2015_kb_modify_rewrites(){
 	// Change the kb article rewrite
 	$post_type_args = get_post_type_object( 'kbe_knowledgebase' );
 	$post_type_args->rewrite['slug'] = 'kb';
+    $post_type_args->labels->name = 'Knowledge Base';
 	register_post_type( 'kbe_knowledgebase', (array)$post_type_args );
 	
 	// Change the kb category rewrite
@@ -61,3 +66,38 @@ function ufclas_ufl_2015_kb_modify_rewrites(){
 	register_taxonomy( 'kbe_tags', 'kbe_knowledgebase', (array) $tag_args );
 }
 add_action( 'init', 'ufclas_ufl_2015_kb_modify_rewrites', 11 );
+
+/**
+ * Template tag to display the header and search form
+ *
+ * @since 0.8.0
+ */
+function ufclas_ufl_2015_kb_header(){
+	$shortcode = sprintf( '[ufl-landing-page-hero headline="%s" subtitle="%s" image="%s" image_height="%s"]%s[/ufl-landing-page-hero]', 
+        'Knowledge Base',
+        '',
+        '',
+        'half',
+        'FORM'
+    );
+    
+    ob_start(); ?>
+    
+<form id="live-search" action="<?php echo home_url('/'); ?>" method="get" class="search-form" role="search" autocomplete="off">
+<label for="s" class="visuallyhidden"><?php esc_html_e('Search', 'ufclas-ufl-2015'); ?></label>
+<input type="text" name="s" id="s" onfocus="if (this.value == '<?php esc_attr_e('Search', 'ufclas-ufl-2015'); ?>') {this.value = '';}" onblur="if (this.value == '')  {this.value = '<?php esc_attr_e('Search', 'ufclas-ufl-2015'); ?>';}" autocomplete="off" />
+<button type="submit" class="btn-search">
+    <span class="icon-svg">
+    <svg>
+        <use xlink:href="<?php echo get_stylesheet_directory_uri(); ?>/img/spritemap.svg#search"></use>
+    </svg>
+  </span>
+</button>
+<input type="hidden" name="post_type" value="kbe_knowledgebase" />
+</form>
+
+    <?php
+    $form = ob_get_clean();
+    
+    echo str_replace('<p>FORM</p>', $form, do_shortcode( $shortcode ) );   
+}
