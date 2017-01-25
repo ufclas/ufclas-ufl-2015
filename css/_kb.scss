@@ -1,6 +1,6 @@
 @charset "utf-8";
 
-.post-type-archive-kbe_knowledgebase {
+.post-type-archive-kbe_knowledgebase, .tax-kbe_taxonomy, .tax-kbe_tag {
     @extend .page-template-landing-page;
     
     .landing-page-hero-full {
