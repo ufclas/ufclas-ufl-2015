@@ -27,22 +27,27 @@ remove_filter( 'template_include', 'template_chooser' );
  */
 function ufclas_ufl_2015_kb_template( $template_path ) {
 	
-	if ( is_singular('kbe_knowledgebase') ){
+	if ( is_search() && ( get_query_var('post_type') == 'kbe_knowledgebase' ) ){
+		if ( isset($_GET['ajax']) ){
+			$template_path = get_stylesheet_directory() . '/inc/wp-knowledgebase/kb-search.php';
+		}
+		else {
+			$template_path = get_stylesheet_directory() . '/inc/wp-knowledgebase/kb-archive.php';   
+		}
+	}
+	
+	elseif ( is_singular('kbe_knowledgebase') ){
 		$template_path = get_stylesheet_directory() . '/inc/wp-knowledgebase/kb-article.php';
 	}
 	
-	if ( is_post_type_archive('kbe_knowledgebase') ){
-		$template_path = get_stylesheet_directory() . '/inc/wp-knowledgebase/kb-home.php';
-	}
-	
-	if ( is_tax('kbe_taxonomy') || is_tax('kbe_tags') ){
+	elseif ( is_tax('kbe_taxonomy') || is_tax('kbe_tags') ){
 		$template_path = get_stylesheet_directory() . '/inc/wp-knowledgebase/kb-archive.php';
 	}
 	
-    if ( is_search() && ( get_query_var('post_type') == 'kbe_knowledgebase' ) && isset($_GET['ajax'])  ){
-            $template_path = get_stylesheet_directory() . '/inc/wp-knowledgebase/kb-search.php';
+	elseif ( is_post_type_archive('kbe_knowledgebase') ){
+		$template_path = get_stylesheet_directory() . '/inc/wp-knowledgebase/kb-home.php';
 	}
-	
+
 	return $template_path;
 }
 add_action( 'template_include', 'ufclas_ufl_2015_kb_template', 11 );
@@ -93,7 +98,7 @@ add_filter( 'rewrite_rules_array', 'ufclas_ufl_2015_kb_modify_rewrite' );
  */
 function ufclas_ufl_2015_kb_header(){
 	$shortcode = sprintf( '[ufl-landing-page-hero headline="%s" subtitle="%s" image="%s" image_height="%s"]%s[/ufl-landing-page-hero]', 
-        'Knowledge Base',
+        'Help and How-to',
         '',
         '',
         'half',

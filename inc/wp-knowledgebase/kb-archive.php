@@ -13,19 +13,26 @@
  */
 get_header(); ?>
 
-<?php ufclas_ufl_2015_kb_header(); ?>
-
 <div id="main" class="container main-content">
-<!--
+
 <div class="row">
   <div class="col-sm-12">
     <?php ufclas_ufl_2015_breadcrumbs(); ?>
     <header class="entry-header">
-      <?php the_archive_title( '<h1 class="page-title">', '</h1>' ); ?>
+    	<h1 class="page-title">
+      <?php 
+	  	if ( !is_search() ){
+			single_term_title();
+		}
+		else {
+			printf( __( 'Search Results for: %s', 'ufclas-ufl-2015' ), '<span>' . get_search_query() . '</span>' );
+		}
+		?>
+        </h1>
     </header>
   </div> 
 </div>
--->
+
 <div class="row">
   <div class="col-md-12">
     <?php
