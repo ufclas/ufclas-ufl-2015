@@ -17,7 +17,7 @@ get_header(); ?>
 
 <div class="row">
   <div class="col-sm-12">
-    <?php ufclas_ufl_2015_breadcrumbs(); ?>
+    <?php ufclas_ufl_2015_kb_breadcrumbs();	?>
     <header class="entry-header">
     	<h1 class="page-title">
       <?php 
@@ -35,6 +35,7 @@ get_header(); ?>
 
 <div class="row">
   <div class="col-md-12">
+  	<div class="kbe_content">
     <?php
 		$current_term = get_queried_object();
 		
@@ -49,6 +50,8 @@ get_header(); ?>
 		
 		foreach ( $terms as $term ):
 			$grandchild_terms = array();
+			
+			echo '<div class="kbe_articles">';
 		 	
 			// Display the heading for child terms
 			if ( $term != $current_term ){
@@ -62,9 +65,13 @@ get_header(); ?>
 					'hide_empty'    => true,
 					'parent'        => $term->term_id
 				));
+				$class = 'kb-list kb-list-child';	
+			}
+			else {
+				$class = 'kb-list kb-list-parent';	
 			}
 			
-			echo '<ul class="kb-list">';
+			echo '<ul class="' . $class . '">';
 			if ( !empty( $grandchild_terms ) ):
 			
 				// Display links to sub terms instead of posts
@@ -94,10 +101,11 @@ get_header(); ?>
 				wp_reset_postdata();
 			endif;
 			
-			echo '</ul>';
-		
+			echo '</ul><!-- -->';
+			echo '</div><!-- .kbe_articles -->';
 		endforeach;
 	?>
+    </div><!-- .kbe_content -->
   </div>
 </div>
 </div>

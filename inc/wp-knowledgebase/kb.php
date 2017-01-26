@@ -125,3 +125,72 @@ function ufclas_ufl_2015_kb_header(){
     
     echo str_replace('<p>FORM</p>', $form, do_shortcode( $shortcode ) );   
 }
+
+/**
+ * Adds custom classes to the array of body classes.
+ *
+ * @param array $classes Classes for the body element.
+ * @return array
+ * @since 0.8.0
+ */
+function ufclas_ufl_2015_kb_classes( $classes ) {
+	
+	if ( is_post_type_archive('kbe_knowledgebase') && !is_tax('kbe_taxonomy') && !is_tax('kbe_tags') ){
+		$classes[] = 'kb-homepage';
+	}
+	
+	return $classes;
+}
+add_filter( 'body_class', 'ufclas_ufl_2015_kb_classes' );
+
+/**
+ * Template tag to add custom breadcrumbs
+ * 
+ * @since 0.8.0
+ */
+function ufclas_ufl_2015_kb_breadcrumbs() {
+  	
+	// Check the kb breadcrumbs setting
+	if( KBE_BREADCRUMBS_SETTING == 1 ){
+		
+		$current = get_queried_object();
+		$post_type = 'kbe_knowledgebase';
+		$post_type_obj = get_post_type_object( 'kbe_knowledgebase' );
+		$taxonomy = 'kbe_taxonomy';
+		$crumbs = array();
+		
+		echo '<ul class="kb-breadcrumbs">';
+		
+		echo '<li><a href="' . get_post_type_archive_link( $post_type ) . '">' . $post_type_obj->labels->name . '</a></li>';
+		
+		// Get the correct term ID
+		if ( is_single() ){
+			$current_terms = get_the_terms( $current->ID, $taxonomy );
+			$current_id = ( $current_terms )? $current_terms[0]->term_id : false;
+		}
+		else {
+			$current_id = $current->term_id;
+		}
+		
+		// Add term and any term ancestors to array of crumbs
+		if ( isset($current_id) ){
+			
+			$current_ancestors = get_ancestors( $current_id, $taxonomy, 'taxonomy' );
+			
+			if ( empty($current_ancestors) ){
+				$crumbs = ( is_single() )? array($current_id) : array();
+			}
+			else {
+				$crumbs = array_merge( $crumbs, $current_ancestors );
+				$crumbs = array_reverse( $crumbs );
+			}
+			
+			// Display the breadcrumbs list
+			foreach ( $crumbs as $crumb_id ){
+				echo '<li><a href="' . get_term_link( $crumb_id ) . '">' . get_term( $crumb_id, $taxonomy )->name . '</a></li>';
+			}
+		}	
+		
+		echo '</ul>';
+	}
+}
