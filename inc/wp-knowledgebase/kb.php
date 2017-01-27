@@ -109,7 +109,7 @@ function ufclas_ufl_2015_kb_header(){
     
     <form id="live-search" action="<?php echo home_url('/'); ?>" method="get" class="search-form" role="search" autocomplete="off">
     <label for="s" class="visuallyhidden"><?php esc_html_e('Search', 'ufclas-ufl-2015'); ?></label>
-    <input type="text" name="s" id="s" onfocus="if (this.value == '<?php esc_attr_e('Search', 'ufclas-ufl-2015'); ?>') {this.value = '';}" onblur="if (this.value == '')  {this.value = '<?php esc_attr_e('Search', 'ufclas-ufl-2015'); ?>';}" autocomplete="off" />
+    <input type="text" name="s" id="s" placeholder="<?php esc_attr_e('Search', 'ufclas-ufl-2015'); ?>" onfocus="if (this.value == '<?php esc_attr_e('Search', 'ufclas-ufl-2015'); ?>') {this.value = '';}" onblur="if (this.value == '')  {this.value = '<?php esc_attr_e('Search', 'ufclas-ufl-2015'); ?>';}" autocomplete="off" />
     <button type="submit" class="btn-search">
         <span class="icon-svg">
         <svg>
