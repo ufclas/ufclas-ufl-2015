@@ -16,45 +16,72 @@ get_header(); ?>
 <?php ufclas_ufl_2015_kb_header(); ?>
 
 <div id="main" class="container main-content">
-<!--
-<div class="row">
-  <div class="col-sm-12">
-    <?php ufclas_ufl_2015_breadcrumbs(); ?>
-    <header class="entry-header">
-      <?php the_archive_title( '<h1 class="page-title">', '</h1>' ); ?>
-    </header>
-  </div> 
-</div>
--->
+
 <div class="row">
   <div class="col-md-12">
+    <div class="kbe_content">
+    <div class="row">
     <?php
-		$terms_args = array(
+		$taxonomy = 'kbe_taxonomy';
+		$child_terms = get_terms( $taxonomy, array(
 			'orderby'       => 'terms_order', 
 			'order'         => 'ASC',
 			'hide_empty'    => true,
 			'parent'        => 0
-		);
-		$terms = get_terms( 'kbe_taxonomy', $terms_args );
- 
-		echo '<ul>';
-		 
-		foreach ( $terms as $term ) {
-		 
-			// The $term is an object, so we don't need to specify the $taxonomy.
-			$term_link = get_term_link( $term );
+		));
+		$child_terms_count = count($child_terms);
+		$child_terms_index = 1;
+		$child_columns = 2;
+		
+		foreach ( $child_terms as $term ):
 			
-			// If there was an error, continue to the next term.
-			if ( is_wp_error( $term_link ) ) {
-				continue;
+			echo '<div class="kbe_articles col-md-6">';
+			
+			// Query most viewed posts for the term
+			$post_query = new WP_Query( array(
+				'post_type' => 'kbe_knowledgebase',
+				'posts_per_page' => 5,
+				'orderby' => array('meta_value_num' => 'DESC', 'menu_order' => 'ASC'),
+				'meta_key' => 'kbe_post_views_count',
+				'tax_query' => array(
+					array(
+						'taxonomy' => $term->taxonomy,
+						'field' => 'term_id',
+						'terms' => $term->term_id,
+					),
+				),
+			) );
+		 	
+			$post_count = $post_query->found_posts;
+			$count_label = ( $post_count == 1 )? __('Article', 'ufclas-ufl-2015') : __('Articles', 'ufclas-ufl-2015');
+					
+			// Display the heading for child terms
+			printf( '<h3 class="kb-heading"><a href="%s">%s <span class="kbe_count pull-right">%d %s</span></a></h3>', 
+				get_term_link( $term->term_id ), $term->name, $post_count, $count_label
+			);
+			
+			echo '<ul class="kb-list">';     
+				
+			if ( $post_query->have_posts() ){
+				while ( $post_query->have_posts() ): $post_query->the_post();
+					echo '<li class="kb-post-link"><a href="' . get_the_permalink() . '">' . get_the_title() . '</a></li>';
+				endwhile;
 			}
-		 
-			// We successfully got a link. Print it out.
-			echo '<li><a href="' . esc_url( $term_link ) . '">' . $term->name . '</a></li>';
-		}
-		 
-		echo '</ul>';
+			
+			wp_reset_postdata();
+			
+			
+			echo '</ul><!-- -->';
+			echo '</div><!-- .kbe_articles -->';
+			
+			// Clear the cols if not the same height
+			echo ( ($child_terms_index % $child_columns) == 0 )? '<div class="clearfix hidden-xs"></div>' : '';
+			$child_terms_index++;
+			
+		endforeach;
 	?>
+    </div>
+    </div><!-- .kbe_content -->
   </div>
 </div>
 </div>

@@ -194,3 +194,32 @@ function ufclas_ufl_2015_kb_breadcrumbs() {
 		echo '</ul>';
 	}
 }
+
+/**
+ * Template tag to update the post view count
+ * 
+ * @since 0.8.0
+ */
+function ufclas_ufl_2015_kb_set_post_views() {
+  	global $post;
+	
+	if ( !is_user_logged_in() ){
+		kbe_set_post_views( $post->ID );
+	}
+}
+
+/**
+ * Create a default value for the post view count when a new post is created
+ * 
+ * @param int $post_id The post ID.
+ * @param post $post The post object.
+ * @param bool $update Whether this is an existing post being updated or not.
+ * @since 0.8.0
+ */
+function ufclas_ufl_2015_kb_post_views_default( $post_id, $post, $update ) {
+  	
+	if ( !$update ){
+		kbe_set_post_views( $post_id );
+	}
+}
+add_action( 'save_post_kbe_knowledgebase', 'ufclas_ufl_2015_kb_post_views_default', 10, 3 );

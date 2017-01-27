@@ -24,10 +24,70 @@
     }
 }
 
+.kbe_articles {
+	@include breakFirst(large){
+		padding: 0 $grid-gutter-width;
+	}
+	
+	.kb-list {
+		margin-bottom: $grid-gutter-width*1.5;
+		
+		.kb-homepage & {
+			margin-left: $grid-gutter-width;
+			
+			@include breakFirst(large) {
+				margin-left: 0;
+			}
+		}
+	}
+	.kb-post-link {
+		line-height: 1.2;
+		margin-bottom: $grid-gutter-width/2;	
+	}
+	.kb-list-parent {
+		margin-left: 0;
+	}
+	.kb-heading {
+		margin-bottom: $grid-gutter-width;
+		
+		a:link, a:visited {
+			color: $blue;	
+		}
+		a:hover, a:active {
+			color: $blueDark;	
+		}
+		
+		.kb-homepage & {
+			border-bottom: 1px solid #bbb;
+    		padding-bottom: 7.5px;
+		}
+		
+	}
+	
+	.kbe_count {
+		font: 500 14px/36px "gentona", "Georgia", serif;
+		letter-spacing: 1px;
+		text-transform: uppercase;
+		color: #888 !important;
+		padding: 3px $grid-gutter-width/2 0 0;
+	}
+}
+
+.kb-homepage {
+    @extend .page-template-landing-page;
+}
+
+.kbe_content {
+	@extend .entry-content;	
+}
+
+.kb-breadcrumbs {
+	@extend .breadcrumb-wrap;	
+}
+
 #jquery-live-search {
     background-color: $white;
-    //border-top: 2px solid #ddd;
-    padding: 30px;
+    padding: $grid-gutter-width;
 }
 #search-result {
     &, li {
@@ -37,7 +97,7 @@
     }
     li {
         text-transform: none;
-        padding-bottom: 10px;
+        padding-bottom: $grid-gutter-width/2;
         
         &:before {
             content: none;
@@ -46,24 +106,4 @@
     }
 }
 
-.kbe_articles {
-	.kb-list {
-		margin-bottom: 45px;
-	}
-	.kb-list-parent {
-		margin-left: 0;
-	}
-}
-
-.kbe_content {
-	@extend .entry-content;	
-}
-
-.kb-homepage {
-    @extend .page-template-landing-page;
-}
-
-.kb-breadcrumbs {
-	@extend .breadcrumb-wrap;	
-}
 

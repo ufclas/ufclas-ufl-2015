@@ -56,7 +56,7 @@ get_header(); ?>
 			// Display the heading for child terms
 			if ( $term != $current_term ){
 				$term_link = get_term_link( $term );
-				echo '<h3 class="kb-heading term-heading"><a href="' . esc_url( $term_link ) . '">' . $term->name . '</a></h3>';
+				echo '<h3 class="kb-heading"><a href="' . esc_url( $term_link ) . '">' . $term->name . '</a></h3>';
 				
 				// Determine if there are third-level terms
 				$grandchild_terms = get_terms( $term->taxonomy, array(
