@@ -168,7 +168,7 @@ function ufclas_ufl_2015_kb_breadcrumbs() {
 			$current_terms = get_the_terms( $current->ID, $taxonomy );
 			$current_id = ( $current_terms )? $current_terms[0]->term_id : false;
 		}
-		else {
+		elseif ( !is_search() ) {
 			$current_id = $current->term_id;
 		}
 		

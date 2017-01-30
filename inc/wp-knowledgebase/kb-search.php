@@ -7,12 +7,12 @@
  * @package UFCLAS_UFL_2015
  */
 if ( have_posts() ) : ?>
-
-    <ul id="search-result">
+    
+    <ul id="<?php echo ( !is_search() )? 'search-result' : 'kb-list kb-list-parent'; ?>">
     
     <?php  while (have_posts()) : the_post(); ?>
         
-        <li><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></li>
+        <li class="post-link"><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></li>
             
     <?php endwhile; ?>
     </ul>
