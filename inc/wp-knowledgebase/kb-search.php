@@ -8,7 +8,7 @@
  */
 if ( have_posts() ) : ?>
     
-    <ul id="<?php echo ( !is_search() )? 'search-result' : 'kb-list kb-list-parent'; ?>">
+    <ul id="<?php echo ( isset($_GET['ajax']) )? 'search-result' : 'kb-list kb-list-parent'; ?>">
     
     <?php  while (have_posts()) : the_post(); ?>
         

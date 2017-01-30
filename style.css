@@ -6797,23 +6797,34 @@ figcaption {
   padding: 3px 15px 0 0;
 }
 
-#jquery-live-search {
-  background-color: #fff;
-  padding: 30px;
+.kb-search-list, #search-result li, #live-search .awesomplete > ul > li, #live-search .entry-content .awesomplete > ol > li, .entry-content #live-search .awesomplete > ol > li, #live-search .kbe_content .awesomplete > ol > li, .kbe_content #live-search .awesomplete > ol > li, #live-search .wp-editor .awesomplete > ol > li, .wp-editor #live-search .awesomplete > ol > li {
+  margin: 0;
+  list-style-type: none;
+  font-weight: 500;
+  text-transform: none;
+  text-align: left;
+  padding-bottom: 15px;
+}
+.kb-search-list:before, #search-result li:before, #live-search .awesomplete > ul > li:before, #live-search .entry-content .awesomplete > ol > li:before, .entry-content #live-search .awesomplete > ol > li:before, #live-search .kbe_content .awesomplete > ol > li:before, .kbe_content #live-search .awesomplete > ol > li:before, #live-search .wp-editor .awesomplete > ol > li:before, .wp-editor #live-search .awesomplete > ol > li:before {
+  content: none;
+  margin-right: 0;
 }
 
-#search-result, #search-result li {
+#search-result {
   margin: 0;
   list-style-type: none;
   font-weight: 500;
 }
-#search-result li {
-  text-transform: none;
-  padding-bottom: 15px;
+
+#live-search .awesomplete {
+  display: block;
 }
-#search-result li:before {
-  content: none;
-  margin-right: 0;
+#live-search .awesomplete > input {
+  display: block;
+}
+#live-search .awesomplete > ul > li, #live-search .entry-content .awesomplete > ol > li, .entry-content #live-search .awesomplete > ol > li, #live-search .kbe_content .awesomplete > ol > li, .kbe_content #live-search .awesomplete > ol > li, #live-search .wp-editor .awesomplete > ol > li, .wp-editor #live-search .awesomplete > ol > li {
+  font-size: 18px;
+  padding: 7.5px 30px;
 }
 
 /*# sourceMappingURL=style.css.map */

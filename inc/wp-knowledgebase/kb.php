@@ -8,11 +8,18 @@
 function ufclas_ufl_2015_kb_remove_style() {
 	wp_dequeue_style('kbe_theme_style');
 	wp_deregister_style('kbe_theme_style');
+	
+	// Replacing the default live search
+	wp_dequeue_script('kbe_live_search');
+	wp_enqueue_style('awesomplete', get_stylesheet_directory_uri() . '/inc/awesomplete/awesomplete.css', array(), null );
+	wp_enqueue_script('awesomplete', get_stylesheet_directory_uri() . '/inc/awesomplete/awesomplete.js', array(), null, true);
+	wp_enqueue_script('ufclas-ufl-2015-kb', get_stylesheet_directory_uri() . '/inc/wp-knowledgebase/kb.js', array('awesomplete'), null, true);
+	
 }
 add_action( 'wp_enqueue_scripts', 'ufclas_ufl_2015_kb_remove_style', 11 );
 
 /**
- * Remove the default templates
+ * Bypass the default templates
  *
  * @since 0.8.0
  */
@@ -63,6 +70,11 @@ function ufclas_ufl_2015_kb_modify_custom(){
 	$post_type_args = get_post_type_object( 'kbe_knowledgebase' );
 	$post_type_args->rewrite['slug'] = 'kb';
     $post_type_args->labels->name = 'Knowledge Base';
+	$post_type_args->show_in_rest = true;
+	$post_type_args->rest_base = 'kb';
+	
+	dbgx_trace_var( $post_type_args );
+	
 	register_post_type( 'kbe_knowledgebase', (array)$post_type_args );
 	
 	// Redefine the kb category
@@ -109,7 +121,7 @@ function ufclas_ufl_2015_kb_header(){
     
     <form id="live-search" action="<?php echo home_url('/'); ?>" method="get" class="search-form" role="search" autocomplete="off">
     <label for="s" class="visuallyhidden"><?php esc_html_e('Search', 'ufclas-ufl-2015'); ?></label>
-    <input type="text" name="s" id="s" placeholder="<?php esc_attr_e('Search', 'ufclas-ufl-2015'); ?>" onfocus="if (this.value == '<?php esc_attr_e('Search', 'ufclas-ufl-2015'); ?>') {this.value = '';}" onblur="if (this.value == '')  {this.value = '<?php esc_attr_e('Search', 'ufclas-ufl-2015'); ?>';}" autocomplete="off" />
+    <input type="text" id="s" name="s" class="awesomplete" placeholder="<?php esc_attr_e('Search', 'ufclas-ufl-2015'); ?>" />
     <button type="submit" class="btn-search">
         <span class="icon-svg">
         <svg>
