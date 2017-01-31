@@ -36,7 +36,6 @@ get_header(); ?>
 <div class="row">
   <div class="col-md-12">
   	<div class="kbe_content">
-    
 	<?php
 		if ( !is_search() ):
 			get_template_part( 'inc/wp-knowledgebase/kb', 'content-archive');
