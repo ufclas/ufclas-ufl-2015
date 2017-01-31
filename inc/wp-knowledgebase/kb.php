@@ -9,12 +9,15 @@ function ufclas_ufl_2015_kb_remove_style() {
 	wp_dequeue_style('kbe_theme_style');
 	wp_deregister_style('kbe_theme_style');
 	
-	// Replacing the default live search
+	// Replacing the default live search only on the kb home page
+	// Set the search setting to Off
 	wp_dequeue_script('kbe_live_search');
-	wp_enqueue_style('awesomplete', get_stylesheet_directory_uri() . '/inc/awesomplete/awesomplete.css', array(), null );
-	wp_enqueue_script('awesomplete', get_stylesheet_directory_uri() . '/inc/awesomplete/awesomplete.js', array(), null, true);
-	wp_enqueue_script('ufclas-ufl-2015-kb', get_stylesheet_directory_uri() . '/inc/wp-knowledgebase/kb.js', array('awesomplete'), null, true);
 	
+	if ( is_post_type_archive('kbe_knowledgebase') && !( is_tax('kbe_taxonomy') || is_tax('kbe_tags') || is_search() ) ){
+		wp_enqueue_style('awesomplete', get_stylesheet_directory_uri() . '/inc/awesomplete/awesomplete.css', array(), null );
+		wp_enqueue_script('awesomplete', get_stylesheet_directory_uri() . '/inc/awesomplete/awesomplete.js', array(), null, true);
+		wp_enqueue_script('ufclas-ufl-2015-kb', get_stylesheet_directory_uri() . '/inc/wp-knowledgebase/kb.js', array('awesomplete'), null, true);
+	}
 }
 add_action( 'wp_enqueue_scripts', 'ufclas_ufl_2015_kb_remove_style', 11 );
 
@@ -35,12 +38,7 @@ remove_filter( 'template_include', 'template_chooser' );
 function ufclas_ufl_2015_kb_template( $template_path ) {
 	
 	if ( is_search() && ( get_query_var('post_type') == 'kbe_knowledgebase' ) ){
-		if ( isset($_GET['ajax']) ){
-			$template_path = get_stylesheet_directory() . '/inc/wp-knowledgebase/kb-search.php';
-		}
-		else {
-			$template_path = get_stylesheet_directory() . '/inc/wp-knowledgebase/kb-archive.php';   
-		}
+		$template_path = get_stylesheet_directory() . '/inc/wp-knowledgebase/kb-archive.php';
 	}
 	
 	elseif ( is_singular('kbe_knowledgebase') ){

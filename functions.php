@@ -107,6 +107,7 @@ function ufclas_ufl_2015_scripts() {
 	
 	// Pass site data to Javascript
 	$site_data = array(
+		'home_url' => home_url('/'),
 		'theme_url' => get_stylesheet_directory_uri(),
 		'max_main_menu_items' => get_theme_mod('max_main_menu_items', 7),
 		'mega_menu' => get_theme_mod('mega_menu', 1),
