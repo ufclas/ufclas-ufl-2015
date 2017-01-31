@@ -29,6 +29,7 @@ Requirements and Suggested Plugins
 - The Events Calendar
 - IssueM
 - Google Analytics ID
+- WP Knowledgebase
 
 Documentation
 --------------
