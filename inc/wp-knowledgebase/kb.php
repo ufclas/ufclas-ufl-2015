@@ -71,8 +71,6 @@ function ufclas_ufl_2015_kb_modify_custom(){
 	$post_type_args->show_in_rest = true;
 	$post_type_args->rest_base = 'kb';
 	
-	dbgx_trace_var( $post_type_args );
-	
 	register_post_type( 'kbe_knowledgebase', (array)$post_type_args );
 	
 	// Redefine the kb category
