@@ -1,7 +1,15 @@
+// Use Awesomplete to send request for articles when the page loads
 var ajax = new XMLHttpRequest();
-ajax.open("GET", "http://test-alpha.local/clas-it/wp-json/wp/v2/kb/?per_page=100", true);
+ajax.open("GET", ufclas_ufl_2015_sitedata.home_url + 'wp-json/wp/v2/kb/?per_page=100', true);
 ajax.onload = function() {
-	var list = JSON.parse(ajax.responseText).map(function(i) { return i.title.rendered; });
+	var list = JSON.parse(ajax.responseText).map(function(i) { return {label: i.title.rendered, value: i.link}; });
 	new Awesomplete(document.querySelector("#s"),{ list: list });
 };
 ajax.send();
+
+// Send user to the page when autocomplete title is clicked
+document.querySelector("#s").addEventListener('awesomplete-select', function(e){
+	e.preventDefault();
+	var suggestion = e.text;
+	window.location = suggestion.value;
+});

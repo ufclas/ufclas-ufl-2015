@@ -21,24 +21,12 @@
             </div>
     	<?php endif; ?>
         
-	<?php else: ?>
-		<?php if ( has_post_thumbnail() ): ?>
-            <header class="entry-header">
-          		<?php echo ufclas_ufl_2015_post_featured_image(); ?>	
-            </header>
-    	<?php endif; ?>
-        
-        <div class="entry-meta">
-			<?php //ufclas_ufl_2015_posted_on(); ?>
-		</div><!-- .entry-meta -->
 	<?php endif; ?>
     
     <div class="entry-content">
         <?php
 			if ( is_singular() ):
 				the_content();
-			else:
-				//the_excerpt();
 			endif;
 		?>
 	</div><!-- .entry-content -->
