@@ -29,6 +29,7 @@ Requirements and Suggested Plugins
 - The Events Calendar
 - IssueM
 - Google Analytics ID
+- WP Knowledgebase
 
 Documentation
 --------------
@@ -40,9 +41,15 @@ Documentation
 Changelog
 ---------
 
+### 0.8.x
+
+- Adds support for [WP Knowledgebase](https://wordpress.org/plugins/wp-knowledgebase/) (Enigma Plugins)
+
 ### 0.7.x
 
 - Adds header and submenu to newsletter pages
+- Adds theme options for newsletter settings and makes the header opt-in
+- Adds SASS variable to use local fonts, if available
 
 ### 0.6.x
 

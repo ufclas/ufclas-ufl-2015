@@ -159,3 +159,25 @@ function ufclas_global_parent_organization(){
 	}
 }
 
+/**
+ * Template tag to display list of social network links only if they are set in the Customizer theme options
+ * @since 0.3.0
+ */
+function ufclas_ufl_2015_socialnetworks() {
+	$social_networks = array(
+		'facebook' => 'Facebook',
+		'twitter' => 'Twitter',
+		'youtube' => 'YouTube',
+		'instagram' => 'Instagram',
+		'siteblog' => 'Blog',
+	);
+	
+	foreach( $social_networks as $name => $title ){
+		$link = esc_url( get_theme_mod("{$name}_url") );
+		$icon = get_stylesheet_directory_uri();
+		$icon .= ( 'siteblog' != $name )? "/img/spritemap.svg#{$name}" : '/svg/menu.svg#Layer_1';
+		if( !empty($link) ){
+			printf('<li><a href="%s" class="btn-circle icon-svg icon-%s"><svg><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="%s"></use></svg><span class="visuallyhidden">%s</span></a></li>', $link, $name, $icon, $title );
+		}
+	}
+}
