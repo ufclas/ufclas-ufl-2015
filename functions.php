@@ -242,7 +242,9 @@ require get_stylesheet_directory() . '/inc/template-tags.php';
 require get_stylesheet_directory() . '/inc/navigation.php';
 
 // Add Bootstrap compatible walker
-require_once get_stylesheet_directory() . '/inc/wp-bootstrap-navwalker.php';
+if ( !class_exists('wp_bootstrap_navwalker') ) {
+	require_once get_stylesheet_directory() . '/inc/wp-bootstrap-navwalker.php';
+}
 
 // The Events Calendar
 if ( class_exists('Tribe__Events__Main') ) {
