@@ -231,3 +231,43 @@ function ufclas_ufl_2015_kb_post_views_default( $post_id, $post, $update ) {
 	}
 }
 add_action( 'save_post_kbe_knowledgebase', 'ufclas_ufl_2015_kb_post_views_default', 10, 3 );
+
+/**
+ * Remove columns from the kb article admin screen
+ *
+ * Filter is 'manage_{$screen->id}_columns' 
+ *
+ * @param array $columns
+ * @return array Columns to display on All articles screen
+ * @since 0.8.2
+ */
+function ufclas_ufl_2015_kb_article_columns( $columns ){
+	unset($columns['comment']);
+	return $columns;
+}
+add_filter('manage_edit-kbe_knowledgebase_columns', 'ufclas_ufl_2015_kb_article_columns');
+
+/**
+ * Add a 'category' filter dropdown to the articles screen
+ *
+ * @since 0.8.2
+ */
+function ufclas_ufl_2015_kb_article_filter_list() {
+    $screen = get_current_screen();
+    global $wp_query;
+    if ( $screen->post_type == 'kbe_knowledgebase' ) {
+        wp_dropdown_categories( array(
+            'show_option_all' => 'Show All Categories',
+            'taxonomy' => 'kbe_taxonomy',
+            'name' => 'kbe_taxonomy',
+			'value_field' => 'slug',
+            'orderby' => 'name',
+            'selected' => ( isset( $wp_query->query['kbe_taxonomy'] ) ? $wp_query->query['kbe_taxonomy'] : '' ),
+            'hierarchical' => true,
+            'depth' => 3,
+            'show_count' => false,
+            'hide_empty' => true,
+        ) );
+    }
+}
+add_action( 'restrict_manage_posts', 'ufclas_ufl_2015_kb_article_filter_list' );

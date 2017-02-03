@@ -46,6 +46,8 @@ foreach ( $terms as $term ):
 		// Display links to posts in the term
 		$post_query = new WP_Query( array(
 			'post_type' => 'kbe_knowledgebase',
+			'order' => 'ASC',
+			'orderby' => 'title menu_order',
 			'tax_query' => array(
 				array(
 					'taxonomy' => $term->taxonomy,
