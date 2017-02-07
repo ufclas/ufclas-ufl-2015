@@ -195,7 +195,10 @@ function ufclas_ufl_2015_kb_breadcrumbs() {
 			
 			// Display the breadcrumbs list
 			foreach ( $crumbs as $crumb_id ){
-				echo '<li><a href="' . get_term_link( $crumb_id ) . '">' . get_term( $crumb_id, $taxonomy )->name . '</a></li>';
+				$crumb_term = get_term( $crumb_id, $taxonomy );
+				if ( !is_wp_error( $crumb_term ) ) {
+					echo '<li><a href="' . get_term_link( $crumb_id ) . '">' . $crumb_term->name . '</a></li>';
+				}
 			}
 		}	
 		
