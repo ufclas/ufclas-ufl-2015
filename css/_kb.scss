@@ -71,6 +71,14 @@
 		color: #888 !important;
 		padding: 3px $grid-gutter-width/2 0 0;
 	}
+	.kbe-view-all {
+		margin-top: -$grid-gutter-width;
+		margin-bottom: $grid-gutter-width;
+		
+		a {
+			@extend .kbe_count;
+		}
+	}
 }
 
 .kb-homepage {

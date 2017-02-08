@@ -207,8 +207,8 @@ function ufclas_ufl_2015_kb_breadcrumbs() {
 				$crumbs = array_merge( $crumbs, $current_ancestors );
 				$crumbs = array_reverse( $crumbs );
 			}
-			// Add current term to the list
-			$crumbs[] = $current_id;
+			// Add current term to the list on article pages
+			$crumbs[] = ( is_single() )? $current_id : null;
 			
 			// Display the breadcrumbs list
 			foreach ( $crumbs as $crumb_id ){

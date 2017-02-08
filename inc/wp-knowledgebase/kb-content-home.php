@@ -45,8 +45,11 @@
 			// Display the heading for child terms
 			$article_count_label = ( $post_count == 1 )? __('Article', 'ufclas-ufl-2015') : __('Articles', 'ufclas-ufl-2015');
 			$article_count = ( $show_count )?  ' <span class="kbe_count pull-right">' . $post_count . ' ' . $article_count_label . '</span>' : '';
-						
-			printf( '<h3 class="kb-heading"><a href="%s">%s%s</a></h3>', get_term_link( $term->term_id ), $term->name, $article_count );
+			
+			$term_label = $term->name;
+			$term_link = get_term_link( $term->term_id );
+					
+			printf( '<h3 class="kb-heading"><a href="%s">%s%s</a></h3>', $term_link, $term_label, $article_count );
 			
 			echo '<ul class="kb-list">';     
 				
@@ -59,7 +62,14 @@
 			wp_reset_postdata();
 			
 			
-			echo '</ul><!-- -->';
+			echo '</ul>';
+			if ( $post_count > $max_posts ){
+				printf('<div class="kbe-view-all"><a href="%s" title="%s">%s</a></div>', 
+					$term_link,
+					__('View articles in ', 'ufclas-ufl-2015') . $term_label,
+					__('View All Articles', 'ufclas-ufl-2015')
+				);
+			}
 			echo '</div><!-- .kbe_articles -->';
 			
 			// Clear the cols if not the same height
