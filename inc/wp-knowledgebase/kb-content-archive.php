@@ -2,6 +2,7 @@
 
 $current_term = get_queried_object();
 
+$post_type = KBE_POST_TYPE;
 $term_order = get_theme_mod('kb_term_order', 'terms_order');
 $post_order = get_theme_mod('kb_post_order', 'menu_order');
 
@@ -48,7 +49,7 @@ foreach ( $terms as $term ):
 	else:
 		// Display links to posts in the term
 		$post_query = new WP_Query( array(
-			'post_type' => 'kbe_knowledgebase',
+			'post_type' => $post_type,
 			'order' => 'ASC',
 			'orderby' => $post_order,
 			'tax_query' => array(

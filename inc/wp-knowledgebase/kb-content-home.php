@@ -1,10 +1,11 @@
 <?php
-	$taxonomy = 'kbe_taxonomy';
+	$post_type = KBE_POST_TYPE;
+	$taxonomy = KBE_POST_TAXONOMY;
+	$max_posts = KBE_ARTICLE_QTY;
 	$term_columns = get_theme_mod('kb_columns', 2);
 	$term_order = get_theme_mod('kb_term_order', 'terms_order');
 	$show_count = get_theme_mod('kb_show_count', 1);
 	$post_order = get_theme_mod('kb_post_order', 'menu_order');
-	$max_posts = 5;
 	
 	// Get list of only the top level kb categories
 	$terms = get_terms( $taxonomy, array(
@@ -27,7 +28,7 @@
 			
 			// Query most viewed posts for the term
 			$post_query = new WP_Query( array(
-				'post_type' => 'kbe_knowledgebase',
+				'post_type' => $post_type,
 				'posts_per_page' => $max_posts,
 				'orderby' => $post_order,
 				'tax_query' => array(
