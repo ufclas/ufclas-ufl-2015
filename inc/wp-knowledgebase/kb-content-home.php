@@ -1,23 +1,34 @@
 <?php
 	$taxonomy = 'kbe_taxonomy';
-	$child_terms = get_terms( $taxonomy, array(
+	
+	$terms = get_terms( $taxonomy, array(
 		'orderby'       => 'terms_order', 
 		'order'         => 'ASC',
 		'hide_empty'    => true,
 		'parent'        => 0
 	));
-	$child_terms_count = count($child_terms);
-	$child_terms_index = 1;
-	$child_columns = 2;
+	$terms_count = count($terms);
+	$terms_index = 1;
+	$max_items = 5;
+	$page_columns = 2;
 	
-	foreach ( $child_terms as $term ):
+	foreach ( $terms as $term ):
+		
+		// Get any child terms
+		$child_terms = get_terms( $term->taxonomy, array(
+			'orderby'       => 'terms_order', 
+			'order'         => 'ASC',
+			'hide_empty'    => true,
+			'parent'        => $term->term_id
+		));
+		$child_terms = ( is_wp_error( $child_terms ) )? false : $child_terms; 
 		
 		echo '<div class="kbe_articles col-md-6">';
 		
 		// Query most viewed posts for the term
 		$post_query = new WP_Query( array(
 			'post_type' => 'kbe_knowledgebase',
-			'posts_per_page' => 5,
+			'posts_per_page' => $max_items,
 			'orderby' => array('menu_order' => 'ASC'),
 			'tax_query' => array(
 				array(
@@ -37,12 +48,25 @@
 		);
 		
 		echo '<ul class="kb-list">';     
-			
-		if ( $post_query->have_posts() ){
+		
+		// Show article links if there are no child terms
+		if ( !$child_terms && $post_query->have_posts() ):
 			while ( $post_query->have_posts() ): $post_query->the_post();
 				echo '<li class="kb-post-link"><a href="' . get_the_permalink() . '">' . get_the_title() . '</a></li>';
 			endwhile;
-		}
+		else:
+			// Show child term links instead of articles
+			$item_count = 0;
+			foreach ( $child_terms as $item_term ){
+				if ( $item_count<$max_items ){
+					echo '<li class="kb-post-link"><a href="' . get_term_link( $item_term->term_id ) . '">' . $item_term->name . '</a></li>';
+					$item_count++;
+				}
+				else {
+					break;	
+				}
+			}
+		endif;
 		
 		wp_reset_postdata();
 		
@@ -51,8 +75,8 @@
 		echo '</div><!-- .kbe_articles -->';
 		
 		// Clear the cols if not the same height
-		echo ( ($child_terms_index % $child_columns) == 0 )? '<div class="clearfix hidden-xs"></div>' : '';
-		$child_terms_index++;
+		echo ( ($terms_index % $page_columns) == 0 )? '<div class="clearfix hidden-xs"></div>' : '';
+		$terms_index++;
 		
 	endforeach;
 ?>
