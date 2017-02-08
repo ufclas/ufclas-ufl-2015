@@ -2,8 +2,12 @@
 
 $current_term = get_queried_object();
 
+$post_type = KBE_POST_TYPE;
+$term_order = get_theme_mod('kb_term_order', 'terms_order');
+$post_order = get_theme_mod('kb_post_order', 'menu_order');
+
 $child_terms = get_terms( $current_term->taxonomy, array(
-	'orderby'       => 'terms_order', 
+	'orderby'       => $term_order, 
 	'order'         => 'ASC',
 	'hide_empty'    => true,
 	'parent'        => $current_term->term_id
@@ -23,7 +27,7 @@ foreach ( $terms as $term ):
 		
 		// Determine if there are third-level terms
 		$grandchild_terms = get_terms( $term->taxonomy, array(
-			'orderby'       => 'terms_order', 
+			'orderby'       => $term_order, 
 			'order'         => 'ASC',
 			'hide_empty'    => true,
 			'parent'        => $term->term_id
@@ -45,9 +49,9 @@ foreach ( $terms as $term ):
 	else:
 		// Display links to posts in the term
 		$post_query = new WP_Query( array(
-			'post_type' => 'kbe_knowledgebase',
+			'post_type' => $post_type,
 			'order' => 'ASC',
-			'orderby' => 'title menu_order',
+			'orderby' => $post_order,
 			'tax_query' => array(
 				array(
 					'taxonomy' => $term->taxonomy,
