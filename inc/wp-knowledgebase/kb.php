@@ -1,11 +1,17 @@
 <?php 
 
+require get_stylesheet_directory() . '/inc/wp-knowledgebase/customizer.php';
+
 /**
  * Remove the default CSS styles
  *
  * @since 0.8.0
  */
 function ufclas_ufl_2015_kb_remove_style() {
+	$post_type = 'kbe_knowledgebase';
+	$taxonomy = 'kbe_taxonomy';
+	$tags = 'kbe_tags';	
+	
 	wp_dequeue_style('kbe_theme_style');
 	wp_deregister_style('kbe_theme_style');
 	
@@ -13,7 +19,7 @@ function ufclas_ufl_2015_kb_remove_style() {
 	// Set the search setting to Off
 	wp_dequeue_script('kbe_live_search');
 	
-	if ( is_post_type_archive('kbe_knowledgebase') && !( is_tax('kbe_taxonomy') || is_tax('kbe_tags') || is_search() ) ){
+	if ( is_post_type_archive($post_type) && !( is_tax($taxonomy) || is_tax($tags) || is_search() ) ){
 		wp_enqueue_style('awesomplete', get_stylesheet_directory_uri() . '/inc/awesomplete/awesomplete.css', array(), null );
 		wp_enqueue_script('awesomplete', get_stylesheet_directory_uri() . '/inc/awesomplete/awesomplete.js', array(), null, true);
 		wp_enqueue_script('ufclas-ufl-2015-kb', get_stylesheet_directory_uri() . '/inc/wp-knowledgebase/kb.js', array('awesomplete'), null, true);
@@ -36,20 +42,23 @@ remove_filter( 'template_include', 'template_chooser' );
  * @since 0.8.0
  */
 function ufclas_ufl_2015_kb_template( $template_path ) {
+	$post_type = 'kbe_knowledgebase';
+	$taxonomy = 'kbe_taxonomy';
+	$tags = 'kbe_tags';	
 	
-	if ( is_search() && ( get_query_var('post_type') == 'kbe_knowledgebase' ) ){
+	if ( is_search() && ( get_query_var('post_type') == $post_type ) ){
 		$template_path = get_stylesheet_directory() . '/inc/wp-knowledgebase/kb-archive.php';
 	}
 	
-	elseif ( is_singular('kbe_knowledgebase') ){
+	elseif ( is_singular($post_type) ){
 		$template_path = get_stylesheet_directory() . '/inc/wp-knowledgebase/kb-article.php';
 	}
 	
-	elseif ( is_tax('kbe_taxonomy') || is_tax('kbe_tags') ){
+	elseif ( is_tax($taxonomy) || is_tax($tags) ){
 		$template_path = get_stylesheet_directory() . '/inc/wp-knowledgebase/kb-archive.php';
 	}
 	
-	elseif ( is_post_type_archive('kbe_knowledgebase') ){
+	elseif ( is_post_type_archive($post_type) ){
 		$template_path = get_stylesheet_directory() . '/inc/wp-knowledgebase/kb-home.php';
 	}
 
@@ -63,25 +72,29 @@ add_action( 'template_include', 'ufclas_ufl_2015_kb_template', 11 );
  * @since 0.8.0
  */
 function ufclas_ufl_2015_kb_modify_custom(){
+	$post_type = 'kbe_knowledgebase';
+	$taxonomy = 'kbe_taxonomy';
+	$tags = 'kbe_tags';
+	$slug = 'kb';
 	
 	// Redefine the kb article
-	$post_type_args = get_post_type_object( 'kbe_knowledgebase' );
-	$post_type_args->rewrite['slug'] = 'kb';
+	$post_type_args = get_post_type_object( $post_type );
+	$post_type_args->rewrite['slug'] = $slug;
     $post_type_args->labels->name = 'Knowledge Base';
 	$post_type_args->show_in_rest = true;
-	$post_type_args->rest_base = 'kb';
+	$post_type_args->rest_base = $slug;
 	
-	register_post_type( 'kbe_knowledgebase', (array)$post_type_args );
+	register_post_type( $post_type, (array)$post_type_args );
 	
 	// Redefine the kb category
-	$category_args = get_taxonomy( 'kbe_taxonomy' );
-	$category_args->rewrite['slug'] = 'kb/category';
-	register_taxonomy( 'kbe_taxonomy', 'kbe_knowledgebase', (array) $category_args );
+	$category_args = get_taxonomy( $taxonomy );
+	$category_args->rewrite['slug'] = "{$slug}/category";
+	register_taxonomy( $taxonomy, $post_type, (array) $category_args );
 	
 	// Redefine the kb tags
-	$tag_args = get_taxonomy( 'kbe_tags' );
-	$tag_args->rewrite['slug'] = 'kb/tag';
-	register_taxonomy( 'kbe_tags', 'kbe_knowledgebase', (array) $tag_args );
+	$tag_args = get_taxonomy( $tags );
+	$tag_args->rewrite['slug'] = "{$slug}/tag";
+	register_taxonomy( $tags, $post_type, (array) $tag_args );
 }
 add_action( 'init', 'ufclas_ufl_2015_kb_modify_custom', 11 );
 
@@ -105,8 +118,12 @@ add_filter( 'rewrite_rules_array', 'ufclas_ufl_2015_kb_modify_rewrite' );
  * @since 0.8.0
  */
 function ufclas_ufl_2015_kb_header(){
+	$post_type = 'kbe_knowledgebase';
+	$taxonomy = 'kbe_taxonomy';
+	$title = get_theme_mod('kb_title', __('Knowledge Base', 'ufclas-ufl-2015'));
+	
 	$shortcode = sprintf( '[ufl-landing-page-hero headline="%s" subtitle="%s" image="%s" image_height="%s"]%s[/ufl-landing-page-hero]', 
-        'Help and How-to',
+        $title,
         '',
         '',
         'half',
@@ -125,7 +142,7 @@ function ufclas_ufl_2015_kb_header(){
         </svg>
       </span>
     </button>
-    <input type="hidden" name="post_type" value="kbe_knowledgebase" />
+    <input type="hidden" name="post_type" value="<?php echo $post_type; ?>" />
     </form>
 
     <?php
@@ -163,39 +180,42 @@ function ufclas_ufl_2015_kb_breadcrumbs() {
 		
 		$current = get_queried_object();
 		$post_type = 'kbe_knowledgebase';
-		$post_type_obj = get_post_type_object( 'kbe_knowledgebase' );
 		$taxonomy = 'kbe_taxonomy';
+		$post_type_obj = get_post_type_object( $post_type );
+		$post_type_title = get_theme_mod( 'kb_title', $post_type_obj->labels->name);
 		$crumbs = array();
+		$current_id = false;
 		
 		echo '<ul class="kb-breadcrumbs">';
 		
-		echo '<li><a href="' . get_post_type_archive_link( $post_type ) . '">' . $post_type_obj->labels->name . '</a></li>';
+		echo '<li><a href="' . get_post_type_archive_link( $post_type ) . '">' . $post_type_title . '</a></li>';
 		
 		// Get the correct term ID
 		if ( is_single() ){
 			$current_terms = get_the_terms( $current->ID, $taxonomy );
-			$current_id = ( $current_terms )? $current_terms[0]->term_id : false;
+			$current_id = ( empty($current_terms) || is_wp_error($current_terms) )? false : $current_terms[0]->term_id;
 		}
 		elseif ( !is_search() ) {
 			$current_id = $current->term_id;
 		}
 		
 		// Add term and any term ancestors to array of crumbs
-		if ( isset($current_id) ){
+		if ( $current_id ){
 			
 			$current_ancestors = get_ancestors( $current_id, $taxonomy, 'taxonomy' );
-			
-			if ( empty($current_ancestors) ){
-				$crumbs = ( is_single() )? array($current_id) : array();
-			}
-			else {
+			if ( !empty($current_ancestors) ){
 				$crumbs = array_merge( $crumbs, $current_ancestors );
 				$crumbs = array_reverse( $crumbs );
 			}
+			// Add current term to the list on article pages
+			$crumbs[] = ( is_single() )? $current_id : null;
 			
 			// Display the breadcrumbs list
 			foreach ( $crumbs as $crumb_id ){
-				echo '<li><a href="' . get_term_link( $crumb_id ) . '">' . get_term( $crumb_id, $taxonomy )->name . '</a></li>';
+				$crumb_term = get_term( $crumb_id, $taxonomy );
+				if ( !is_wp_error( $crumb_term ) ) {
+					echo '<li><a href="' . get_term_link( $crumb_id ) . '">' . $crumb_term->name . '</a></li>';
+				}
 			}
 		}	
 		
@@ -254,15 +274,17 @@ add_filter('manage_edit-kbe_knowledgebase_columns', 'ufclas_ufl_2015_kb_article_
  */
 function ufclas_ufl_2015_kb_article_filter_list() {
     $screen = get_current_screen();
+	$post_type = 'kbe_knowledgebase';
+	$taxonomy = 'kbe_taxonomy';
     global $wp_query;
-    if ( $screen->post_type == 'kbe_knowledgebase' ) {
+    if ( $screen->post_type == $post_type ) {
         wp_dropdown_categories( array(
             'show_option_all' => 'Show All Categories',
-            'taxonomy' => 'kbe_taxonomy',
-            'name' => 'kbe_taxonomy',
+            'taxonomy' => $taxonomy,
+            'name' => $taxonomy,
 			'value_field' => 'slug',
             'orderby' => 'name',
-            'selected' => ( isset( $wp_query->query['kbe_taxonomy'] ) ? $wp_query->query['kbe_taxonomy'] : '' ),
+            'selected' => ( isset( $wp_query->query[$taxonomy] ) ? $wp_query->query[$taxonomy] : '' ),
             'hierarchical' => true,
             'depth' => 3,
             'show_count' => false,
