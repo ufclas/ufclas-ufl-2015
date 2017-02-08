@@ -5639,6 +5639,8 @@ strong {
   position: absolute;
   bottom: 30px;
   width: 100%;
+  padding-left: 15px;
+  padding-right: 15px;
 }
 .landing-page-hero-full .hero-img-half {
   height: 225px;

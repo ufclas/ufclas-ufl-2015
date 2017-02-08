@@ -31,6 +31,7 @@
 				'post_type' => $post_type,
 				'posts_per_page' => $max_posts,
 				'orderby' => $post_order,
+				'order' => 'ASC',
 				'tax_query' => array(
 					array(
 						'taxonomy' => $term->taxonomy,
