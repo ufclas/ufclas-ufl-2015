@@ -1,5 +1,7 @@
 <?php 
 
+require get_stylesheet_directory() . '/inc/wp-knowledgebase/customizer.php';
+
 /**
  * Remove the default CSS styles
  *
@@ -105,8 +107,10 @@ add_filter( 'rewrite_rules_array', 'ufclas_ufl_2015_kb_modify_rewrite' );
  * @since 0.8.0
  */
 function ufclas_ufl_2015_kb_header(){
+	$title = get_theme_mod('kb_title', __('Knowledge Base', 'ufclas-ufl-2015'));
+	
 	$shortcode = sprintf( '[ufl-landing-page-hero headline="%s" subtitle="%s" image="%s" image_height="%s"]%s[/ufl-landing-page-hero]', 
-        'Help and How-to',
+        $title,
         '',
         '',
         'half',
@@ -164,12 +168,13 @@ function ufclas_ufl_2015_kb_breadcrumbs() {
 		$current = get_queried_object();
 		$post_type = 'kbe_knowledgebase';
 		$post_type_obj = get_post_type_object( 'kbe_knowledgebase' );
+		$post_type_title = get_theme_mod( 'kb_title', $post_type_obj->labels->name);
 		$taxonomy = 'kbe_taxonomy';
 		$crumbs = array();
 		
 		echo '<ul class="kb-breadcrumbs">';
 		
-		echo '<li><a href="' . get_post_type_archive_link( $post_type ) . '">' . $post_type_obj->labels->name . '</a></li>';
+		echo '<li><a href="' . get_post_type_archive_link( $post_type ) . '">' . $post_type_title . '</a></li>';
 		
 		// Get the correct term ID
 		if ( is_single() ){
