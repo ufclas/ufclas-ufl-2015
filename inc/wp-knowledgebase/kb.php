@@ -171,6 +171,7 @@ function ufclas_ufl_2015_kb_breadcrumbs() {
 		$post_type_title = get_theme_mod( 'kb_title', $post_type_obj->labels->name);
 		$taxonomy = 'kbe_taxonomy';
 		$crumbs = array();
+		$current_id = false;
 		
 		echo '<ul class="kb-breadcrumbs">';
 		
@@ -179,24 +180,22 @@ function ufclas_ufl_2015_kb_breadcrumbs() {
 		// Get the correct term ID
 		if ( is_single() ){
 			$current_terms = get_the_terms( $current->ID, $taxonomy );
-			$current_id = ( $current_terms )? $current_terms[0]->term_id : false;
+			$current_id = ( empty($current_terms) || is_wp_error($current_terms) )? false : $current_terms[0]->term_id;
 		}
 		elseif ( !is_search() ) {
 			$current_id = $current->term_id;
 		}
 		
 		// Add term and any term ancestors to array of crumbs
-		if ( isset($current_id) ){
+		if ( $current_id ){
 			
 			$current_ancestors = get_ancestors( $current_id, $taxonomy, 'taxonomy' );
-			
-			if ( empty($current_ancestors) ){
-				$crumbs = ( is_single() )? array($current_id) : array();
-			}
-			else {
+			if ( !empty($current_ancestors) ){
 				$crumbs = array_merge( $crumbs, $current_ancestors );
 				$crumbs = array_reverse( $crumbs );
 			}
+			// Add current term to the list
+			$crumbs[] = $current_id;
 			
 			// Display the breadcrumbs list
 			foreach ( $crumbs as $crumb_id ){
