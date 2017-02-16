@@ -63,20 +63,27 @@
 		}
 		
 	}
-	
-	.kbe_count {
+	.kbe-secondary-text {
 		font: 500 14px/36px "gentona", "Georgia", serif;
 		letter-spacing: 1px;
 		text-transform: uppercase;
 		color: #888 !important;
 		padding: 3px $grid-gutter-width/2 0 0;
 	}
+	.kbe_count {
+		@extend .kbe-secondary-text;
+		display: none;
+		
+		@include breakFirst($screen-phone){
+			display: block;
+		}
+	}
 	.kbe-view-all {
 		margin-top: -$grid-gutter-width;
 		margin-bottom: $grid-gutter-width;
 		
 		a {
-			@extend .kbe_count;
+			@extend .kbe-secondary-text;
 		}
 	}
 }
@@ -90,7 +97,16 @@
 }
 
 .kb-breadcrumbs {
-	@extend .breadcrumb-wrap;	
+	@extend .breadcrumb-wrap;
+	
+	@include breakTo(medium){
+		li {
+			display: none;
+		}
+		li:first-child {
+			display: list-item;
+		}
+	}
 }
 .kb-search-list {
 	margin: 0;
