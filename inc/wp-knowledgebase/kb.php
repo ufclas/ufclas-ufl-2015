@@ -76,11 +76,12 @@ function ufclas_ufl_2015_kb_modify_custom(){
 	$taxonomy = 'kbe_taxonomy';
 	$tags = 'kbe_tags';
 	$slug = 'kb';
+	$label = 'Knowledge Base';
 	
 	// Redefine the kb article
 	$post_type_args = get_post_type_object( $post_type );
 	$post_type_args->rewrite['slug'] = $slug;
-    $post_type_args->labels->name = 'Knowledge Base';
+    $post_type_args->labels->name = $label;
 	$post_type_args->show_in_rest = true;
 	$post_type_args->rest_base = $slug;
 	
