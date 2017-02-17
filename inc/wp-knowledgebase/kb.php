@@ -76,11 +76,12 @@ function ufclas_ufl_2015_kb_modify_custom(){
 	$taxonomy = 'kbe_taxonomy';
 	$tags = 'kbe_tags';
 	$slug = 'kb';
+	$label = 'Knowledge Base';
 	
 	// Redefine the kb article
 	$post_type_args = get_post_type_object( $post_type );
 	$post_type_args->rewrite['slug'] = $slug;
-    $post_type_args->labels->name = 'Knowledge Base';
+    $post_type_args->labels->name = $label;
 	$post_type_args->show_in_rest = true;
 	$post_type_args->rest_base = $slug;
 	
@@ -293,3 +294,51 @@ function ufclas_ufl_2015_kb_article_filter_list() {
     }
 }
 add_action( 'restrict_manage_posts', 'ufclas_ufl_2015_kb_article_filter_list' );
+
+/**
+ * Modify the knowledgebase titles to add the user post type title
+ *
+ * @param array 	$title Title parts: title, page, tagline, site
+ * @return array 	Modified title parts
+ * @since 0.8.6
+ */
+function ufclas_ufl_2015_kb_title( $title ) {
+    $post_type = 'kbe_knowledgebase';
+	$taxonomy = 'kbe_taxonomy';
+	$tags = 'kbe_tags';
+	$post_type_title = get_theme_mod( 'kb_title' );
+	
+	// Add the tax title and post type title
+	if ( is_tax($taxonomy) || is_tax($tags) ){
+		$custom_title = array(
+			'term_title' => single_term_title('', false),
+			'post_type_title' => $post_type_title, 
+		);
+		array_splice( $title, 0, 1, $custom_title );	
+	}
+	
+	// Add the post type title after the page title
+	elseif ( is_singular($post_type) ){
+		$custom_title = array(
+			'post_type_title' => $post_type_title, 
+		);
+		array_splice( $title, 1, 0, $custom_title );	
+	}
+	
+	// Replace the post type title
+	elseif ( is_post_type_archive($post_type) ){
+		$custom_title = array(
+			'post_type_title' => $post_type_title, 
+		);
+		
+		if ( !is_search() ){
+			array_splice( $title, 0, 1, $custom_title );
+		}
+		else {
+			array_splice( $title, 1, 0, $custom_title );
+		}
+	}
+		
+	return $title;
+}
+add_filter( 'document_title_parts', 'ufclas_ufl_2015_kb_title' );
