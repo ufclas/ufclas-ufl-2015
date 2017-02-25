@@ -26,7 +26,7 @@
 			
 			echo '<div class="kbe_articles col-md-' . $term_column_width . '">';
 			
-			// Query most viewed posts for the term
+			// Query posts by article order
 			$post_query = new WP_Query( array(
 				'post_type' => $post_type,
 				'posts_per_page' => $max_posts,

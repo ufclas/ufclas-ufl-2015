@@ -1,8 +1,8 @@
 // Use Awesomplete to send request for articles when the page loads
 var ajax = new XMLHttpRequest();
-ajax.open("GET", ufclas_ufl_2015_sitedata.home_url + 'wp-json/wp/v2/kb/?per_page=100', true);
+ajax.open("GET", ufclas_ufl_2015_sitedata.home_url + 'wp-json/wp/v2/kb/search', true);
 ajax.onload = function() {
-	var list = JSON.parse(ajax.responseText).map(function(i) { return {label: i.title.rendered, value: i.link}; });
+	var list = JSON.parse(ajax.responseText).map(function(i) { return {label: i.title, value: i.link}; });
 	new Awesomplete(document.querySelector("#s"),{ list: list });
 };
 ajax.send();

@@ -342,3 +342,93 @@ function ufclas_ufl_2015_kb_title( $title ) {
 	return $title;
 }
 add_filter( 'document_title_parts', 'ufclas_ufl_2015_kb_title' );
+
+/**
+ * Register the /wp-json/kb/v2/search route
+ *
+ * @since 0.8.7
+ */
+function ufclas_ufl_2015_kb_register_routes(){
+	register_rest_route( 'wp/v2/kb', 'search', array(
+		'methods' => 'GET',
+		'callback' => 'ufclas_ufl_2015_kb_serve_search',
+	) );
+}
+add_action( 'rest_api_init', 'ufclas_ufl_2015_kb_register_routes' );
+
+/**
+ * Generate results for the /wp-json/kb/v2/search route, saves to transient
+ *
+ * @param WP_REST_Request $request Full details about the request.
+ * @return WP_REST_Response|WP_Error The response for the request.
+ *
+ * @since 0.8.7
+ */
+function ufclas_ufl_2015_kb_serve_search( WP_REST_Request $request ){
+	$transient_key = 'ufclas_ufl_2015_kb_search';
+	
+	// Get transient data from database, or generate if it doesn't exist 
+	if ( WP_DEBUG || false === ( $response = get_transient($transient_key) ) ):
+		$post_type = 'kbe_knowledgebase';
+		$taxonomy = 'kbe_taxonomy';
+		$tags = 'kbe_tags';
+		$post_order = get_theme_mod('kb_post_order', 'menu_order');
+		$term_order = get_theme_mod('kb_term_order', 'terms_order');
+		$response = array();
+		
+		// Get list of posts
+		$post_query = new WP_Query( array(
+			'post_type' => $post_type,
+			'posts_per_page' => -1,
+			'orderby' => $post_order,
+			'order' => 'ASC',
+		) );
+		if ( $post_query->have_posts() ){
+			while ( $post_query->have_posts() ): $post_query->the_post();
+				$response[] = array(
+					'title' => get_the_title(),
+					'link' => get_the_permalink(),
+					'type' => 'article',
+				);
+			endwhile;
+		}
+		wp_reset_postdata();
+		
+		// Get categories and tags
+		$taxonomy_types = array(
+			array(
+				'tax' => $taxonomy,
+				'args' => array( 'orderby' => $term_order, 'order' => 'ASC', 'hide_empty' => true ),
+				'type' => 'Category',
+			),
+			array(
+				'tax' => $tags,
+				'args' => array( 'orderby' => $term_order, 'order' => 'ASC', 'hide_empty' => true ),
+				'type' => 'Tag',
+			),
+		);
+		foreach ( $taxonomy_types as $tax_type ):
+			$terms = get_terms( $tax_type['tax'], $tax_type['args']);
+			if ( !is_wp_error($terms) && $terms ):
+				foreach ( $terms as $term ):
+					$response[] = array(
+						'title' => $term->name,
+						'link' => get_term_link( $term->term_id ),
+						'type' => $tax_type['type'],
+					);
+				endforeach;
+			endif;
+		endforeach;
+		
+		// Set/update the value of the transient
+		set_transient( $transient_key, $response, 12 * HOUR_IN_SECONDS );
+	endif;
+	
+	// Return error if no response data
+	if ( empty( $response ) ){
+		return new WP_Error( 'kb_no_articles', 'No articles available', array( 'status' => 404 ) );
+	}
+	
+	// Return either a WP_REST_Response or WP_Error object
+	return $response;
+}
