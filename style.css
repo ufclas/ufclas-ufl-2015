@@ -5,11 +5,11 @@ Theme URI: https://it.clas.ufl.edu/
 Author: Priscilla Chapman (CLAS IT)
 Author URI: https://it.clas.ufl.edu/
 Description: Official UF template for Liberal Arts and Sciences. Based on 160 over 90 template.
-Version: 0.8.7
+Version: 0.8.8
 License: GNU General Public License v2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 Text Domain: ufclas-ufl-2015
-Build Date: 20170224
+Build Date: 20170301
 */
 html, body, div, span, applet, object, iframe,
 h1, h2, h3, .kicker, .gform_wrapper .gform_heading .gform_description, .single-article .entry-content p.lead, .single-article .kbe_content p.lead, .featured-story h2, .single-article .widget-area h2, h4, h5, dt, h6, p, blockquote, pre,
@@ -3183,7 +3183,7 @@ form.search-wrap input, .btn-show-aux input, .btn-menu input, .btn-search-mobile
 .featured-story .read-more {
   display: none;
 }
-.featured-story .category-tag {
+.featured-story .category-tag, .featured-story .single-kbe_knowledgebase .entry-meta a[rel="tag"], .single-kbe_knowledgebase .entry-meta .featured-story a[rel="tag"] {
   display: none;
 }
 .featured-story h2 {
@@ -3216,12 +3216,12 @@ form.search-wrap input, .btn-show-aux input, .btn-menu input, .btn-search-mobile
 .featured-story.active:hover h2 {
   color: #00529b;
 }
-.featured-story.active .category-tag {
+.featured-story.active .category-tag, .featured-story.active .single-kbe_knowledgebase .entry-meta a[rel="tag"], .single-kbe_knowledgebase .entry-meta .featured-story.active a[rel="tag"] {
   display: block;
   z-index: 2;
 }
 @media (max-width: 992px) {
-  .featured-story.active .category-tag {
+  .featured-story.active .category-tag, .featured-story.active .single-kbe_knowledgebase .entry-meta a[rel="tag"], .single-kbe_knowledgebase .entry-meta .featured-story.active a[rel="tag"] {
     left: 25px;
   }
 }
@@ -3244,7 +3244,7 @@ form.search-wrap input, .btn-show-aux input, .btn-menu input, .btn-search-mobile
   color: #00529b;
 }
 
-.category-tag {
+.category-tag, .single-kbe_knowledgebase .entry-meta a[rel="tag"] {
   border: 5px solid #fff;
   background: #a9dcda;
   color: #00529b;
@@ -3257,11 +3257,11 @@ form.search-wrap input, .btn-show-aux input, .btn-menu input, .btn-search-mobile
   top: -25px;
   text-transform: uppercase;
 }
-.category-tag:hover {
+.category-tag:hover, .single-kbe_knowledgebase .entry-meta a[rel="tag"]:hover {
   background: #fff;
   color: #00529b;
 }
-.category-tag.orange {
+.category-tag.orange, .single-kbe_knowledgebase .entry-meta a.orange[rel="tag"] {
   background: #f37021;
   color: #fff;
 }
@@ -3568,33 +3568,33 @@ form.search-wrap input, .btn-show-aux input, .btn-menu input, .btn-search-mobile
     margin-left: 100px;
   }
 }
-.big-stat-wrap .category-tag, .tweet-block .category-tag {
+.big-stat-wrap .category-tag, .big-stat-wrap .single-kbe_knowledgebase .entry-meta a[rel="tag"], .single-kbe_knowledgebase .entry-meta .big-stat-wrap a[rel="tag"], .tweet-block .category-tag, .tweet-block .single-kbe_knowledgebase .entry-meta a[rel="tag"], .single-kbe_knowledgebase .entry-meta .tweet-block a[rel="tag"] {
   left: auto;
   top: 22px;
   right: 15px;
 }
 @media (min-width: 992px) {
-  .big-stat-wrap .category-tag, .tweet-block .category-tag {
+  .big-stat-wrap .category-tag, .big-stat-wrap .single-kbe_knowledgebase .entry-meta a[rel="tag"], .single-kbe_knowledgebase .entry-meta .big-stat-wrap a[rel="tag"], .tweet-block .category-tag, .tweet-block .single-kbe_knowledgebase .entry-meta a[rel="tag"], .single-kbe_knowledgebase .entry-meta .tweet-block a[rel="tag"] {
     top: 45px;
     right: -25px;
   }
 }
-.big-stat-wrap.alert .category-tag, .tweet-block.alert .category-tag {
+.big-stat-wrap.alert .category-tag, .big-stat-wrap.alert .single-kbe_knowledgebase .entry-meta a[rel="tag"], .single-kbe_knowledgebase .entry-meta .big-stat-wrap.alert a[rel="tag"], .tweet-block.alert .category-tag, .tweet-block.alert .single-kbe_knowledgebase .entry-meta a[rel="tag"], .single-kbe_knowledgebase .entry-meta .tweet-block.alert a[rel="tag"] {
   background: #ed1c24;
   color: #fff;
   left: 15px;
   right: auto;
 }
 @media (min-width: 992px) {
-  .big-stat-wrap.alert .category-tag, .tweet-block.alert .category-tag {
+  .big-stat-wrap.alert .category-tag, .big-stat-wrap.alert .single-kbe_knowledgebase .entry-meta a[rel="tag"], .single-kbe_knowledgebase .entry-meta .big-stat-wrap.alert a[rel="tag"], .tweet-block.alert .category-tag, .tweet-block.alert .single-kbe_knowledgebase .entry-meta a[rel="tag"], .single-kbe_knowledgebase .entry-meta .tweet-block.alert a[rel="tag"] {
     left: -15px;
   }
 }
-.big-stat-wrap.alert .category-tag:hover, .tweet-block.alert .category-tag:hover {
+.big-stat-wrap.alert .category-tag:hover, .big-stat-wrap.alert .single-kbe_knowledgebase .entry-meta a[rel="tag"]:hover, .single-kbe_knowledgebase .entry-meta .big-stat-wrap.alert a[rel="tag"]:hover, .tweet-block.alert .category-tag:hover, .tweet-block.alert .single-kbe_knowledgebase .entry-meta a[rel="tag"]:hover, .single-kbe_knowledgebase .entry-meta .tweet-block.alert a[rel="tag"]:hover {
   color: #ed1c24;
   background: #fff;
 }
-.big-stat-wrap.alert .category-tag .icon-alert, .tweet-block.alert .category-tag .icon-alert {
+.big-stat-wrap.alert .category-tag .icon-alert, .big-stat-wrap.alert .single-kbe_knowledgebase .entry-meta a[rel="tag"] .icon-alert, .single-kbe_knowledgebase .entry-meta .big-stat-wrap.alert a[rel="tag"] .icon-alert, .tweet-block.alert .category-tag .icon-alert, .tweet-block.alert .single-kbe_knowledgebase .entry-meta a[rel="tag"] .icon-alert, .single-kbe_knowledgebase .entry-meta .tweet-block.alert a[rel="tag"] .icon-alert {
   height: 15px;
   width: 15px;
   vertical-align: bottom;
@@ -3703,12 +3703,12 @@ form.search-wrap input, .btn-show-aux input, .btn-menu input, .btn-search-mobile
   font: 500 24px/32px "quadon", "Helvetica Neue", Helvetica, Arial, sans-serif;
   text-transform: none;
 }
-.big-stat-img .category-tag {
+.big-stat-img .category-tag, .big-stat-img .single-kbe_knowledgebase .entry-meta a[rel="tag"], .single-kbe_knowledgebase .entry-meta .big-stat-img a[rel="tag"] {
   right: auto;
   left: 15px;
 }
 @media (min-width: 992px) {
-  .big-stat-img .category-tag {
+  .big-stat-img .category-tag, .big-stat-img .single-kbe_knowledgebase .entry-meta a[rel="tag"], .single-kbe_knowledgebase .entry-meta .big-stat-img a[rel="tag"] {
     left: -25px;
   }
 }
@@ -4532,7 +4532,7 @@ form.search-wrap input, .btn-show-aux input, .btn-menu input, .btn-search-mobile
 .bio.velocity-animating .copy-wrap, .bio.velocity-animating:before {
   display: none !important;
 }
-.bio .category-tag {
+.bio .category-tag, .bio .single-kbe_knowledgebase .entry-meta a[rel="tag"], .single-kbe_knowledgebase .entry-meta .bio a[rel="tag"] {
   display: none;
 }
 .bio .copy-wrap {
@@ -4839,7 +4839,7 @@ form.search-wrap input, .btn-show-aux input, .btn-menu input, .btn-search-mobile
   }
 }
 @media (max-width: 992px) {
-  .content-box-module .category-tag {
+  .content-box-module .category-tag, .content-box-module .single-kbe_knowledgebase .entry-meta a[rel="tag"], .single-kbe_knowledgebase .entry-meta .content-box-module a[rel="tag"] {
     left: 25px;
   }
 }
@@ -4885,7 +4885,7 @@ form.search-wrap input, .btn-show-aux input, .btn-menu input, .btn-search-mobile
   }
 }
 @media (max-width: 992px) {
-  .content-box-module--tweet .category-tag {
+  .content-box-module--tweet .category-tag, .content-box-module--tweet .single-kbe_knowledgebase .entry-meta a[rel="tag"], .single-kbe_knowledgebase .entry-meta .content-box-module--tweet a[rel="tag"] {
     left: auto;
     right: 25px;
   }
@@ -6847,6 +6847,33 @@ figcaption {
 #live-search .awesomplete > ul > li, #live-search .entry-content .awesomplete > ol > li, .entry-content #live-search .awesomplete > ol > li, #live-search .kbe_content .awesomplete > ol > li, .kbe_content #live-search .awesomplete > ol > li, #live-search .wp-editor .awesomplete > ol > li, .wp-editor #live-search .awesomplete > ol > li {
   font-size: 18px;
   padding: 7.5px 30px;
+}
+
+.single-kbe_knowledgebase .entry-title {
+  margin-bottom: 0;
+}
+.single-kbe_knowledgebase .entry-meta {
+  margin-bottom: 45px;
+}
+.single-kbe_knowledgebase .entry-meta li:before {
+  content: none;
+  margin-right: 0;
+}
+.single-kbe_knowledgebase .entry-meta a[rel="tag"] {
+  border: none;
+  display: inline-block;
+  left: 0;
+  position: relative;
+  top: 0;
+  padding: 15px 7.5px 0;
+  background-color: transparent !important;
+}
+.single-kbe_knowledgebase .entry-meta a[rel="tag"]:before {
+  color: #4c87b5;
+  content: "\f323";
+  font-family: dashicons;
+  font-size: 12px;
+  padding-right: 2px;
 }
 
 /*# sourceMappingURL=style.css.map */

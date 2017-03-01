@@ -130,24 +130,12 @@ function ufclas_ufl_2015_kb_header(){
         'half',
         'FORM'
     );
-    
-    ob_start(); ?>
-    
-    <form id="live-search" action="<?php echo home_url('/'); ?>" method="get" class="search-form" role="search" autocomplete="off">
-    <label for="s" class="visuallyhidden"><?php esc_html_e('Search', 'ufclas-ufl-2015'); ?></label>
-    <input type="text" id="s" name="s" class="awesomplete" placeholder="<?php esc_attr_e('Search', 'ufclas-ufl-2015'); ?>" />
-    <button type="submit" class="btn-search">
-        <span class="icon-svg">
-        <svg>
-            <use xlink:href="<?php echo get_stylesheet_directory_uri(); ?>/img/spritemap.svg#search"></use>
-        </svg>
-      </span>
-    </button>
-    <input type="hidden" name="post_type" value="<?php echo $post_type; ?>" />
-    </form>
-
-    <?php
-    $form = ob_get_clean();
+    // Grab the form HTML
+	$form = get_search_form( false );
+	
+	// Add a form ID and input ID
+	$form = str_replace( 'role="search"', 'id="live-search" autocomplete="off" role="search"', $form );
+	$form = str_replace( 'name="query"', 'id="s" name="query"', $form );
     
     echo str_replace('<p>FORM</p>', $form, do_shortcode( $shortcode ) );   
 }
@@ -234,6 +222,30 @@ function ufclas_ufl_2015_kb_set_post_views() {
 	
 	if ( !is_user_logged_in() ){
 		kbe_set_post_views( $post->ID );
+	}
+}
+
+/**
+ * Template tag to display article category/tag/date
+ * 
+ * @since 0.8.8
+ */
+function ufclas_ufl_2015_kb_entry_meta() {
+  	$tags = 'kbe_tags';	
+	
+	/* translators: used between list items, there is a space after the comma */
+	$separate_meta = __( ', ', 'ufclas-ufl-2015' );
+
+	// Get Tags for posts.
+	$tags_list = get_the_term_list( get_the_ID(), $tags, '<ul class="term-list list-inline"><li>', '</li><li>', '</li></ul>' );
+
+	if ( $tags_list && !is_wp_error($tags_list)  ) {
+
+		echo '<div class="cat-tags-links">';
+
+		echo '<div class="tags-links"><span class="screen-reader-text">' . __( 'Tags', 'ufclas-ufl-2015' ) . '</span>' . $tags_list . '</div>';
+
+		echo '</div>';
 	}
 }
 

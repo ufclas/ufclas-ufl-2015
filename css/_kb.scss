@@ -1,7 +1,7 @@
 @charset "utf-8";
 
 .post-type-archive-kbe_knowledgebase, .tax-kbe_taxonomy, .tax-kbe_tag {
-    
+ 
     .landing-page-hero-full {
         background-color: #ccc;
         
@@ -144,5 +144,36 @@
 		}
 	}
 }
-
+.single-kbe_knowledgebase {
+	.entry-title {
+		margin-bottom: 0;
+	}
+	.entry-meta {
+		margin-bottom: $grid-gutter-width*1.5;
+		
+		li:before {
+			content: none;
+			margin-right: 0;	
+		}
+		
+		a[rel="tag"] {
+			@extend .category-tag;
+			border: none;
+			display: inline-block;
+			left: 0;
+			position: relative;
+			top: 0;
+			padding: $grid-gutter-width/2 $grid-gutter-width/4 0;
+			background-color: transparent !important;
+			
+			&:before {
+				color: $blueLight;
+				content: "\f323";
+				font-family: dashicons;
+				font-size: 12px;
+				padding-right: 2px;
+			}
+		}
+	}
+}
 

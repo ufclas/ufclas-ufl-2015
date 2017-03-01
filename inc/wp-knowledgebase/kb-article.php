@@ -24,7 +24,10 @@ get_header(); ?>
 		ufclas_ufl_2015_kb_breadcrumbs();
 	?>
     <header class="entry-header">
-      <?php the_title( '<h1 class="page-title">', '</h1>' ); ?>
+      <?php the_title( '<h1 class="entry-title">', '</h1>' ); ?>
+      <div class="entry-meta">
+	  	<?php ufclas_ufl_2015_kb_entry_meta(); ?>
+      </div>
     </header>
     <!-- .entry-header --> 
   </div>
