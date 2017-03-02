@@ -149,8 +149,14 @@ function ufclas_ufl_2015_kb_header(){
  */
 function ufclas_ufl_2015_kb_classes( $classes ) {
 	
-	if ( is_post_type_archive('kbe_knowledgebase') && !is_tax('kbe_taxonomy') && !is_tax('kbe_tags') ){
-		$classes[] = 'kb-homepage';
+	if ( is_post_type_archive('kbe_knowledgebase') ){
+		
+		if ( is_tax('kbe_taxonomy') ){
+			$classes[] = 'kbe_taxonomy-' . get_queried_object_id();
+		}
+		elseif ( !is_tax('kbe_taxonomy') && !is_tax('kbe_tags') ){
+			$classes[] = 'kb-homepage';
+		}
 	}
 	
 	return $classes;
