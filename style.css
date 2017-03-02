@@ -5015,6 +5015,9 @@ a:focus, a:hover {
 .entry-content h2, .kbe_content h2, .wp-editor h2 {
   margin-top: 60px;
 }
+.entry-content h2:first-child, .kbe_content h2:first-child, .wp-editor h2:first-child {
+  margin-top: 30px;
+}
 .entry-content h5, .kbe_content h5, .entry-content dt, .kbe_content dt, .wp-editor h5, .wp-editor dt {
   line-height: 24px;
 }
@@ -5259,6 +5262,7 @@ strong {
 
 .entry-footer {
   clear: both;
+  margin-top: 30px;
 }
 
 .screen-reader-title {
@@ -6852,9 +6856,6 @@ figcaption {
 .single-kbe_knowledgebase .entry-title {
   margin-bottom: 0;
 }
-.single-kbe_knowledgebase .entry-meta {
-  margin-bottom: 45px;
-}
 .single-kbe_knowledgebase .entry-meta li:before {
   content: none;
   margin-right: 0;
@@ -6865,8 +6866,6 @@ figcaption {
   left: 0;
   position: relative;
   top: 0;
-  padding: 15px 7.5px 0;
-  background-color: transparent !important;
 }
 .single-kbe_knowledgebase .entry-meta a[rel="tag"]:before {
   color: #4c87b5;

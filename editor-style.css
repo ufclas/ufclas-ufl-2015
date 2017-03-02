@@ -5001,6 +5001,9 @@ a:focus, a:hover {
 .entry-content h2, .wp-editor h2 {
   margin-top: 60px;
 }
+.entry-content h2:first-child, .wp-editor h2:first-child {
+  margin-top: 30px;
+}
 .entry-content h5, .entry-content dt, .wp-editor h5, .wp-editor dt {
   line-height: 24px;
 }
@@ -5245,6 +5248,7 @@ strong {
 
 .entry-footer {
   clear: both;
+  margin-top: 30px;
 }
 
 .screen-reader-title {

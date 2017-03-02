@@ -33,6 +33,8 @@
     
     <footer class="entry-footer">
 		<?php
+			ufclas_ufl_2015_kb_entry_meta();
+			
 			wp_link_pages( array(
 				'before' => '<div class="page-links">' . esc_html__( 'Pages:', 'ufclas-ufl-2015' ),
 				'after'  => '</div>',

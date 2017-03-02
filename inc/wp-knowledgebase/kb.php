@@ -237,21 +237,22 @@ function ufclas_ufl_2015_kb_set_post_views() {
  * @since 0.8.8
  */
 function ufclas_ufl_2015_kb_entry_meta() {
-  	$tags = 'kbe_tags';	
-	
-	/* translators: used between list items, there is a space after the comma */
-	$separate_meta = __( ', ', 'ufclas-ufl-2015' );
+  	$tags = 'kbe_tags';
 
 	// Get Tags for posts.
 	$tags_list = get_the_term_list( get_the_ID(), $tags, '<ul class="term-list list-inline"><li>', '</li><li>', '</li></ul>' );
 
-	if ( $tags_list && !is_wp_error($tags_list)  ) {
+	if ( $tags_list && !is_wp_error($tags_list)  ) { 
+	?>
+		
+		<div class="entry-meta cat-tags-links">
+			<div class="tags-links">
+				<span class="screen-reader-text"><?php echo __( 'Tags:', 'ufclas-ufl-2015' ); ?></span>
+                <?php echo $tags_list; ?>
+            </div>
+		</div>
 
-		echo '<div class="cat-tags-links">';
-
-		echo '<div class="tags-links"><span class="screen-reader-text">' . __( 'Tags', 'ufclas-ufl-2015' ) . '</span>' . $tags_list . '</div>';
-
-		echo '</div>';
+	<?php
 	}
 }
 

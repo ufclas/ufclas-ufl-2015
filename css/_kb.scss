@@ -149,7 +149,6 @@
 		margin-bottom: 0;
 	}
 	.entry-meta {
-		margin-bottom: $grid-gutter-width*1.5;
 		
 		li:before {
 			content: none;
@@ -163,8 +162,6 @@
 			left: 0;
 			position: relative;
 			top: 0;
-			padding: $grid-gutter-width/2 $grid-gutter-width/4 0;
-			background-color: transparent !important;
 			
 			&:before {
 				color: $blueLight;

@@ -50,7 +50,11 @@ a:focus, a:hover {
 		font-weight: 500;
 	}
 	h2 {
-		margin-top: 60px;
+		margin-top: $grid-gutter-width*2;
+		
+		&:first-child {
+			margin-top: $grid-gutter-width;	
+		}
 	}
 	h5 {
 		line-height: 24px;
@@ -302,7 +306,8 @@ strong {
 	font-weight: 500;	
 }
 .entry-footer {
-	clear: both;	
+	clear: both;
+	margin-top: $grid-gutter-width*2;	
 }
 
 .screen-reader-title {
