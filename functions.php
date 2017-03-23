@@ -167,7 +167,7 @@ add_filter( 'body_class', 'ufclas_ufl_2015_body_classes' );
  * Registers an editor stylesheet for the theme
  */
 function ufclas_ufl_2015_editor_styles() {
-	add_editor_style();
+	add_editor_style('editor-style.css');
 }
 add_action( 'admin_init', 'ufclas_ufl_2015_editor_styles' );
 
@@ -264,9 +264,4 @@ if ( class_exists( 'IssueM' ) ) {
 // Advanced custom fields
 if( function_exists( 'register_field_group' )){
 	require get_stylesheet_directory() . '/inc/advanced-custom-fields/metaboxes.php';
-}
-
-// WP Knowlegebase support
-if( function_exists( 'kbe_styles' )){
-	require get_stylesheet_directory() . '/inc/wp-knowledgebase/kb.php';
 }
