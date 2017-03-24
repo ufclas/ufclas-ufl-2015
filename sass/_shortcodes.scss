@@ -1,0 +1,103 @@
+.landing-page-hero-full { 
+	
+	@include breakFirst(large){
+		margin-bottom: $grid-gutter-width*2;
+	}
+	@include breakFirst(wide){
+		margin-top: 0px;
+	}
+	.hero-img {
+		h1 {
+			text-shadow: 2px 3px 2px $grayDark;
+			letter-spacing: 2px;
+			position: relative;
+			bottom: auto;
+		}
+		h2 {
+			text-align: center;
+			color: #fff;
+			letter-spacing: 2px;
+			font-weight: normal;
+		}
+	}
+	.hero-heading {
+		position: absolute;
+		bottom: 30px;
+		width: 100%;
+		padding-left: $grid-gutter-width/2;
+		padding-right: $grid-gutter-width/2;
+	}
+	
+	/* Adds positioning for half hero image size */
+	.hero-img-half {
+		height: 225px;
+		
+		@include breakFirst(large){
+			background-position: center center; 
+		}
+	}
+	.hero-img-medium {
+		height: 375px;
+	}
+}
+.content-box-module {
+    margin-top: $grid-gutter-width*2;
+}
+.landing-page-hero { 
+	
+	@include breakFirst(large){
+		margin-top: $grid-gutter-width*2;
+		margin-bottom: $grid-gutter-width*2;
+	}
+	.hero-content {
+		@include breakTo(medium){
+			margin: 20px 0 0;
+			width: 100%;
+		}
+	}
+}
+.image-right-quote {
+	.quote {
+		padding: $grid-gutter-width/2;
+	}
+	
+	@include breakFirst(large){
+		margin-top: $grid-gutter-width*2;
+		margin-bottom: $grid-gutter-width*2;
+	}
+}
+.content-image-left.gal-list-wrap {
+	margin-top: $grid-gutter-width*2;
+	margin-bottom: $grid-gutter-width*2;
+	
+	.gal-img {
+		@include breakTo(medium){
+			float: none;
+			width: 100%;
+			height: 200px;
+			
+		}
+	}
+	.caption {
+		@include breakTo(medium){
+			float: none;
+			width: 100%;
+			margin-top: 0;
+		}
+	}
+	.gal-img-content {
+		@include breakFirst(medium){
+			padding: $grid-gutter-width;
+			
+		}
+		h2 {
+			margin-top: 0;
+		}
+	}
+}
+.img-callout-wrapper {
+	.img-callout-wrap:nth-child(even) {
+		margin-bottom: 20px;	
+	}	
+}
+

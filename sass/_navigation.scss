@@ -1,0 +1,315 @@
+@charset "utf-8";
+
+.main-menu-wrap {
+	// Show white background if not menu set,
+	@include breakFirst(medium){
+		height: 100px;
+	}
+}
+.main-menu-wrap {
+	.main-menu-link {
+		@include breakTo(wide){
+			font-size: 14px;
+		}
+	}
+	#menu-item-more .icon-caret.icon-svg {
+		display: none;
+	}
+}
+.aux-menu-wrap .aux-nav a {
+	font-size: 12px;
+	font-weight: 400;
+}
+
+
+
+/* Bring first link in global nav closer to the UF logo */
+.aux-menu-wrap .aux-nav li.global-menu-title a {
+	font-size: 14px;
+	font-weight: 700;
+	color: $beigeDark;
+	
+	@include breakFirst(wide){
+		padding-left: 13px;
+		padding-right: 20px;
+		font-size: 15px;
+	}
+}
+
+/* Prevent global menu from dropping down on smaller screens */
+.aux-menu-wrap {
+    @include breakFirst(wide){
+		position: absolute;
+      	top: 0;
+	}
+	.audience-nav-wrap { 
+        background-color: $orangeDark;
+        
+        @include breakFirst(medium){
+            margin-right: 50px;
+            position: absolute;
+        }
+        /* Fixes SVG icon display in FF */
+        .arw-right svg {
+			transform: translate(0, 0);
+			margin: 18px 12px;
+			top: 0;
+			left: 0;
+		}
+		&:hover .arw-right svg, &:focus .arw-right svg {
+			transform: translate(0, 0);
+		}
+        .cur-audience {
+            background-color: $orangeDark;
+        }
+    }
+}
+
+
+
+.subnav {
+	border:none;
+	min-height: auto;
+	
+	/* Remove space between landing page hero and subnav */
+	@include breakFirst(large){
+		margin-bottom: $grid-gutter-width*1.5;
+		
+		.landing-page-hero-full + & {
+			margin-top: -$grid-gutter-width*2;	
+		}
+    }
+	.navbar-nav {
+		margin-top: 0;
+		margin-bottom: 0;
+		
+		@include breakFirst(medium){
+			display: inline-block;
+			float: none;
+			vertical-align: top;
+		}
+	}
+	.navbar-collapse {
+		text-align: center;	
+	}
+	.navbar-header {
+		text-align: center;
+	}
+	
+	.navbar-toggle {
+		margin: 0;
+		float: none;
+		border: none;
+		text-transform: uppercase;
+		font-weight: 500;
+		
+		.glyphicon {
+			top: 1px;
+			font-size: $font__size_xxs;	
+		}
+	}
+	
+	.menu-item {
+		background-color: transparent;
+		padding: 0;
+		top: 0;
+		margin-bottom: 0;
+		font-weight: 500;
+		width: 100%;
+		
+		&:before {
+			content: none;
+			margin: 0;	
+		}
+		
+		&.dropdown {
+			overflow: visible;
+		}
+		.dropdown-menu {
+			border: none;
+			box-shadow: none;
+			padding: 0;
+		}
+		a {
+			border-top: none;
+			font-family: $fontFamily;
+			font-size: $font__size_xxs;
+			text-transform: uppercase;
+			letter-spacing: 2px;
+			line-height: 14px;
+			text-align: center;
+			height: $size__menu_height;	
+		}
+		
+		@include breakFirst(medium){
+			width: auto;
+			
+			&.dropdown {
+				min-width: auto;
+			}
+			.dropdown-menu>li>a {
+				text-align: left;
+				line-height: $size__menu_height - 7.5px;	
+			}
+    	}
+	}
+	
+	
+	&.subnav-dark {
+		&, .dropdown-menu {
+			background-color: $blueDark;
+		}
+		.navbar-toggle {
+			color: rgba(255,255,255,0.5);
+			background-color: transparent !important;	
+		}
+		.menu-item a {
+			color: rgba(255,255,255,0.5);
+			background-color: transparent;	
+		}
+		.menu-item a:hover, .menu-item.open>a {
+			color: #fff;
+            background-color: rgba(0,0,0,0.5);	
+		}
+	}
+}
+
+/* Fixes SVG icon display in FF */ 
+.big-list, .sidenav, .single-article .widget-area .widget ul {
+	.btn-mobile-toggle a svg {
+		transform: translate(0, 0) rotate(90deg);
+		transform-origin: center;
+		margin: 15px 0px;
+		top: 0px;
+		left: 0px;
+		width: 100%;
+	}
+	&.open-list .btn-mobile-toggle .arw-right svg {
+		transform: translate(0, 0) rotate(-90deg);
+	}
+}
+
+.search-form {
+	position: relative;
+	
+	button.btn-search {
+		height: 58px;
+		top: 0;
+		right: 0;
+		position: absolute;
+	}
+}
+.search-wrap {
+	&.mobile input {
+		background-color: $white;
+	}
+}
+
+/* Sidebar Navigation */
+
+.sidenav {
+	margin-bottom: $grid-gutter-width !important;
+}
+.sidenav a {
+    line-height: 20px;
+	letter-spacing: 1px;
+}
+.sidenav li li a {
+    font-size: 14px;
+	letter-spacing: 0;
+	line-height: 18px;
+	text-transform: none;
+}
+.sidenav .page_item_has_children.current_page_item .children,
+.sidenav .page_item_has_children.current_page_ancestor .children {
+	display: block;	
+}
+.social-nav {
+	margin-bottom: 0;
+	
+	li:last-of-type {
+		padding-bottom: $grid-gutter-width/2;	
+	}
+	
+	.icon-svg svg {
+		top: 14px;
+		left: 11px;
+		transform: translate(0%, 0%);
+		width: 19px;
+		height: 19px;
+	}
+}
+
+/* Page/Post Navigation */
+
+.pagination, .post-navigation {
+	border-top: 5px solid $orange;
+	border-image: url(img/main-menu-hover.png) 25 30 10 20 repeat;
+	padding: $grid-gutter-width/2 0;
+	margin-bottom: $grid-gutter-width;
+	width: 100%;
+	clear: both;
+	overflow: auto;
+	font-family: $serifFontFamily;
+	font-size: 16px;
+	line-height: 22px;
+}
+.pagination {
+	text-align: center;
+	font-weight: 500;
+	
+	.page-numbers {
+		padding: $grid-gutter-width/4 $grid-gutter-width/2;
+		display: none;
+		
+		@include breakFirst(medium){
+			display: inline;
+		}
+		
+		&.prev, &.next {
+			text-transform: uppercase;
+			font-family: $fontFamily;
+			font-weight: 700;
+			padding-top: 0;
+			display: block;
+			padding-top: 0;
+		}
+		
+		&.prev {
+			float: left;	
+		}
+		&.next {
+			float: right;
+		}
+	}
+}
+.post-navigation {
+	
+	.nav-previous, .nav-next {
+		padding: 0 $grid-gutter-width/4;
+		
+		@include breakFirst(medium){
+			width: 45%;
+		}
+	}
+	.nav-previous {
+		@include breakFirst(medium){
+			float: left;
+		}
+	}
+	.nav-next {
+		padding-top: $grid-gutter-width/2;
+		
+		@include breakFirst(medium){
+			float: right;
+			text-align: right;
+			padding-top: 0;
+		}
+	}
+	.meta-nav {
+		text-transform: uppercase;
+		font-family: $fontFamily;
+		font-weight: 700;
+		display: block;
+	}
+}

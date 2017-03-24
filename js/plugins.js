@@ -1,8 +1,0 @@
-// @koala-append "plugins/iframe-resizer.min.js"
-// @koala-append "plugins/jquery.hoverIntent.min.js"
-// @koala-append "plugins/js-cookie.js"
-// @koala-append "plugins/slick.min.js"
-// @koala-append "plugins/modernizr.min.js"
-// @koala-append "plugins/svg4everybody.min.js"
-// @koala-append "plugins/smartresize-debounce.js"
-// @koala-append "plugins/smooth-scrolling.js"

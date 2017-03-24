@@ -41,6 +41,11 @@ Documentation
 Changelog
 ---------
 
+### 0.9.x
+
+- Removes WP Knowledgebase templates and code, migrates to a feature plugin (ufclas-knowledgebase)
+- Adds config files to use Grunt to combine and minify CSS and JS files
+
 ### 0.8.x
 
 - Adds support for [WP Knowledgebase](https://wordpress.org/plugins/wp-knowledgebase/) (Enigma Plugins)

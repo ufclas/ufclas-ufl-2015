@@ -1,7 +1,10 @@
+/*!
+ * UFL Theme scripts
+ */
 jQuery(function($){
 	/*!
 	 * UFL Audience Cookies
-	 * Requires js.cookie.js 
+	 * Requires js.cookie.js
 	 */
 	function ufl_audience_preference_set_html(ufl_cookie) {
 		if (ufl_cookie) {
@@ -28,7 +31,7 @@ jQuery(function($){
 	 * Requires js.cookie.js 
 	 */
 	function ufl_site_alert_cookie() {
-		ufl_site_alert_cookie = Cookies.get('ufl_site_alert_cookie');
+		var ufl_site_alert_cookie = Cookies.get('ufl_site_alert_cookie');
 		if (ufl_site_alert_cookie === 'hide') {
 			$('.emergency-modal-wrap').hide();
 		}
@@ -54,7 +57,7 @@ jQuery(function($){
 		$(".stat-breaker.randomized").each(function(  ){
 			var contentID = $(this).data("content-id");
 			$(this).find(".stat-block-wrap").each(function(  ){
-				if (statIndex >= stats.length) { statIndex = 0 }
+				if (statIndex >= stats.length) { statIndex = 0; }
 				var positionID = $(this).data("position");
 				$(this).find("h2").html(stats[statIndex].stat);
 				$(this).find("p").html(stats[statIndex].info);
@@ -66,7 +69,7 @@ jQuery(function($){
 			});
 		});
 		$(".homepage-stat-wrap").find(".stat-wrap.randomized").each(function(  ){
-			if (statIndex >= stats.length) { statIndex = 0 }
+			if (statIndex >= stats.length) { statIndex = 0; }
 			var position = $(this).data("position");
 			$(this).find(".stat h2").html(stats[statIndex].stat);
 			$(this).find(".info-copy p").html(stats[statIndex].info);
@@ -96,7 +99,7 @@ jQuery(function($){
 			var bios = json.data;
 			bios.splice(-1,1);
 			if ( affiliation != 'all' ) {
-				var bios = $.grep(bios,function(bio,i){
+					bios = $.grep(bios,function(bio,i){
 					return ( bio.affiliation == affiliation );
 				});
 			}
@@ -110,7 +113,7 @@ jQuery(function($){
 				copy.children('h3').html(shuffledBios[i].title);
 				copy.children('p').html(shuffledBios[i].bio);
 				copy.children('span.category-tag').html(shuffledBios[i].affiliation);
-				if (i == 0) {
+				if (i === 0) {
 					featured.children('h2').html(shuffledBios[i].bioname);
 					featured.children('h3').html(shuffledBios[i].title);
 					featured.children('p').html(shuffledBios[i].bio);
@@ -170,7 +173,7 @@ jQuery(function($){
 				var mid = Math.ceil(lis.length/2);
 				newCol = $('<ul />', {"class": "col-md-6"}).insertAfter(ul);
 				lis.each(function(i) {
-					i >= mid && $(this).appendTo(newCol);
+					if (i >= mid){$(this).appendTo(newCol);}
 				});
 			});
 		}
@@ -270,7 +273,7 @@ jQuery(function($){
 	}
 	$('.main-menu-wrap > ul > li').hoverIntent({
 		over: function(){
-			showDropdown($(this))
+			showDropdown($(this));
 		},
 		out: function(){
 			$(this).removeClass('hover');
@@ -302,10 +305,10 @@ jQuery(function($){
 			if($body.hasClass('open-mobile-dropdown')){
 				$body.removeClass('open-mobile-dropdown');
 				$mobileDropdown.empty();
-				$('.aux-menu-wrap a').off('click.mobileNoClick')
+				$('.aux-menu-wrap a').off('click.mobileNoClick');
 			} else {
 				$body.addClass('open-mobile-dropdown');
-				var dropdownHtml = ( $this.next('.dropdown').html() != undefined )? $this.next('.dropdown').html():'';
+				var dropdownHtml = ( $this.next('.dropdown').html() !== undefined )? $this.next('.dropdown').html():'';
 				$mobileDropdown.html('<h2><a href="'+$this.attr('href')+'">'+ $this.text() + '</a></h2>' + dropdownHtml );
 
 				// Mobile dropdown height if VH isn't supported
@@ -348,7 +351,7 @@ jQuery(function($){
 				});
 			},0);
 		}
-	})
+	});
 
 	// Footer mobile accordian
 	$('.footer-menu h2').on('click',function(){
@@ -500,7 +503,7 @@ jQuery(function($){
 
 	// Bio hover effects
 	$(document).on('mouseenter','.bio',function(){
-		if(Modernizr.touch == false && $(window).width() > 767){
+		if(Modernizr.touch === false && $(window).width() > 767){
 			$(this).find('h2,h3,.arw-right').velocity('finish').velocity('transition.slideUpIn',{
 				duration: 400,
 				easing: 'easeOut',
@@ -520,7 +523,7 @@ jQuery(function($){
 
 	// Stat block animation
 	$('.stat-block-wrap').on('mouseenter',function(){
-		if(Modernizr.touch == false && $(window).width() > 992){
+		if(Modernizr.touch === false && $(window).width() > 992){
 			$this = $(this);
 			$infoCopy = $('.info-copy',this);
 
@@ -546,7 +549,7 @@ jQuery(function($){
 			});
 		}
 	}).on('mouseleave',function(){
-		if(Modernizr.touch == false && $(window).width() > 992){
+		if(Modernizr.touch === false && $(window).width() > 992){
 			$('.stat',this).velocity('stop').velocity('reverse');
 
 			$('.info',this).velocity('stop').velocity({
@@ -632,7 +635,7 @@ jQuery(function($){
 
 		// Get all options from this select box
 		$('option',this).each(function(){
-			$styledSelect.find('ul').append('<li><a href="#" data-value="'+$(this).val()+'">'+$(this).text()+'</a></li>')
+			$styledSelect.find('ul').append('<li><a href="#" data-value="'+$(this).val()+'">'+$(this).text()+'</a></li>');
 		});
 
 		// Hide this select box
@@ -699,11 +702,11 @@ jQuery(function($){
 
 	// Custom checkboxes
 	$('.uf-check input[type="checkbox"]').each(function(){
-		$(this).after('<div><span class="icon-svg"><svg><use xlink:href="'+ufclas_ufl_2015_sitedata.theme_url+'/img/spritemap.svg#close"></use></svg></span></div>')
+		$(this).after('<div><span class="icon-svg"><svg><use xlink:href="'+ufclas_ufl_2015_sitedata.theme_url+'/img/spritemap.svg#close"></use></svg></span></div>');
 	});
 	// Custom radio buttons
 	$('.uf-check input[type="radio"]').each(function(){
-		$(this).after('<div></div>')
+		$(this).after('<div></div>');
 	});
 
 	//// Homepage infinite scroll

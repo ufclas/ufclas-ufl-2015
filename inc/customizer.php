@@ -85,7 +85,7 @@ add_action('wp_enqueue_scripts', 'ufclas_ufl_2015_customize_css');
  * @since 0.4.0
  */
 function ufclas_ufl_2015_customize_script() {
-	wp_enqueue_script( 'ufl-2015-themecustomizer',	get_template_directory_uri() . '/js/theme-customizer.js', array( 'jquery','customize-preview' ), null, true	);
+	wp_enqueue_script( 'ufl-2015-themecustomizer',	get_template_directory_uri() . '/js/customizer.min.js', array( 'jquery','customize-preview' ), null, true	);
 }
 add_action('customize_preview_init', 'ufclas_ufl_2015_customize_script');
  

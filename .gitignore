@@ -5,3 +5,6 @@ Thumbs.db
 *.orig
 .DS_Store
 fonts
+node_modules
+.npm-debug.log
+tmp

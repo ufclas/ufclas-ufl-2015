@@ -1,0 +1,122 @@
+.tribe-events-list-widget {
+	.tribe-list-widget { 
+		margin-left: 0;
+		
+		li {
+			position: relative;
+			margin-left: 55px;
+			padding-left: 10px;
+			border-left: 1px solid #ccc;
+		}
+	}
+	.tribe-event-title {
+		font-size: 16px;
+		line-height: 22px;
+		letter-spacing: 1px;
+		margin-bottom: 0;
+		
+		em {
+			text-transform: none;
+			font-size: 16px;	
+		}
+	}
+	.tribe-event-duration {
+		font-size: 16px;
+		line-height: 26px;	
+	}
+	.event-date {
+		position: absolute;
+		top: 0;
+		left: -50px;
+		width: 45px;
+		font-family: $fontFamily;
+		text-align: center;
+		color: $blueLight;
+	}
+	.event-month {
+		font-size: 20px;
+		font-weight: 400;
+	}
+	.event-day {
+		font-size: 32px;
+		letter-spacing: -1px;
+	}
+	.tribe-events-widget-link {
+		text-transform: uppercase;
+		letter-spacing: 1px;
+		margin-left: 65px;	
+	}
+}
+
+#tribe-events {
+	.tribe-events-button {
+		border: 3px solid $orange;
+		color: $orange;
+		font-family: $fontFamily;
+		font-size: 16px;
+		padding: $grid-gutter-width/2;
+		background-color: transparent;
+		
+		&:hover, &:active {
+			background-color: $orange;
+			color: $white;
+		}
+	}
+}
+.events-archive {
+	.tribe-events-event-meta {
+		margin: $grid-gutter-width/2 0;
+		font-size: 100%;
+		line-height: 30px;
+		font-weight: 500;
+	}
+}
+.single-tribe_events {	
+	.tribe-events-single-event-title {
+		text-transform: none;
+		font-size: 30px;
+		font-weight: 500;
+		margin-bottom: 50px;
+		
+		em {
+			font-weight: 100;	
+		}
+		
+		@include breakFirst(medium){
+			font-size: 48px;
+		}
+	}
+	.tribe-events-single-section-title {
+		font-weight: 500;	
+	}
+	.tribe-events-schedule {
+		background: transparent;
+		border: none;
+		padding: 0;
+		margin: $grid-gutter-width/2 0;
+		
+		h2 {
+			margin-top: 0;
+			font-size: 18px;
+			font-weight: 500;
+			color: $blue;
+			
+			@include breakFirst(medium){
+				font-size: 18px;
+			}
+		}
+	}
+	.tribe-events-event-meta {
+		background-color: $beige;
+		border-color: $beigeDark;
+		font-size: 100%;	
+	}
+	#tribe-events-footer {
+		border-top: 5px solid $orange;
+		border-image: url(img/main-menu-hover.png) 25 30 10 20 repeat;
+		padding: $grid-gutter-width 0 0;
+		margin-bottom: $grid-gutter-width;
+		font-family: $serifFontFamily;
+		font-size: 16px;
+	}
+}
