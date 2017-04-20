@@ -1790,30 +1790,28 @@ form.search-wrap input, .btn-show-aux input, .btn-menu input, .btn-search-mobile
   margin: 0;
   padding: 10px;
   position: absolute;
-  transform: translate3d(0, 0, 0);
   transition: transform .25s ease-out;
   top: 10px;
-  width: 100%;
-  z-index: 1;
-  -webkit-appearance: none;
+  width: 320px;
+  z-index: 9999;
 }
 @media (min-width: 992px) {
   form.search-wrap input, .btn-show-aux input, .btn-menu input, .btn-search-mobile input {
     top: auto;
-    width: 350px;
+    width: 320px;
   }
 }
 .no-csstransforms3d form.search-wrap input, .no-csstransforms3d .btn-show-aux input, .no-csstransforms3d .btn-menu input, .no-csstransforms3d .btn-search-mobile input {
-  transform: translateX(0);
+  transform: scaleX(1);
 }
 @media (min-width: 992px) {
   form.search-wrap.open-search input, .btn-show-aux.open-search input, .btn-menu.open-search input, .btn-search-mobile.open-search input {
-    transform: translate3d(-100%, 0, 0);
+    transform: scaleX(1);
   }
 }
 @media (min-width: 992px) {
   .no-csstransforms3d form.search-wrap.open-search input, .no-csstransforms3d .btn-show-aux.open-search input, .no-csstransforms3d .btn-menu.open-search input, .no-csstransforms3d .btn-search-mobile.open-search input {
-    transform: translateX(-100%);
+    transform: scaleX(1);
   }
 }
 
@@ -2387,6 +2385,11 @@ form.search-wrap input, .btn-show-aux input, .btn-menu input, .btn-search-mobile
   width: 80%;
   z-index: 1000;
   -webkit-overflow-scrolling: touch;
+}
+@media (min-width: 480px) {
+  .mobile-dropdown-wrap {
+    display: none;
+  }
 }
 .open-mobile-dropdown .mobile-dropdown-wrap {
   transform: translateX(0);
@@ -5277,6 +5280,46 @@ strong {
   /* required */
 }
 
+.article-post-title, .widget-post-title, .issuem_article_list_widget .issuem_widget_title {
+  font-family: "gentona", "Georgia", serif;
+  font-size: 24px;
+  line-height: 30px;
+  letter-spacing: 0;
+  margin-bottom: 15px;
+  text-transform: uppercase;
+}
+.article-post-title a, .widget-post-title a, .issuem_article_list_widget .issuem_widget_title a {
+  font-weight: 500;
+  letter-spacing: 0;
+}
+
+.article-post-more, .article-post-excerpt .read-more, .widget-post-excerpt .read-more, .issuem_article_list_widget .issuem_widget_teaser .read-more, .widget-post-more, .issuem_article_list_widget a.read-more {
+  font-size: 14px;
+}
+
+.article-post-excerpt, .widget-post-excerpt, .issuem_article_list_widget .issuem_widget_teaser {
+  font-size: 16px;
+  line-height: 26px;
+}
+
+.article-post-thumbnail, .widget-post-thumbnail, .issuem_article_list_widget .attachment-issuem-featured-thumb-image {
+  display: block;
+  margin-bottom: 15px;
+}
+@media (min-width: 480px) {
+  .article-post-thumbnail, .widget-post-thumbnail, .issuem_article_list_widget .attachment-issuem-featured-thumb-image {
+    float: left;
+    margin-right: 15px;
+    margin-bottom: 30px;
+  }
+}
+@media (min-width: 768px) {
+  .article-post-thumbnail, .widget-post-thumbnail, .issuem_article_list_widget .attachment-issuem-featured-thumb-image {
+    margin-right: 30px;
+    margin-bottom: 30px;
+  }
+}
+
 .admin-bar .header {
   top: 46px;
   position: absolute;
@@ -5791,47 +5834,6 @@ strong {
   font-size: 16px;
   line-height: 24px;
   padding-right: 15px;
-}
-
-.widget-post-title, .issuem_article_list_widget .issuem_widget_title {
-  font-family: "gentona", "Georgia", serif;
-  font-size: 24px;
-  line-height: 30px;
-  letter-spacing: 0;
-  margin-bottom: 15px;
-  text-transform: uppercase;
-}
-.widget-post-title a, .issuem_article_list_widget .issuem_widget_title a {
-  font-weight: 500;
-  letter-spacing: 0;
-}
-
-.widget-post-more, .widget-post-excerpt .read-more, .issuem_article_list_widget .issuem_widget_teaser .read-more, .issuem_article_list_widget a.read-more {
-  font-size: 14px;
-}
-
-.widget-post-excerpt, .issuem_article_list_widget .issuem_widget_teaser {
-  font-size: 16px;
-  line-height: 26px;
-}
-
-.widget-post-thumbnail, .issuem_article_list_widget .attachment-issuem-featured-thumb-image {
-  display: block;
-  margin-top: 15px;
-  margin-bottom: 15px;
-}
-@media (min-width: 480px) {
-  .widget-post-thumbnail, .issuem_article_list_widget .attachment-issuem-featured-thumb-image {
-    float: left;
-    margin-top: 15px;
-    margin-bottom: 30px;
-  }
-}
-@media (min-width: 768px) {
-  .widget-post-thumbnail, .issuem_article_list_widget .attachment-issuem-featured-thumb-image {
-    margin-right: 30px;
-    margin-bottom: 30px;
-  }
 }
 
 .gform_wrapper .gform_body select, .gform_wrapper .gform_body textarea, .gform_wrapper .gform_body input[type="text"], .gform_wrapper .gform_body input[type="email"] {

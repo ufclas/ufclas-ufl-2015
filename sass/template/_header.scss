@@ -157,27 +157,31 @@ form.search-wrap,.btn-show-aux, .btn-menu,.btn-search-mobile {
 		margin: 0;
 		padding: 10px;
 		position: absolute;
-		transform: translate3d(0,0,0);
+		transform: scaleX(0);
+		transform-origin: right;
 		transition: transform .25s ease-out;
 		top: 10px;
-		width: 100%;
+		//width: 100%;
+		//width: 320px;
 		z-index: 1;
-		-webkit-appearance: none;
+		//z-index: 9999;
 		@include breakFirst(large){
 			top: auto;
-			width: 350px;
+			//width: 320px;
 		}
 	  .no-csstransforms3d & {
-			transform: translateX(0)
+			transform: scaleX(1);
 	  }
 	}
 	&.open-search input {
 		@include breakFirst(large){
-			transform: translate3d(-100%,0,0);
+			width: 320px;
+			left: -320px;
+			transform: scaleX(1);
 		}
 	  .no-csstransforms3d & {
 			@include breakFirst(large){
-				transform: translateX(-100%)
+				transform: scaleX(1);
 		  }
 		}
 	}
@@ -686,6 +690,9 @@ form.search-wrap,.btn-show-aux, .btn-menu,.btn-search-mobile {
 	}
 }
 .mobile-dropdown-wrap {
+	@include breakFirst($screen-phone){
+		display: none;
+	}
 	background: $beigeLight;
 	border-left: 1px solid $beigeDark;
 	height: calc(100vh - 60px);
