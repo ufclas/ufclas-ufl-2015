@@ -918,8 +918,15 @@ UF Branding Fonts
 }
 @font-face {
   font-family: "gentona";
-  src: url("https://assets.webadmin.ufl.edu/fonts/files/gentona_light-webfont.eot");
-  src: url("https://assets.webadmin.ufl.edu/fonts/files/gentona_light-webfont.eot?#iefix") format("embedded-opentype"), url("https://assets.webadmin.ufl.edu/fonts/files/gentona_light-webfont.woff") format("woff"), url("https://assets.webadmin.ufl.edu/fonts/files/gentona_light-webfont.ttf") format("truetype"), url("https://assets.webadmin.ufl.edu/fonts/files/gentona_light-webfont.svg#gentona") format("svg");
+  src: url("https://assets.webadmin.ufl.edu/fonts/files/gentona_medium_italic-webfont.eot");
+  src: url("https://assets.webadmin.ufl.edu/fonts/files/gentona_medium_italic-webfont.eot?#iefix") format("embedded-opentype"), url("https://assets.webadmin.ufl.edu/fonts/files/gentona_medium_italic-webfont.woff") format("woff"), url("https://assets.webadmin.ufl.edu/fonts/files/gentona_medium_italic-webfont.ttf") format("truetype"), url("https://assets.webadmin.ufl.edu/fonts/files/gentona_medium_italic-webfont.svg#gentonalight") format("svg");
+  font-weight: 500;
+  font-style: italic;
+}
+@font-face {
+  font-family: "gentona";
+  src: url("https://assets.webadmin.ufl.edu/fonts/files/gentona_light_italic-webfont.eot");
+  src: url("https://assets.webadmin.ufl.edu/fonts/files/gentona_light_italic-webfont.eot?#iefix") format("embedded-opentype"), url("https://assets.webadmin.ufl.edu/fonts/files/gentona_light_italic-webfont.woff") format("woff"), url("https://assets.webadmin.ufl.edu/fonts/files/gentona_light_italic-webfont.ttf") format("truetype"), url("https://assets.webadmin.ufl.edu/fonts/files/gentona_light_italic-webfont.svg#gentona") format("svg");
   font-weight: 100;
   font-style: italic;
 }
@@ -4960,7 +4967,7 @@ form.search-wrap input, .btn-show-aux input, .btn-menu input, .btn-search-mobile
 }
 @media (min-width: 768px) {
   #main.main-content, .category #main, .tax-issuem_issue_categories #main {
-    padding: 45px 60px;
+    padding: 0 60px 45px;
     margin-bottom: 60px;
   }
 }
@@ -5786,35 +5793,45 @@ strong {
   padding-right: 15px;
 }
 
-.widget_listcategorypostswidget li {
-  text-transform: none;
-  clear: both;
-  overflow: auto;
-  margin-bottom: 15px;
-}
-.widget_listcategorypostswidget li > a {
-  display: block;
-  float: left;
-}
-.widget_listcategorypostswidget img {
-  margin-right: 30px;
-  margin-bottom: 15px;
-}
-.widget_listcategorypostswidget h3, .widget_listcategorypostswidget .kicker, .widget_listcategorypostswidget .gform_wrapper .gform_heading .gform_description, .gform_wrapper .gform_heading .widget_listcategorypostswidget .gform_description, .widget_listcategorypostswidget .single-article .entry-content p.lead, .single-article .entry-content .widget_listcategorypostswidget p.lead, .widget_listcategorypostswidget .featured-story h2, .featured-story .widget_listcategorypostswidget h2, .widget_listcategorypostswidget .single-article .widget-area h2, .single-article .widget-area .widget_listcategorypostswidget h2 {
+.widget-post-title, .issuem_article_list_widget .issuem_widget_title {
   font-family: "gentona", "Georgia", serif;
-  font-size: 20px;
-  line-height: 24px;
+  font-size: 24px;
+  line-height: 30px;
+  letter-spacing: 0;
   margin-bottom: 15px;
   text-transform: uppercase;
 }
-@media (min-width: 768px) {
-  .widget_listcategorypostswidget h3, .widget_listcategorypostswidget .kicker, .widget_listcategorypostswidget .gform_wrapper .gform_heading .gform_description, .gform_wrapper .gform_heading .widget_listcategorypostswidget .gform_description, .widget_listcategorypostswidget .single-article .entry-content p.lead, .single-article .entry-content .widget_listcategorypostswidget p.lead, .widget_listcategorypostswidget .featured-story h2, .featured-story .widget_listcategorypostswidget h2, .widget_listcategorypostswidget .single-article .widget-area h2, .single-article .widget-area .widget_listcategorypostswidget h2 {
-    font-size: 32px;
-    line-height: 36px;
+.widget-post-title a, .issuem_article_list_widget .issuem_widget_title a {
+  font-weight: 500;
+  letter-spacing: 0;
+}
+
+.widget-post-more, .widget-post-excerpt .read-more, .issuem_article_list_widget .issuem_widget_teaser .read-more, .issuem_article_list_widget a.read-more {
+  font-size: 14px;
+}
+
+.widget-post-excerpt, .issuem_article_list_widget .issuem_widget_teaser {
+  font-size: 16px;
+  line-height: 26px;
+}
+
+.widget-post-thumbnail, .issuem_article_list_widget .attachment-issuem-featured-thumb-image {
+  display: block;
+  margin-top: 15px;
+  margin-bottom: 15px;
+}
+@media (min-width: 480px) {
+  .widget-post-thumbnail, .issuem_article_list_widget .attachment-issuem-featured-thumb-image {
+    float: left;
+    margin-top: 15px;
+    margin-bottom: 30px;
   }
 }
-.widget_listcategorypostswidget h3 a, .widget_listcategorypostswidget .kicker a, .widget_listcategorypostswidget .gform_wrapper .gform_heading .gform_description a, .gform_wrapper .gform_heading .widget_listcategorypostswidget .gform_description a, .widget_listcategorypostswidget .single-article .entry-content p.lead a, .single-article .entry-content .widget_listcategorypostswidget p.lead a, .widget_listcategorypostswidget .featured-story h2 a, .featured-story .widget_listcategorypostswidget h2 a, .widget_listcategorypostswidget .single-article .widget-area h2 a, .single-article .widget-area .widget_listcategorypostswidget h2 a {
-  font-weight: 700;
+@media (min-width: 768px) {
+  .widget-post-thumbnail, .issuem_article_list_widget .attachment-issuem-featured-thumb-image {
+    margin-right: 30px;
+    margin-bottom: 30px;
+  }
 }
 
 .gform_wrapper .gform_body select, .gform_wrapper .gform_body textarea, .gform_wrapper .gform_body input[type="text"], .gform_wrapper .gform_body input[type="email"] {
@@ -6138,6 +6155,16 @@ figcaption {
     width: 200px;
     height: 250px;
     margin: 15px 30px 0;
+  }
+}
+
+.issuem_article_list_widget .article_list {
+  margin-top: 30px;
+  margin-bottom: 30px;
+}
+@media (min-width: 480px) {
+  .issuem_article_list_widget .article_list_row_content {
+    margin-left: 190px;
   }
 }
 

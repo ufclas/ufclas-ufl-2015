@@ -54,11 +54,11 @@ while ( have_posts() ) : the_post();
 	
   	endif;
 	
-	the_date('', '<span class="lcp_date">', '</span>');
+	the_date('', '<p class="lcp_date">', '</p>');
 	
-	echo '<p class="lcp_excerpt">';
+	echo '<div class="lcp_excerpt">';
 	the_excerpt();
-	echo '</p>';
+	echo '</div>';
 	echo '</li>';
 	
 endwhile;

@@ -1,0 +1,26 @@
+.widget_listcategorypostswidget {
+	li {
+		text-transform: none;
+		clear: both;
+		overflow: auto;
+		margin-bottom: $grid-gutter-width/2;
+	}
+	
+	img {
+		@extend .widget-post-thumbnail;
+	}
+	
+	.lcp_post {
+		@extend .widget-post-title;
+	}
+	.lcp_date {
+		font-style: italic;
+		font-weight: 500;
+		font-size: 13px;
+		color: $grayLight;
+		margin-bottom: $grid-gutter-width/4;
+	}
+	.lcp_excerpt {
+		@extend .widget-post-excerpt;
+	}
+}
