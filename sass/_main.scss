@@ -5,7 +5,7 @@
 		padding-top: 30px; 
         
 		@include breakFirst(medium){
-			padding: 0 $grid-gutter-width*2 $grid-gutter-width*1.5;
+			padding: $grid-gutter-width*1.5 $grid-gutter-width*2;
             margin-bottom: $grid-gutter-width*2;
 		}	
 	}
@@ -370,8 +370,9 @@ strong {
 	}
 }
 
-.category {
+.archive {
 	.entry-title {
-		//@extend .article-post-title;
+		@extend .article-post-title;
+		font-size: 28px;
 	}
 }

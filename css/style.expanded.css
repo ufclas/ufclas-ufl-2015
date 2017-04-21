@@ -1803,15 +1803,15 @@ form.search-wrap input, .btn-show-aux input, .btn-menu input, .btn-search-mobile
   margin: 0;
   padding: 10px;
   position: absolute;
+  transform: scaleX(0);
+  transform-origin: right;
   transition: transform .25s ease-out;
   top: 10px;
-  width: 320px;
-  z-index: 9999;
+  z-index: 1;
 }
 @media (min-width: 992px) {
   form.search-wrap input, .btn-show-aux input, .btn-menu input, .btn-search-mobile input {
     top: auto;
-    width: 320px;
   }
 }
 .no-csstransforms3d form.search-wrap input, .no-csstransforms3d .btn-show-aux input, .no-csstransforms3d .btn-menu input, .no-csstransforms3d .btn-search-mobile input {
@@ -1819,6 +1819,8 @@ form.search-wrap input, .btn-show-aux input, .btn-menu input, .btn-search-mobile
 }
 @media (min-width: 992px) {
   form.search-wrap.open-search input, .btn-show-aux.open-search input, .btn-menu.open-search input, .btn-search-mobile.open-search input {
+    width: 320px;
+    left: -320px;
     transform: scaleX(1);
   }
 }
@@ -2397,11 +2399,10 @@ form.search-wrap input, .btn-show-aux input, .btn-menu input, .btn-search-mobile
   top: 60px;
   width: 80%;
   z-index: 1000;
-  -webkit-overflow-scrolling: touch;
 }
-@media (min-width: 480px) {
+@media (min-width: 992px) {
   .mobile-dropdown-wrap {
-    display: none;
+    display: block;
   }
 }
 .open-mobile-dropdown .mobile-dropdown-wrap {
@@ -4983,7 +4984,7 @@ form.search-wrap input, .btn-show-aux input, .btn-menu input, .btn-search-mobile
 }
 @media (min-width: 768px) {
   #main.main-content, .category #main, .tax-issuem_issue_categories #main {
-    padding: 0 60px 45px;
+    padding: 45px 60px;
     margin-bottom: 60px;
   }
 }
@@ -5293,7 +5294,7 @@ strong {
   /* required */
 }
 
-.article-post-title, .widget-post-title, .widget_listcategorypostswidget .lcp_post, .issuem_article_list_widget .issuem_widget_title {
+.article-post-title, .archive .entry-title, .widget-post-title, .widget_listcategorypostswidget .lcp_post, .issuem_article_list_widget .issuem_widget_title {
   font-family: "gentona", "Georgia", serif;
   font-size: 24px;
   line-height: 30px;
@@ -5301,7 +5302,7 @@ strong {
   margin-bottom: 15px;
   text-transform: uppercase;
 }
-.article-post-title a, .widget-post-title a, .widget_listcategorypostswidget .lcp_post a, .issuem_article_list_widget .issuem_widget_title a {
+.article-post-title a, .archive .entry-title a, .widget-post-title a, .widget_listcategorypostswidget .lcp_post a, .issuem_article_list_widget .issuem_widget_title a {
   font-weight: 500;
   letter-spacing: 0;
 }
@@ -5331,6 +5332,10 @@ strong {
     margin-right: 30px;
     margin-bottom: 30px;
   }
+}
+
+.archive .entry-title {
+  font-size: 28px;
 }
 
 .admin-bar .header {
@@ -6544,7 +6549,7 @@ figcaption {
   font-style: italic;
   font-weight: 500;
   font-size: 13px;
-  color: #999;
+  color: #999999;
   margin-bottom: 7.5px;
 }
 

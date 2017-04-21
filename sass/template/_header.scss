@@ -161,13 +161,9 @@ form.search-wrap,.btn-show-aux, .btn-menu,.btn-search-mobile {
 		transform-origin: right;
 		transition: transform .25s ease-out;
 		top: 10px;
-		//width: 100%;
-		//width: 320px;
 		z-index: 1;
-		//z-index: 9999;
 		@include breakFirst(large){
 			top: auto;
-			//width: 320px;
 		}
 	  .no-csstransforms3d & {
 			transform: scaleX(1);
@@ -690,8 +686,8 @@ form.search-wrap,.btn-show-aux, .btn-menu,.btn-search-mobile {
 	}
 }
 .mobile-dropdown-wrap {
-	@include breakFirst($screen-phone){
-		display: none;
+	@include breakFirst(large){
+		display: block;
 	}
 	background: $beigeLight;
 	border-left: 1px solid $beigeDark;
@@ -704,7 +700,6 @@ form.search-wrap,.btn-show-aux, .btn-menu,.btn-search-mobile {
 	top: 60px;
 	width: 80%;
 	z-index: $zUI;
-	-webkit-overflow-scrolling: touch;
 	.open-mobile-dropdown & {
 		transform: translateX(0);
 	}
