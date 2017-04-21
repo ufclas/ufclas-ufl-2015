@@ -57,11 +57,21 @@ $use-local-font: false;
 	}
 	@font-face {
 	  font-family: "gentona";
-	  src: url("https://assets.webadmin.ufl.edu/fonts/files/gentona_light-webfont.eot");
-	  src: url("https://assets.webadmin.ufl.edu/fonts/files/gentona_light-webfont.eot?#iefix") format("embedded-opentype"), 
-	  	   url("https://assets.webadmin.ufl.edu/fonts/files/gentona_light-webfont.woff") format("woff"), 
-		   url("https://assets.webadmin.ufl.edu/fonts/files/gentona_light-webfont.ttf") format("truetype"), 
-		   url("https://assets.webadmin.ufl.edu/fonts/files/gentona_light-webfont.svg#gentona") format("svg");
+	  src: url("https://assets.webadmin.ufl.edu/fonts/files/gentona_medium_italic-webfont.eot");
+	  src: url("https://assets.webadmin.ufl.edu/fonts/files/gentona_medium_italic-webfont.eot?#iefix") format("embedded-opentype"), 
+	  	   url("https://assets.webadmin.ufl.edu/fonts/files/gentona_medium_italic-webfont.woff") format("woff"), 
+		   url("https://assets.webadmin.ufl.edu/fonts/files/gentona_medium_italic-webfont.ttf") format("truetype"), 
+		   url("https://assets.webadmin.ufl.edu/fonts/files/gentona_medium_italic-webfont.svg#gentonalight") format("svg");
+	  font-weight: 500;
+	  font-style: italic;
+	}
+	@font-face {
+	  font-family: "gentona";
+	  src: url("https://assets.webadmin.ufl.edu/fonts/files/gentona_light_italic-webfont.eot");
+	  src: url("https://assets.webadmin.ufl.edu/fonts/files/gentona_light_italic-webfont.eot?#iefix") format("embedded-opentype"), 
+	  	   url("https://assets.webadmin.ufl.edu/fonts/files/gentona_light_italic-webfont.woff") format("woff"), 
+		   url("https://assets.webadmin.ufl.edu/fonts/files/gentona_light_italic-webfont.ttf") format("truetype"), 
+		   url("https://assets.webadmin.ufl.edu/fonts/files/gentona_light_italic-webfont.svg#gentona") format("svg");
 	  font-weight: 100;
 	  font-style: italic;
 	}

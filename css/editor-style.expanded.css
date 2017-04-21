@@ -918,8 +918,15 @@ UF Branding Fonts
 }
 @font-face {
   font-family: "gentona";
-  src: url("https://assets.webadmin.ufl.edu/fonts/files/gentona_light-webfont.eot");
-  src: url("https://assets.webadmin.ufl.edu/fonts/files/gentona_light-webfont.eot?#iefix") format("embedded-opentype"), url("https://assets.webadmin.ufl.edu/fonts/files/gentona_light-webfont.woff") format("woff"), url("https://assets.webadmin.ufl.edu/fonts/files/gentona_light-webfont.ttf") format("truetype"), url("https://assets.webadmin.ufl.edu/fonts/files/gentona_light-webfont.svg#gentona") format("svg");
+  src: url("https://assets.webadmin.ufl.edu/fonts/files/gentona_medium_italic-webfont.eot");
+  src: url("https://assets.webadmin.ufl.edu/fonts/files/gentona_medium_italic-webfont.eot?#iefix") format("embedded-opentype"), url("https://assets.webadmin.ufl.edu/fonts/files/gentona_medium_italic-webfont.woff") format("woff"), url("https://assets.webadmin.ufl.edu/fonts/files/gentona_medium_italic-webfont.ttf") format("truetype"), url("https://assets.webadmin.ufl.edu/fonts/files/gentona_medium_italic-webfont.svg#gentonalight") format("svg");
+  font-weight: 500;
+  font-style: italic;
+}
+@font-face {
+  font-family: "gentona";
+  src: url("https://assets.webadmin.ufl.edu/fonts/files/gentona_light_italic-webfont.eot");
+  src: url("https://assets.webadmin.ufl.edu/fonts/files/gentona_light_italic-webfont.eot?#iefix") format("embedded-opentype"), url("https://assets.webadmin.ufl.edu/fonts/files/gentona_light_italic-webfont.woff") format("woff"), url("https://assets.webadmin.ufl.edu/fonts/files/gentona_light_italic-webfont.ttf") format("truetype"), url("https://assets.webadmin.ufl.edu/fonts/files/gentona_light_italic-webfont.svg#gentona") format("svg");
   font-weight: 100;
   font-style: italic;
 }
@@ -1783,30 +1790,30 @@ form.search-wrap input, .btn-show-aux input, .btn-menu input, .btn-search-mobile
   margin: 0;
   padding: 10px;
   position: absolute;
-  transform: translate3d(0, 0, 0);
+  transform: scaleX(0);
+  transform-origin: right;
   transition: transform .25s ease-out;
   top: 10px;
-  width: 100%;
   z-index: 1;
-  -webkit-appearance: none;
 }
 @media (min-width: 992px) {
   form.search-wrap input, .btn-show-aux input, .btn-menu input, .btn-search-mobile input {
     top: auto;
-    width: 350px;
   }
 }
 .no-csstransforms3d form.search-wrap input, .no-csstransforms3d .btn-show-aux input, .no-csstransforms3d .btn-menu input, .no-csstransforms3d .btn-search-mobile input {
-  transform: translateX(0);
+  transform: scaleX(1);
 }
 @media (min-width: 992px) {
   form.search-wrap.open-search input, .btn-show-aux.open-search input, .btn-menu.open-search input, .btn-search-mobile.open-search input {
-    transform: translate3d(-100%, 0, 0);
+    width: 320px;
+    left: -320px;
+    transform: scaleX(1);
   }
 }
 @media (min-width: 992px) {
   .no-csstransforms3d form.search-wrap.open-search input, .no-csstransforms3d .btn-show-aux.open-search input, .no-csstransforms3d .btn-menu.open-search input, .no-csstransforms3d .btn-search-mobile.open-search input {
-    transform: translateX(-100%);
+    transform: scaleX(1);
   }
 }
 
@@ -2379,7 +2386,11 @@ form.search-wrap input, .btn-show-aux input, .btn-menu input, .btn-search-mobile
   top: 60px;
   width: 80%;
   z-index: 1000;
-  -webkit-overflow-scrolling: touch;
+}
+@media (min-width: 992px) {
+  .mobile-dropdown-wrap {
+    display: none;
+  }
 }
 .open-mobile-dropdown .mobile-dropdown-wrap {
   transform: translateX(0);
@@ -5270,6 +5281,50 @@ strong {
   /* required */
 }
 
+.article-post-title, .archive .entry-title, .widget-post-title, .issuem_article_list_widget .issuem_widget_title {
+  font-family: "gentona", "Georgia", serif;
+  font-size: 24px;
+  line-height: 30px;
+  letter-spacing: 0;
+  margin-bottom: 15px;
+  text-transform: uppercase;
+}
+.article-post-title a, .archive .entry-title a, .widget-post-title a, .issuem_article_list_widget .issuem_widget_title a {
+  font-weight: 500;
+  letter-spacing: 0;
+}
+
+.article-post-more, .article-post-excerpt .read-more, .widget-post-excerpt .read-more, .issuem_article_list_widget .issuem_widget_teaser .read-more, .widget-post-more, .issuem_article_list_widget a.read-more {
+  font-size: 14px;
+}
+
+.article-post-excerpt, .widget-post-excerpt, .issuem_article_list_widget .issuem_widget_teaser {
+  font-size: 16px;
+  line-height: 26px;
+}
+
+.article-post-thumbnail, .widget-post-thumbnail, .issuem_article_list_widget .attachment-issuem-featured-thumb-image {
+  display: block;
+  margin-bottom: 15px;
+}
+@media (min-width: 480px) {
+  .article-post-thumbnail, .widget-post-thumbnail, .issuem_article_list_widget .attachment-issuem-featured-thumb-image {
+    float: left;
+    margin-right: 15px;
+    margin-bottom: 30px;
+  }
+}
+@media (min-width: 768px) {
+  .article-post-thumbnail, .widget-post-thumbnail, .issuem_article_list_widget .attachment-issuem-featured-thumb-image {
+    margin-right: 30px;
+    margin-bottom: 30px;
+  }
+}
+
+.archive .entry-title {
+  font-size: 28px;
+}
+
 .admin-bar .header {
   top: 46px;
   position: absolute;
@@ -5786,37 +5841,6 @@ strong {
   padding-right: 15px;
 }
 
-.widget_listcategorypostswidget li {
-  text-transform: none;
-  clear: both;
-  overflow: auto;
-  margin-bottom: 15px;
-}
-.widget_listcategorypostswidget li > a {
-  display: block;
-  float: left;
-}
-.widget_listcategorypostswidget img {
-  margin-right: 30px;
-  margin-bottom: 15px;
-}
-.widget_listcategorypostswidget h3, .widget_listcategorypostswidget .kicker, .widget_listcategorypostswidget .gform_wrapper .gform_heading .gform_description, .gform_wrapper .gform_heading .widget_listcategorypostswidget .gform_description, .widget_listcategorypostswidget .single-article .entry-content p.lead, .single-article .entry-content .widget_listcategorypostswidget p.lead, .widget_listcategorypostswidget .featured-story h2, .featured-story .widget_listcategorypostswidget h2, .widget_listcategorypostswidget .single-article .widget-area h2, .single-article .widget-area .widget_listcategorypostswidget h2 {
-  font-family: "gentona", "Georgia", serif;
-  font-size: 20px;
-  line-height: 24px;
-  margin-bottom: 15px;
-  text-transform: uppercase;
-}
-@media (min-width: 768px) {
-  .widget_listcategorypostswidget h3, .widget_listcategorypostswidget .kicker, .widget_listcategorypostswidget .gform_wrapper .gform_heading .gform_description, .gform_wrapper .gform_heading .widget_listcategorypostswidget .gform_description, .widget_listcategorypostswidget .single-article .entry-content p.lead, .single-article .entry-content .widget_listcategorypostswidget p.lead, .widget_listcategorypostswidget .featured-story h2, .featured-story .widget_listcategorypostswidget h2, .widget_listcategorypostswidget .single-article .widget-area h2, .single-article .widget-area .widget_listcategorypostswidget h2 {
-    font-size: 32px;
-    line-height: 36px;
-  }
-}
-.widget_listcategorypostswidget h3 a, .widget_listcategorypostswidget .kicker a, .widget_listcategorypostswidget .gform_wrapper .gform_heading .gform_description a, .gform_wrapper .gform_heading .widget_listcategorypostswidget .gform_description a, .widget_listcategorypostswidget .single-article .entry-content p.lead a, .single-article .entry-content .widget_listcategorypostswidget p.lead a, .widget_listcategorypostswidget .featured-story h2 a, .featured-story .widget_listcategorypostswidget h2 a, .widget_listcategorypostswidget .single-article .widget-area h2 a, .single-article .widget-area .widget_listcategorypostswidget h2 a {
-  font-weight: 700;
-}
-
 .gform_wrapper .gform_body select, .gform_wrapper .gform_body textarea, .gform_wrapper .gform_body input[type="text"], .gform_wrapper .gform_body input[type="email"] {
   padding: 15px 7.5px;
   color: rgba(51, 49, 50, 0.8);
@@ -6138,6 +6162,16 @@ figcaption {
     width: 200px;
     height: 250px;
     margin: 15px 30px 0;
+  }
+}
+
+.issuem_article_list_widget .article_list {
+  margin-top: 30px;
+  margin-bottom: 30px;
+}
+@media (min-width: 480px) {
+  .issuem_article_list_widget .article_list_row_content {
+    margin-left: 190px;
   }
 }
 

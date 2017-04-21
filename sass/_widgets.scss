@@ -79,37 +79,18 @@
 	}
 }
 
-.widget_listcategorypostswidget {
-	li {
-		text-transform: none;
-		clear: both;
-		overflow: auto;
-		margin-bottom: $grid-gutter-width/2;
-	}
-	
-	li > a {
-		display: block;	
-		float: left;
-	}
-	img {
-		margin-right: $grid-gutter-width;
-		margin-bottom: $grid-gutter-width/2;
-	}
-	h3 {
-		font-family: $fontFamily;
-		font-size: 20px;
-		line-height: 24px;
-		margin-bottom: $grid-gutter-width/2;
-		text-transform: uppercase;
-		
-		@include breakFirst(medium){
-			font-size: 32px;
-			line-height: 36px; 
-		}
-		
-		a {
-			font-weight: 700;	
-		}
-	}
+
+.widget-post-title {
+	@extend .article-post-title;
+}
+.widget-post-more {
+	@extend .article-post-more;
+}
+
+.widget-post-excerpt {
+	@extend .article-post-excerpt;
+}
+.widget-post-thumbnail {
+	@extend .article-post-thumbnail;
 }
 

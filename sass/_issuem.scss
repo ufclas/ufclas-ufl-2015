@@ -127,3 +127,33 @@
 		}
 	}
 }
+
+.issuem_article_list_widget {
+	
+	.article_list {
+		margin-top: $grid-gutter-width;
+		margin-bottom: $grid-gutter-width;
+	}
+	
+	.article_list_row_content {
+		@include breakFirst( $screen-phone ){
+			margin-left: 190px;
+		}
+	}
+	
+	.issuem_widget_title {
+		@extend .widget-post-title;
+	}
+	
+	.issuem_widget_teaser {
+		@extend .widget-post-excerpt;
+	}
+	
+	a.read-more {
+		@extend .widget-post-more;
+	}
+	
+	.attachment-issuem-featured-thumb-image {
+		@extend .widget-post-thumbnail;
+	}
+}

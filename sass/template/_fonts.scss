@@ -1,180 +1,83 @@
 /* ---------------------------
 UF Branding Fonts
 ----------------------------*/
-
-$use-local-font: false;
-
-@mixin default-fonts {
-	@font-face {
-	  font-family: "quadon";
-	  src: url("https://assets.webadmin.ufl.edu/fonts/files/quadon_medium-webfont.eot");
-	  src: url("https://assets.webadmin.ufl.edu/fonts/files/quadon_medium-webfont.eot?#iefix") format("embedded-opentype"), 
-	  	   url("https://assets.webadmin.ufl.edu/fonts/files/quadon_medium-webfont.woff") format("woff"), 
-		   url("https://assets.webadmin.ufl.edu/fonts/files/quadon_medium-webfont.ttf") format("truetype"), 
-		   url("https://assets.webadmin.ufl.edu/fonts/files/quadon_medium-webfont.svg#quadon") format("svg");
-	  font-weight: 500;
-	  font-style: normal;
-	}
-	@font-face {
-	  font-family: "quadon";
-	  src: url("https://assets.webadmin.ufl.edu/fonts/files/gentona_heavy_italic-webfont.eot");
-	  src: url("https://assets.webadmin.ufl.edu/fonts/files/gentona_heavy_italic-webfont.eot?#iefix") format("embedded-opentype"), 
-	  	   url("https://assets.webadmin.ufl.edu/fonts/files/gentona_heavy_italic-webfont.woff") format("woff"), 
-		   url("https://assets.webadmin.ufl.edu/fonts/files/gentona_heavy_italic-webfont.ttf") format("truetype"), 
-		   url("https://assets.webadmin.ufl.edu/fonts/files/gentona_heavy_italic-webfont.svg#quadon") format("svg");
-	  font-weight: 800;
-	  font-style: italic;
-	}
-	@font-face {
-	  font-family: "gentona";
-	  src: url("https://assets.webadmin.ufl.edu/fonts/files/gentona_extrabold-webfont.eot");
-	  src: url("https://assets.webadmin.ufl.edu/fonts/files/gentona_extrabold-webfont.eot?#iefix") format("embedded-opentype"), 
-	  	   url("https://assets.webadmin.ufl.edu/fonts/files/gentona_extrabold-webfont.woff") format("woff"), 
-		   url("https://assets.webadmin.ufl.edu/fonts/files/gentona_extrabold-webfont.ttf") format("truetype"), 
-		   url("https://assets.webadmin.ufl.edu/fonts/files/gentona_extrabold-webfont.svg#gentona") format("svg");
-	  font-weight: 700;
-	  font-style: normal;
-	}
-	@font-face {
-	  font-family: "gentona";
-	  src: url("https://assets.webadmin.ufl.edu/fonts/files/gentona_medium-webfont.eot");
-	  src: url("https://assets.webadmin.ufl.edu/fonts/files/gentona_medium-webfont.eot?#iefix") format("embedded-opentype"), 
-	  	   url("https://assets.webadmin.ufl.edu/fonts/files/gentona_medium-webfont.woff") format("woff"), 
-		   url("https://assets.webadmin.ufl.edu/fonts/files/gentona_medium-webfont.ttf") format("truetype"), 
-		   url("https://assets.webadmin.ufl.edu/fonts/files/gentona_medium-webfont.svg#gentona") format("svg");
-	  font-weight: 500;
-	  font-style: normal;
-	}
-	@font-face {
-	  font-family: "gentona";
-	  src: url("https://assets.webadmin.ufl.edu/fonts/files/gentona_light-webfont.eot");
-	  src: url("https://assets.webadmin.ufl.edu/fonts/files/gentona_light-webfont.eot?#iefix") format("embedded-opentype"), 
-	  	   url("https://assets.webadmin.ufl.edu/fonts/files/gentona_light-webfont.woff") format("woff"), 
-		   url("https://assets.webadmin.ufl.edu/fonts/files/gentona_light-webfont.ttf") format("truetype"), 
-		   url("https://assets.webadmin.ufl.edu/fonts/files/gentona_light-webfont.svg#gentona") format("svg");
-	  font-weight: 100;
-	  font-style: normal;
-	}
-	@font-face {
-	  font-family: "gentona";
-	  src: url("https://assets.webadmin.ufl.edu/fonts/files/gentona_light-webfont.eot");
-	  src: url("https://assets.webadmin.ufl.edu/fonts/files/gentona_light-webfont.eot?#iefix") format("embedded-opentype"), 
-	  	   url("https://assets.webadmin.ufl.edu/fonts/files/gentona_light-webfont.woff") format("woff"), 
-		   url("https://assets.webadmin.ufl.edu/fonts/files/gentona_light-webfont.ttf") format("truetype"), 
-		   url("https://assets.webadmin.ufl.edu/fonts/files/gentona_light-webfont.svg#gentona") format("svg");
-	  font-weight: 100;
-	  font-style: italic;
-	}
-	@font-face {
-	  font-family: "gentona";
-	  src: url("https://assets.webadmin.ufl.edu/fonts/files/gentona_heavy-webfont.eot");
-	  src: url("https://assets.webadmin.ufl.edu/fonts/files/gentona_heavy-webfont.eot?#iefix") format("embedded-opentype"), 
-	  	   url("https://assets.webadmin.ufl.edu/fonts/files/gentona_heavy-webfont.woff") format("woff"), 
-		   url("https://assets.webadmin.ufl.edu/fonts/files/gentona_heavy-webfont.ttf") format("truetype"), 
-		   url("https://assets.webadmin.ufl.edu/fonts/files/gentona_heavy-webfont.svg#gentona") format("svg");
-	  font-weight: 800;
-	  font-style: normal;
-	}
-	@font-face {
-	  font-family: "gentona";
-	  src: url("https://assets.webadmin.ufl.edu/fonts/files/gentona_heavy_italic-webfont.eot");
-	  src: url("https://assets.webadmin.ufl.edu/fonts/files/gentona_heavy_italic-webfont.eot?#iefix") format("embedded-opentype"), 
-	  	   url("https://assets.webadmin.ufl.edu/fonts/files/gentona_heavy_italic-webfont.woff") format("woff"), 
-		   url("https://assets.webadmin.ufl.edu/fonts/files/gentona_heavy_italic-webfont.ttf") format("truetype"), 
-		   url("https://assets.webadmin.ufl.edu/fonts/files/gentona_heavy_italic-webfont.svg#gentona") format("svg");
-	  font-weight: 800;
-	  font-style: italic;
-	}	
+@font-face {
+    font-family: 'quadon';
+    src: url('fonts/rene_bieder_-_quadon_medium-webfont.eot'); 
+    src: url('fonts/rene_bieder_-_quadon_medium-webfont.eot?#iefix') format('embedded-opentype'),
+         url('fonts/rene_bieder_-_quadon_medium-webfont.woff') format('woff'),
+         url('fonts/rene_bieder_-_quadon_medium-webfont.ttf') format('truetype'),
+         url('fonts/rene_bieder_-_quadon_medium-webfont.svg#quadon') format('svg');
+    font-weight: 500;
+    font-style: normal;
 }
-
-@mixin local-fonts {
-	@font-face {
-	  font-family: "quadon";
-	  src: url("fonts/rene_bieder_-_quadon_medium-webfont.eot");
-	  src: url("fonts/rene_bieder_-_quadon_medium-webfont.eot?#iefix") format("embedded-opentype"), 
-	  	   url("fonts/rene_bieder_-_quadon_medium-webfont.woff") format("woff"), 
-		   url("fonts/rene_bieder_-_quadon_medium-webfont.ttf") format("truetype"), 
-		   url("fonts/rene_bieder_-_quadon_medium-webfont.svg#quadon") format("svg");
-	  font-weight: 500;
-	  font-style: normal;
-	}
-	@font-face {
-	  font-family: "quadon";
-	  src: url("fonts/rene_bieder_-_gentona_heavy_italic-webfont.eot");
-	  src: url("fonts/rene_bieder_-_gentona_heavy_italic-webfont.eot?#iefix") format("embedded-opentype"), 
-	  	   url("fonts/rene_bieder_-_gentona_heavy_italic-webfont.woff") format("woff"), 
-		   url("fonts/rene_bieder_-_gentona_heavy_italic-webfont.ttf") format("truetype"), 
-		   url("fonts/rene_bieder_-_gentona_heavy_italic-webfont.svg#quadon") format("svg");
-	  font-weight: 800;
-	  font-style: italic;
-	}
-	@font-face {
-	  font-family: "gentona";
-	  src: url("fonts/rene_bieder_-_gentona_bold-webfont.eot");
-	  src: url("fonts/rene_bieder_-_gentona_bold-webfont.eot?#iefix") format("embedded-opentype"), 
-	  	   url("fonts/rene_bieder_-_gentona_bold-webfont.woff") format("woff"), 
-		   url("fonts/rene_bieder_-_gentona_bold-webfont.ttf") format("truetype"), 
-		   url("fonts/rene_bieder_-_gentona_bold-webfont.svg#gentona") format("svg");
-	  font-weight: 700;
-	  font-style: normal;
-	}
-	@font-face {
-	  font-family: "gentona";
-	  src: url("fonts/rene_bieder_-_gentona_medium-webfont.eot");
-	  src: url("fonts/rene_bieder_-_gentona_medium-webfont.eot?#iefix") format("embedded-opentype"), 
-	  	   url("fonts/rene_bieder_-_gentona_medium-webfont.woff") format("woff"), 
-		   url("fonts/rene_bieder_-_gentona_medium-webfont.ttf") format("truetype"), 
-		   url("fonts/rene_bieder_-_gentona_medium-webfont.svg#gentona") format("svg");
-	  font-weight: 500;
-	  font-style: normal;
-	}
-	@font-face {
-	  font-family: "gentona";
-	  src: url("fonts/rene_bieder_-_gentona_light-webfont.eot");
-	  src: url("fonts/rene_bieder_-_gentona_light-webfont.eot?#iefix") format("embedded-opentype"), 
-	  	   url("fonts/rene_bieder_-_gentona_light-webfont.woff") format("woff"), 
-		   url("fonts/rene_bieder_-_gentona_light-webfont.ttf") format("truetype"), 
-		   url("fonts/rene_bieder_-_gentona_light-webfont.svg#gentona") format("svg");
-	  font-weight: 100;
-	  font-style: normal;
-	}
-	@font-face {
-	  font-family: "gentona";
-	  src: url("fonts/rene_bieder_-_gentona_light-webfont.eot");
-	  src: url("fonts/rene_bieder_-_gentona_light-webfont.eot?#iefix") format("embedded-opentype"), 
-	  	   url("fonts/rene_bieder_-_gentona_light-webfont.woff") format("woff"), 
-		   url("fonts/rene_bieder_-_gentona_light-webfont.ttf") format("truetype"), 
-		   url("fonts/rene_bieder_-_gentona_light-webfont.svg#gentona") format("svg");
-	  font-weight: 100;
-	  font-style: italic;
-	}
-	@font-face {
-	  font-family: "gentona";
-	  src: url("fonts/rene_bieder_-_gentona_heavy-webfont.eot");
-	  src: url("fonts/rene_bieder_-_gentona_heavy-webfont.eot?#iefix") format("embedded-opentype"), 
-	  	   url("fonts/rene_bieder_-_gentona_heavy-webfont.woff") format("woff"), 
-		   url("fonts/rene_bieder_-_gentona_heavy-webfont.ttf") format("truetype"), 
-		   url("fonts/rene_bieder_-_gentona_heavy-webfont.svg#gentona") format("svg");
-	  font-weight: 800;
-	  font-style: normal;
-	}
-	@font-face {
-	  font-family: "gentona";
-	  src: url("fonts/rene_bieder_-_gentona_heavy_italic-webfont.eot");
-	  src: url("fonts/rene_bieder_-_gentona_heavy_italic-webfont.eot?#iefix") format("embedded-opentype"), 
-	  	   url("fonts/rene_bieder_-_gentona_heavy_italic-webfont.woff") format("woff"), 
-		   url("fonts/rene_bieder_-_gentona_heavy_italic-webfont.ttf") format("truetype"), 
-		   url("fonts/rene_bieder_-_gentona_heavy_italic-webfont.svg#gentona") format("svg");
-	  font-weight: 800;
-	  font-style: italic;
-	}	
+@font-face {
+    font-family: 'quadon';
+    src: url('fonts/rene_bieder_-_quadon_extrabolditalic-webfont.eot');
+    src: url('fonts/rene_bieder_-_quadon_extrabolditalic-webfont.eot?#iefix') format('embedded-opentype'),
+         url('fonts/rene_bieder_-_quadon_extrabolditalic-webfont.woff') format('woff'),
+         url('fonts/rene_bieder_-_quadon_extrabolditalic-webfont.ttf') format('truetype'),
+         url('fonts/rene_bieder_-_quadon_extrabolditalic-webfont.svg#quadon') format('svg');
+    font-weight: 800;
+    font-style: italic;
 }
-
-
-@if $use-local-font == true {
-	@include local-fonts;
+@font-face {
+    font-family: 'gentona';
+    src: url('fonts/rene_bieder_-_gentona_bold-webfont.eot');
+    src: url('fonts/rene_bieder_-_gentona_bold-webfont.eot?#iefix') format('embedded-opentype'),
+         url('fonts/rene_bieder_-_gentona_bold-webfont.woff') format('woff'),
+         url('fonts/rene_bieder_-_gentona_bold-webfont.ttf') format('truetype'),
+         url('fonts/rene_bieder_-_gentona_bold-webfont.svg#gentona') format('svg');
+    font-weight: 700;
+    font-style: normal;
 }
-@else {
-	@include default-fonts;
+@font-face {
+    font-family: 'gentona';
+    src: url('fonts/rene_bieder_-_gentona_medium-webfont.eot');
+    src: url('fonts/rene_bieder_-_gentona_medium-webfont.eot?#iefix') format('embedded-opentype'),
+         url('fonts/rene_bieder_-_gentona_medium-webfont.woff') format('woff'),
+         url('fonts/rene_bieder_-_gentona_medium-webfont.ttf') format('truetype'),
+         url('fonts/rene_bieder_-_gentona_medium-webfont.svg#gentona') format('svg');
+    font-weight: 500;
+    font-style: normal;
 }
-
+@font-face {
+    font-family: 'gentona';
+    src: url('fonts/rene_bieder_-_gentona_light-webfont.eot');
+    src: url('fonts/rene_bieder_-_gentona_light-webfont.eot?#iefix') format('embedded-opentype'),
+         url('fonts/rene_bieder_-_gentona_light-webfont.woff') format('woff'),
+         url('fonts/rene_bieder_-_gentona_light-webfont.ttf') format('truetype'),
+         url('fonts/rene_bieder_-_gentona_light-webfont.svg#gentona') format('svg');
+    font-weight: 100;
+    font-style: normal;
+}
+@font-face {
+    font-family: 'gentona';
+    src: url('fonts/rene_bieder_-_gentona_light_italic-webfont.eot');
+    src: url('fonts/rene_bieder_-_gentona_light_italic-webfont.eot?#iefix') format('embedded-opentype'),
+         url('fonts/rene_bieder_-_gentona_light_italic-webfont.woff') format('woff'),
+         url('fonts/rene_bieder_-_gentona_light_italic-webfont.ttf') format('truetype'),
+         url('fonts/rene_bieder_-_gentona_light_italic-webfont.svg#gentona') format('svg');
+    font-weight: 100;
+    font-style: italic;
+}
+@font-face {
+    font-family: 'gentona';
+    src: url('fonts/rene_bieder_-_gentona_heavy-webfont.eot');
+    src: url('fonts/rene_bieder_-_gentona_heavy-webfont.eot?#iefix') format('embedded-opentype'),
+         url('fonts/rene_bieder_-_gentona_heavy-webfont.woff') format('woff'),
+         url('fonts/rene_bieder_-_gentona_heavy-webfont.ttf') format('truetype'),
+         url('fonts/rene_bieder_-_gentona_heavy-webfont.svg#gentona') format('svg');
+    font-weight: 800;
+    font-style: normal;
+}
+@font-face {
+    font-family: 'gentona';
+    src: url('fonts/rene_bieder_-_gentona_heavy_italic-webfont.eot');
+    src: url('fonts/rene_bieder_-_gentona_heavy_italic-webfont.eot?#iefix') format('embedded-opentype'),
+         url('fonts/rene_bieder_-_gentona_heavy_italic-webfont.woff') format('woff'),
+         url('fonts/rene_bieder_-_gentona_heavy_italic-webfont.ttf') format('truetype'),
+         url('fonts/rene_bieder_-_gentona_heavy_italic-webfont.svg#gentona') format('svg');
+    font-weight: 800;
+    font-style: italic;
+}

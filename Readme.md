@@ -43,6 +43,8 @@ Changelog
 
 ### 0.9.x
 
+- Fixes horizontal scrollbar bug in browsers
+- Makes widget styles more consistent on the homepage
 - Removes WP Knowledgebase templates and code, migrates to a feature plugin (ufclas-knowledgebase)
 - Adds config files to use Grunt to combine and minify CSS and JS files
 

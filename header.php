@@ -113,13 +113,13 @@
   
   <?php ufclas_get_search_form( 'mobile' ); ?>
   
-  <a href="#" class="btn-menu">
+  <a href="#" class="btn-menu" role="button" aria-haspopup="true" aria-expanded="false">
 		<span class="icon-svg icon-menu">
     	<svg>
       	<use xlink:href="<?php echo get_stylesheet_directory_uri(); ?>/img/spritemap.svg#menu"></use>
     	</svg>
     </span>
-		<span class="icon-svg icon-close">
+		<span class="icon-svg icon-close" role="button">
     	<svg>
       	<use xlink:href="<?php echo get_stylesheet_directory_uri(); ?>/img/spritemap.svg#close"></use>
     	</svg>
