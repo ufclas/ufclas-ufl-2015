@@ -152,11 +152,16 @@ add_action('wp_enqueue_scripts', 'ufclas_ufl_2015_inline_styles');
  * @since 0.0.0
  */
 function ufclas_ufl_2015_body_classes( $classes ) {
+	$classes[] = 'loading';
+	
 	if ( is_page_template('page-templates/homepage.php') ) {
 		$classes[] = 'homepage';
 	}
 	if ( get_theme_mod('disable_global_elements', 0) ){
 		$classes[] = 'disable-global';
+	}
+	if ( $header_type = get_theme_mod('header_type', false) ){
+		$classes[] = 'header-type-' . $header_type;
 	}
 
 	return $classes;

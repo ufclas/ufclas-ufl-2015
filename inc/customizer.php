@@ -259,7 +259,31 @@ function ufclas_ufl_2015_customize_register( $wp_customize ) {
 		'type' => 'checkbox',
 	));
 	
+	// Header
+	$wp_customize->add_section( 'theme_options_header', array(
+		'title' => __('Header', 'ufclas-ufl-2015'),
+		'panel' => 'theme_options',
+	));
 	
+	$wp_customize->add_setting( 'header_type', array( 'default' => 'icon', 'sanitize_callback' => 'ufclas_ufl_2015_sanitize_choices' ));
+	$wp_customize->add_control( 'header_type', array(
+		'label' => __('Header Type', 'ufclas-ufl-2015'),
+		'description' => __("Select the type of header to display on all pages", 'ufclas-ufl-2015'),
+		'section' => 'theme_options_header',
+		'type' => 'radio',
+		'choices' => array(
+			'logo' => __('Logo Image', 'ufclas-ufl-2015'),
+			'text' => __('Title Text', 'ufclas-ufl-2015'),
+		),
+	));
+	
+	$wp_customize->add_setting( 'disable_global_elements', array( 'default' => 0, 'sanitize_callback' => 'absint' ));
+	$wp_customize->add_control( 'disable_global_elements', array(
+		'label' => __('Disable Global Elements', 'ufclas-ufl-2015'),
+		'description' => __('Disable the global header, footer, and social media icons from appearing', 'ufclas-ufl-2015'),
+		'section' => 'theme_options_header',
+		'type' => 'checkbox',
+	));
 	
 	// Footer
 	$wp_customize->add_section( 'theme_options_footer', array(
@@ -387,19 +411,6 @@ function ufclas_ufl_2015_customize_register( $wp_customize ) {
 	));
 	
 	// Custom Attributes
-	$wp_customize->add_section( 'theme_options_custom', array(
-		'title' => __('Custom Attributes', 'ufclas-ufl-2015'),
-		'panel' => 'theme_options',
-	));
-	
-	$wp_customize->add_setting( 'disable_global_elements', array( 'default' => 0, 'sanitize_callback' => 'absint' ));
-	
-	$wp_customize->add_control( 'disable_global_elements', array(
-		'label' => __('Disable Global Elements', 'ufclas-ufl-2015'),
-		'description' => __('Disable the global header, footer, and social media icons from appearing', 'ufclas-ufl-2015'),
-		'section' => 'theme_options_custom',
-		'type' => 'checkbox',
-	));
 		
 }
 add_action('customize_register','ufclas_ufl_2015_customize_register');
