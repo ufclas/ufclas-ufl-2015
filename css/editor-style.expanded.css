@@ -2389,7 +2389,7 @@ form.search-wrap input, .btn-show-aux input, .btn-menu input, .btn-search-mobile
 }
 @media (min-width: 992px) {
   .mobile-dropdown-wrap {
-    display: block;
+    display: none;
   }
 }
 .open-mobile-dropdown .mobile-dropdown-wrap {

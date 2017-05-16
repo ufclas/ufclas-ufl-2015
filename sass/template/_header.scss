@@ -687,7 +687,7 @@ form.search-wrap,.btn-show-aux, .btn-menu,.btn-search-mobile {
 }
 .mobile-dropdown-wrap {
 	@include breakFirst(large){
-		display: block;
+		display: none; 
 	}
 	background: $beigeLight;
 	border-left: 1px solid $beigeDark;
