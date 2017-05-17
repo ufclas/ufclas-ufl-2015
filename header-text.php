@@ -17,24 +17,17 @@
 	if ( !$disable_global_elements ): 
   ?>
       <a href="http://ufl.edu/" class="logo">
-      	<img src="<?php echo get_stylesheet_directory_uri(); ?>/img/logo-uf.svg" alt="University of Florida">
+		<span class="icon-svg logo-uf"><svg><use xlink:href="<?php echo get_stylesheet_directory_uri(); ?>/img/logo-uf.svg#Layer_1"></use></svg></span>
       </a>
-      <h1 class="screen-reader-title">
+      <h1 class="">
       <a href="<?php echo site_url('/'); ?>" class="logo mobile">
-      	<span class="screen-reader-text"><?php echo bloginfo('name'); ?></span>
-        <span class="icon-svg logo-herbert"><svg><use xlink:href="<?php echo ufclas_ufl_2015_get_custom_logo(); ?>#Layer_1"></use></svg></span>
+      	<span class=""><?php echo bloginfo('name'); ?></span>
       </a>
       </h1>
   <?php endif; ?>
   
   <div class="menu-wrap">
   	<div class="main-menu-wrap">
-  		<h1 class="screen-reader-title">
-        <a href="<?php echo site_url('/'); ?>">
-            <span class="screen-reader-text"><?php echo bloginfo('name'); ?></span>
-            <span class="icon-svg logo-herbert"><svg><use xlink:href="<?php echo ufclas_ufl_2015_get_custom_logo(); ?>#Layer_1"></use></svg></span>
-        </a>
-        </h1>
   		<?php 
 				wp_nav_menu( array( 
 					'theme_location' => 'main_menu',
@@ -46,7 +39,7 @@
 			?>
   	</div>
     <?php if ( !$disable_global_elements ): ?>
-  	<div class="aux-menu-wrap" style="background-color: #00529b;">
+  	<div class="aux-menu-wrap">
   		<ul class="aux-nav">
 	  		<?php 
 				// Audience menu
@@ -63,14 +56,6 @@
 				// Display parent organization link
 				ufclas_global_parent_organization();
 				
-				// Global menu
-				wp_nav_menu( array( 
-					'theme_location' => 'global_menu',
-					'items_wrap' => '%3$s',
-					'container' => '',
-					'depth' => 1,
-					'fallback_cb' => false,
-				)); 
 			?>
   		</ul>
   		<div class="audience-nav-wrap">

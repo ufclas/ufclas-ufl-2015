@@ -21,7 +21,7 @@
 		}
 	}
 	&.unit .logo {
-		display: none;
+		display: none; 
 		
 		@include breakFirst(large){
 			display: block;
@@ -37,4 +37,40 @@
 }
 .main-menu-wrap li:nth-child(odd) {
     background: $white;
+}
+
+.header-type-text .header.unit {
+	.logo {
+		@media screen and (min-width: $screen_md){
+			height: 150px;
+			width: 150px;
+			background-color: #E47426;
+			padding: 0;
+		}
+	}
+	.logo-uf svg {
+		width: 74px;
+		height: 48px;
+		position: absolute;
+		top: 51px;
+		left: 38px;
+	}
+	#global-menu-title {
+		@media screen and (min-width: $screen_md){
+			padding-left: 150px;
+			padding-right: 15px;
+		}
+	}
+	.main-menu-wrap {
+		@media screen and (min-width: $screen_md){
+			padding-left: 150px;
+		}
+	}
+	.aux-menu-wrap {
+		background-color: #00529b;
+		
+		@media screen and (min-width: $screen_md){
+			padding-left: 0;
+		}
+	}
 }

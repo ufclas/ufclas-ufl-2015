@@ -56,20 +56,9 @@ module.exports = function(grunt){
 		 * Sass tasks
 		 */
 		 sass: {
-			dev: {
-				options: {
-					style: 'expanded',
-					sourcemap: 'none'
-				},
-				files: {
-					'css/style.expanded.css' : 'sass/style.scss',
-					'css/editor-style.expanded.css' : 'sass/editor-style.scss'	
-				}	
-			},
 			dist: {
 				options: {
-					style: 'compressed',
-					sourcemap: 'none'
+					style: 'compressed'
 				},
 				files: {
 					'./style.css' : 'sass/style.scss',
@@ -102,7 +91,8 @@ module.exports = function(grunt){
 		 watch: {
 			css: {
 				files: ['**/*.scss'],
-				tasks: ['sass','postcss']	
+				/*tasks: ['sass','postcss']*/
+				tasks: ['sass']	
 			},
 			js: {
 				files: ['js/*.js'],
