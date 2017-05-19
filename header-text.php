@@ -14,29 +14,31 @@
 <div class="header unit">
   <?php 
   	$disable_global_elements = get_theme_mod('disable_global_elements', 0);
-	if ( !$disable_global_elements ): 
+	// if ( !$disable_global_elements ): 
   ?>
       <a href="http://ufl.edu/" class="logo">
 		<span class="icon-svg logo-uf"><svg><use xlink:href="<?php echo get_stylesheet_directory_uri(); ?>/img/logo-uf.svg#Layer_1"></use></svg></span>
       </a>
-      <h1 class="">
-      <a href="<?php echo site_url('/'); ?>" class="logo mobile">
-      	<span class=""><?php echo bloginfo('name'); ?></span>
-      </a>
-      </h1>
-  <?php endif; ?>
-  
+    <div class="site-title">
+		<h1>
+		  <a href="<?php echo site_url('/'); ?>">
+			<span class=""><?php echo bloginfo('name'); ?></span>
+		  </a>
+		  </h1>	
+	</div>
+  <?php //endif; ?>
+	
   <div class="menu-wrap">
   	<div class="main-menu-wrap">
   		<?php 
-				wp_nav_menu( array( 
-					'theme_location' => 'main_menu',
-					'container' => '',
-					'depth' => 2, 
-					'walker' => new ufclas_ufl_2015_main_nav_menu(),
-					'fallback_cb' => 'ufclas_ufl_2015_main_nav_menu::fallback',
-				)); 
-			?>
+			wp_nav_menu( array( 
+				'theme_location' => 'main_menu',
+				'container' => '',
+				'depth' => 2, 
+				'walker' => new ufclas_ufl_2015_main_nav_menu(),
+				'fallback_cb' => 'ufclas_ufl_2015_main_nav_menu::fallback',
+			));
+		?>
   	</div>
     <?php if ( !$disable_global_elements ): ?>
   	<div class="aux-menu-wrap">
