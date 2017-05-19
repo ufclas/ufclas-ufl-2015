@@ -76,7 +76,7 @@ module.exports = function(grunt){
 					inline: false	
 				},
 				processors: [
-					require('autoprefixer')({browsers: ['last 2 versions']})
+					//require('autoprefixer')({browsers: ['last 2 versions']})
 				]
 			},
 			// prefix all css files in the project root
@@ -89,8 +89,15 @@ module.exports = function(grunt){
 		 * Watch task
 		 */
 		 watch: {
+			grunt: {
+				files: ['Gruntfile.js'],
+				options: {
+					reload: true,
+					spawn: false
+				}
+			},
 			css: {
-				files: ['**/*.scss'],
+				files: ['sass/*.scss'],
 				tasks: ['sass','postcss']
 			},
 			js: {

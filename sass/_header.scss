@@ -1,11 +1,5 @@
 @charset "utf-8";
 
-.mobile-dropdown-wrap {
-	@media screen and (max-width: $screen-xs-max){
-		display: none; 
-	}
-}
-
 .header {
 	.admin-bar & {
 		top: 46px;
@@ -42,10 +36,16 @@
 	}
 }
 .main-menu-wrap li:nth-child(odd) {
-    background: $white;
+	@media screen and ( max-width: $screen-sm-max ){
+		background: $white;
+	}
 }
 
 .header-type-text .header.unit {
+	@media screen and ( min-width: $screen-md ){
+		background-color: transparent;
+	}
+	
 	.logo {
 		@media screen and (min-width: $screen-sm){
 			display: block;
