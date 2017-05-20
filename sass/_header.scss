@@ -47,7 +47,7 @@
 	}
 	
 	.logo {
-		@media screen and (min-width: $screen-sm){
+		@media screen and (min-width: $screen-xs){
 			display: block;
 			height: 60px;
 			width: 60px;
@@ -60,7 +60,7 @@
 		}
 	}
 	.logo-uf svg {
-		@media screen and (min-width: $screen-sm){
+		@media screen and (min-width: $screen-xs){
 			width: 30px;
 			height: 19px;
 			position: absolute;
@@ -140,6 +140,8 @@
 		background-color: $white;
 	}
 	.main-menu-wrap {
+		height: auto; 
+		
 		@media screen and (min-width: $screen-md){
 			padding-left: 150px;
 			top: 100px;
@@ -176,6 +178,7 @@
 	}
 	.aux-menu-wrap {
 		background-color: $blue;
+		position: relative; 
 		
 		@media screen and (min-width: $screen-md){
 			position: absolute;
@@ -183,13 +186,21 @@
 			padding-left: 0;
 			text-align: left;
 		}
-		
+		.btn-show-aux {
+			@media screen and (max-width: $screen-sm-max){
+				display: none;
+			}
+		}
 		.audience-nav-wrap {
 			border-left: none;
 		}
 		.audience-nav-wrap .arw-right {
 			border-left: 1px solid #fff;
 			border-color: rgba(255,255,255,0.2);
+			
+			@media screen and (min-width: $screen-md){
+				width: 50px;
+			}
 		}
 	}
 }
