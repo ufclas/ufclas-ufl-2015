@@ -18,7 +18,9 @@ module.exports = function(grunt){
 					'js/plugins/modernizr.min.js',
 					'js/plugins/svg4everybody.min.js',
 					'js/plugins/smartresize-debounce.js',
-					'js/plugins/smooth-scrolling.js'
+					'js/plugins/smooth-scrolling.js',
+					'js/plugins/velocity.min.js',
+					'js/plugins/velocity.ui.min.js'
                 ],
                 dest: 'js/plugins.min.js'
             }
@@ -76,7 +78,7 @@ module.exports = function(grunt){
 					inline: false	
 				},
 				processors: [
-					//require('autoprefixer')({browsers: ['last 2 versions']})
+					require('autoprefixer')({browsers: ['last 2 versions']})
 				]
 			},
 			// prefix all css files in the project root
@@ -92,16 +94,15 @@ module.exports = function(grunt){
 			grunt: {
 				files: ['Gruntfile.js'],
 				options: {
-					reload: true,
-					spawn: false
+					reload: true
 				}
 			},
 			css: {
-				files: ['sass/*.scss'],
-				tasks: ['sass','postcss']
+				files: ['sass/*.scss', '!sass/template/*'],
+				tasks: ['sass', 'postcss']
 			},
 			js: {
-				files: ['js/*.js'],
+				files: ['js/*.js', '!node_modules/*'],
 				tasks: ['concat', 'uglify', 'jshint']
 			} 
 		 }

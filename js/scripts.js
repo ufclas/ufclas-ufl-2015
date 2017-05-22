@@ -360,43 +360,6 @@ jQuery(function($){
 		}
 	});
 	
-	/*
-	//// Homepage featured story
-	// Setting homepage hero story on load
-	
-	$('.featured-story-img-wrap').each(function(){
-		$(this).find('.featured-story-img:first').addClass('active');
-	});
-
-	// Switching to a new featured story
-	$(document).on('click','.featured-story',function(){
-		$this = $(this);
-
-		// Changed featured carousel
-		$('.featured-story-img-wrap').each(function(){
-			$homeWrap = $(this).closest('.homepage-wrapper');
-
-			// Get this carousel's clicked element
-			$el = $homeWrap.find('.featured-story[data-number="'+ $this.attr('data-number') +'"]');
-
-			// Move Carousel
-			$(this).find('.featured-story-img').removeClass('active').eq($el.attr('data-number') - 1).addClass('active');
-
-			// Establish container to append to
-			$container = $homeWrap.find('.featured-story-content-wrap');
-
-			// Get this carousel's active element
-			$active = $homeWrap.find('.featured-story.active');
-			$active.removeClass('active');
-
-			// Move active to clicked element, and move clicked element to active
-			$el.before($active);
-			$el.addClass('active');
-			$el.prependTo($container);
-		});
-	});
-	*/
-
 	// Homepage feature bio wrap
 	function bioSize(){
 		$activeWidth = 370;
@@ -736,7 +699,6 @@ jQuery(function($){
 	
 	$('.entry-content a img').click(function (){
 		var desc = $(this).parents('.wp-caption').find('.wp-caption-text').html();
-		console.log( desc );
 		$('.entry-content a').attr('title', desc);
 	});
 });
