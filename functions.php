@@ -158,7 +158,7 @@ function ufclas_ufl_2015_body_classes( $classes ) {
 	if ( get_theme_mod('disable_global_elements', 0) ){
 		$classes[] = 'disable-global';
 	}
-	if ( $header_type = get_theme_mod('header_type', false) ){
+	if ( $header_type = get_theme_mod('header_type', 'logo') ){
 		$classes[] = 'header-type-' . $header_type;
 	}
 

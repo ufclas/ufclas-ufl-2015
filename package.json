@@ -1,6 +1,6 @@
 {
   "name": "ufclas-ufl-2015",
-  "version": "0.9.0",
+  "version": "0.9.2",
   "description": "A sassy theme",
   "main": "index.php",
   "repository": {
@@ -19,12 +19,12 @@
   },
   "homepage": "https://github.com/ufclas/ufclas-ufl-2015#readme",
   "devDependencies": {
-    "autoprefixer": "^6.7.7",
+    "autoprefixer": "^7.1.1",
     "grunt": "^1.0.1",
     "grunt-contrib-concat": "^1.0.1",
     "grunt-contrib-jshint": "^1.1.0",
     "grunt-contrib-sass": "^1.0.0",
-    "grunt-contrib-uglify": "^2.2.0",
+    "grunt-contrib-uglify": "*2.2.0",
     "grunt-contrib-watch": "^1.0.0",
     "grunt-postcss": "^0.8.0"
   }

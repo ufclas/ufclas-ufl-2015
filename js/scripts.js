@@ -237,10 +237,10 @@ jQuery(function($){
 	// Remove the loading class to enable transitions
 	$('body').removeClass('loading');
 
-	// Show aux menu on smaller width
+	// Show aux menu on smaller width, only applies to default header
 	$('.btn-show-aux').on('click',function(e){
 		e.preventDefault();
-		$('.header').toggleClass('show-aux');
+		$('.header-type-logo .header').toggleClass('show-aux');
 	});
 
 	// Dropdown positioning

@@ -7,7 +7,7 @@
     <?php wp_head(); ?>
 </head>
 
-<body <?php body_class(); ?>>
+<body <?php body_class('loading'); // Enable JS transitions ?>>
 <?php include get_stylesheet_directory() . '/inc/google-analytics.php'; ?>
 
 <a href="#main" id="skip-link" class="visuallyhidden focusable">Skip to main content</a>
