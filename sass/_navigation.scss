@@ -45,7 +45,7 @@
 	.audience-nav-wrap { 
         background-color: $orangeDark;
         
-        @include breakFirst(medium){
+        @media screen and ( min-width: $screen-sm ){
             margin-right: 50px;
             position: absolute;
         }

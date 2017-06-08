@@ -100,9 +100,7 @@ function ufclas_ufl_2015_scripts() {
 	$theme_version = $theme_data->get('Version');
 	
 	wp_enqueue_style( 'style', get_stylesheet_uri(), array('dashicons'), $theme_version );
-	wp_enqueue_script('velocity', 'https://cdnjs.cloudflare.com/ajax/libs/velocity/1.2.2/velocity.min.js', array('jquery'), null, true);
-	wp_enqueue_script('velocity-ui', 'https://cdnjs.cloudflare.com/ajax/libs/velocity/1.2.2/velocity.ui.min.js', array('velocity'), null, true);
-	wp_enqueue_script('ufclas-ufl-2015-plugins', get_stylesheet_directory_uri() . '/js/plugins.min.js', array(), null, true);
+	wp_enqueue_script('ufclas-ufl-2015-plugins', get_stylesheet_directory_uri() . '/js/plugins.min.js', array('jquery'), null, true);
 	wp_enqueue_script('ufclas-ufl-2015-scripts', get_stylesheet_directory_uri() . '/js/scripts.min.js', array(), $theme_version, true);
 	
 	// Pass site data to Javascript
@@ -152,11 +150,16 @@ add_action('wp_enqueue_scripts', 'ufclas_ufl_2015_inline_styles');
  * @since 0.0.0
  */
 function ufclas_ufl_2015_body_classes( $classes ) {
+	$classes[] = 'loading';
+	
 	if ( is_page_template('page-templates/homepage.php') ) {
 		$classes[] = 'homepage';
 	}
 	if ( get_theme_mod('disable_global_elements', 0) ){
 		$classes[] = 'disable-global';
+	}
+	if ( $header_type = get_theme_mod('header_type', 'logo') ){
+		$classes[] = 'header-type-' . $header_type;
 	}
 
 	return $classes;

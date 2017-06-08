@@ -18,7 +18,9 @@ module.exports = function(grunt){
 					'js/plugins/modernizr.min.js',
 					'js/plugins/svg4everybody.min.js',
 					'js/plugins/smartresize-debounce.js',
-					'js/plugins/smooth-scrolling.js'
+					'js/plugins/smooth-scrolling.js',
+					'js/plugins/velocity.min.js',
+					'js/plugins/velocity.ui.min.js'
                 ],
                 dest: 'js/plugins.min.js'
             }
@@ -56,20 +58,9 @@ module.exports = function(grunt){
 		 * Sass tasks
 		 */
 		 sass: {
-			dev: {
-				options: {
-					style: 'expanded',
-					sourcemap: 'none'
-				},
-				files: {
-					'css/style.expanded.css' : 'sass/style.scss',
-					'css/editor-style.expanded.css' : 'sass/editor-style.scss'	
-				}	
-			},
 			dist: {
 				options: {
-					style: 'compressed',
-					sourcemap: 'none'
+					style: 'compressed'
 				},
 				files: {
 					'./style.css' : 'sass/style.scss',
@@ -100,12 +91,18 @@ module.exports = function(grunt){
 		 * Watch task
 		 */
 		 watch: {
+			grunt: {
+				files: ['Gruntfile.js'],
+				options: {
+					reload: true
+				}
+			},
 			css: {
-				files: ['**/*.scss'],
-				tasks: ['sass','postcss']	
+				files: ['./sass/*.scss'],
+				tasks: ['sass', 'postcss']
 			},
 			js: {
-				files: ['js/*.js'],
+				files: ['js/*.js', '!node_modules/*'],
 				tasks: ['concat', 'uglify', 'jshint']
 			} 
 		 }

@@ -157,7 +157,7 @@ jQuery(function($){
 			$('#menu-item-more .dropdown ul').append($moreMenuItems);
 		}
 		
-		$("head").append("<style>@media (min-width: 1220px) { .main-menu-wrap>ul>li { width: calc(99.9% / "+items+"); } }</style>");
+		$("head").append("<style>@media (min-width: 1220px) { .header-type-logo .main-menu-wrap>ul>li { width: calc(99.9% / "+items+"); } }</style>");
 	}
 	
 	function autoMainMenuHelper() {
@@ -237,10 +237,10 @@ jQuery(function($){
 	// Remove the loading class to enable transitions
 	$('body').removeClass('loading');
 
-	// Show aux menu on smaller width
+	// Show aux menu on smaller width, only applies to default header
 	$('.btn-show-aux').on('click',function(e){
 		e.preventDefault();
-		$('.header').toggleClass('show-aux');
+		$('.header-type-logo .header').toggleClass('show-aux');
 	});
 
 	// Dropdown positioning
@@ -360,43 +360,6 @@ jQuery(function($){
 		}
 	});
 	
-	/*
-	//// Homepage featured story
-	// Setting homepage hero story on load
-	
-	$('.featured-story-img-wrap').each(function(){
-		$(this).find('.featured-story-img:first').addClass('active');
-	});
-
-	// Switching to a new featured story
-	$(document).on('click','.featured-story',function(){
-		$this = $(this);
-
-		// Changed featured carousel
-		$('.featured-story-img-wrap').each(function(){
-			$homeWrap = $(this).closest('.homepage-wrapper');
-
-			// Get this carousel's clicked element
-			$el = $homeWrap.find('.featured-story[data-number="'+ $this.attr('data-number') +'"]');
-
-			// Move Carousel
-			$(this).find('.featured-story-img').removeClass('active').eq($el.attr('data-number') - 1).addClass('active');
-
-			// Establish container to append to
-			$container = $homeWrap.find('.featured-story-content-wrap');
-
-			// Get this carousel's active element
-			$active = $homeWrap.find('.featured-story.active');
-			$active.removeClass('active');
-
-			// Move active to clicked element, and move clicked element to active
-			$el.before($active);
-			$el.addClass('active');
-			$el.prependTo($container);
-		});
-	});
-	*/
-
 	// Homepage feature bio wrap
 	function bioSize(){
 		$activeWidth = 370;
@@ -736,7 +699,6 @@ jQuery(function($){
 	
 	$('.entry-content a img').click(function (){
 		var desc = $(this).parents('.wp-caption').find('.wp-caption-text').html();
-		console.log( desc );
 		$('.entry-content a').attr('title', desc);
 	});
 });
