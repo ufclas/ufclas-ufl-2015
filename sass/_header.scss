@@ -108,14 +108,17 @@
 			position: absolute;
 			top: 50px;
 			left: 150px;
-			padding-left: 20px;
+			padding-left: 0;
 			z-index: 1001;
 			display: block;
-			line-height: 72px; 
+			line-height: 72px;
+			margin-right: 30px;
 			
 			h1 {
 				font-size: 24px;
 				display: inline-block;
+				padding-left: 20px;
+				padding-right: 10px;
 				
 				a {
 					color: rgb(13, 83, 153);
@@ -137,10 +140,24 @@
 		}
 	}
 	.menu-wrap {
-		background-color: $white;
+		@media screen and (min-width: $screen-md){
+			background-color: $white;
+			background-image: url('img/line.png');
+			background-position: 0 62px;
+			background-repeat: repeat-x;
+
+			&::after {
+				content: " ";
+				background-color: $white;
+				display: inline-block;
+				width: 30px;
+				height: 50px;
+				float: right;
+			}
+		}
 	}
 	.main-menu-wrap {
-		height: auto; 
+		height: auto;
 		
 		@media screen and (min-width: $screen-md){
 			padding-left: 150px;
@@ -153,20 +170,27 @@
 		}
 		.main-menu-link {
 			@media screen and (min-width: $screen-md){
-				padding-top: 12px;
-				padding-bottom: 12px;
+				padding: 12px 45px;
 				font-size: 14px;
 				font-weight: 800;
 				color: $orange;
-				text-align: left;
 				
 				&:hover, &:active {
 					color: $blue;
+				}
+				&:first-child {
+					padding-left: 8px;
 				}
 			}
 		}
 		&>ul>li {
 			transition: width 1s ease-in-out; // animate
+			
+		}
+		li {
+			@media screen and (min-width: $screen-lg){
+				min-width: auto;
+			}
 		}
 		li:hover a {
 			background-color: transparent;
@@ -227,6 +251,11 @@
 	form.search-wrap {
 		@media screen and (min-width: $screen-md){
 			right: 0;
+		}
+	}
+	.admin-bar & .menu-wrap {
+		@media screen and (min-width: $screen-md){
+			background-position: 0 94px;
 		}
 	}
 }

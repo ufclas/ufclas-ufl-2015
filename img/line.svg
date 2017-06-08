@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 50 50">
+  <defs>
+    <style>
+      .cls-1 { fill: #f04623; }
+    </style>
+  </defs>
+  <g>
+    <path id="menu-line" class="cls-1" fill="currentColor" d="M0 26h50v1H0z"/>
+  </g>
+</svg>
