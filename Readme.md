@@ -47,6 +47,7 @@ Changelog
 - Makes widget styles more consistent on the homepage
 - Removes WP Knowledgebase templates and code, migrates to a feature plugin (ufclas-knowledgebase)
 - Adds config files to use Grunt to combine and minify CSS and JS files
+- Adds option to use a text title as well as a logo image (Customize > Theme Options > Header)
 
 ### 0.8.x
 
