@@ -292,6 +292,11 @@ figure.wp-caption img {
 .btn {
 	border-radius: 0;
     
+	&:focus {
+		background-color: $orange;
+		color: $white;
+	}
+	
     &.btn-white {
         border-color: $white;
         color: $white;

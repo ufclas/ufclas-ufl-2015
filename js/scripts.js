@@ -138,7 +138,7 @@ jQuery(function($){
 	}
 	
 	function mainMenuItemWidth() {
-		var menuItems = $('.main-menu-wrap>ul>li').length;
+		var menuItems = $('.main-menu-wrap>nav>ul>li').length;
 		var maxItems = ufclas_ufl_2015_sitedata.max_main_menu_items; // Get max main menu items theme option
 		var items = ( menuItems < maxItems )? menuItems : maxItems;
 		
@@ -157,12 +157,12 @@ jQuery(function($){
 			$('#menu-item-more .dropdown ul').append($moreMenuItems);
 		}
 		
-		$("head").append("<style>@media (min-width: 1220px) { .header-type-logo .main-menu-wrap>ul>li { width: calc(99.9% / "+items+"); } }</style>");
+		$("head").append("<style>@media (min-width: 1220px) { .header-type-logo .main-menu-wrap>nav>ul>li { width: calc(99.9% / "+items+"); } }</style>");
 	}
 	
 	function autoMainMenuHelper() {
 		var showMenuItemColumns = ufclas_ufl_2015_sitedata.mega_menu; // Get mega menu theme option
-		$('.main-menu-wrap>ul>li>a').addClass('main-menu-link').wrapInner('<span></span>').append('<span class="icon-svg icon-caret"><svg><use xlink:href="'+ufclas_ufl_2015_sitedata.theme_url+'/img/spritemap.svg#caret"></use></svg></span>');
+		$('.main-menu-wrap>nav>ul>li>a').addClass('main-menu-link').wrapInner('<span></span>').append('<span class="icon-svg icon-caret"><svg><use xlink:href="'+ufclas_ufl_2015_sitedata.theme_url+'/img/spritemap.svg#caret"></use></svg></span>');
 		
 		mainMenuItemWidth();
 		
@@ -271,7 +271,7 @@ jQuery(function($){
 			});
 		}
 	}
-	$('.main-menu-wrap > ul > li').hoverIntent({
+	$('.main-menu-wrap>nav>ul>li').hoverIntent({
 		over: function(){
 			showDropdown($(this));
 		},
@@ -293,9 +293,18 @@ jQuery(function($){
 	$('.main-menu-link').on('focus',function(e){
 		showDropdown($(this).closest('li'));
 	});
+	
+	// Close the last main menu element's dropdown
+	// @todo Create a function hideDropdown
+	var $lastMainMenuItem = $('.main-menu-wrap>nav>ul>li').filter(':last');
+	var $lastDropdownItem = $lastMainMenuItem.find('.dropdown .menu-item:last a');
+	
+	$lastDropdownItem.focusout(function(){
+		$lastMainMenuItem.removeClass('hover');
+	});
 
 	// Mobile dropdown content
-	$('.main-menu-wrap > ul > li > a').on('click',function(e){
+	$('main-menu-wrap>nav>ul>li>a').on('click',function(e){
 		if($(window).width() < 992){
 			e.preventDefault();
 			$this = $(this);

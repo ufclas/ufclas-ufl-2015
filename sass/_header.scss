@@ -25,6 +25,11 @@
 		
 		@include breakFirst(large){
 			display: block;
+			
+			&:focus {
+				background-color: $blueLight;
+				outline-color: $blueHighlight;
+			}
 		}	
 	}
 	&.unit .logo.mobile {
@@ -40,7 +45,11 @@
 		background: $white;
 	}
 }
-
+.logo-herbert {
+	a:focus & {
+		outline: 5px auto $blueHighlight;
+	}
+}
 .header-type-text .header.unit {
 	@media screen and ( min-width: $screen-md ){
 		background-color: transparent;

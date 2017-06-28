@@ -313,3 +313,11 @@
 		display: block;
 	}
 }
+
+#skip-link:focus {
+	top: -30px;
+	
+	@media screen and ( min-width: $screen-sm ){
+		top: -90px;
+	}
+}

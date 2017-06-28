@@ -23,10 +23,12 @@ if ( $slider_query->have_posts() ):
 	$slider_speed = $slider_speed * 1000;
 	$slider_disable_link = get_theme_mod('featured_disable_link', 0);
 ?>
-<div class="carousel-row">
+<main class="carousel-row">
     <div class="container carousel-wrap">
-        <div id="featured-carousel" class="carousel slide" data-ride="carousel" data-interval="<?php echo $slider_speed; ?>">
-        <!-- Indicators -->
+        <div id="featured-carousel" class="carousel slide" data-ride="carousel" data-interval="<?php echo $slider_speed; ?>" aria-labelledby="carousel-heading" aria-describedby="carousel-desc">
+        	<h2 id="carousel-heading" class="sr-only"><?php _e('Featured Posts', 'ufclas-ufl-2015'); ?></h2>
+        	<p id="carousel-desc" class="sr-only"><?php _e('Use the previous and next buttons to change the displayed slide.', 'ufclas-ufl-2015'); ?></p>
+			<!-- Indicators -->
             <?php if ( $slider_query->post_count > 1 ): ?>
                 <ol class="carousel-indicators">
                 <?php for( $i=0; $i<$slider_query->post_count; $i++){ 
@@ -45,14 +47,14 @@ if ( $slider_query->have_posts() ):
 					$slide_thumbnail = ( has_post_thumbnail() )? get_the_post_thumbnail( get_the_ID(), 'half-width-thumb'):'';
 					
 					// Slider classes
-					$slider_classes = array();
+				$slider_classes = array();
                     $slider_classes[] = ( $slider_first_id == get_the_ID() )? 'active':'';
 					$slider_classes[] = ( !empty( $slider_style ) )? esc_attr( $slider_style ):'';
 						
                 ?>
                 <!-- Full-Size Image Output -->
                 <?php if ($image_type): ?>
-                <div class="item full-image-feature <?php echo join(' ', $slider_classes); ?>" id="item-<?php the_ID(); ?>">
+                <div class="item full-image-feature <?php echo join(' ', $slider_classes); ?>" id="item-<?php the_ID(); ?>" role="option">
                     
 					<?php if ( has_post_thumbnail() ): ?>
                     <div class="slide-image">
@@ -75,7 +77,7 @@ if ( $slider_query->have_posts() ):
                 <?php else: ?>
                 
                 <!-- Half-Width Image Output -->
-                <div class="item half-image-feature <?php echo join(' ', $slider_classes); ?>" id="item-<?php the_ID(); ?>">
+                <div class="item half-image-feature <?php echo join(' ', $slider_classes); ?>" id="item-<?php the_ID(); ?>" role="option">
                     <div class="slide-image">
                         <?php 
 						if( !$slider_disable_link ){ // Add link to the image and title
@@ -114,7 +116,7 @@ if ( $slider_query->have_posts() ):
             <?php endif; ?>
         </div><!-- .carousel -->
 	</div><!-- .carousel-wrap -->
-</div><!-- .carousel-row -->
+</main><!-- .carousel-row -->
 <?php 
 endif;
 
