@@ -10,10 +10,12 @@
 <body <?php body_class('loading'); // Enable JS transitions ?>>
 <?php include get_stylesheet_directory() . '/inc/google-analytics.php'; ?>
 
+<header>
 <a href="#main" id="skip-link" class="visuallyhidden focusable">Skip to main content</a>
 <div class="header unit">
   <?php 
-  	$disable_global_elements = get_theme_mod('disable_global_elements', 0);
+  	// @todo Add support for disabling global header/footer elements
+	// $disable_global_elements = get_theme_mod('disable_global_elements', 0);
 	// if ( !$disable_global_elements ): 
   ?>
       <a href="http://ufl.edu/" class="logo">
@@ -30,7 +32,8 @@
 	
   <div class="menu-wrap">
   	<div class="main-menu-wrap">
-  		<?php 
+  		<nav role="navigation" aria-label="<?php _e( 'Main Menu', 'ufclas-ufl-2015' ); ?>">
+		<?php 
 			wp_nav_menu( array( 
 				'theme_location' => 'main_menu',
 				'container' => '',
@@ -39,6 +42,7 @@
 				'fallback_cb' => 'ufclas_ufl_2015_main_nav_menu::fallback',
 			));
 		?>
+		</nav>
   	</div>
     <?php if ( !$disable_global_elements ): ?>
   	<div class="aux-menu-wrap">
@@ -114,5 +118,5 @@
   </a>
   
   </div><!-- .header.unit -->
-
+</header>
 <!-- END HEADER -->

@@ -304,7 +304,7 @@ jQuery(function($){
 	});
 
 	// Mobile dropdown content
-	$('main-menu-wrap>nav>ul>li>a').on('click',function(e){
+	$('.main-menu-wrap>nav>ul>li>a').on('click',function(e){
 		if($(window).width() < 992){
 			e.preventDefault();
 			$this = $(this);

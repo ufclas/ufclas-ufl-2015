@@ -1,9 +1,10 @@
 @charset "utf-8";
 
 .main-menu-wrap {
-	// Show white background if not menu set,
+	// Show white background if not menu set
+	// Removes appearance of a border from blue/orange backgrounds
 	@include breakFirst(medium){
-		height: 100px;
+		min-height: 101px; 
 	}
 }
 .main-menu-wrap {
@@ -319,5 +320,10 @@
 	
 	@media screen and ( min-width: $screen-sm ){
 		top: -90px;
+		
+		.header-type-text & {
+			top: -95px;
+			background-color: $blue;
+		}
 	}
 }
