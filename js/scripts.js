@@ -701,9 +701,12 @@ jQuery(function($){
 	// Add arrows to big lists
 	$('.big-list li a').append('<span class="arw-right icon-svg"><svg><use xlink:href="'+ufclas_ufl_2015_sitedata.theme_url+'/img/spritemap.svg#arw-right"></use></svg></span>');
 	
-	// Add PrettyPhoto for image links
-	$('.entry-content a').has('img').prop('rel', 'prettyPhoto');
+	// Add prettyPhoto for image links
+	$('.entry-content a[href$=".jpg"]').has('img').prop('rel', 'prettyPhoto');
+	$('.entry-content a[href$=".png"]').has('img').prop('rel', 'prettyPhoto');
+	$('.entry-content a[href$=".gif"]').has('img').prop('rel', 'prettyPhoto');
 	
+	// Iniitialize prettyPhoto
 	$('a[rel^="prettyPhoto"]').prettyPhoto();
 	
 	$('.entry-content a img').click(function (){
