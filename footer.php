@@ -1,5 +1,5 @@
 <!-- START FOOTER -->
-<div class="footer-wrap">
+<footer class="footer-wrap">
 <?php 
   	$disable_global_elements = get_theme_mod('disable_global_elements', 0);
 	if ( !$disable_global_elements ): 
@@ -23,7 +23,7 @@
 	</div><!-- .footer-bottom -->
     
 <?php endif; ?>
-</div><!-- .footer-wrap -->
+</footer><!-- .footer-wrap -->
 <?php wp_footer(); ?>
 </body>
 </html>

@@ -43,9 +43,12 @@ Changelog
 
 ### 0.9.x
 
+- Fixes bug with prettyPhoto being added to non-image links
+- Fixes the mobile menu display and adds styles to title text header
 - Fixes horizontal scrollbar bug in browsers
 - Makes widget styles more consistent on the homepage
 - Removes WP Knowledgebase templates and code, migrates to a feature plugin (ufclas-knowledgebase)
+- Adds accessibility improvements for keyboard navigation
 - Adds config files to use Grunt to combine and minify CSS and JS files
 - Adds option to use a text title as well as a logo image (Customize > Theme Options > Header)
 
@@ -78,5 +81,3 @@ Changelog
 - Fixes landing page template margins, adds page sections sidebar to the default home page
 - Adds widgets and better customizer support, renames shortcodes
 
-To-Do
-------

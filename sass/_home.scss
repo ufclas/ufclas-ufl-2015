@@ -35,7 +35,9 @@
 	}
 }
 .carousel-control {
-	//display: none;
+	&:focus {
+		outline: 5px auto $blueHighlight;
+	}
 	
 	@media screen and (min-width: $screen-md){
 		width: $grid-gutter-width*2;
@@ -127,6 +129,9 @@
 		}
 		h3, a, p, li {
 			color: $white !important;
+		}
+		a:focus {
+			outline-color: $white;
 		}
 	}
 	

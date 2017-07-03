@@ -6,7 +6,7 @@ class ufclas_ufl_2015_main_nav_menu extends Walker_Nav_Menu {
 
     public function start_lvl( &$output, $depth = 0, $args = array() ) {
         $indent = str_repeat("\t", $depth);
-		$output .= "\n$indent<div class=\"dropdown\">\n<ul>";
+		$output .= "\n$indent<div class=\"dropdown\">\n<ul role=\"menu\">";
     }
 	
 	public function end_lvl( &$output, $depth = 0, $args = array() ) {
@@ -27,6 +27,7 @@ add_filter( 'nav_menu_item_args', 'ufclas_ufl_2015_main_menu_item_args', 10, 3);
 function ufclas_ufl_2015_main_menu_link_attrs( $atts, $item, $args, $depth = null ){
 	if ( ('main_menu' == $args->theme_location) && (0 == $depth) ){
 		$atts['class'] = 'main-menu-link';
+		$atts['role'] = 'menuitem';
 	}
 	return $atts;
 }

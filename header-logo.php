@@ -10,6 +10,7 @@
 <body <?php body_class('loading'); // Enable JS transitions ?>>
 <?php include get_stylesheet_directory() . '/inc/google-analytics.php'; ?>
 
+<header>
 <a href="#main" id="skip-link" class="visuallyhidden focusable">Skip to main content</a>
 <div class="header unit">
   <?php 
@@ -35,15 +36,17 @@
             <span class="icon-svg logo-herbert"><svg><use xlink:href="<?php echo ufclas_ufl_2015_get_custom_logo(); ?>#Layer_1"></use></svg></span>
         </a>
         </h1>
-  		<?php 
-				wp_nav_menu( array( 
-					'theme_location' => 'main_menu',
-					'container' => '',
-					'depth' => 2, 
-					'walker' => new ufclas_ufl_2015_main_nav_menu(),
-					'fallback_cb' => 'ufclas_ufl_2015_main_nav_menu::fallback',
-				)); 
-			?>
+  		<nav role="navigation" aria-label="<?php _e( 'Main Menu', 'ufclas-ufl-2015' ); ?>">
+		<?php 
+			wp_nav_menu( array( 
+				'theme_location' => 'main_menu',
+				'container' => '',
+				'depth' => 2, 
+				'walker' => new ufclas_ufl_2015_main_nav_menu(),
+				'fallback_cb' => 'ufclas_ufl_2015_main_nav_menu::fallback',
+			)); 
+		?>
+		</nav>
   	</div>
     <?php if ( !$disable_global_elements ): ?>
   	<div class="aux-menu-wrap">
@@ -127,5 +130,5 @@
   </a>
   
   </div><!-- .header.unit -->
-
+</header>
 <!-- END HEADER -->

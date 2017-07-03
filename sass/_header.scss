@@ -1,5 +1,12 @@
 @charset "utf-8";
 
+.menu-wrap {
+	@media screen and (min-width: $screen-md) {
+		// Remove orange 'border-bottom'
+		background-color: transparent;
+	}
+}
+
 .header {
 	.admin-bar & {
 		top: 46px;
@@ -25,6 +32,11 @@
 		
 		@include breakFirst(large){
 			display: block;
+			
+			&:focus {
+				background-color: $blueLight;
+				outline-color: $blueHighlight;
+			}
 		}	
 	}
 	&.unit .logo.mobile {
@@ -40,7 +52,11 @@
 		background: $white;
 	}
 }
-
+.logo-herbert {
+	a:focus & {
+		outline: 5px auto $blueHighlight;
+	}
+}
 .header-type-text .header.unit {
 	@media screen and ( min-width: $screen-md ){
 		background-color: transparent;
@@ -163,6 +179,7 @@
 			padding-left: 150px;
 			top: 100px;
 			height: 50px;
+			min-height: 50px;
 			
 			ul.menu {
 				margin-left: 20px;
