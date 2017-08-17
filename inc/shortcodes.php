@@ -366,12 +366,12 @@ function ufclas_ufl_2015_icon($atts, $content = NULL ) {
 	
 	extract( shortcode_atts( 
 		array(
-			'name' => 'format-image',
+			'name' => 'file',
 			'xclass' => '',
 		), $atts )
 	);
 	
-	$classes = array( 'dashicons dashicons-' . esc_attr( $name ) );
+	$classes = array( 'glyphicon glyphicon-' . esc_attr( $name ) );
 	
 	if ( !empty( $xclass ) ){
 		$classes[] = esc_attr( $xclass );

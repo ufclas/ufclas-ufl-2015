@@ -3859,7 +3859,7 @@ a:focus, a:hover {
   width: 150px;
   height: 150px;
   line-height: 150px;
-  font-size: 100px;
+  font-size: 75px;
   background-color: #a9dcda;
   color: #4c87b5;
   border-radius: 50%;
@@ -3881,7 +3881,8 @@ a:focus, a:hover {
   margin-bottom: 15px; }
 
 .entry-content .img-icon-alt, .wp-editor .img-icon-alt {
-  margin-top: 30px; }
+  margin-top: 30px;
+  margin-bottom: 15px; }
 
 .entry-content .img-icon-nobottom, .wp-editor .img-icon-nobottom {
   margin-bottom: 0; }
