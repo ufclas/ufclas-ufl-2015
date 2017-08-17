@@ -367,17 +367,17 @@ function ufclas_ufl_2015_icon($atts, $content = NULL ) {
 	extract( shortcode_atts( 
 		array(
 			'name' => 'file',
-			'xclass' => '',
+			'icon_class' => ''
 		), $atts )
 	);
 	
-	$classes = array( 'glyphicon glyphicon-' . esc_attr( $name ) );
+	$classes = array( 'img-icon glyphicon glyphicon-' . esc_attr( $name ) );
 	
-	if ( !empty( $xclass ) ){
-		$classes[] = esc_attr( $xclass );
+	if ( !empty( $icon_class ) ){
+		$classes[] = esc_attr( $icon_class );
 	}
 	 
-	return '<span class="' . join(' ', $classes) . '"></span>';
+	return '<div class="img-icon-wrap"><span class="' . join(' ', $classes) . '"></span></div>';
 }
 add_shortcode('ufl-icon', 'ufclas_ufl_2015_icon');
 

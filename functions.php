@@ -186,7 +186,7 @@ function ufclas_ufl_2015_archive_title( $title ){
 		$title .= sprintf('<a href="%s"><i class="mdi mdi-rss"></i></a>', get_category_feed_link( $queried_obj->term_id ) );
     }
 	else {
-		$title = str_replace( __('Archives: ', 'ufclas-ufl-2015'), '', $title);	
+		$title = str_replace( __('Archives: ', 'ufclas-ufl-2015'), '', $title);
 	}
 	return $title;
 }
