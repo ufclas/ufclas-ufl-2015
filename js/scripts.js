@@ -15,7 +15,8 @@ jQuery(function($){
 			}
 		}
 	}
-	function ufl_audience_cookie() {
+	
+    function ufl_audience_cookie() {
 		ufl_cookie = Cookies.get('ufl_audience_preference');
 		if (ufl_cookie) {
 			ufl_audience_preference_set_html(ufl_cookie);
@@ -26,7 +27,8 @@ jQuery(function($){
 			ufl_audience_preference_set_html(ufl_audience_preference);
 		});
 	}
-	/*
+	
+    /*
 	 * UFL Site Alert Cookies
 	 * Requires js.cookie.js 
 	 */

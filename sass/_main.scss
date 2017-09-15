@@ -82,22 +82,34 @@ a:focus, a:hover {
 	.img-circle {
 		border-radius: 50%;
 	}
-	.img-icon {
-		width: 150px; 
-		height: 150px;
-		line-height: 150px;
-		font-size: 100px;
-		background-color: $cyan;
-		color: $blueLight;
-		border-radius: 50%;
+	
+	.img-icon-wrap {
+		margin: 15px;
 		text-align: center;
-		margin-left: 15px;
-		display: none;
 		
-		@include breakFirst(medium){
-			display: inline-block; 
+		.img-icon {
+			@extend .img-circle;
+			background-color: $cyan;
+			color: $blueLight;
+			vertical-align: middle;
+			text-align: center;
+			text-decoration: none;
+			width: 150px;
+			height: 150px;
+			line-height: 150px;
+			display: none;
+			font-size: 75px;
+			
+			@include breakFirst(medium){
+				display: inline-block; 
+			}
+		}
+		
+		.img-icon-adjust {
+			letter-spacing: -6px;	
 		}
 	}
+	
 	.img-icon-left {
 		margin: 0 15px 60px 10px;
 		float: left;	
@@ -107,9 +119,6 @@ a:focus, a:hover {
 		height: 100px;
 		width: 100px;
 		margin-bottom: 15px;
-	}
-	.img-icon-alt {
-		margin-top: 30px;
 	}
 	.img-icon-nobottom {
 		margin-bottom: 0;	
