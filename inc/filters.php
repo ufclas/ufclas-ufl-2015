@@ -89,10 +89,10 @@ add_filter( 'excerpt_length', 'ufclas_ufl_2015_excerpt_length', 999 );
  * @return string  Post title
  */
 function ufclas_ufl_2015_title( $title, $id ) {
-
-    if ( is_page($id) ){
+    
+    if ( is_page() ){
       $title_override = get_post_meta( $id, 'custom_meta_page_title_override', true );
-      $title = ( !empty($title_override) )? $title_override : $title;  
+      $title = ( !empty($title_override) )? $title_override : $title;
     }
   
     return $title;
