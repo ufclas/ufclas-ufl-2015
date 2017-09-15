@@ -44,7 +44,7 @@
 		?>
 		</nav>
   	</div>
-    <?php if ( !$disable_global_elements ): ?>
+    <?php //if ( !$disable_global_elements ): ?>
   	<div class="aux-menu-wrap">
   		<ul class="aux-nav">
 	  		<?php 
@@ -95,7 +95,7 @@
 	    </span>
 	  </a>
       <?php ufclas_get_search_form( 'menu' ); ?>
-      <?php endif; ?>
+      <?php //endif; ?>
   </div>
 
   <div class="mobile-dropdown-wrap"></div>
