@@ -96,12 +96,9 @@ function ufclas_ufl_2015_scripts() {
 	wp_enqueue_script('prettyPhoto', get_stylesheet_directory_uri() . '/inc/prettyPhoto/js/jquery.prettyPhoto.js', array('jquery'), null, true);
 	
 	// Theme
-	$theme_data = wp_get_theme();
-	$theme_version = $theme_data->get('Version');
-	
-	wp_enqueue_style( 'style', get_stylesheet_uri(), array(), $theme_version );
+	wp_enqueue_style( 'style', get_stylesheet_uri(), array(), null );
 	wp_enqueue_script('ufclas-ufl-2015-plugins', get_stylesheet_directory_uri() . '/js/plugins.min.js', array('jquery'), null, true);
-	wp_enqueue_script('ufclas-ufl-2015-scripts', get_stylesheet_directory_uri() . '/js/scripts.min.js', array(), $theme_version, true);
+	wp_enqueue_script('ufclas-ufl-2015-scripts', get_stylesheet_directory_uri() . '/js/scripts.min.js', array(), null, true);
 	
 	// Pass site data to Javascript
 	$site_data = array(
