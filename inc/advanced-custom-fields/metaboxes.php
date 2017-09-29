@@ -4,7 +4,9 @@
  *
  * @since 0.2.5
  */
-define( 'ACF_LITE', true );
+if (!WP_DEBUG) {
+	define( 'ACF_LITE', true );
+}
 
 /**
  * Enqueue admin scripts and styles.
